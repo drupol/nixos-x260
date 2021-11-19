@@ -22,14 +22,14 @@
       gitui
       gnupg
       google-chrome
-      gradle                              # Java dependency manager
+      # gradle                              # Java dependency manager
       graphviz
       htop
-      jetbrains.datagrip
-      jetbrains.jdk
-      jetbrains.goland
-      jetbrains.pycharm-professional
-      jetbrains.phpstorm
+      # jetbrains.datagrip
+      # jetbrains.jdk
+      # jetbrains.goland
+      # jetbrains.pycharm-professional
+      # jetbrains.phpstorm
       jetbrains.idea-ultimate
       jfsutils
       kate
@@ -37,14 +37,13 @@
       krdc
       # openjdk                             # Java Development Kit for Java 
       krunner-pass
-      maven                               # Java dependency manager
+      # maven                               # Java dependency manager
       neofetch
       okular
       p7zip
       pass
       plantuml
       plasma-browser-integration
-      plasma-pass
       sddm-kcm
       signal-desktop
       slack
@@ -52,7 +51,6 @@
       tdesktop
       teams
       thunderbird-bin
-      unrar
       vlc
       vscode
       wget
