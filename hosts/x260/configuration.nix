@@ -6,11 +6,9 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; rev="5a7e613703ea349fd46b3fa2f3dfe3bd5444d591"; }}/lenovo/thinkpad/x260"
+    [
       ./hardware-configuration.nix
       ./packages.nix
-      # ./php.nix
     ];
 
   # Use the GRUB 2 boot loader.
