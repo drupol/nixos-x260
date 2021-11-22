@@ -22,7 +22,7 @@
       gitui
       gnupg
       google-chrome
-      # gradle                              # Java dependency manager
+      gradle                              # Java dependency manager
       graphviz
       htop
       # jetbrains.datagrip
@@ -35,9 +35,9 @@
       kate
       kgpg
       krdc
-      # openjdk                             # Java Development Kit for Java 
+      openjdk                             # Java Development Kit for Java 
       krunner-pass
-      # maven                               # Java dependency manager
+      maven                               # Java dependency manager
       neofetch
       okular
       p7zip
