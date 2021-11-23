@@ -33,7 +33,7 @@ jobs:
         run: nix flake check
 
       - name: Make changes to pull request
-        run: nix flake update --recreate-lock-file
+        run: nix flake update
 
       - name: Create Pull Request
         id: cpr
