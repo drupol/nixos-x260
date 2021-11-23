@@ -19,6 +19,9 @@ jobs:
         with:
             fetch-depth: 1
 
+      - name: Disable command workflow processing
+        run: echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
+
       - name: Install Nix
         uses: cachix/install-nix-action@v11
         with:
