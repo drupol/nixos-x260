@@ -9,13 +9,26 @@ jobs:
   createPullRequest:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - name: Set git to use LF
+        run: |
+            git config --global core.autocrlf false
+            git config --global core.eol lf
 
-      - uses: cachix/install-nix-action@v12
+      - name: Checkout
+        uses: actions/checkout@v2.4.0
         with:
-          install_url: https://github.com/numtide/nix-flakes-installer/releases/download/nix-2.4pre20201221_9fab14a/install
+            fetch-depth: 1
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v11
+        with:
+          install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.5pre20211026_5667822/install
+          # Configure Nix to enable flakes
           extra_nix_config: |
             experimental-features = nix-command flakes
+
+      - name: Run the general flake checks
+        run: nix flake check
 
       - name: Make changes to pull request
         run: nix flake update --recreate-lock-file
