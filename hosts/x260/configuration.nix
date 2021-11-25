@@ -219,6 +219,7 @@
   # networking.resolvconf.dnsExtensionMechanism = false;
 
   nix = {
+    autoOptimiseStore = true;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
