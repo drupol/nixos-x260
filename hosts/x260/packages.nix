@@ -25,11 +25,11 @@
       gradle                              # Java dependency manager
       graphviz
       htop
-      # jetbrains.datagrip
+      jetbrains.datagrip
       # jetbrains.jdk
-      # jetbrains.goland
-      # jetbrains.pycharm-professional
-      # jetbrains.phpstorm
+      jetbrains.goland
+      jetbrains.pycharm-professional
+      jetbrains.phpstorm
       jetbrains.idea-ultimate
       jfsutils
       kate
