@@ -36,6 +36,8 @@
   # networking.interfaces.eno1.useDHCP = true;
   networking.interfaces.wlp4s0.useDHCP = true;
 
+  services.acpid.enable = true;
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -107,7 +109,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.pol = {
     isNormalUser = true;
-    extraGroups = [ 
+    extraGroups = [
       "wheel"
       "audio"
       "docker"
@@ -123,7 +125,7 @@
   users.users.root.shell = pkgs.fish;
   security.sudo.wheelNeedsPassword = false;  # Use 'sudo' without a password
 
-  programs.fish.shellAliases = {               
+  programs.fish.shellAliases = {
       cat = "bat";
       ls = "exa";
   };
