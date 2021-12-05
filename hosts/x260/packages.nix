@@ -31,12 +31,12 @@
       jetbrains.pycharm-professional
       jetbrains.phpstorm
       jetbrains.idea-ultimate
-      jfsutils
+      # jfsutils
       kate
       kgpg
       krdc
       openjdk                             # Java Development Kit for Java 
-      krunner-pass
+      # krunner-pass
       maven                               # Java dependency manager
       neofetch
       okular

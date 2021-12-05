@@ -36,7 +36,7 @@
   # networking.interfaces.eno1.useDHCP = true;
   networking.interfaces.wlp4s0.useDHCP = true;
 
-  services.acpid.enable = true;
+  # services.acpid.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -136,7 +136,7 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 10d";
+    options = "--delete-older-than 3d";
   };
 
   powerManagement.enable = true;
@@ -159,7 +159,7 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "0 * * * *      root    nix-channel --update"
+      #"0 * * * *      root    nix-channel --update"
     ];
   };
   # Enable the OpenSSH daemon.
