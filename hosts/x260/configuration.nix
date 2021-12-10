@@ -86,6 +86,9 @@
   #hardware.pulseaudio.package = pkgs.pulseaudioFull;
 
   security.rtkit.enable = true;
+
+  services.fstrim.enable = true;
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
