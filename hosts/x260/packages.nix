@@ -15,6 +15,7 @@
       docker
       element-desktop
       exa
+      fd
       firefox
       fish
       gimp
