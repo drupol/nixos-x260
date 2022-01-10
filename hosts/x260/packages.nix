@@ -51,6 +51,7 @@
       spectacle
       tdesktop
       teams
+      tig
       thunderbird-bin
       vlc
       vscode
