@@ -24,7 +24,7 @@
   # boot.loader.grub.device = "nodev"; # or "nodev" for efi only
 
   networking.hostName = "x260"; # Define your hostname.
-  networking.networkmanager.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.networkmanager.enable = true; # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
   time.timeZone = "Europe/Brussels";
@@ -102,9 +102,9 @@
     # media-session.enable = true;
   };
 
-#  boot.extraModprobeConfig = ''
-#    options snd_hda_intel enable=0,1
-#  '';
+  #  boot.extraModprobeConfig = ''
+  #    options snd_hda_intel enable=0,1
+  #  '';
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -126,37 +126,46 @@
     shell = pkgs.fish;
   };
   users.users.root.shell = pkgs.fish;
-  security.sudo.wheelNeedsPassword = false;  # Use 'sudo' without a password
+  security.sudo.wheelNeedsPassword = false; # Use 'sudo' without a password
 
-  programs.fish.shellAliases = {
-      cat = "bat";
-      ls = "exa";
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      firefox = {
+        enablePlasmaBrowserIntegration = true;
+      };
+    };
   };
-
-  nixpkgs.config.allowUnfree = true;
-
-  # Nix Garbage Collector
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 3d";
-  };
-
   powerManagement.enable = true;
 
-  programs.browserpass.enable = true;
+  programs = {
+    browserpass = {
+      enable = true;
+    };
+    gnupg = {
+      agent = {
+        enable = true;
+        enableSSHSupport = true;
+      };
+    };
+    fish = {
+      enable = true;
+      promptInit = ''
+        any-nix-shell fish --info-right | source
+      '';
+      shellAliases = {
+        cat = "bat";
+        ls = "exa";
+      };
+    };
+    adb = {
+      enable = true;
+    };
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
-  programs.fish.enable = true;
-  programs.fish.promptInit = ''
-    any-nix-shell fish --info-right | source
-  '';
 
   # List services that you want to enable:
   services.cron = {
@@ -190,22 +199,20 @@
   };
 
   environment.etc."current-system-packages".text = with lib;
-  let
-    packages = builtins.map (p: "${p.name}") config.environment.systemPackages;
-    sortedUnique = builtins.sort builtins.lessThan (lib.unique packages);
-    formatted = builtins.concatStringsSep "\n" sortedUnique;
-  in
+    let
+      packages = builtins.map (p: "${p.name}") config.environment.systemPackages;
+      sortedUnique = builtins.sort builtins.lessThan (lib.unique packages);
+      formatted = builtins.concatStringsSep "\n" sortedUnique;
+    in
     formatted;
 
-#  system.copySystemConfiguration = true;
+  #  system.copySystemConfiguration = true;
 
   services.fwupd.enable = true;
 
   virtualisation.docker.enable = true;
 
   hardware.bluetooth.enable = true;
-
-  programs.adb.enable = true;
 
   services.flatpak.enable = true;
 
@@ -224,11 +231,17 @@
   # networking.resolvconf.dnsExtensionMechanism = false;
 
   nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 3d";
+    };
     settings = {
-        auto-optimise-store = true;
+      auto-optimise-store = true;
     };
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-   };
+  };
+
 }

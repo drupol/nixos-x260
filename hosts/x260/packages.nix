@@ -20,10 +20,8 @@
       fish
       gimp
       git
-      gitui
       gnupg
       google-chrome
-      gradle                              # Java dependency manager
       graphviz
       htop
       jetbrains.datagrip
@@ -36,15 +34,13 @@
       kate
       kgpg
       krdc
-      openjdk                             # Java Development Kit for Java 
+      openjdk                             # Java Development Kit for Java
       # krunner-pass
-      maven                               # Java dependency manager
       neofetch
       okular
       p7zip
       pass
       plantuml
-      plasma-browser-integration
       sddm-kcm
       signal-desktop
       slack
