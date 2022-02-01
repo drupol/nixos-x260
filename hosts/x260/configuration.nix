@@ -226,6 +226,7 @@
   boot.kernel.sysctl = {
     "networking.enableIPv6" = false;
     "net.ipv6.conf.wlp4s0.disable_ipv6" = true;
+    "net.ipv6.conf.all.disable_ipv6" = true;
   };
 
   # networking.resolvconf.dnsExtensionMechanism = false;
