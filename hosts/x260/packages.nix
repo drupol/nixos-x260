@@ -12,6 +12,7 @@
       ark
       bat
       browserpass
+      cachix
       docker
       element-desktop
       exa
