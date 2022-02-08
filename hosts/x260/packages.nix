@@ -16,7 +16,7 @@
       element-desktop
       exa
       fd
-      firefox
+      firefox-bin
       fish
       gimp
       git
