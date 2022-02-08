@@ -232,6 +232,7 @@
   # networking.resolvconf.dnsExtensionMechanism = false;
 
   nix = {
+    trustedUsers = [ "root" "pol" ];
     gc = {
       automatic = true;
       dates = "weekly";
