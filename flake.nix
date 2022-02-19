@@ -1,5 +1,5 @@
 {
-  description = "A NixOS flake for pol's personal computer.";
+  description = "A NixOS flake for Pol's personal computer.";
 
   inputs = {
     nixpkgs.url = "github:/nixos/nixpkgs/nixos-unstable";
@@ -13,9 +13,8 @@
         system = "x86_64-linux";
         modules = [
           (import ./hosts/x260/configuration.nix)
-          nixos-hardware.nixosModules.lenovo-thinkpad-x260
         ];
-        specialArgs = { inherit inputs; };
+        specialArgs = inputs;
       };
     };
   };

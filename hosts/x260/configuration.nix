@@ -2,11 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, nixos-hardware, ... }:
 
 {
   imports =
     [
+      nixos-hardware.nixosModules.lenovo-thinkpad-x260
       ./hardware-configuration.nix
       ./packages.nix
     ];
@@ -169,7 +170,7 @@
 
   # List services that you want to enable:
   services.cron = {
-    enable = true;
+    enable = false;
     systemCronJobs = [
       #"0 * * * *      root    nix-channel --update"
     ];
@@ -194,8 +195,8 @@
   system.stateVersion = "21.11"; # Did you read the comment?
 
   system.autoUpgrade = {
-    enable = true;
-    allowReboot = true;
+    enable = false;
+    allowReboot = false;
   };
 
   environment.etc."current-system-packages".text = with lib;
