@@ -16,6 +16,14 @@
         ];
         specialArgs = inputs;
       };
+
+      ec2 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          (import ./hosts/ec2/configuration.nix)
+        ];
+        specialArgs = inputs;
+      };
     };
   };
 }
