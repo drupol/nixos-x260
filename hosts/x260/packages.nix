@@ -25,6 +25,7 @@
       google-chrome
       graphviz
       htop
+      jetbrains.clion
       jetbrains.datagrip
       # jetbrains.jdk
       jetbrains.goland
