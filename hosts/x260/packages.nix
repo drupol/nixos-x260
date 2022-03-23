@@ -11,9 +11,11 @@
       any-nix-shell
       ark
       bat
+      bottom # https://zaiste.net/posts/shell-commands-rust/
       browserpass
       cachix
       docker
+      du-dust
       element-desktop
       exa
       fd
@@ -43,6 +45,7 @@
       p7zip
       pass
       plantuml
+      procs
       sddm-kcm
       signal-desktop
       slack

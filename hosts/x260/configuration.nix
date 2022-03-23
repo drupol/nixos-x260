@@ -215,7 +215,7 @@
 
   hardware.bluetooth.enable = true;
 
-  services.flatpak.enable = true;
+  services.flatpak.enable = false;
 
   networking.extraHosts =
     ''
