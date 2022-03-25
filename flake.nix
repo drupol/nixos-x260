@@ -24,6 +24,14 @@
         ];
         specialArgs = inputs;
       };
+
+      nixos = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          (import ./hosts/nixos/configuration.nix)
+        ];
+        specialArgs = inputs;
+      };
     };
   };
 }
