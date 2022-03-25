@@ -99,7 +99,6 @@
     extraGroups = [
       "wheel"
       "audio"
-      "docker"
       "sound"
       "video"
       "networkmanager"
@@ -172,7 +171,5 @@
     enable = true;
     allowReboot = true;
   };
-
-  virtualisation.docker.enable = true;
 }
 

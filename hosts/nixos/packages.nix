@@ -14,7 +14,7 @@
       bottom # https://zaiste.net/posts/shell-commands-rust/
       browserpass
       cachix
-      docker
+      # docker
       du-dust
       element-desktop
       exa
@@ -57,7 +57,7 @@
       vlc
       vscode
       wget
-      wineWowPackages.stable
+      # wineWowPackages.stable
       yakuake
     ];
 }
