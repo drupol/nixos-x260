@@ -199,7 +199,7 @@
 
   system.autoUpgrade = {
     enable = true;
-    flake = "https://github.com/drupol/nixos-x260";
+    flake = "github:drupol/nixos-x260";
     allowReboot = true;
   };
 
