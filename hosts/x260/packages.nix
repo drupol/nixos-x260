@@ -27,11 +27,11 @@
       google-chrome
       graphviz
       htop
-      jetbrains.clion
+      # jetbrains.clion
       jetbrains.datagrip
       # jetbrains.jdk
-      jetbrains.goland
-      jetbrains.pycharm-professional
+      # jetbrains.goland
+      # jetbrains.pycharm-professional
       jetbrains.phpstorm
       jetbrains.idea-ultimate
       # jfsutils
