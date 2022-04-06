@@ -14,6 +14,7 @@
       bottom # https://zaiste.net/posts/shell-commands-rust/
       browserpass
       cachix
+      difftastic
       docker
       du-dust
       element-desktop
