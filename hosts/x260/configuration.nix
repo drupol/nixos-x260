@@ -214,7 +214,7 @@
 
   services.fwupd.enable = true;
 
-  virtualisation.docker.enable = false;
+  virtualisation.docker.enable = true;
 
   hardware.bluetooth.enable = true;
 
@@ -239,7 +239,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 3d";
+      options = "--delete-older-than 4d";
     };
     settings = {
       trusted-users = [ "root" "pol" ];
