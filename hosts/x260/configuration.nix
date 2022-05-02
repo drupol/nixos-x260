@@ -214,7 +214,7 @@
 
   services.fwupd.enable = true;
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker.enable = false;
 
   hardware.bluetooth.enable = true;
 
