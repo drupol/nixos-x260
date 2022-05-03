@@ -15,7 +15,7 @@
       browserpass
       cachix
       difftastic
-      docker
+      # docker
       du-dust
       element-desktop
       exa
