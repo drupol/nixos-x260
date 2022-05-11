@@ -199,7 +199,7 @@
   system.autoUpgrade = {
     enable = true;
     flake = "github:drupol/nixos-x260";
-    allowReboot = true;
+    # allowReboot = true;
   };
 
   environment.etc."current-system-packages".text = with lib;
