@@ -44,6 +44,7 @@
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
   # };
+  console.useXkbConfig = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;

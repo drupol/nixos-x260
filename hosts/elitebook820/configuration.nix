@@ -46,6 +46,7 @@
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
   # };
+  console.useXkbConfig = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -72,7 +73,7 @@
   # Configure keymap in X11
   services.xserver.layout = "be";
   services.xserver.xkbOptions = "eurosign:e";
-  i18n.consoleUseXkbConfig = true;
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
