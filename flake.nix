@@ -32,6 +32,14 @@
         ];
         specialArgs = inputs;
       };
+
+      elitebook820 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          (import ./hosts/elitebook820/configuration.nix)
+        ];
+        specialArgs = inputs;
+      };
     };
   };
 }
