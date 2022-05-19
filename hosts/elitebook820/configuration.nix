@@ -175,7 +175,7 @@
     ];
   };
   # Enable the OpenSSH daemon.
-  services.openssh.enable = false;
+  services.openssh.enable = true;
 
   networking.firewall.allowedTCPPorts = [ 3389 ];
   networking.firewall.checkReversePath = false;
