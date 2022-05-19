@@ -23,7 +23,7 @@
   # Define on which hard drive you want to install Grub.
   # boot.loader.grub.device = "nodev"; # or "nodev" for efi only
 
-  networking.hostName = "x260"; # Define your hostname.
+  networking.hostName = "elitebook820"; # Define your hostname.
   networking.networkmanager.enable = true; # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
@@ -33,8 +33,6 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  # networking.interfaces.eno1.useDHCP = true;
-  networking.interfaces.wlp4s0.useDHCP = true;
 
   # services.acpid.enable = true;
 
@@ -218,21 +216,6 @@
   hardware.bluetooth.enable = true;
 
   services.flatpak.enable = false;
-
-  networking.extraHosts =
-    ''
-      127.0.0.1 collabora
-      127.0.0.1 onlyoffice
-      127.0.0.1 web
-    '';
-
-  boot.kernel.sysctl = {
-    "networking.enableIPv6" = false;
-    "net.ipv6.conf.wlp4s0.disable_ipv6" = true;
-    "net.ipv6.conf.all.disable_ipv6" = true;
-  };
-
-  # networking.resolvconf.dnsExtensionMechanism = false;
 
   nix = {
     gc = {

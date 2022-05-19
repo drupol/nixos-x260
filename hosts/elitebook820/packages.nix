@@ -7,7 +7,7 @@
 {
     environment.systemPackages = with pkgs; [
       akregator
-      android-studio
+      # android-studio
       any-nix-shell
       ark
       bat
@@ -25,21 +25,21 @@
       gimp
       git
       gnupg
-      google-chrome
+      # google-chrome
       graphviz
       htop
       # jetbrains.clion
-      jetbrains.datagrip
+      # jetbrains.datagrip
       # jetbrains.jdk
       # jetbrains.goland
       # jetbrains.pycharm-professional
-      jetbrains.phpstorm
-      jetbrains.idea-ultimate
+      # jetbrains.phpstorm
+      # jetbrains.idea-ultimate
       # jfsutils
       kate
       kgpg
       krdc
-      openjdk                             # Java Development Kit for Java
+      # openjdk                             # Java Development Kit for Java
       # krunner-pass
       neofetch
       okular
@@ -58,7 +58,7 @@
       vlc
       vscode
       wget
-      wineWowPackages.stable
+      # wineWowPackages.stable
       yakuake
     ];
 }
