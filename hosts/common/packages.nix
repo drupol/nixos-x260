@@ -6,11 +6,9 @@
       ark
       bottom # https://zaiste.net/posts/shell-commands-rust/
       cachix
-      difftastic
       du-dust
       fd
       fish
-      git
       gnupg
       neofetch
       p7zip

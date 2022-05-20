@@ -60,19 +60,6 @@
   services.xrdp.enable = true;
   services.xrdp.defaultWindowManager = "startplasma-x11";
 
-  fonts.fonts = with pkgs; [
-    jetbrains-mono
-    hack-font
-    # noto-fonts
-    # noto-fonts-cjk
-    # noto-fonts-emoji
-    liberation_ttf
-    fira-code
-    fira-code-symbols
-    dina-font
-    proggyfonts
-  ];
-
   # Configure keymap in X11
   services.xserver.layout = "gb";
   services.xserver.xkbOptions = "eurosign:e";

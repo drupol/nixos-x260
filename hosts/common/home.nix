@@ -4,6 +4,22 @@
   home.username = "pol";
   home.homeDirectory = "/home/pol";
 
+  home.packages = [
+    pkgs.jetbrains-mono
+    pkgs.hack-font
+    pkgs.liberation_ttf
+    pkgs.fira-code
+    pkgs.fira-code-symbols
+    pkgs.dina-font
+    # pkgs.proggyfonts
+  ];
+
+  fonts = {
+    fontconfig = {
+      enable = true;
+    };
+  };
+
   programs = {
     bat = {
       enable = true;
@@ -76,6 +92,9 @@
     };
     git = {
       enable = true;
+      difftastic = {
+        enable = true;
+      };
       userName = "Pol Dellaiera";
       userEmail = "pol.dellaiera@protonmail.com";
       aliases = {

@@ -57,7 +57,7 @@
       enable = true;
     };
     openssh = {
-      enable = true;
+      enable = false;
     };
     pipewire = {
       enable = true;
@@ -81,16 +81,6 @@
       xkbOptions = "eurosign:e";
     };
   };
-
-  fonts.fonts = with pkgs; [
-    jetbrains-mono
-    hack-font
-    liberation_ttf
-    fira-code
-    fira-code-symbols
-    dina-font
-    proggyfonts
-  ];
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -128,9 +118,6 @@
   powerManagement.enable = true;
 
   programs = {
-    browserpass = {
-      enable = true;
-    };
     adb = {
       enable = true;
     };

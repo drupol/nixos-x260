@@ -4,7 +4,6 @@
     environment.systemPackages = with pkgs; [
       akregator
       # android-studio
-      browserpass
       element-desktop
       gimp
       google-chrome
