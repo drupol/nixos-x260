@@ -13,6 +13,9 @@
           src = pkgs.bobthefish-src;
         }
       ];
+      shellAliases = {
+        ll = "exa -lha";
+      };
     };
     git = {
       enable = true;
