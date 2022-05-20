@@ -6,6 +6,9 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Fish theme
+    bobthefish = { url = "github:oh-my-fish/theme-bobthefish"; flake = false; };
   };
 
   outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs: {

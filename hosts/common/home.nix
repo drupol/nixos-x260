@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, bobthefish, ... }:
 
 {
   home.username = "pol";
@@ -8,15 +8,7 @@
     fish = {
       enable = true;
       plugins = [
-        {
-          name = "bobthefish";
-          src = pkgs.fetchFromGitHub {
-            owner = "oh-my-fish";
-            repo = "theme-bobthefish";
-            rev= "14a6f2b317661e959e13a23870cf89274f867f12";
-            sha256 = "sha256-kl6XR6IFk5J5Bw7/0/wER4+TnQfC18GKxYbt9C+YHJ0=";
-          };
-        }
+        bobthefish
       ];
     };
     git = {

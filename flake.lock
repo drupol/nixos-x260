@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "bobthefish": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1649178976,
+        "narHash": "sha256-kl6XR6IFk5J5Bw7/0/wER4+TnQfC18GKxYbt9C+YHJ0=",
+        "owner": "oh-my-fish",
+        "repo": "theme-bobthefish",
+        "rev": "14a6f2b317661e959e13a23870cf89274f867f12",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oh-my-fish",
+        "repo": "theme-bobthefish",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -54,6 +70,7 @@
     },
     "root": {
       "inputs": {
+        "bobthefish": "bobthefish",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs"
