@@ -8,7 +8,8 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./packages.nix
+      ../common/packages.nix
+      ../common/packages-desktop.nix
     ];
 
   # Use the GRUB 2 boot loader.
@@ -23,16 +24,8 @@
   # Define on which hard drive you want to install Grub.
   # boot.loader.grub.device = "nodev"; # or "nodev" for efi only
 
-  networking.hostName = "elitebook820"; # Define your hostname.
-  networking.networkmanager.enable = true; # Enables wireless support via wpa_supplicant.
-
   # Set your time zone.
   time.timeZone = "Europe/Brussels";
-
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
 
   # services.acpid.enable = true;
 
@@ -48,21 +41,45 @@
   # };
   console.useXkbConfig = true;
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-
-  # services.xrdp.enable = true;
-  # services.xrdp.defaultWindowManager = "startplasma-x11";
+  services = {
+    flatpak = {
+      enable = false;
+    };
+    fwupd = {
+      enable = true;
+    };
+    fstrim = {
+      enable = true;
+    };
+    openssh = {
+      enable = true;
+    };
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+    xserver = {
+      enable = true;
+      desktopManager = {
+        plasma5 = {
+          enable = true;
+        };
+      };
+      displayManager = {
+        sddm = {
+          enable = true;
+        };
+      };
+      layout = "be";
+      xkbOptions = "eurosign:e";
+    };
+  };
 
   fonts.fonts = with pkgs; [
     jetbrains-mono
     hack-font
-    # noto-fonts
-    # noto-fonts-cjk
-    # noto-fonts-emoji
     liberation_ttf
     fira-code
     fira-code-symbols
@@ -70,42 +87,10 @@
     proggyfonts
   ];
 
-  # Configure keymap in X11
-  services.xserver.layout = "be";
-  services.xserver.xkbOptions = "eurosign:e";
-
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Enable sound.
-  #sound.enable = true;
-  #hardware.pulseaudio.enable = true;
-  #hardware.pulseaudio.support32Bit = true;
-  #hardware.pulseaudio.package = pkgs.pulseaudioFull;
-
   security.rtkit.enable = true;
-
-  services.fstrim.enable = true;
-
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    # media-session.enable = true;
-  };
-
-  #  boot.extraModprobeConfig = ''
-  #    options snd_hda_intel enable=0,1
-  #  '';
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.pol = {
@@ -132,59 +117,31 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
-      firefox = {
-        enablePlasmaBrowserIntegration = true;
-      };
     };
   };
+
   powerManagement.enable = true;
 
-  programs = {
-    browserpass = {
-      enable = true;
-    };
-    gnupg = {
-      agent = {
-        enable = true;
-        enableSSHSupport = true;
-      };
-    };
-    fish = {
-      enable = true;
-      promptInit = ''
-        any-nix-shell fish --info-right | source
-      '';
-      shellAliases = {
-        cat = "bat";
-        ls = "exa";
-      };
-    };
-    adb = {
-      enable = true;
-    };
-  };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-
   # List services that you want to enable:
-  services.cron = {
-    enable = false;
-    systemCronJobs = [
-      #"0 * * * *      root    nix-channel --update"
-    ];
-  };
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  # services.cron = {
+  #   enable = false;
+  #   systemCronJobs = [
+  #     "0 * * * *      root    nix-channel --update"
+  #   ];
+  # };
 
-  networking.firewall.allowedTCPPorts = [ 3389 ];
-  networking.firewall.checkReversePath = false;
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = false;
+  networking = {
+    hostName = "elitebook820";
+    networkmanager = {
+      enable = true;
+    };
+    firewall = {
+      enable = false;
+      allowedTCPPorts = [ 3389 ];
+      checkReversePath = false;
+    };
+    useDHCP = false;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -208,15 +165,9 @@
     in
     formatted;
 
-  #  system.copySystemConfiguration = true;
-
-  services.fwupd.enable = true;
-
   virtualisation.docker.enable = false;
 
   hardware.bluetooth.enable = true;
-
-  services.flatpak.enable = false;
 
   nix = {
     gc = {

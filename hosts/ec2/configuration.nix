@@ -9,7 +9,6 @@
     [
       "${modulesPath}/virtualisation/amazon-image.nix"
       ./hardware.nix
-      ./packages.nix
     ];
 
   # Use the GRUB 2 boot loader.

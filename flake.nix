@@ -19,6 +19,7 @@
         modules = [
           ({ nixpkgs.overlays = [ (final: prev: { bobthefish-src = inputs.bobthefish; }) ]; })
           (import ./hosts/x260/configuration.nix)
+          (import ./hosts/common/packages.nix)
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -33,6 +34,7 @@
         modules = [
           ({ nixpkgs.overlays = [ (final: prev: { bobthefish-src = inputs.bobthefish; }) ]; })
           (import ./hosts/ec2/configuration.nix)
+          (import ./hosts/common/packages.nix)
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -47,6 +49,7 @@
         modules = [
           ({ nixpkgs.overlays = [ (final: prev: { bobthefish-src = inputs.bobthefish; }) ]; })
           (import ./hosts/nixos/configuration.nix)
+          (import ./hosts/common/packages.nix)
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -61,6 +64,7 @@
         modules = [
           ({ nixpkgs.overlays = [ (final: prev: { bobthefish-src = inputs.bobthefish; }) ]; })
           (import ./hosts/elitebook820/configuration.nix)
+          (import ./hosts/common/packages.nix)
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
