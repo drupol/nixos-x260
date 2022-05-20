@@ -31,7 +31,8 @@
       ec2 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          (import ./hosts/ec2/configuration.nix)
+          ({ nixpkgs.overlays = [ (final: prev: { bobthefish-src = inputs.bobthefish; }) ]; })
+          (import ./hosts/x260/configuration.nix)
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -44,7 +45,8 @@
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          (import ./hosts/nixos/configuration.nix)
+          ({ nixpkgs.overlays = [ (final: prev: { bobthefish-src = inputs.bobthefish; }) ]; })
+          (import ./hosts/x260/configuration.nix)
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -57,7 +59,8 @@
       elitebook820 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          (import ./hosts/elitebook820/configuration.nix)
+          ({ nixpkgs.overlays = [ (final: prev: { bobthefish-src = inputs.bobthefish; }) ]; })
+          (import ./hosts/x260/configuration.nix)
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
