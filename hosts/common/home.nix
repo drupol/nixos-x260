@@ -1,4 +1,4 @@
-{ config, pkgs, bobthefish, ... }:
+{ config, pkgs, ... }:
 
 {
   home.username = "pol";
@@ -8,7 +8,10 @@
     fish = {
       enable = true;
       plugins = [
-        bobthefish
+        {
+          name = "bobthefish";
+          src = pkgs.bobthefish-src;
+        }
       ];
     };
     git = {

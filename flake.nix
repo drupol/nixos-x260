@@ -11,12 +11,13 @@
     bobthefish = { url = "github:oh-my-fish/theme-bobthefish"; flake = false; };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, bobthefish, ... }@inputs: {
 
     nixosConfigurations = {
       x260 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          (final: prev: { bobthefish-src = bobthefish; })
           (import ./hosts/x260/configuration.nix)
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
