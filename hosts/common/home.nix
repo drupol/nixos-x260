@@ -5,6 +5,15 @@
   home.homeDirectory = "/home/pol";
 
   programs = {
+    bat = {
+      enable = true;
+    };
+    browserpass = {
+      enable = true;
+    };
+    exa = {
+      enable = true;
+    };
     firefox = {
       enable = true;
       profiles.default = {
@@ -61,6 +70,8 @@
       ];
       shellAliases = {
         ll = "exa -lha";
+        cat = "bat";
+        ls = "exa";
       };
     };
     git = {
@@ -306,6 +317,9 @@
           path = "~/.gitconfig.local";
         };
       };
+    };
+    htop = {
+      enable = true;
     };
     password-store = {
       enable = true;
