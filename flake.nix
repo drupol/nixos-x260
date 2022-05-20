@@ -4,15 +4,22 @@
   inputs = {
     nixpkgs.url = "github:/nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, ... }@inputs: {
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs: {
 
     nixosConfigurations = {
       x260 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           (import ./hosts/x260/configuration.nix)
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.pol = import ./hosts/common/home.nix;
+          }
         ];
         specialArgs = inputs;
       };
@@ -21,6 +28,11 @@
         system = "x86_64-linux";
         modules = [
           (import ./hosts/ec2/configuration.nix)
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.pol = import ./hosts/common/home.nix;
+          }
         ];
         specialArgs = inputs;
       };
@@ -29,6 +41,11 @@
         system = "x86_64-linux";
         modules = [
           (import ./hosts/nixos/configuration.nix)
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.pol = import ./hosts/common/home.nix;
+          }
         ];
         specialArgs = inputs;
       };
@@ -37,6 +54,11 @@
         system = "x86_64-linux";
         modules = [
           (import ./hosts/elitebook820/configuration.nix)
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.pol = import ./hosts/common/home.nix;
+          }
         ];
         specialArgs = inputs;
       };
