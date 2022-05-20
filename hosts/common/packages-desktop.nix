@@ -6,7 +6,6 @@
       # android-studio
       browserpass
       element-desktop
-      firefox-bin
       gimp
       google-chrome
       graphviz
