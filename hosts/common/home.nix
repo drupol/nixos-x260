@@ -127,6 +127,7 @@
         br = "branch -r";
         bc = "rev-parse --abbrev-ref HEAD";
         bu = "!git rev-parse --abbrev-ref --symbolic-full-name \"@{u}\"";
+        recent-branches = "branch --sort=-committerdate";
         #############
         c = "commit";
         ca = "commit -a";
@@ -319,6 +320,7 @@
           defaultBranch = "main";
         };
         merge = {
+          conflictstyle = "diff3";
           commit = "no";
           ff = "no";
           tool = "splice";
@@ -334,6 +336,9 @@
         };
         include = {
           path = "~/.gitconfig.local";
+        };
+        signing = {
+          signByDefault = true;
         };
       };
     };

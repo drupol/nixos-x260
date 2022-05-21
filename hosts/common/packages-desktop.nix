@@ -3,12 +3,12 @@
 {
     environment.systemPackages = with pkgs; [
       akregator
+      ark
       # android-studio
       element-desktop
       gimp
       google-chrome
       graphviz
-      htop
       # jetbrains.clion
       # jetbrains.datagrip
       # jetbrains.jdk
@@ -21,6 +21,7 @@
       kgpg
       krdc
       okular
+      plantuml
       sddm-kcm
       signal-desktop
       slack
