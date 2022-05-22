@@ -8,6 +8,7 @@
       du-dust
       fd
       fish
+      gnupg
       neofetch
       p7zip
       procs
