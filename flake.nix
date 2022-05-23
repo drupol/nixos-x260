@@ -12,29 +12,28 @@
     bobthefish = { url = "github:oh-my-fish/theme-bobthefish"; flake = false; };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs:
-    let
-      overlay-unstable = final: prev: {
-        unstable = import inputs.nixpkgs-unstable {
-          system = "x86_64-linux";
-          config = {
-            allowUnfree = true;
-            allowBroken = true;
-          };
-        };
-      };
-      bobthefish-src = finel: prev: {
-        bobthefish-src = inputs.bobthefish;
-      };
-      nixpkgs.overlays = [ overlay-unstable bobthefish-src ];
-      nixpkgs.config.allowUnfree = true;
-    in {
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs: {
     homeConfigurations.devlin = home-manager.lib.homeManagerConfiguration {
       username = "devlin";
       homeDirectory = "/home/devlin";
       system = "x86_64-linux";
       configuration = { config, pkgs, ... }:
+        let
+          overlay-unstable = final: prev: {
+            unstable = import inputs.nixpkgs-unstable {
+              system = "x86_64-linux";
+              config = {
+                allowUnfree = true;
+                allowBroken = true;
+              };
+            };
+          };
+          bobthefish-src = finel: prev: {
+            bobthefish-src = inputs.bobthefish;
+          };
+        in
         {
+          nixpkgs.overlays = [ overlay-unstable bobthefish-src ];
           imports = [
             ./hosts/common/home.nix
             ./hosts/common/packages-hm.nix
