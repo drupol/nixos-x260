@@ -21,11 +21,8 @@
         let
           overlay-unstable = final: prev: {
             unstable = import inputs.nixpkgs-unstable {
+              inherit (final) config;
               system = "x86_64-linux";
-              config = {
-                allowUnfreePredicate = (pkg: true);
-                allowBroken = true;
-              };
             };
           };
           bobthefish-src = finel: prev: {
