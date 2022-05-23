@@ -12,6 +12,51 @@
   };
 
   outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs: {
+    homeConfigurations.devlin = home-manager.lib.homeManagerConfiguration {
+        username = "devlin";
+        homeDirectory = "/home/devlin";
+        system = "x86_64-linux";
+        configuration = { config, pkgs, ... }:
+          let
+            overlay-unstable = final: prev: {
+              unstable = import inputs.nixpkgs-unstable {
+                system = "x86_64-linux";
+                config = {
+                  allowUnfree = true;
+                  allowBroken = true;
+                };
+              };
+            };
+            bobthefish-src = finel: prev: {
+              bobthefish-src = inputs.bobthefish;
+            };
+          in
+          {
+            nixpkgs.overlays = [ overlay-unstable bobthefish-src ];
+            nixpkgs.config = {
+              allowUnfree = true;
+              allowBroken = true;
+            };
+            imports = [
+              ./hosts/common/packages-hm.nix
+              ./hosts/common/home.nix
+            ];
+            targets.genericLinux.enable = true;
+            home.activation = {
+              linkDesktopApplications = {
+                after = [ "writeBoundary" "createXdgUserDirectories" ];
+                before = [ ];
+                data = ''
+                  rm -rf ${config.xdg.dataHome}/"applications/home-manager"
+                  mkdir -p ${config.xdg.dataHome}/"applications/home-manager"
+                  cp -Lr ${config.home.homeDirectory}/.nix-profile/share/applications/* ${config.xdg.dataHome}/"applications/home-manager/"
+                '';
+              };
+            };
+            xdg.enable = true;
+            xdg.mime.enable = true;
+          };
+      };
 
     nixosConfigurations = {
       x260 = nixpkgs.lib.nixosSystem {
@@ -23,6 +68,8 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home.username = "pol";
+            home.homeDirectory = "/home/pol";
             home-manager.users.pol = import ./hosts/common/home.nix;
           }
         ];
@@ -38,6 +85,8 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home.username = "pol";
+            home.homeDirectory = "/home/pol";
             home-manager.users.pol = import ./hosts/common/home.nix;
           }
         ];
@@ -53,6 +102,8 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home.username = "pol";
+            home.homeDirectory = "/home/pol";
             home-manager.users.pol = import ./hosts/common/home.nix;
           }
         ];
@@ -68,6 +119,8 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home.username = "pol";
+            home.homeDirectory = "/home/pol";
             home-manager.users.pol = import ./hosts/common/home.nix;
           }
         ];

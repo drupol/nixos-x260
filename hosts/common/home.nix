@@ -1,9 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "pol";
-  home.homeDirectory = "/home/pol";
-
   home.packages = [
     pkgs.jetbrains-mono
     pkgs.hack-font
@@ -344,6 +341,9 @@
           signByDefault = true;
         };
       };
+    };
+    home-manager = {
+      enable = true;
     };
     htop = {
       enable = true;
