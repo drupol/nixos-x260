@@ -23,7 +23,7 @@
             unstable = import inputs.nixpkgs-unstable {
               system = "x86_64-linux";
               config = {
-                allowUnfree = true;
+                allowUnfreePredicate = (pkg: true);
                 allowBroken = true;
               };
             };
@@ -33,6 +33,7 @@
           };
         in
         {
+          nixpkgs.config.allowUnfreePredicate = (pkg: true);
           nixpkgs.overlays = [ overlay-unstable bobthefish-src ];
           imports = [
             ./hosts/common/home.nix
