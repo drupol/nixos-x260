@@ -8,8 +8,6 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../common/packages.nix
-      ../common/packages-desktop.nix
     ];
 
   # Use the GRUB 2 boot loader.
