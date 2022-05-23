@@ -65,8 +65,6 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home.username = "pol";
-            home.homeDirectory = "/home/pol";
             home-manager.users.pol = import ./hosts/common/home.nix;
           }
         ];
@@ -82,8 +80,6 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home.username = "pol";
-            home.homeDirectory = "/home/pol";
             home-manager.users.pol = import ./hosts/common/home.nix;
           }
         ];
@@ -100,8 +96,6 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home.username = "pol";
-            home.homeDirectory = "/home/pol";
             home-manager.users.pol = import ./hosts/common/home.nix;
           }
         ];
@@ -118,8 +112,6 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home.username = "pol";
-            home.homeDirectory = "/home/pol";
             home-manager.users.pol = import ./hosts/common/home.nix;
           }
         ];
