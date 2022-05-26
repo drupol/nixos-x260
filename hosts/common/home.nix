@@ -339,7 +339,7 @@
         };
         signing = {
           signByDefault = true;
-          key = "0AAF2901E8040715";
+          key = "D476DFE9C67467CA";
         };
         commit = {
           gpgsign = true;
