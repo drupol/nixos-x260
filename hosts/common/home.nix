@@ -339,6 +339,7 @@
         };
         signing = {
           signByDefault = true;
+          key = "0AAF2901E8040715";
         };
       };
     };
