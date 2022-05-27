@@ -35,7 +35,7 @@
           imports = [
             ./hosts/common/home.nix
             ./hosts/common/packages-hm.nix
-            ./hosts/common/packages-desktop-hm.nix
+            ./hosts/lw196205087/packages-desktop-hm.nix
           ];
           targets.genericLinux.enable = true;
           home.activation = {
