@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, lib, nixos-hardware, ... }:
 
 {
@@ -106,13 +102,6 @@
   };
   users.users.root.shell = pkgs.fish;
   security.sudo.wheelNeedsPassword = false; # Use 'sudo' without a password
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
-
   powerManagement.enable = true;
 
   # List services that you want to enable:

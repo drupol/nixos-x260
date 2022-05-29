@@ -59,6 +59,7 @@
         system = "x86_64-linux";
         modules = [
           ({ nixpkgs.overlays = [ (final: prev: { bobthefish-src = inputs.bobthefish; }) ]; })
+          (import ./hosts/common/config.nix)
           (import ./hosts/x260/configuration.nix)
           (import ./hosts/common/packages.nix)
           (import ./hosts/common/packages-desktop.nix)
@@ -75,6 +76,7 @@
         system = "x86_64-linux";
         modules = [
           ({ nixpkgs.overlays = [ (final: prev: { bobthefish-src = inputs.bobthefish; }) ]; })
+          (import ./hosts/common/config.nix)
           (import ./hosts/ec2/configuration.nix)
           (import ./hosts/common/packages.nix)
           home-manager.nixosModules.home-manager {
@@ -90,6 +92,7 @@
         system = "x86_64-linux";
         modules = [
           ({ nixpkgs.overlays = [ (final: prev: { bobthefish-src = inputs.bobthefish; }) ]; })
+          (import ./hosts/common/config.nix)
           (import ./hosts/nixos/configuration.nix)
           (import ./hosts/common/packages.nix)
           (import ./hosts/common/packages-desktop.nix)
@@ -106,6 +109,7 @@
         system = "x86_64-linux";
         modules = [
           ({ nixpkgs.overlays = [ (final: prev: { bobthefish-src = inputs.bobthefish; }) ]; })
+          (import ./hosts/common/config.nix)
           (import ./hosts/elitebook820/configuration.nix)
           (import ./hosts/common/packages.nix)
           (import ./hosts/common/packages-desktop.nix)
