@@ -22,6 +22,7 @@
       krdc
       okular
       plantuml
+      plasma-browser-integration
       sddm-kcm
       signal-desktop
       slack
