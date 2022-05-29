@@ -17,6 +17,9 @@
     };
   };
 
+  # See https://github.com/nix-community/home-manager/issues/1586#issuecomment-723843578
+  home.file.".mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json".source = "${pkgs.plasma-browser-integration}/lib/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json";
+
   programs = {
     bat = {
       enable = true;

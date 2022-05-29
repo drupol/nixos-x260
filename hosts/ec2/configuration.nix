@@ -111,49 +111,23 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
-      firefox = {
-        enablePlasmaBrowserIntegration = true;
-      };
     };
   };
   powerManagement.enable = true;
 
-  programs = {
-    browserpass = {
-      enable = true;
-    };
-    gnupg = {
-      agent = {
-        enable = true;
-        enableSSHSupport = true;
-      };
-    };
-    fish = {
-      enable = true;
-      promptInit = ''
-        any-nix-shell fish --info-right | source
-      '';
-      shellAliases = {
-        cat = "bat";
-        ls = "exa";
-      };
-    };
-    adb = {
-      enable = true;
-    };
-  };
+  programs = {};
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
 
   # List services that you want to enable:
-  services.cron = {
-    enable = false;
-    systemCronJobs = [
-      #"0 * * * *      root    nix-channel --update"
-    ];
-  };
+  # services.cron = {
+  #   enable = false;
+  #   systemCronJobs = [
+  #     "0 * * * *      root    nix-channel --update"
+  #   ];
+  # };
   # Enable the OpenSSH daemon.
   # services.openssh.enable = false;
 

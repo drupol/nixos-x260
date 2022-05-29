@@ -115,12 +115,6 @@
 
   powerManagement.enable = true;
 
-  programs = {
-    adb = {
-      enable = true;
-    };
-  };
-
   # List services that you want to enable:
   # services.cron = {
   #   enable = false;
