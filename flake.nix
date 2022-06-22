@@ -14,6 +14,9 @@
 
   outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs: {
     homeConfigurations.devlin = home-manager.lib.homeManagerConfiguration {
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+      };
       username = "devlin";
       homeDirectory = "/home/devlin";
       system = "x86_64-linux";
