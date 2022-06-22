@@ -69,7 +69,9 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.pol = import ./hosts/common/home.nix;
+            home-manager.users.pol.imports = [
+              ./hosts/common/home.nix { home.stateVersion = "22.05"; }
+            ];
           }
         ];
         specialArgs = inputs;
@@ -85,7 +87,9 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.pol = import ./hosts/common/home.nix;
+            home-manager.users.pol.imports = [
+              ./hosts/common/home.nix { home.stateVersion = "22.05"; }
+            ];
           }
         ];
         specialArgs = inputs;
@@ -102,7 +106,9 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.pol = import ./hosts/common/home.nix;
+            home-manager.users.pol.imports = [
+              ./hosts/common/home.nix { home.stateVersion = "22.05"; }
+            ];
           }
         ];
         specialArgs = inputs;
@@ -119,7 +125,9 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.pol = import ./hosts/common/home.nix;
+            home-manager.users.pol.imports = [
+              ./hosts/common/home.nix { home.stateVersion = "22.05"; }
+            ];
           }
         ];
         specialArgs = inputs;
