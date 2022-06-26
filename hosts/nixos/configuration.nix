@@ -100,6 +100,7 @@
       "networkmanager"
       "input"
       "tty"
+      "adbusers"
     ];
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [
@@ -123,6 +124,8 @@
       experimental-features = nix-command flakes
     '';
   };
+
+  programs.adb.enable = true;
 
   programs.fish.shellAliases = {
     cat = "bat";
