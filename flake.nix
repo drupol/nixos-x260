@@ -13,49 +13,45 @@
   };
 
   outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs: {
-    homeConfigurations.devlin = home-manager.lib.homeManagerConfiguration {
-      pkgs = import nixpkgs {
-        system = "x86_64-linux";
-      };
-      username = "devlin";
-      homeDirectory = "/home/devlin";
-      system = "x86_64-linux";
-      configuration = { config, pkgs, ... }:
-        let
-          overlay-unstable = final: prev: {
-            unstable = import inputs.nixpkgs-unstable {
-              inherit (final) config;
-              system = "x86_64-linux";
+    homeConfigurations.devlin =
+      let
+        overlay-unstable = final: prev: {
+          unstable = import inputs.nixpkgs-unstable {
+            inherit (final) config;
+            system = "x86_64-linux";
+          };
+        };
+        bobthefish-src = finel: prev: {
+          bobthefish-src = inputs.bobthefish;
+        };
+      in
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            overlays = [ overlay-unstable bobthefish-src ];
+            config = {
+              allowUnfreePredicate = (pkg: true);
             };
           };
-          bobthefish-src = finel: prev: {
-            bobthefish-src = inputs.bobthefish;
-          };
-        in
-        {
-          nixpkgs.config.allowUnfreePredicate = (pkg: true);
-          nixpkgs.overlays = [ overlay-unstable bobthefish-src ];
-          imports = [
+          modules = [
             ./hosts/common/home.nix
             ./hosts/common/packages-hm.nix
             ./hosts/lw196205087/packages-desktop-hm.nix
+            {
+              home = {
+                  username = "devlin";
+                  homeDirectory = "/home/devlin";
+                  stateVersion = "22.05";
+                };
+            }
+            {
+              xdg.enable = true;
+              xdg.mime.enable = true;
+              targets.genericLinux.enable = true;
+            }
+            ./hosts/lw196205087/activation.nix
           ];
-          targets.genericLinux.enable = true;
-          home.activation = {
-            linkDesktopApplications = {
-              after = [ "writeBoundary" "createXdgUserDirectories" ];
-              before = [ ];
-              data = ''
-                rm -rf ${config.xdg.dataHome}/"applications/home-manager"
-                mkdir -p ${config.xdg.dataHome}/"applications/home-manager"
-                cp -Lr ${config.home.homeDirectory}/.nix-profile/share/applications/* ${config.xdg.dataHome}/"applications/home-manager/"
-              '';
-            };
-          };
-          xdg.enable = true;
-          xdg.mime.enable = true;
         };
-      };
 
     nixosConfigurations = {
       x260 = nixpkgs.lib.nixosSystem {
