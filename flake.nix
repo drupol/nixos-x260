@@ -7,6 +7,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
 
     # Fish theme
     bobthefish = { url = "github:oh-my-fish/theme-bobthefish"; flake = false; };
@@ -129,5 +130,14 @@
         specialArgs = inputs;
       };
     };
-  };
+  } // inputs.flake-utils.lib.eachDefaultSystem (system:
+    let
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
+    in
+      {
+        devShell = pkgs.mkShell {
+          nativeBuildInputs = with pkgs; [ nixpkgs-fmt nixfmt ];
+        };
+      }
+    );
 }
