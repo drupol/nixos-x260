@@ -27,9 +27,9 @@
     browserpass = {
       enable = true;
     };
-    direnv = { 
-      enable = true; 
-      nix-direnv.enable = true; 
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
     };
     exa = {
       enable = true;
@@ -334,6 +334,7 @@
         };
         push = {
           default = "simple";
+          autoSetupRemote = true;
         };
         pull = {
           rebase = true;
