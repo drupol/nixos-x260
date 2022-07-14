@@ -333,10 +333,11 @@
           tool = "splice";
         };
         push = {
-          default = "simple";
           autoSetupRemote = true;
+          default = "current";
         };
         pull = {
+          default = "current";
           rebase = true;
         };
         rerere = {
