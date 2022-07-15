@@ -144,11 +144,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1656868416,
-        "narHash": "sha256-5x+HH+5qCHkBANwQkf2TWTzS2s0EG2xMH80N7hv7lV4=",
+        "lastModified": 1657913970,
+        "narHash": "sha256-CqXLVX4kizmgH3QyT+F0BroMRx/dwrJ6wN9jhqfkxNQ=",
         "owner": "pjones",
         "repo": "plasma-manager",
-        "rev": "b2049d216b8dc4a648eb2c67de7481b49e408224",
+        "rev": "f51ba145fc4936bb6c2ffb24220979306127efbe",
         "type": "github"
       },
       "original": {
