@@ -114,7 +114,7 @@
   # };
 
   networking = {
-    hostName = "x260";
+    hostName = "x280";
     networkmanager = {
       enable = true;
     };
