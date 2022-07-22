@@ -2,9 +2,6 @@
   programs.plasma = {
     enable = true;
     shortcuts = {
-      "ActivityManager"."switch-to-activity-9bf60ab2-2e77-4ef0-945f-1713bcdbd756" = [ ];
-      "ActivityManager"."switch-to-activity-b04cdf06-f69b-4426-a388-d784c86899b5" = [ ];
-      "ActivityManager"."switch-to-activity-fc6d77d8-56ad-4801-affa-5593a61db5cc" = [ ];
       "KDE Keyboard Layout Switcher"."Switch keyboard layout to Belgian" = [ ];
       "KDE Keyboard Layout Switcher"."Switch keyboard layout to English (UK)" = [ ];
       "KDE Keyboard Layout Switcher"."Switch keyboard layout to English (US)" = [ ];
@@ -242,7 +239,7 @@
       "systemsettings.desktop"."kcm-users" = [ ];
       "systemsettings.desktop"."powerdevilprofilesconfig" = [ ];
       "systemsettings.desktop"."screenlocker" = [ ];
-      "yakuake"."toggle-window-state" = "Meta+`";
+      "yakuake"."toggle-window-state" = "Meta+Space";
     };
     files = {
       "baloofilerc"."Basic Settings"."Indexing-Enabled" = false;
@@ -265,12 +262,7 @@
       "dolphinrc"."SettingsDialog"."eDP-1 Height 1920x1080" = 440;
       "dolphinrc"."SettingsDialog"."eDP-1 Width 1920x1080" = 585;
       "kactivitymanagerdrc"."activities"."9bf60ab2-2e77-4ef0-945f-1713bcdbd756" = "Default";
-      "kactivitymanagerdrc"."activities"."b04cdf06-f69b-4426-a388-d784c86899b5" = "Default";
-      "kactivitymanagerdrc"."activities"."fc6d77d8-56ad-4801-affa-5593a61db5cc" = "Default";
-      "kactivitymanagerdrc"."activities-icons"."fc6d77d8-56ad-4801-affa-5593a61db5cc" = "ring-kde";
       "kactivitymanagerdrc"."main"."currentActivity" = "fc6d77d8-56ad-4801-affa-5593a61db5cc";
-      "kactivitymanagerdrc"."main"."runningActivities" = "fc6d77d8-56ad-4801-affa-5593a61db5cc";
-      "kactivitymanagerdrc"."main"."stoppedActivities" = "b04cdf06-f69b-4426-a388-d784c86899b5";
       "kcminputrc"."Keyboard"."KeyRepeat" = "repeat";
       "kcminputrc"."Keyboard"."NumLock" = 2;
       "kcminputrc"."Keyboard"."RepeatDelay" = 600;
