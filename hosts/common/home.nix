@@ -9,6 +9,7 @@
     pkgs.fira-code-symbols
     pkgs.dina-font
     pkgs.ripgrep
+    pkgs.bat-extras.batman
   ];
 
   fonts = {
