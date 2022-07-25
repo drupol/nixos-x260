@@ -8,7 +8,7 @@
     pkgs.fira-code
     pkgs.fira-code-symbols
     pkgs.dina-font
-    # pkgs.proggyfonts
+    pkgs.ripgrep
   ];
 
   fonts = {
