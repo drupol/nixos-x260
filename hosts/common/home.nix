@@ -92,9 +92,13 @@
         }
       ];
       shellAliases = {
+        ".." = "cd ..";
+        "..." = "cd ../..";
         ll = "exa -lha";
         cat = "bat";
         ls = "exa";
+        grep = "rg";
+        man = "batman";
       };
     };
     git = {

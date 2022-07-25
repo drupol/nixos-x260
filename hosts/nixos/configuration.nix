@@ -127,11 +127,6 @@
 
   programs.adb.enable = true;
 
-  programs.fish.shellAliases = {
-    cat = "bat";
-    ls = "exa";
-  };
-
   powerManagement.enable = true;
 
   programs.browserpass.enable = true;
