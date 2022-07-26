@@ -27,6 +27,14 @@
       source = ./. + "/../../files/home/pol/Code/.directory";
       recursive = true;
     };
+    ".face" = {
+      source = ./. + "/../../files/home/pol/.face";
+      recursive = true;
+    };
+    ".face.icon" = {
+      source = ./. + "/../../files/home/pol/.face";
+      recursive = true;
+    };
   };
 
   programs = {
