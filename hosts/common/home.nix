@@ -18,8 +18,16 @@
     };
   };
 
-  # See https://github.com/nix-community/home-manager/issues/1586#issuecomment-723843578
-  home.file.".mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json".source = "${pkgs.plasma-browser-integration}/lib/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json";
+  home.file = {
+    # See https://github.com/nix-community/home-manager/issues/1586#issuecomment-723843578
+    ".mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json" = {
+      source = "${pkgs.plasma-browser-integration}/lib/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json";
+    };
+    "Code/.directory" = {
+      source = ./. + "/../../files/home/pol/Code/.directory";
+      recursive = true;
+    };
+  };
 
   programs = {
     bat = {
