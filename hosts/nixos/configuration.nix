@@ -39,6 +39,13 @@
   # };
   console.useXkbConfig = true;
 
+  # Limit the systemd journal to 100 MB of disk or the
+  # last 7 days of logs, whichever happens first.
+  services.journald.extraConfig = ''
+    SystemMaxUse=100M
+    MaxFileSec=5day
+  '';
+
   services = {
     flatpak = {
       enable = false;
