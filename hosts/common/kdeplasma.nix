@@ -459,7 +459,7 @@
       "kxkbrc"."Layout"."VariantList" = ",latin9,";
       "plasma-localerc"."Formats"."LANG" = "en_US.UTF-8";
       "plasmarc"."Theme"."name" = "breeze-dark";
-      "plasmarc"."Wallpapers"."usersWallpapers" = "/home/pol/Desktop/nix-snowflake-wallpaper.svg,/home/pol/Desktop/nix-snowflake.svg,/home/pol/Desktop/C20_C25200M_F-Si_Crb_2_CML_PD.lego.png";
+      "plasmarc"."Wallpapers"."usersWallpapers" = "/home/pol/Pictures/Backgrounds/Starry Nebula 219.png";
       "systemsettingsrc"."KFileDialog Settings"."detailViewIconSize" = 16;
       "systemsettingsrc"."KPropertiesDialog"."eDP-1 Height 1920x1080" = 458;
       "systemsettingsrc"."KPropertiesDialog"."eDP-1 Width 1920x1080" = 553;
