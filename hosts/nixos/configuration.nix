@@ -49,10 +49,6 @@
   services.xrdp.enable = true;
   services.xrdp.defaultWindowManager = "startplasma-x11";
 
-  fonts.fonts = with pkgs; [
-    jetbrains-mono
-  ];
-
   # Configure keymap in X11
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
@@ -89,24 +85,9 @@
 
   security.sudo.wheelNeedsPassword = false;  # Use 'sudo' without a password
 
-  programs.adb.enable = true;
-
   powerManagement.enable = true;
 
-  programs.browserpass.enable = true;
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
-  programs.fish.enable = true;
-  programs.fish.promptInit = ''
-    any-nix-shell fish --info-right | source
-  '';
-
+  programs.adb.enable = true;
   programs.ssh.forwardX11 = true;
 
   # Enable the OpenSSH daemon.

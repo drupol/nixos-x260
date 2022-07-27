@@ -1,17 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  home.packages = [
-    pkgs.jetbrains-mono
-    pkgs.hack-font
-    pkgs.liberation_ttf
-    pkgs.fira-code
-    pkgs.fira-code-symbols
-    pkgs.dina-font
-    pkgs.ripgrep
-    pkgs.bat-extras.batman
-  ];
-
   fonts = {
     fontconfig = {
       enable = true;
@@ -33,6 +22,10 @@
     };
     ".face.icon" = {
       source = ./. + "/../../files/home/pol/.face";
+      recursive = true;
+    };
+    "${config.xdg.configHome}/.password-store/.keep" = {
+      text = "";
       recursive = true;
     };
   };
@@ -385,7 +378,7 @@
     password-store = {
       enable = true;
       settings = {
-        PASSWORD_STORE_DIR = "${config.xdg.dataHome}/.password-store";
+        PASSWORD_STORE_DIR = "${config.xdg.configHome}/.password-store";
       };
     };
   };
