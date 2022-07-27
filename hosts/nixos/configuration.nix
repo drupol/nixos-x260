@@ -39,15 +39,46 @@
   # };
   console.useXkbConfig = true;
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the Plasma 5 Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-
-  services.xrdp.enable = true;
-  services.xrdp.defaultWindowManager = "startplasma-x11";
+  services = {
+    flatpak = {
+      enable = false;
+    };
+    fwupd = {
+      enable = true;
+    };
+    fstrim = {
+      enable = true;
+    };
+    openssh = {
+      enable = true;
+    };
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+    xrdp = {
+      enable = true;
+      defaultWindowManager = "startplasma-x11";
+    };
+    xserver = {
+      enable = true;
+      desktopManager = {
+        plasma5 = {
+          enable = true;
+        };
+      };
+      displayManager = {
+        sddm = {
+          enable = true;
+        };
+      };
+      layout = "us";
+      xkbOptions = "eurosign:e";
+      videoDrivers = [ "displaylink" ];
+    };
+  };
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
@@ -63,18 +94,6 @@
   #hardware.pulseaudio.package = pkgs.pulseaudioFull;
 
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    # media-session.enable = true;
-  };
 
   boot.extraModprobeConfig = ''
     options snd_hda_intel enable=0,1
@@ -89,9 +108,6 @@
 
   programs.adb.enable = true;
   programs.ssh.forwardX11 = true;
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   networking.firewall.allowedTCPPorts = [ 3389 ];
   # Open ports in the firewall.
