@@ -80,7 +80,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  users.users.root.shell = pkgs.fish;
   security.sudo.wheelNeedsPassword = false; # Use 'sudo' without a password
   services.openssh.passwordAuthentication = false;
 

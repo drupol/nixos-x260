@@ -136,6 +136,7 @@
           ({ nixpkgs.overlays = [ (final: prev: { bobthefish-src = inputs.bobthefish; }) ]; })
           (import ./hosts/common/config.nix)
           (import ./hosts/ec2/configuration.nix)
+          (import ./users)
           (import ./hosts/common/packages.nix)
           home-manager.nixosModules.home-manager
           {

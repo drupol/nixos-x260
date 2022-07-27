@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./root.nix
     ./pol.nix
   ];
 }

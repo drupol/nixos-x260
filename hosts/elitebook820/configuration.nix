@@ -76,7 +76,6 @@
 
   security.rtkit.enable = true;
 
-  users.users.root.shell = pkgs.fish;
   security.sudo.wheelNeedsPassword = false; # Use 'sudo' without a password
 
   powerManagement.enable = true;

@@ -89,8 +89,6 @@
 
   security.sudo.wheelNeedsPassword = false;  # Use 'sudo' without a password
 
-  users.users.root.shell = pkgs.fish;
-
   nix = {
     package = pkgs.nixUnstable; # or versioned attributes like nix_2_4
     gc = {
