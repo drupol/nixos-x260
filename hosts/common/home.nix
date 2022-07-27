@@ -29,7 +29,7 @@
       recursive = true;
     };
     # Credits to https://store.kde.org/p/1272202
-    "${config.homeDirectory}/Pictures/Backgrounds/Starry Nebula 219.png" = {
+    "Pictures/Backgrounds/Starry Nebula 219.png" = {
       source = ./. + "/../../files/home/pol/Pictures/Backgrounds/Starry Nebula 219.png";
       recursive = true;
     };
