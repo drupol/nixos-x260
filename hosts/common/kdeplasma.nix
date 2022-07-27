@@ -2,6 +2,10 @@
   programs.plasma = {
     enable = true;
     shortcuts = {
+      "ActivityManager"."switch-to-activity-9bf60ab2-2e77-4ef0-945f-1713bcdbd756" = [ ];
+      "ActivityManager"."switch-to-activity-b04cdf06-f69b-4426-a388-d784c86899b5" = [ ];
+      "ActivityManager"."switch-to-activity-c245c079-af1c-41e3-991e-31836544ee97" = [ ];
+      "ActivityManager"."switch-to-activity-fc6d77d8-56ad-4801-affa-5593a61db5cc" = [ ];
       "KDE Keyboard Layout Switcher"."Switch keyboard layout to Belgian" = [ ];
       "KDE Keyboard Layout Switcher"."Switch keyboard layout to English (UK)" = [ ];
       "KDE Keyboard Layout Switcher"."Switch keyboard layout to English (US)" = [ ];
@@ -222,14 +226,14 @@
       "plasmashell"."cycleNextAction" = [ ];
       "plasmashell"."cyclePrevAction" = [ ];
       "plasmashell"."edit_clipboard" = [ ];
-      "plasmashell"."manage activities" = "Meta+Q";
-      "plasmashell"."next activity" = "Meta+Tab";
-      "plasmashell"."previous activity" = "Meta+Shift+Tab";
+      "plasmashell"."manage activities" = [ ];
+      "plasmashell"."next activity" = [ ];
+      "plasmashell"."previous activity" = [ ];
       "plasmashell"."repeat_action" = "Ctrl+Alt+R";
       "plasmashell"."show dashboard" = "Ctrl+F12";
       "plasmashell"."show-barcode" = [ ];
       "plasmashell"."show-on-mouse-pos" = [ ];
-      "plasmashell"."stop current activity" = "Meta+S";
+      "plasmashell"."stop current activity" = [ ];
       "plasmashell"."switch to next activity" = [ ];
       "plasmashell"."switch to previous activity" = [ ];
       "plasmashell"."toggle do not disturb" = [ ];
@@ -247,7 +251,6 @@
       "baloofilerc"."General"."exclude filters" = "*~,*.part,*.o,*.la,*.lo,*.loT,*.moc,moc_*.cpp,qrc_*.cpp,ui_*.h,cmake_install.cmake,CMakeCache.txt,CTestTestfile.cmake,libtool,config.status,confdefs.h,autom4te,conftest,confstat,Makefile.am,*.gcode,.ninja_deps,.ninja_log,build.ninja,*.csproj,*.m4,*.rej,*.gmo,*.pc,*.omf,*.aux,*.tmp,*.po,*.vm*,*.nvram,*.rcore,*.swp,*.swap,lzo,litmain.sh,*.orig,.histfile.*,.xsession-errors*,*.map,*.so,*.a,*.db,*.qrc,*.ini,*.init,*.img,*.vdi,*.vbox*,vbox.log,*.qcow2,*.vmdk,*.vhd,*.vhdx,*.sql,*.sql.gz,*.ytdl,*.class,*.pyc,*.pyo,*.elc,*.qmlc,*.jsc,*.fastq,*.fq,*.gb,*.fasta,*.fna,*.gbff,*.faa,po,CVS,.svn,.git,_darcs,.bzr,.hg,CMakeFiles,CMakeTmp,CMakeTmpQmake,.moc,.obj,.pch,.uic,.npm,.yarn,.yarn-cache,__pycache__,node_modules,node_packages,nbproject,core-dumps,lost+found";
       "baloofilerc"."General"."exclude filters version" = 8;
       "baloofilerc"."General"."exclude folders[$e]" = "$HOME/";
-      "baloofilerc"."General"."exclude folders\x5b$e\x5d" = "$HOME/";
       "baloofilerc"."General"."only basic indexing" = true;
       "dolphinrc"."Desktop Entry"."DefaultProfile" = "";
       "dolphinrc"."IconsMode"."PreviewSize" = 128;
