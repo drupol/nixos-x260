@@ -89,22 +89,6 @@
 
   security.sudo.wheelNeedsPassword = false;  # Use 'sudo' without a password
 
-  nix = {
-    package = pkgs.nixUnstable; # or versioned attributes like nix_2_4
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 3d";
-    };
-    settings = {
-      trusted-users = [ "root" "pol" ];
-      auto-optimise-store = true;
-    };
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
-
   programs.adb.enable = true;
 
   powerManagement.enable = true;

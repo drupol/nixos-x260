@@ -125,20 +125,4 @@
   virtualisation.docker.enable = false;
 
   hardware.bluetooth.enable = true;
-
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 4d";
-    };
-    settings = {
-      trusted-users = [ "root" "pol" ];
-      auto-optimise-store = true;
-    };
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
-
 }

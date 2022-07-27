@@ -141,20 +141,4 @@
   # services.flatpak.enable = true;
 
   # networking.resolvconf.dnsExtensionMechanism = false;
-
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 3d";
-    };
-    settings = {
-      trusted-users = [ "root" "pol" ];
-      auto-optimise-store = true;
-    };
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
-
 }
