@@ -1,12 +1,8 @@
-{ config, pkgs, ... }:
 {
   programs.plasma = {
     enable = true;
     shortcuts = {
-      "ActivityManager"."switch-to-activity-9bf60ab2-2e77-4ef0-945f-1713bcdbd756" = [ ];
-      "ActivityManager"."switch-to-activity-b04cdf06-f69b-4426-a388-d784c86899b5" = [ ];
-      "ActivityManager"."switch-to-activity-c245c079-af1c-41e3-991e-31836544ee97" = [ ];
-      "ActivityManager"."switch-to-activity-fc6d77d8-56ad-4801-affa-5593a61db5cc" = [ ];
+      "ActivityManager"."switch-to-activity-181b1250-1bb2-402c-9d6a-29214f2b2c3f" = [ ];
       "KDE Keyboard Layout Switcher"."Switch keyboard layout to Belgian" = [ ];
       "KDE Keyboard Layout Switcher"."Switch keyboard layout to English (UK)" = [ ];
       "KDE Keyboard Layout Switcher"."Switch keyboard layout to English (US)" = [ ];
@@ -19,8 +15,6 @@
       "kcm_touchpad"."Toggle Touchpad" = "Touchpad Toggle";
       "kded5"."Show System Activity" = "Ctrl+Esc";
       "kded5"."display" = ["Display" "Meta+P"];
-      "khotkeys"."{c0f7f244-8341-4a0e-a0fe-a2a24f3113bb}" = "Ctrl+Alt+T";
-      "khotkeys"."{d03619b6-9b3c-48cc-9d9c-a2aadb485550}" = [ ];
       "kmix"."decrease_microphone_volume" = "Microphone Volume Down";
       "kmix"."decrease_volume" = "Volume Down";
       "kmix"."increase_microphone_volume" = "Microphone Volume Up";
@@ -191,8 +185,8 @@
       "mediacontrol"."previousmedia" = "Media Previous";
       "mediacontrol"."stopmedia" = "Media Stop";
       "org.kde.dolphin.desktop"."_launch" = "Meta+E";
-      "org.kde.krunner.desktop"."RunClipboard" = "Alt+Shift+F2";
-      "org.kde.krunner.desktop"."_launch" = ["Alt+Space" "Alt+F2" "Search"];
+      "org.kde.krunner.desktop"."RunClipboard" = [ ];
+      "org.kde.krunner.desktop"."_launch" = [ ];
       "org.kde.plasma.emojier.desktop"."_launch" = "Meta+.";
       "org.kde.spectacle.desktop"."ActiveWindowScreenShot" = "Meta+Print";
       "org.kde.spectacle.desktop"."CurrentMonitorScreenShot" = [ ];
@@ -260,19 +254,24 @@
       "dolphinrc"."KPropertiesDialog"."eDP-1 HDMI-2 Height 1920x1080" = 458;
       "dolphinrc"."KPropertiesDialog"."eDP-1 HDMI-2 Width 1920x1080" = 387;
       "dolphinrc"."KPropertiesDialog"."eDP-1 Height 1920x1080" = 616;
+      "dolphinrc"."KPropertiesDialog"."eDP-1 Height 1920x1200" = 616;
       "dolphinrc"."KPropertiesDialog"."eDP-1 Width 1920x1080" = 438;
+      "dolphinrc"."KPropertiesDialog"."eDP-1 Width 1920x1200" = 438;
       "dolphinrc"."Open-with settings"."CompletionMode" = 1;
       "dolphinrc"."Open-with settings"."History" = "visu,visual";
       "dolphinrc"."SettingsDialog"."eDP-1 Height 1920x1080" = 440;
       "dolphinrc"."SettingsDialog"."eDP-1 Width 1920x1080" = 585;
-      "kactivitymanagerdrc"."activities"."9bf60ab2-2e77-4ef0-945f-1713bcdbd756" = "Default";
-      "kactivitymanagerdrc"."main"."currentActivity" = "fc6d77d8-56ad-4801-affa-5593a61db5cc";
+      "kactivitymanagerdrc"."activities"."181b1250-1bb2-402c-9d6a-29214f2b2c3f" = "NixOS Desktop";
+      "kactivitymanagerdrc"."activities-descriptions"."181b1250-1bb2-402c-9d6a-29214f2b2c3f" = "NixOS Desktop";
+      "kactivitymanagerdrc"."activities-icons"."181b1250-1bb2-402c-9d6a-29214f2b2c3f" = "nix-snowflake";
+      "kactivitymanagerdrc"."main"."currentActivity" = "181b1250-1bb2-402c-9d6a-29214f2b2c3f";
+      "kactivitymanagerdrc"."main"."runningActivities" = "181b1250-1bb2-402c-9d6a-29214f2b2c3f";
+      "kactivitymanagerdrc"."main"."stoppedActivities" = "";
       "kcminputrc"."Keyboard"."KeyRepeat" = "repeat";
       "kcminputrc"."Keyboard"."NumLock" = 2;
       "kcminputrc"."Keyboard"."RepeatDelay" = 600;
       "kcminputrc"."Keyboard"."RepeatRate" = 25;
       "kcminputrc"."Libinput.2.10.TPPS/2 IBM TrackPoint"."MiddleButtonEmulation" = true;
-      "kcminputrc"."Libinput.2.10.TPPS/2 IBM TrackPoint"."PointerAcceleration" = "-0.600";
       "kcminputrc"."Mouse"."X11LibInputXAccelProfileFlat" = false;
       "kcminputrc"."Mouse"."XLbInptAccelProfileFlat" = false;
       "kcminputrc"."Mouse"."XLbInptPointerAcceleration" = 0;
@@ -282,6 +281,7 @@
       "kded5rc"."PlasmaBrowserIntegration"."shownCount" = 3;
       "kdeglobals"."DirSelect Dialog"."DirSelectDialog Size" = "811,598";
       "kdeglobals"."General"."AllowKDEAppsToRememberWindowPositions" = true;
+      "kdeglobals"."General"."BrowserApplication" = "firefox.desktop";
       "kdeglobals"."KDE"."AnimationDurationFactor" = 0.250000;
       "kdeglobals"."KDE"."SingleClick" = false;
       "kdeglobals"."KFileDialog Settings"."Allow Expansion" = false;
@@ -310,12 +310,11 @@
       "kdeglobals"."WM"."inactiveBlend" = "161,169,177";
       "kdeglobals"."WM"."inactiveForeground" = "161,169,177";
       "kgammarc"."ConfigFile"."use" = "kgammarc";
-      "kglobalshortcutsrc"."ActivityManager"."_k_friendly_name" = "Activity Manager";
+      "kglobalshortcutsrc"."ActivityManager"."_k_friendly_name" = "System Settings";
       "kglobalshortcutsrc"."KDE Keyboard Layout Switcher"."_k_friendly_name" = "Keyboard Layout Switcher";
       "kglobalshortcutsrc"."kaccess"."_k_friendly_name" = "Accessibility";
       "kglobalshortcutsrc"."kcm_touchpad"."_k_friendly_name" = "Touchpad";
       "kglobalshortcutsrc"."kded5"."_k_friendly_name" = "KDE Daemon";
-      "kglobalshortcutsrc"."khotkeys"."_k_friendly_name" = "Custom Shortcuts Service";
       "kglobalshortcutsrc"."kmix"."_k_friendly_name" = "Audio Volume";
       "kglobalshortcutsrc"."krunner.desktop"."_k_friendly_name" = "KRunner";
       "kglobalshortcutsrc"."ksmserver"."_k_friendly_name" = "Session Management";
@@ -326,7 +325,7 @@
       "kglobalshortcutsrc"."org.kde.plasma.emojier.desktop"."_k_friendly_name" = "Emoji Selector";
       "kglobalshortcutsrc"."org.kde.spectacle.desktop"."_k_friendly_name" = "Spectacle";
       "kglobalshortcutsrc"."org_kde_powerdevil"."_k_friendly_name" = "Power Management";
-      "kglobalshortcutsrc"."plasmashell"."_k_friendly_name" = "Plasma";
+      "kglobalshortcutsrc"."plasmashell"."_k_friendly_name" = "Activity switching";
       "kglobalshortcutsrc"."systemsettings.desktop"."_k_friendly_name" = "System Settings";
       "kglobalshortcutsrc"."yakuake"."_k_friendly_name" = "Yakuake";
       "khotkeysrc"."Data"."DataCount" = 1;
@@ -339,15 +338,10 @@
       "khotkeysrc"."Data_1Conditions"."Comment" = "";
       "khotkeysrc"."Data_1Conditions"."ConditionsCount" = 0;
       "khotkeysrc"."DirSelect Dialog"."DirSelectDialog Size[$d]" = "";
-      "khotkeysrc"."DirSelect Dialog"."History Items[$d]" = "";
       "khotkeysrc"."General"."AllowKDEAppsToRememberWindowPositions[$d]" = "";
       "khotkeysrc"."General"."BrowserApplication[$d]" = "";
       "khotkeysrc"."General"."ColorSchemeHash[$d]" = "";
       "khotkeysrc"."General"."ColorScheme[$d]" = "";
-      "khotkeysrc"."General"."Name[$d]" = "";
-      "khotkeysrc"."General"."TerminalApplication[$d]" = "";
-      "khotkeysrc"."General"."TerminalService[$d]" = "";
-      "khotkeysrc"."General"."shadeSortColumn[$d]" = "";
       "khotkeysrc"."Gestures"."Disabled" = true;
       "khotkeysrc"."Gestures"."MouseButton" = 2;
       "khotkeysrc"."Gestures"."Timeout" = 300;
@@ -357,7 +351,6 @@
       "khotkeysrc"."KDE"."AnimationDurationFactor[$d]" = "";
       "khotkeysrc"."KDE"."LookAndFeelPackage[$d]" = "";
       "khotkeysrc"."KDE"."SingleClick[$d]" = "";
-      "khotkeysrc"."KDE"."contrast[$d]" = "";
       "khotkeysrc"."KDE"."widgetStyle[$d]" = "";
       "khotkeysrc"."KFileDialog Settings"."Allow Expansion[$d]" = "";
       "khotkeysrc"."KFileDialog Settings"."Automatically select filename extension[$d]" = "";
@@ -381,7 +374,6 @@
       "khotkeysrc"."Main"."AlreadyImported" = "defaults,kde32b1,konqueror_gestures_kde321,konsole";
       "khotkeysrc"."Main"."Disabled" = false;
       "khotkeysrc"."Voice"."Shortcut" = "";
-      "khotkeysrc"."WM"."FakeEntryToKeepThisGroup[$d]" = "";
       "khotkeysrc"."WM"."activeBackground[$d]" = "";
       "khotkeysrc"."WM"."activeBlend[$d]" = "";
       "khotkeysrc"."WM"."activeForeground[$d]" = "";
@@ -418,7 +410,6 @@
       "krunnerrc"."Plugins"."unitconverterEnabled" = true;
       "krunnerrc"."Plugins"."webshortcutsEnabled" = true;
       "krunnerrc"."Plugins"."windowsEnabled" = true;
-      "ksmserverrc"."SubSession: b04cdf06-f69b-4426-a388-d784c86899b5"."count" = 0;
       "kwalletrc"."Wallet"."First Use" = false;
       "kwinrc"."Compositing"."OpenGLIsUnsafe" = false;
       "kwinrc"."Desktops"."Id_1" = "a1941d3b-435b-4b34-b4cf-3f14379a2361";
@@ -444,7 +435,6 @@
       "kwinrc"."Plugins"."sheetEnabled" = true;
       "kwinrc"."Plugins"."slidingpopupsEnabled" = false;
       "kwinrc"."Plugins"."thumbnailasideEnabled" = true;
-      "kwinrc"."SubSession: b04cdf06-f69b-4426-a388-d784c86899b5"."active" = "-1";
       "kwinrc"."SubSession: b04cdf06-f69b-4426-a388-d784c86899b5"."count" = 0;
       "kwinrc"."TabBox"."BorderActivate" = 9;
       "kwinrc"."TabBox"."BorderAlternativeActivate" = 6;
@@ -452,7 +442,6 @@
       "kwinrc"."org.kde.kdecoration2"."ButtonsOnLeft" = "MNS";
       "kxkbrc"."Layout"."DisplayNames" = ",,";
       "kxkbrc"."Layout"."LayoutList" = "gb,fr,be";
-      "kxkbrc"."Layout"."LayoutLoopCount" = "-1";
       "kxkbrc"."Layout"."Model" = "pc86";
       "kxkbrc"."Layout"."ResetOldOptions" = false;
       "kxkbrc"."Layout"."SwitchMode" = "Global";
