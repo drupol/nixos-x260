@@ -29,16 +29,8 @@
       recursive = true;
     };
     # Credits to https://store.kde.org/p/1272202
-    "Pictures/Backgrounds/Starry Nebula 219.png" = {
-      source = ./. + "/../../files/home/pol/Pictures/Backgrounds/Starry Nebula 219.png";
-      recursive = true;
-    };
-    "Pictures/Backgrounds/nix-snowflake.svg" = {
-      source = ./. + "/../../files/home/pol/Pictures/Backgrounds/nix-snowflake.svg";
-      recursive = true;
-    };
-    "Pictures/Backgrounds/nix-snowflake-wallpaper.svg" = {
-      source = ./. + "/../../files/home/pol/Pictures/Backgrounds/nix-snowflake-wallpaper.svg";
+    "Pictures/Backgrounds/" = {
+      source = ./. + "/../../files/home/pol/Pictures/Backgrounds/";
       recursive = true;
     };
   };
