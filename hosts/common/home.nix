@@ -33,6 +33,14 @@
       source = ./. + "/../../files/home/pol/Pictures/Backgrounds/Starry Nebula 219.png";
       recursive = true;
     };
+    "Pictures/Backgrounds/nix-snowflake.svg" = {
+      source = ./. + "/../../files/home/pol/Pictures/Backgrounds/nix-snowflake.svg";
+      recursive = true;
+    };
+    "Pictures/Backgrounds/nix-snowflake-wallpaper.svg" = {
+      source = ./. + "/../../files/home/pol/Pictures/Backgrounds/nix-snowflake-wallpaper.svg";
+      recursive = true;
+    };
   };
 
   programs = {
