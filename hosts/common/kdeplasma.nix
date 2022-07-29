@@ -1,3 +1,4 @@
+{ config, pkgs, ... }:
 {
   programs.plasma = {
     enable = true;
@@ -459,7 +460,7 @@
       "kxkbrc"."Layout"."VariantList" = ",latin9,";
       "plasma-localerc"."Formats"."LANG" = "en_US.UTF-8";
       "plasmarc"."Theme"."name" = "breeze-dark";
-      "plasmarc"."Wallpapers"."usersWallpapers" = "/home/pol/Pictures/Backgrounds/Starry Nebula 219.png";
+      "plasmarc"."Wallpapers"."usersWallpapers" = "${config.home.homeDirectory}/Pictures/Backgrounds/Starry Nebula 219.png,${config.home.homeDirectory}/Pictures/Backgrounds/nix-snowflake-wallpaper.svg";
       "systemsettingsrc"."KFileDialog Settings"."detailViewIconSize" = 16;
       "systemsettingsrc"."KPropertiesDialog"."eDP-1 Height 1920x1080" = 458;
       "systemsettingsrc"."KPropertiesDialog"."eDP-1 Width 1920x1080" = 553;
