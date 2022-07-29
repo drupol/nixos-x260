@@ -67,6 +67,7 @@
           (import ./users)
           (import ./hosts/common/packages.nix)
           (import ./hosts/common/packages-desktop.nix)
+          (import ./activation)
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -91,6 +92,7 @@
           (import ./users)
           (import ./hosts/common/packages.nix)
           (import ./hosts/common/packages-desktop.nix)
+          (import ./activation)
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -115,6 +117,7 @@
           (import ./users)
           (import ./hosts/common/packages.nix)
           (import ./hosts/common/packages-desktop.nix)
+          (import ./activation)
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -138,6 +141,7 @@
           (import ./hosts/ec2/configuration.nix)
           (import ./users)
           (import ./hosts/common/packages.nix)
+          (import ./activation)
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -162,6 +166,7 @@
           (import ./users)
           (import ./hosts/common/packages.nix)
           (import ./hosts/common/packages-desktop.nix)
+          (import ./activation)
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -186,6 +191,7 @@
           (import ./users)
           (import ./hosts/common/packages.nix)
           (import ./hosts/common/packages-desktop.nix)
+          (import ./activation)
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
