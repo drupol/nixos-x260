@@ -16,7 +16,8 @@
 
   outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs:
     let
-      lib = nixpkgs.lib;
+      # This is the same as "lib = nixpkgs.lib";
+      inherit (nixpkgs) lib;
 
       hosts = import ./hosts.nix;
 
