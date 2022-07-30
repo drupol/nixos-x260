@@ -2,6 +2,7 @@
 
 {
   system.activationScripts.report-changes = ''
-    ${pkgs.nix}/bin/nix profile diff-closures --profile /nix/var/nix/profiles/system
+    PATH=$PATH:${lib.makeBinPath [ pkgs.nvd pkgs.nix ]}
+    nvd diff $(ls -dv /nix/var/nix/profiles/system-*-link | tail -2)
   '';
 }
