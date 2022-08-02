@@ -24,4 +24,6 @@
       allowUnfreePredicate = pkg: true;
     };
   };
+
+  programs.command-not-found.enable = false;
 }
