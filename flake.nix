@@ -10,8 +10,11 @@
     flake-utils.url = "github:numtide/flake-utils";
     plasma-manager.url = "github:pjones/plasma-manager";
 
-    # Fish theme
+    # Fish themes
     bobthefish = { url = "github:oh-my-fish/theme-bobthefish"; flake = false; };
+
+    # Fish plugins
+    z = { url = "github:jethrokuan/z"; flake = false; };
   };
 
   outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs:
@@ -36,6 +39,9 @@
         })
         (final: prev: {
           bobthefish-src = inputs.bobthefish;
+        })
+        (final: prev: {
+          z-src = inputs.z;
         })
       ];
 

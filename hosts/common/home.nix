@@ -105,6 +105,10 @@
           name = "bobthefish";
           src = pkgs.bobthefish-src;
         }
+        {
+          name = "z";
+          src = pkgs.z-src;
+        }
       ];
       shellAliases = {
         ".." = "cd ..";
