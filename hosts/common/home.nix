@@ -11,9 +11,6 @@
     # See https://github.com/nix-community/home-manager/issues/1586#issuecomment-723843578
     ".mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json" = {
       source = "${pkgs.plasma-browser-integration}/lib/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json";
-    };
-    "Code/.directory" = {
-      source = ./. + "/../../files/home/pol/Code/.directory";
       recursive = true;
     };
     ".face" = {
@@ -26,6 +23,10 @@
     };
     "${config.xdg.configHome}/.password-store/.keep" = {
       text = "";
+      recursive = true;
+    };
+    "Code/" = {
+      source = ./. + "/../../files/home/pol/Code/";
       recursive = true;
     };
     # Credits to https://store.kde.org/p/1272202
