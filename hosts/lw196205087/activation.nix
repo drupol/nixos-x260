@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   home.activation = {
@@ -11,5 +11,9 @@
         cp -Lr ${config.home.homeDirectory}/.nix-profile/share/applications/* ${config.xdg.dataHome}/"applications/home-manager/"
       '';
     };
+    report-changes = ''
+      PATH=$PATH:${lib.makeBinPath [ pkgs.nvd pkgs.nix ]}
+      nvd diff $(ls -dv /nix/var/nix/profiles/per-user/${config.home.username}/home-manager-*-link | tail -2)
+    '';
   };
 }
