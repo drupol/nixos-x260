@@ -27,4 +27,6 @@
 
   # Clean tmp on reboot
   boot.cleanTmpDir = true;
+
+  services.fstrim.enable = true;
 }
