@@ -25,5 +25,6 @@
     };
   };
 
-  programs.command-not-found.enable = false;
+  # Clean tmp on reboot
+  boot.cleanTmpDir = true;
 }
