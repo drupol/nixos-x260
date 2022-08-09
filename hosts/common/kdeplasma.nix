@@ -312,7 +312,7 @@
       "kdeglobals"."WM"."inactiveBlend" = "161,169,177";
       "kdeglobals"."WM"."inactiveForeground" = "161,169,177";
       "kgammarc"."ConfigFile"."use" = "kgammarc";
-      "kglobalshortcutsrc"."ActivityManager"."_k_friendly_name" = "System Settings";
+      "kglobalshortcutsrc"."ActivityManager"."_k_friendly_name" = "Activity Manager";
       "kglobalshortcutsrc"."KDE Keyboard Layout Switcher"."_k_friendly_name" = "Keyboard Layout Switcher";
       "kglobalshortcutsrc"."kaccess"."_k_friendly_name" = "Accessibility";
       "kglobalshortcutsrc"."kcm_touchpad"."_k_friendly_name" = "Touchpad";
@@ -327,7 +327,7 @@
       "kglobalshortcutsrc"."org.kde.plasma.emojier.desktop"."_k_friendly_name" = "Emoji Selector";
       "kglobalshortcutsrc"."org.kde.spectacle.desktop"."_k_friendly_name" = "Spectacle";
       "kglobalshortcutsrc"."org_kde_powerdevil"."_k_friendly_name" = "Power Management";
-      "kglobalshortcutsrc"."plasmashell"."_k_friendly_name" = "Activity switching";
+      "kglobalshortcutsrc"."plasmashell"."_k_friendly_name" = "Plasma";
       "kglobalshortcutsrc"."systemsettings.desktop"."_k_friendly_name" = "System Settings";
       "kglobalshortcutsrc"."yakuake"."_k_friendly_name" = "Yakuake";
       "khotkeysrc"."Data"."DataCount" = 1;
@@ -442,13 +442,13 @@
       "kwinrc"."TabBox"."BorderAlternativeActivate" = 6;
       "kwinrc"."Windows"."ElectricBorderCornerRatio" = 0.200000;
       "kwinrc"."org.kde.kdecoration2"."ButtonsOnLeft" = "MNS";
-      "kxkbrc"."Layout"."DisplayNames" = ",,";
-      "kxkbrc"."Layout"."LayoutList" = "gb,fr,be";
+      "kxkbrc"."Layout"."DisplayNames" = ",,,";
+      "kxkbrc"."Layout"."LayoutList" = "gb,fr,be,us";
       "kxkbrc"."Layout"."Model" = "pc86";
       "kxkbrc"."Layout"."ResetOldOptions" = false;
       "kxkbrc"."Layout"."SwitchMode" = "Global";
       "kxkbrc"."Layout"."Use" = true;
-      "kxkbrc"."Layout"."VariantList" = ",latin9,";
+      "kxkbrc"."Layout"."VariantList" = ",latin9,,";
       "plasma-localerc"."Formats"."LANG" = "en_US.UTF-8";
       "plasmarc"."Theme"."name" = "breeze-dark";
       "plasmarc"."Wallpapers"."usersWallpapers" = "${config.home.homeDirectory}/Pictures/Backgrounds/Starry Nebula 219.png,${config.home.homeDirectory}/Pictures/Backgrounds/nix-snowflake-wallpaper.svg";
