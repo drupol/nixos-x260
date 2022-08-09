@@ -29,4 +29,7 @@
   boot.cleanTmpDir = true;
 
   services.fstrim.enable = true;
+
+  # TODO: investigate why this is not working when it is set in home.nix
+  programs.command-not-found.enable = false;
 }
