@@ -3,7 +3,7 @@ name: 'Auto update flake lock file'
 on:
   workflow_dispatch:
   schedule:
-    - cron: '* */4 * * *'
+    - cron: '0 */4 * * *'
 
 jobs:
   createPullRequest:
