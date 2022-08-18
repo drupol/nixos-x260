@@ -1,10 +1,12 @@
-{ config, pkgs, ... }:
-
 {
   programs.plasma = {
     enable = true;
+    workspace.clickItemTo = "select";
     shortcuts = {
       "ActivityManager"."switch-to-activity-181b1250-1bb2-402c-9d6a-29214f2b2c3f" = [ ];
+      "ActivityManager"."switch-to-activity-b04cdf06-f69b-4426-a388-d784c86899b5" = [ ];
+      "ActivityManager"."switch-to-activity-c245c079-af1c-41e3-991e-31836544ee97" = [ ];
+      "ActivityManager"."switch-to-activity-fc6d77d8-56ad-4801-affa-5593a61db5cc" = [ ];
       "KDE Keyboard Layout Switcher"."Switch keyboard layout to Belgian" = [ ];
       "KDE Keyboard Layout Switcher"."Switch keyboard layout to English (UK)" = [ ];
       "KDE Keyboard Layout Switcher"."Switch keyboard layout to English (US)" = [ ];
@@ -247,7 +249,8 @@
       "baloofilerc"."General"."dbVersion" = 2;
       "baloofilerc"."General"."exclude filters" = "*~,*.part,*.o,*.la,*.lo,*.loT,*.moc,moc_*.cpp,qrc_*.cpp,ui_*.h,cmake_install.cmake,CMakeCache.txt,CTestTestfile.cmake,libtool,config.status,confdefs.h,autom4te,conftest,confstat,Makefile.am,*.gcode,.ninja_deps,.ninja_log,build.ninja,*.csproj,*.m4,*.rej,*.gmo,*.pc,*.omf,*.aux,*.tmp,*.po,*.vm*,*.nvram,*.rcore,*.swp,*.swap,lzo,litmain.sh,*.orig,.histfile.*,.xsession-errors*,*.map,*.so,*.a,*.db,*.qrc,*.ini,*.init,*.img,*.vdi,*.vbox*,vbox.log,*.qcow2,*.vmdk,*.vhd,*.vhdx,*.sql,*.sql.gz,*.ytdl,*.class,*.pyc,*.pyo,*.elc,*.qmlc,*.jsc,*.fastq,*.fq,*.gb,*.fasta,*.fna,*.gbff,*.faa,po,CVS,.svn,.git,_darcs,.bzr,.hg,CMakeFiles,CMakeTmp,CMakeTmpQmake,.moc,.obj,.pch,.uic,.npm,.yarn,.yarn-cache,__pycache__,node_modules,node_packages,nbproject,core-dumps,lost+found";
       "baloofilerc"."General"."exclude filters version" = 8;
-      "baloofilerc"."General"."exclude folders[$e]" = "$HOME/";
+      "baloofilerc"."General"."exclude folders\x5b$e\x5d" = "$HOME/";
+      "baloofilerc"."General"."exclude foldersx5b$ex5d" = "$HOME/";
       "baloofilerc"."General"."only basic indexing" = true;
       "dolphinrc"."Desktop Entry"."DefaultProfile" = "";
       "dolphinrc"."IconsMode"."PreviewSize" = 128;
@@ -412,6 +415,8 @@
       "krunnerrc"."Plugins"."unitconverterEnabled" = true;
       "krunnerrc"."Plugins"."webshortcutsEnabled" = true;
       "krunnerrc"."Plugins"."windowsEnabled" = true;
+      "ksmserverrc"."SubSession: 9bf60ab2-2e77-4ef0-945f-1713bcdbd756"."count" = 0;
+      "ksmserverrc"."SubSession: b04cdf06-f69b-4426-a388-d784c86899b5"."count" = 0;
       "kwalletrc"."Wallet"."First Use" = false;
       "kwinrc"."Compositing"."OpenGLIsUnsafe" = false;
       "kwinrc"."Desktops"."Id_1" = "a1941d3b-435b-4b34-b4cf-3f14379a2361";
@@ -437,6 +442,8 @@
       "kwinrc"."Plugins"."sheetEnabled" = true;
       "kwinrc"."Plugins"."slidingpopupsEnabled" = false;
       "kwinrc"."Plugins"."thumbnailasideEnabled" = true;
+      "kwinrc"."SubSession: 9bf60ab2-2e77-4ef0-945f-1713bcdbd756"."active" = "-1";
+      "kwinrc"."SubSession: 9bf60ab2-2e77-4ef0-945f-1713bcdbd756"."count" = 0;
       "kwinrc"."SubSession: b04cdf06-f69b-4426-a388-d784c86899b5"."count" = 0;
       "kwinrc"."TabBox"."BorderActivate" = 9;
       "kwinrc"."TabBox"."BorderAlternativeActivate" = 6;
@@ -451,7 +458,7 @@
       "kxkbrc"."Layout"."VariantList" = ",latin9,,";
       "plasma-localerc"."Formats"."LANG" = "en_US.UTF-8";
       "plasmarc"."Theme"."name" = "breeze-dark";
-      "plasmarc"."Wallpapers"."usersWallpapers" = "${config.home.homeDirectory}/Pictures/Backgrounds/Starry Nebula 219.png,${config.home.homeDirectory}/Pictures/Backgrounds/nix-snowflake-wallpaper.svg";
+      "plasmarc"."Wallpapers"."usersWallpapers" = "/home/pol/Pictures/Backgrounds/Starry Nebula 219.png,/home/pol/Pictures/Backgrounds/nix-snowflake-wallpaper.svg";
       "systemsettingsrc"."KFileDialog Settings"."detailViewIconSize" = 16;
       "systemsettingsrc"."KPropertiesDialog"."eDP-1 Height 1920x1080" = 458;
       "systemsettingsrc"."KPropertiesDialog"."eDP-1 Width 1920x1080" = 553;
