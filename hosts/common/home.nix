@@ -42,6 +42,7 @@
     };
     browserpass = {
       enable = true;
+      browsers = [ "firefox" ];
     };
     command-not-found = {
       enable = false;
