@@ -1,0 +1,30 @@
+name: Check
+
+on:
+  pull_request:
+  push:
+    paths:
+    - '**.nix'
+    - flake.lock
+
+jobs:
+  build:
+    name: 'Flake check'
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      fail-fast: false
+      matrix:
+        operating-system: [ubuntu-latest, macOS-latest]
+
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      - name: Install the Nix package manager
+        uses: cachix/install-nix-action@v17
+
+      - name: Check
+        run: |
+          nix flake check
