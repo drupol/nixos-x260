@@ -34,10 +34,6 @@
       source = ./. + "/../../files/home/pol/Pictures/Backgrounds/";
       recursive = true;
     };
-    ".local/share/akregator/data/feeds.opml" = {
-      source = ./. + "/../../files/home/pol/.local/share/akregator/data/feeds.opml";
-      recursive = true;
-    };
   };
 
   programs = {
