@@ -1,5 +1,0 @@
-{
-  imports = [
-    ./report-changes.nix
-  ];
-}
