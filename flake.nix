@@ -57,10 +57,6 @@
         "${user}" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            inputs.plasma-manager.homeManagerModules.plasma-manager
-            ./hosts/common/home.nix
-            ./hosts/common/packages-hm.nix
-            ./hosts/common/kdeplasma.nix
             ./hosts/${instance}
           ];
           extraSpecialArgs = { inherit nixos-hardware inputs instance hostname operating-system system user; };
