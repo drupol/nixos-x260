@@ -59,7 +59,7 @@
           modules = [
             ./hosts/${instance}
           ];
-          extraSpecialArgs = { inherit nixos-hardware inputs instance hostname operating-system system user; };
+          extraSpecialArgs = { inherit inputs instance hostname operating-system system user; };
         };
       };
 
@@ -86,7 +86,7 @@
               ];
             }
           ];
-          specialArgs = { inherit nixos-hardware inputs instance hostname operating-system system user; };
+          specialArgs = { inherit inputs instance hostname operating-system system user; };
         };
       };
     in

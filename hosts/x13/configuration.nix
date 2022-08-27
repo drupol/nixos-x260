@@ -1,9 +1,9 @@
-{ config, pkgs, lib, nixos-hardware, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports =
     [
-      nixos-hardware.nixosModules.lenovo-thinkpad-x13
+      inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x13
       ./hardware-configuration.nix
     ];
 
