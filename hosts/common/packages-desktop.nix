@@ -31,7 +31,8 @@
       teams
       thunderbird-bin
       vlc
-      vscode
       yakuake
+    ] ++ [
+      pkgs.master.vscode
     ];
 }
