@@ -12,15 +12,15 @@ let
   '';
 in
 {
-  home.activation.initPasswordStore = gitClone {
-    source = "git@github.com:drupol/pass.git";
-    path = "${config.xdg.configHome}/.password-store/";
-  };
+  # home.activation.initPasswordStore = gitClone {
+  #   source = "git@github.com:drupol/pass.git";
+  #   path = "${config.xdg.configHome}/.password-store/";
+  # };
 
-  home.activation.initWebsite = gitClone {
-    source = "git@github.com:drupol/not-a-number.io.git";
-    path = "${config.home.homeDirectory}/Code/drupol/not-a-number.io/";
-  };
+  # home.activation.initWebsite = gitClone {
+  #   source = "git@github.com:drupol/not-a-number.io.git";
+  #   path = "${config.home.homeDirectory}/Code/drupol/not-a-number.io/";
+  # };
 
   home.activation.profile-report-changes = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     PATH=$PATH:${lib.makeBinPath [ pkgs.nvd pkgs.nix ]}
