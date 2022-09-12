@@ -24,6 +24,13 @@ in
 
   home.activation.profile-report-changes = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     PATH=$PATH:${lib.makeBinPath [ pkgs.nvd pkgs.nix ]}
-    nvd diff $(ls -dv /nix/var/nix/profiles/per-user/${config.home.username}/home-manager-*-link | tail -2) || true
+
+    # Disable nvd if there are lesser than 2 profiles in the system.
+    if [ `ls -d1v /nix/var/nix/profiles/per-user/${config.home.username}/home-manager-*-link 2>/dev/null | wc -l ` -lt 2 ];
+    then
+        return 0
+    fi
+
+    nvd diff $(ls -d1v /nix/var/nix/profiles/per-user/${config.home.username}/home-manager-*-link | tail -2)
   '';
 }
