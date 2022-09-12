@@ -24,6 +24,6 @@ in
 
   home.activation.profile-report-changes = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     PATH=$PATH:${lib.makeBinPath [ pkgs.nvd pkgs.nix ]}
-    nvd diff $(ls -dv /nix/var/nix/profiles/per-user/${config.home.username}/home-manager-*-link | tail -2)
+    nvd diff $(ls -dv /nix/var/nix/profiles/per-user/${config.home.username}/home-manager-*-link | tail -2) || true
   '';
 }
