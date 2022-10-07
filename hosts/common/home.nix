@@ -362,7 +362,7 @@
         };
         push = {
           autoSetupRemote = true;
-          default = "tracking";
+          default = "simple";
         };
         pull = {
           default = "current";
