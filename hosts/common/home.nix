@@ -337,7 +337,7 @@
       };
       extraConfig = {
         branch = {
-          autosetupmerge = "always";
+          autosetuprebase = "always";
         };
         color = {
           ui = "auto";
@@ -362,10 +362,10 @@
         };
         push = {
           autoSetupRemote = true;
-          default = "matching";
+          default = "current";
         };
         pull = {
-          default = "current";
+          default = "matching";
           rebase = true;
         };
         rerere = {
