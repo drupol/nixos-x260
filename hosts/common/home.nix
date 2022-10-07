@@ -362,7 +362,7 @@
         };
         push = {
           autoSetupRemote = true;
-          default = "simple";
+          default = "matching";
         };
         pull = {
           default = "current";
