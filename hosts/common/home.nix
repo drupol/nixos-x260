@@ -368,6 +368,9 @@
           default = "matching";
           rebase = true;
         };
+        rebase = {
+          instructionFormat = "(%an <%ae>) %s";
+        };
         rerere = {
           enabled = true;
         };
