@@ -82,8 +82,6 @@
 
   security.rtkit.enable = true;
 
-  programs.adb.enable = true;
-
   security.sudo.wheelNeedsPassword = false; # Use 'sudo' without a password
   powerManagement.enable = true;
 

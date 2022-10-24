@@ -113,7 +113,6 @@
 
   powerManagement.enable = true;
 
-  programs.adb.enable = true;
   programs.ssh.forwardX11 = true;
 
   networking.firewall.allowedTCPPorts = [ 3389 ];

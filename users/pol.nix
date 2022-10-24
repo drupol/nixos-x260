@@ -13,7 +13,6 @@
       "networkmanager"
       "input"
       "tty"
-      "adbusers"
     ];
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [
