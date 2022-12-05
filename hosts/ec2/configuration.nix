@@ -19,8 +19,6 @@
   # Define on which hard drive you want to install Grub.
   # boot.loader.grub.device = "nodev"; # or "nodev" for efi only
 
-  ec2.hvm = true;
-
   networking.hostName = "ec2"; # Define your hostname.
   networking.networkmanager.enable = true; # Enables wireless support via wpa_supplicant.
 
