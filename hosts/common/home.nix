@@ -422,6 +422,8 @@
         pkgs.vscode-extensions.james-yu.latex-workshop
         pkgs.vscode-extensions.pkief.material-icon-theme
         pkgs.vscode-extensions.zhuangtongfa.material-theme
+        pkgs.vscode-extensions.redhat.vscode-yaml
+        pkgs.vscode-extensions.redhat.vscode-xml
       ];
       userSettings = {
         "editor.rulers" = [ 80 120 ];
