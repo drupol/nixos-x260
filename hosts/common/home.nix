@@ -418,6 +418,10 @@
         pkgs.vscode-extensions.bbenoist.nix
 #        pkgs.vscode-extensions.bmewburn.vscode-intelephense-client
         pkgs.vscode-extensions.esbenp.prettier-vscode
+        pkgs.vscode-extensions.jebbs.plantuml
+        pkgs.vscode-extensions.james-yu.latex-workshop
+        pkgs.vscode-extensions.pkief.material-icon-theme
+        pkgs.vscode-extensions.zhuangtongfa.material-theme
       ];
       userSettings = {
         "editor.rulers" = [ 80 120 ];
