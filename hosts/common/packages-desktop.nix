@@ -31,7 +31,6 @@
       teams
       thunderbird-bin
       vlc
-      vscode
       yakuake
     ];
 }

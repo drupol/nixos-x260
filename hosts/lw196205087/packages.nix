@@ -29,6 +29,5 @@
       plantuml
       tdesktop
       teams
-      vscode
     ];
 }

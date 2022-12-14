@@ -332,7 +332,7 @@
         unrelease = "!sh -c 'git tag -d v$1 && git pso :v$1' -";
         merged = "!sh -c 'git o master && git plom && git bd $1 && git rpo' -";
         aliases = "!git config -l | grep alias | cut -c 7-";
-        snap = "!git stash save 'snapshot: $(date)' && git stash apply 'stash@{0}'";
+        snap = "!git stash save 'snapshot = $(date)' && git stash apply 'stash@{0}'";
         bare = "!sh -c 'git symbolic-ref HEAD refs/heads/$1 && git rm --cached -r . && git clean -xfd' -";
         whois = "!sh -c 'git log -i -1 --author=\"$1\" --pretty=\"format:%an <%ae>\"' -";
         serve = "daemon --reuseaddr --verbose --base-path=. --export-all ./.git";
@@ -406,6 +406,105 @@
       enable = true;
       settings = {
         PASSWORD_STORE_DIR = "${config.xdg.configHome}/.password-store";
+      };
+    };
+    vscode = {
+      enable = true;
+      extensions = [
+#        pkgs.vscode-extensions.equinusocio.vsc-community-material-theme
+        pkgs.vscode-extensions.editorconfig.editorconfig
+        pkgs.vscode-extensions.usernamehw.errorlens
+        pkgs.vscode-extensions.yzhang.markdown-all-in-one
+        pkgs.vscode-extensions.bbenoist.nix
+#        pkgs.vscode-extensions.bmewburn.vscode-intelephense-client
+        pkgs.vscode-extensions.esbenp.prettier-vscode
+      ];
+      userSettings = {
+        "editor.rulers" = [ 80 120 ];
+        "editor.mouseWheelZoom" = true;
+        "window.titleBarStyle" = "custom";
+        "editor.fontFamily" = "'Jetbrains mono'";
+        "editor.suggestSelection" = "first";
+        "workbench.iconTheme" = "material-icon-theme";
+        "git.autofetch" = true;
+        "editor.fontLigatures" = true;
+        "workbench.colorCustomizations" = {};
+        "sync.gist" = "09e7759563df7cb7db0fbc04b9bb69c5";
+        "explorer.confirmDragAndDrop" = false;
+        "php.suggest.basic" = false;
+        "files.trimTrailingWhitespace" = true;
+        "git.allowForcePush" = true;
+        "git.showPushSuccessNotification" = true;
+        "explorer.confirmDelete" = false;
+        "editor.cursorSmoothCaretAnimation" = true;
+        "workbench.editor.highlightModifiedTabs" = true;
+        "search.seedWithNearestWord" = true;
+        "search.showLineNumbers" = true;
+        "latex-workshop.latex.autoBuild.run" = "never";
+        "telemetry.enableCrashReporter" = false;
+        "telemetry.enableTelemetry" = false;
+        "rest-client.enableTelemetry" = false;
+        "redhat.telemetry.enabled" = false;
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        "[php]" = {
+          "editor.defaultFormatter" = "bmewburn.vscode-intelephense-client";
+        };
+        "files.associations" = {
+          "*.module" = "php";
+        };
+        "[yaml]" = {
+            "editor.defaultFormatter" = "redhat.vscode-yaml";
+        };
+        "gitlens.advanced.messages" = {
+            "suppressCommitHasNoPreviousCommitWarning" = true;
+        };
+        "plantuml.previewSnapIndicators" = true;
+        "git.confirmSync" = false;
+        "latex-workshop.latex.external.build.command" = "make";
+        "terminal.integrated.fontSize" = 18;
+        "cSpell.language" = "fr,en-GB,en-US,en";
+        "cSpell.minWordLength" = 3;
+        "window.dialogStyle" = "custom";
+        "sync.autoDownload" = true;
+        "sync.autoUpload" = true;
+        "sync.forceUpload" = true;
+        "sync.quietSync" = true;
+        "[json]" = {
+            "editor.defaultFormatter" = "vscode.json-language-features";
+        };
+        "cSpell.userWords" = [
+            "methodes"
+            "negligable"
+            "Wopi"
+        ];
+        "diffEditor.ignoreTrimWhitespace" = false;
+        "security.workspace.trust.untrustedFiles" = "open";
+        "rust-client.disableRustup" = true;
+        "rust-client.channel" = "stable";
+        "errorLens.enabled" = false;
+        "git.confirmForcePush" = false;
+        "editor.unicodeHighlight.nonBasicASCII" = false;
+        "editor.unicodeHighlight.invisibleCharacters" = false;
+        "editor.unicodeHighlight.ambiguousCharacters" = false;
+        "workbench.startupEditor" = "none";
+        "gitlens.codeLens.enabled" = false;
+        "cmake.configureOnOpen" = true;
+        "editor.stickyScroll.enabled" = true;
+        "nixEnvSelector.suggestion" = false;
+        "nix.formatterPath" = "nixpkgs-fmt";
+        "editor.stickyScroll.maxLineCount" = 10;
+        "spellright.language" = [
+          "en_US"
+          "en"
+        ];
+        "[markdown]" = {
+            "editor.defaultFormatter" = "yzhang.markdown-all-in-one";
+        };
+        "window.zoomLevel" = 2;
+        "languageTool.language" = "fr";
+        "languageToolLinter.serviceType" = "managed";
+        "workbench.colorTheme" = "Community Material Theme Darker";
+        "terminal.integrated.defaultProfile.linux" = "fish";
       };
     };
   };
