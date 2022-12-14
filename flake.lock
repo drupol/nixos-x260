@@ -108,11 +108,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1671018840,
-        "narHash": "sha256-1pc4EuWuFyCsF9xOD7rbJwfEh7p8rJvRAdBffKJZ2mE=",
+        "lastModified": 1671045310,
+        "narHash": "sha256-DIJ5wdvtN0ZI/9h0IJQaCfcKo7Tgj9GP8QC0CH4zO8E=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c917b69e56f8c24be14f99b23d675fe6dd555e90",
+        "rev": "ac70c727586709a7dafbf7fe7c33be6ba0a0aadd",
         "type": "github"
       },
       "original": {
@@ -135,6 +135,21 @@
         "owner": "NixOS",
         "ref": "nixos-22.05",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nur": {
+      "locked": {
+        "lastModified": 1671035267,
+        "narHash": "sha256-Fm1V/rfGr2rCw8drF9VjsWibfd6KXbe52Iqur8vfw6s=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "7ac448653e67ac3e6d316400613fab642ede010b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
         "type": "github"
       }
     },
@@ -165,6 +180,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",
+        "nur": "nur",
         "plasma-manager": "plasma-manager",
         "z": "z"
       }

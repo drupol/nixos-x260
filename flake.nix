@@ -9,6 +9,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
     plasma-manager.url = "github:pjones/plasma-manager";
+    nur.url = "github:nix-community/NUR";
 
     # Fish themes
     bobthefish = { url = "github:oh-my-fish/theme-bobthefish"; flake = false; };
@@ -17,7 +18,7 @@
     z = { url = "github:jethrokuan/z"; flake = false; };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, nur, ... }@inputs:
     let
       # This is the same as "lib = nixpkgs.lib";
       inherit (nixpkgs) lib;
@@ -43,6 +44,7 @@
         (final: prev: {
           z-src = inputs.z;
         })
+        nur.overlay
       ];
 
       pkgs = import nixpkgs {

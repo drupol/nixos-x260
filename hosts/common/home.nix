@@ -56,6 +56,16 @@
     };
     firefox = {
       enable = true;
+      extensions = [
+        pkgs.nur.repos.rycee.firefox-addons.belgium-eid
+        pkgs.nur.repos.rycee.firefox-addons.better-tweetdeck
+        pkgs.nur.repos.rycee.firefox-addons.browserpass
+        pkgs.nur.repos.rycee.firefox-addons.enhancer-for-youtube
+        pkgs.nur.repos.rycee.firefox-addons.french-dictionary
+        pkgs.nur.repos.rycee.firefox-addons.https-everywhere
+        pkgs.nur.repos.rycee.firefox-addons.multi-account-containers
+        pkgs.nur.repos.rycee.firefox-addons.privacy-badger
+      ];
       profiles.default = {
         id = 0;
         name = "Default";
