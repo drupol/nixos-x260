@@ -509,7 +509,7 @@
         "window.zoomLevel" = 2;
         "languageTool.language" = "fr";
         "languageToolLinter.serviceType" = "managed";
-        "workbench.colorTheme" = "Community Material Theme Darker";
+        "workbench.colorTheme" = "One Dark Pro Darker";
         "terminal.integrated.defaultProfile.linux" = "fish";
       };
     };
