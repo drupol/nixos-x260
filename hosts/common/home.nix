@@ -421,7 +421,7 @@
           "editor.defaultFormatter" = "vscode.json-language-features";
         };
         "[markdown]" = {
-          "editor.defaultFormatter" = "yzhang.markdown-all-in-one";
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
         "[php]" = {
           "editor.defaultFormatter" = "bmewburn.vscode-intelephense-client";
