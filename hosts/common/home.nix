@@ -1,18 +1,16 @@
 { config, pkgs, ... }:
 
 {
-  fonts = {
-    fontconfig = {
-      enable = true;
-    };
-  };
+  fonts = { fontconfig = { enable = true; }; };
 
   home.file = {
     # See https://github.com/nix-community/home-manager/issues/1586#issuecomment-723843578
-    ".mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json" = {
-      source = "${pkgs.plasma-browser-integration}/lib/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json";
-      recursive = true;
-    };
+    ".mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json" =
+      {
+        source =
+          "${pkgs.plasma-browser-integration}/lib/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json";
+        recursive = true;
+      };
     ".face" = {
       source = ./. + "/../../files/home/pol/.face";
       recursive = true;
@@ -37,23 +35,17 @@
   };
 
   programs = {
-    bat = {
-      enable = true;
-    };
+    bat = { enable = true; };
     browserpass = {
       enable = true;
       browsers = [ "firefox" ];
     };
-    command-not-found = {
-      enable = false;
-    };
+    command-not-found = { enable = false; };
     direnv = {
       enable = true;
       nix-direnv.enable = true;
     };
-    exa = {
-      enable = true;
-    };
+    exa = { enable = true; };
     firefox = {
       enable = true;
       extensions = [
@@ -101,7 +93,8 @@
           "experiments.supported" = false;
           "network.allow-experiments" = false;
           # Disable Pocket Integration
-          "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
+          "browser.newtabpage.activity-stream.section.highlights.includePocket" =
+            false;
           "extensions.pocket.enabled" = false;
           "extensions.pocket.api" = "";
           "extensions.pocket.oAuthConsumerKey" = "";
@@ -137,9 +130,7 @@
     };
     git = {
       enable = true;
-      difftastic = {
-        enable = true;
-      };
+      difftastic = { enable = true; };
       userName = "Pol Dellaiera";
       userEmail = "pol.dellaiera@protonmail.com";
       aliases = {
@@ -147,12 +138,14 @@
         co = "checkout";
         patch = "format-patch --stdout HEAD~1";
         rpatch = "reset --hard HEAD~1";
-        lgg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
+        lgg =
+          "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
         lol = "log --graph --decorate --pretty=oneline --abbrev-commit";
         lola = "log --graph --decorate --pretty=oneline --abbrev-commit --all";
         clb = "!/home/user/bin/git-clean-local-branches";
         pf = "push --force-with-lease";
-        rewrite = "rebase - x 'git commit - -amend - C HEAD - -date=\"$(date -R)\" && sleep 1.05'";
+        rewrite =
+          "rebase - x 'git commit - -amend - C HEAD - -date=\"$(date -R)\" && sleep 1.05'";
         # From https://gist.github.com/pksunkara/988716
         a = "add --all";
         ai = "add -i";
@@ -171,7 +164,7 @@
         bdd = "branch -D";
         br = "branch -r";
         bc = "rev-parse --abbrev-ref HEAD";
-        bu = "!git rev-parse --abbrev-ref --symbolic-full-name \"@{u}\"";
+        bu = ''!git rev-parse --abbrev-ref --symbolic-full-name "@{u}"'';
         recent-branches = "branch --sort=-committerdate";
         #############
         c = "commit";
@@ -186,9 +179,11 @@
         cl = "clone";
         cld = "clone --depth 1";
         clg = "!sh -c 'git clone git://github.com/$1 $(basename $1)' -";
-        clgp = "!sh -c 'git clone git@github.com:$(git config --get user.username)/$1 $1' -";
+        clgp =
+          "!sh -c 'git clone git@github.com:$(git config --get user.username)/$1 $1' -";
         #############
-        co-pr = "!sh -c 'git fetch origin refs/pull/$1/head:pull/$1 && git checkout pull/$1' -";
+        co-pr =
+          "!sh -c 'git fetch origin refs/pull/$1/head:pull/$1 && git checkout pull/$1' -";
         cp = "cherry-pick";
         cpa = "cherry-pick --abort";
         cpc = "cherry-pick --continue";
@@ -317,7 +312,8 @@
         wp = "show -p";
         wr = "show -p --no-color";
         #############
-        subadd = "!sh -c 'git submodule add git://github.com/$1 $2/$(basename $1)' -";
+        subadd =
+          "!sh -c 'git submodule add git://github.com/$1 $2/$(basename $1)' -";
         subup = "submodule update --init --recursive";
         subpull = "!git submodule foreach git pull --tags origin master";
         #############
@@ -327,43 +323,41 @@
         unassumeall = "!git assumed | xargs git unassume";
         assumeall = "!git status -s | awk {'print $2'} | xargs git assume";
         #############
-        bump = "!sh -c 'git commit -am \"Version bump v$1\" && git psuoc && git release $1' -";
+        bump = ''
+          !sh -c 'git commit -am "Version bump v$1" && git psuoc && git release $1' -'';
         release = "!sh -c 'git tag v$1 && git pst' -";
         unrelease = "!sh -c 'git tag -d v$1 && git pso :v$1' -";
         merged = "!sh -c 'git o master && git plom && git bd $1 && git rpo' -";
         aliases = "!git config -l | grep alias | cut -c 7-";
-        snap = "!git stash save 'snapshot = $(date)' && git stash apply 'stash@{0}'";
-        bare = "!sh -c 'git symbolic-ref HEAD refs/heads/$1 && git rm --cached -r . && git clean -xfd' -";
-        whois = "!sh -c 'git log -i -1 --author=\"$1\" --pretty=\"format:%an <%ae>\"' -";
-        serve = "daemon --reuseaddr --verbose --base-path=. --export-all ./.git";
+        snap =
+          "!git stash save 'snapshot = $(date)' && git stash apply 'stash@{0}'";
+        bare =
+          "!sh -c 'git symbolic-ref HEAD refs/heads/$1 && git rm --cached -r . && git clean -xfd' -";
+        whois = ''
+          !sh -c 'git log -i -1 --author="$1" --pretty="format:%an <%ae>"' -'';
+        serve =
+          "daemon --reuseaddr --verbose --base-path=. --export-all ./.git";
         #############
         behind = "!git rev-list --left-only --count $(git bu)...HEAD";
         ahead = "!git rev-list --right-only --count $(git bu)...HEAD";
         #############
         ours = "!f() { git checkout --ours $@ && git add $@; }; f";
         theirs = "!f() { git checkout --theirs $@ && git add $@; }; f";
-        subrepo = "!sh -c 'git filter-branch --prune-empty --subdirectory-filter $1 master' -";
+        subrepo =
+          "!sh -c 'git filter-branch --prune-empty --subdirectory-filter $1 master' -";
         human = "name-rev --name-only --refs=refs/heads/*";
       };
       extraConfig = {
-        branch = {
-          autosetuprebase = "always";
-        };
-        color = {
-          ui = "auto";
-        };
+        branch = { autosetuprebase = "always"; };
+        color = { ui = "auto"; };
         core = {
           autocrlf = "input";
           editor = "nano";
           safecrlf = "warn";
           excludesfile = "~/.gitignore_global";
         };
-        diff = {
-          mnemonicprefix = true;
-        };
-        init = {
-          defaultBranch = "main";
-        };
+        diff = { mnemonicprefix = true; };
+        init = { defaultBranch = "main"; };
         merge = {
           conflictstyle = "diff3";
           commit = "no";
@@ -378,30 +372,18 @@
           default = "matching";
           rebase = true;
         };
-        rebase = {
-          instructionFormat = "(%an <%ae>) %s";
-        };
-        rerere = {
-          enabled = true;
-        };
-        include = {
-          path = "~/.gitconfig.local";
-        };
+        rebase = { instructionFormat = "(%an <%ae>) %s"; };
+        rerere = { enabled = true; };
+        include = { path = "~/.gitconfig.local"; };
         signing = {
           signByDefault = true;
           key = "0AAF2901E8040715";
         };
-        commit = {
-          gpgsign = true;
-        };
+        commit = { gpgsign = true; };
       };
     };
-    home-manager = {
-      enable = true;
-    };
-    htop = {
-      enable = true;
-    };
+    home-manager = { enable = true; };
+    htop = { enable = true; };
     password-store = {
       enable = true;
       settings = {
@@ -411,107 +393,105 @@
     vscode = {
       enable = true;
       extensions = [
-#        pkgs.vscode-extensions.equinusocio.vsc-community-material-theme
-        pkgs.vscode-extensions.editorconfig.editorconfig
-        pkgs.vscode-extensions.usernamehw.errorlens
-        pkgs.vscode-extensions.yzhang.markdown-all-in-one
+        pkgs.vscode-extensions.arcticicestudio.nord-visual-studio-code
+        pkgs.vscode-extensions.b4dm4n.vscode-nixpkgs-fmt
         pkgs.vscode-extensions.bbenoist.nix
-#        pkgs.vscode-extensions.bmewburn.vscode-intelephense-client
+        pkgs.vscode-extensions.brettm12345.nixfmt-vscode
+        #        pkgs.vscode-extensions.bmewburn.vscode-intelephense-client
+        (import ./vscode-extensions/custom.nix {
+          inherit (pkgs.vscode-utils) buildVscodeMarketplaceExtension;
+        }).bmewburn.vscode-intelephense-client
+        pkgs.vscode-extensions.christian-kohler.path-intellisense
+        pkgs.vscode-extensions.codezombiech.gitignore
+        pkgs.vscode-extensions.editorconfig.editorconfig
         pkgs.vscode-extensions.esbenp.prettier-vscode
-        pkgs.vscode-extensions.jebbs.plantuml
         pkgs.vscode-extensions.james-yu.latex-workshop
+        pkgs.vscode-extensions.jebbs.plantuml
+        pkgs.vscode-extensions.mhutchie.git-graph
+        pkgs.vscode-extensions.ms-vscode.makefile-tools
         pkgs.vscode-extensions.pkief.material-icon-theme
-        pkgs.vscode-extensions.zhuangtongfa.material-theme
         pkgs.vscode-extensions.redhat.vscode-yaml
         pkgs.vscode-extensions.redhat.vscode-xml
-        pkgs.vscode-extensions.mhutchie.git-graph
+        pkgs.vscode-extensions.usernamehw.errorlens
+        pkgs.vscode-extensions.yzhang.markdown-all-in-one
+        pkgs.vscode-extensions.zhuangtongfa.material-theme
       ];
       userSettings = {
-        "editor.rulers" = [ 80 120 ];
-        "editor.mouseWheelZoom" = true;
-        "window.titleBarStyle" = "custom";
-        "editor.fontFamily" = "'Jetbrains mono'";
-        "editor.suggestSelection" = "first";
-        "workbench.iconTheme" = "material-icon-theme";
-        "git.autofetch" = true;
-        "editor.fontLigatures" = true;
-        "workbench.colorCustomizations" = {};
-        "sync.gist" = "09e7759563df7cb7db0fbc04b9bb69c5";
-        "explorer.confirmDragAndDrop" = false;
-        "php.suggest.basic" = false;
-        "files.trimTrailingWhitespace" = true;
-        "git.allowForcePush" = true;
-        "git.showPushSuccessNotification" = true;
-        "explorer.confirmDelete" = false;
-        "editor.cursorSmoothCaretAnimation" = true;
-        "workbench.editor.highlightModifiedTabs" = true;
-        "search.seedWithNearestWord" = true;
-        "search.showLineNumbers" = true;
-        "latex-workshop.latex.autoBuild.run" = "never";
-        "telemetry.enableCrashReporter" = false;
-        "telemetry.enableTelemetry" = false;
-        "rest-client.enableTelemetry" = false;
-        "redhat.telemetry.enabled" = false;
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        "[json]" = {
+          "editor.defaultFormatter" = "vscode.json-language-features";
+        };
+        "[markdown]" = {
+          "editor.defaultFormatter" = "yzhang.markdown-all-in-one";
+        };
         "[php]" = {
           "editor.defaultFormatter" = "bmewburn.vscode-intelephense-client";
         };
-        "files.associations" = {
-          "*.module" = "php";
-        };
-        "[yaml]" = {
-            "editor.defaultFormatter" = "redhat.vscode-yaml";
-        };
-        "gitlens.advanced.messages" = {
-            "suppressCommitHasNoPreviousCommitWarning" = true;
-        };
-        "plantuml.previewSnapIndicators" = true;
-        "git.confirmSync" = false;
-        "latex-workshop.latex.external.build.command" = "make";
-        "terminal.integrated.fontSize" = 18;
+        "[yaml]" = { "editor.defaultFormatter" = "redhat.vscode-yaml"; };
+        "[nix]" = { "editor.defaultFormatter" = "brettm12345.nixfmt-vscode"; };
+        "cmake.configureOnOpen" = true;
         "cSpell.language" = "fr,en-GB,en-US,en";
         "cSpell.minWordLength" = 3;
-        "window.dialogStyle" = "custom";
-        "sync.autoDownload" = true;
-        "sync.autoUpload" = true;
-        "sync.forceUpload" = true;
-        "sync.quietSync" = true;
-        "[json]" = {
-            "editor.defaultFormatter" = "vscode.json-language-features";
-        };
-        "cSpell.userWords" = [
-            "methodes"
-            "negligable"
-            "Wopi"
-        ];
+        "cSpell.userWords" = [ "methodes" "negligable" "Wopi" ];
         "diffEditor.ignoreTrimWhitespace" = false;
-        "security.workspace.trust.untrustedFiles" = "open";
-        "rust-client.disableRustup" = true;
-        "rust-client.channel" = "stable";
-        "errorLens.enabled" = false;
-        "git.confirmForcePush" = false;
+        "editor.rulers" = [ 80 120 ];
+        "editor.mouseWheelZoom" = true;
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        "editor.fontFamily" = "'Jetbrains mono'";
+        "editor.suggestSelection" = "first";
+        "editor.fontLigatures" = true;
         "editor.unicodeHighlight.nonBasicASCII" = false;
         "editor.unicodeHighlight.invisibleCharacters" = false;
         "editor.unicodeHighlight.ambiguousCharacters" = false;
-        "workbench.startupEditor" = "none";
-        "gitlens.codeLens.enabled" = false;
-        "cmake.configureOnOpen" = true;
-        "editor.stickyScroll.enabled" = true;
-        "nixEnvSelector.suggestion" = false;
-        "nix.formatterPath" = "nixpkgs-fmt";
         "editor.stickyScroll.maxLineCount" = 10;
-        "spellright.language" = [
-          "en_US"
-          "en"
-        ];
-        "[markdown]" = {
-            "editor.defaultFormatter" = "yzhang.markdown-all-in-one";
+        "editor.stickyScroll.enabled" = true;
+        "errorLens.enabled" = false;
+        "explorer.confirmDragAndDrop" = false;
+        "explorer.confirmDelete" = false;
+        "editor.cursorSmoothCaretAnimation" = true;
+        "files.trimTrailingWhitespace" = true;
+        "files.associations" = { "*.module" = "php"; };
+        "git.allowForcePush" = true;
+        "git.autofetch" = true;
+        "git.confirmForcePush" = false;
+        "git.confirmSync" = false;
+        "git.showPushSuccessNotification" = true;
+        "gitlens.advanced.messages" = {
+          "suppressCommitHasNoPreviousCommitWarning" = true;
         };
-        "window.zoomLevel" = 2;
+        "gitlens.codeLens.enabled" = false;
         "languageTool.language" = "fr";
         "languageToolLinter.serviceType" = "managed";
-        "workbench.colorTheme" = "One Dark Pro Darker";
+        "latex-workshop.latex.autoBuild.run" = "never";
+        "latex-workshop.latex.external.build.command" = "make";
+        "nixEnvSelector.suggestion" = false;
+        "nix.formatterPath" = "nixpkgs-fmt";
+        "plantuml.previewSnapIndicators" = true;
+        "php.suggest.basic" = false;
+        "rest-client.enableTelemetry" = false;
+        "redhat.telemetry.enabled" = false;
+        "rust-client.disableRustup" = true;
+        "rust-client.channel" = "stable";
+        "search.seedWithNearestWord" = true;
+        "search.showLineNumbers" = true;
+        "security.workspace.trust.untrustedFiles" = "open";
+        "spellright.language" = [ "en_US" "en" ];
+        "sync.autoDownload" = true;
+        "sync.autoUpload" = true;
+        "sync.forceUpload" = true;
+        "sync.gist" = "09e7759563df7cb7db0fbc04b9bb69c5";
+        "sync.quietSync" = true;
+        "telemetry.enableCrashReporter" = false;
+        "telemetry.enableTelemetry" = false;
+        "terminal.integrated.fontSize" = 18;
         "terminal.integrated.defaultProfile.linux" = "fish";
+        "window.dialogStyle" = "custom";
+        "window.titleBarStyle" = "custom";
+        "window.zoomLevel" = 2;
+        "workbench.colorCustomizations" = { };
+        "workbench.editor.highlightModifiedTabs" = true;
+        "workbench.iconTheme" = "material-icon-theme";
+        "workbench.startupEditor" = "none";
+        "workbench.colorTheme" = "Material Theme Darker High Contrast";
       };
     };
   };
@@ -520,9 +500,7 @@
     gpg-agent = {
       enable = true;
       enableSshSupport = true;
-      sshKeys = [
-        "143BC4FB7B3AC7C4F902ADCB579D2F66CDA1844A"
-      ];
+      sshKeys = [ "143BC4FB7B3AC7C4F902ADCB579D2F66CDA1844A" ];
     };
   };
 
