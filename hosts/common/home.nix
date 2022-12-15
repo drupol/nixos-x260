@@ -488,10 +488,10 @@
         "window.titleBarStyle" = "custom";
         "window.zoomLevel" = 2;
         "workbench.colorCustomizations" = { };
+        "workbench.colorTheme" = "One Dark Pro Flat";
         "workbench.editor.highlightModifiedTabs" = true;
         "workbench.iconTheme" = "material-icon-theme";
         "workbench.startupEditor" = "none";
-        "workbench.colorTheme" = "Material Theme Darker High Contrast";
       };
     };
   };
