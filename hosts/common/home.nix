@@ -424,6 +424,7 @@
         pkgs.vscode-extensions.zhuangtongfa.material-theme
         pkgs.vscode-extensions.redhat.vscode-yaml
         pkgs.vscode-extensions.redhat.vscode-xml
+        pkgs.vscode-extensions.mhutchie.git-graph
       ];
       userSettings = {
         "editor.rulers" = [ 80 120 ];
