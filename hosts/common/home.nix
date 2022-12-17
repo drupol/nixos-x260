@@ -396,11 +396,8 @@
         pkgs.vscode-extensions.arcticicestudio.nord-visual-studio-code
         pkgs.vscode-extensions.b4dm4n.vscode-nixpkgs-fmt
         pkgs.vscode-extensions.bbenoist.nix
+        pkgs.vscode-extensions.bmewburn.vscode-intelephense-client
         pkgs.vscode-extensions.brettm12345.nixfmt-vscode
-        #        pkgs.vscode-extensions.bmewburn.vscode-intelephense-client
-        (import ./vscode-extensions/custom.nix {
-          inherit (pkgs.vscode-utils) buildVscodeMarketplaceExtension;
-        }).bmewburn.vscode-intelephense-client
         pkgs.vscode-extensions.christian-kohler.path-intellisense
         pkgs.vscode-extensions.codezombiech.gitignore
         pkgs.vscode-extensions.editorconfig.editorconfig
