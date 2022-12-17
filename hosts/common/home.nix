@@ -55,7 +55,9 @@
         pkgs.nur.repos.rycee.firefox-addons.enhancer-for-youtube
         pkgs.nur.repos.rycee.firefox-addons.french-dictionary
         pkgs.nur.repos.rycee.firefox-addons.https-everywhere
+        pkgs.nur.repos.rycee.firefox-addons.i-dont-care-about-cookies
         pkgs.nur.repos.rycee.firefox-addons.multi-account-containers
+        pkgs.nur.repos.rycee.firefox-addons.plasma-integration
         pkgs.nur.repos.rycee.firefox-addons.privacy-badger
       ];
       profiles.default = {
