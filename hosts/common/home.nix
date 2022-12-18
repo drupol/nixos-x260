@@ -402,6 +402,7 @@
         pkgs.vscode-extensions.brettm12345.nixfmt-vscode
         pkgs.vscode-extensions.christian-kohler.path-intellisense
         pkgs.vscode-extensions.codezombiech.gitignore
+        pkgs.vscode-extensions.donjayamanne.githistory
         pkgs.vscode-extensions.editorconfig.editorconfig
         pkgs.vscode-extensions.esbenp.prettier-vscode
         pkgs.vscode-extensions.james-yu.latex-workshop
