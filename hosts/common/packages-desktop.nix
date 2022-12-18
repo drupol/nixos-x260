@@ -29,7 +29,6 @@
       spectacle
       tdesktop
       teams
-      thunderbird-bin
       vlc
       yakuake
     ];

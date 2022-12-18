@@ -393,6 +393,18 @@
         PASSWORD_STORE_DIR = "${config.xdg.configHome}/.password-store";
       };
     };
+    thunderbird = {
+      enable = true;
+      settings = {
+        "general.useragent.override" = "";
+        "privacy.donottrackheader.enabled" = true;
+      };
+      profiles = {
+        default = {
+          isDefault = true;
+        };
+      };
+    };
     vscode = {
       enable = true;
       extensions = [
