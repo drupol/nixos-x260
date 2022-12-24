@@ -413,6 +413,7 @@
         pkgs.vscode-extensions.bbenoist.nix
         pkgs.vscode-extensions.bmewburn.vscode-intelephense-client
         pkgs.vscode-extensions.brettm12345.nixfmt-vscode
+        pkgs.vscode-extensions.bungcip.better-toml
         pkgs.vscode-extensions.christian-kohler.path-intellisense
         pkgs.vscode-extensions.codezombiech.gitignore
         pkgs.vscode-extensions.donjayamanne.githistory
