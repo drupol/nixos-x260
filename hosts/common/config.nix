@@ -37,6 +37,8 @@
 
   services.fstrim.enable = true;
   services.nscd.enableNsncd = true;
+  # needed for store VS Code auth token
+  services.gnome.gnome-keyring.enable = true;
 
   # TODO: investigate why this is not working when it is set in home.nix
   programs.command-not-found.enable = false;
