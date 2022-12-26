@@ -475,6 +475,9 @@
         "git.confirmSync" = false;
         "git.showPushSuccessNotification" = true;
         "gitblame.inlineMessageEnabled" = true;
+        "gitblame.inlineMessageFormat" = "\${time.ago} by \${author.name} @ \${commit.hash_short}";
+        "gitblame.inlineMessageMargin" = 4;
+        "gitblame.statusBarMessageFormat" = "\${time.ago} by \${author.name} @ \${commit.hash_short}";
         "languageTool.language" = "fr";
         "languageToolLinter.serviceType" = "managed";
         "latex-workshop.latex.autoBuild.run" = "never";
