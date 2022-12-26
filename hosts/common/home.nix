@@ -431,6 +431,7 @@
         pkgs.vscode-extensions.usernamehw.errorlens
         pkgs.vscode-extensions.yzhang.markdown-all-in-one
         pkgs.vscode-extensions.zhuangtongfa.material-theme
+        pkgs.master.vscode-extensions.waderyan.gitblame
       ];
       userSettings = {
         "[json]" = {
@@ -473,6 +474,7 @@
         "git.confirmForcePush" = false;
         "git.confirmSync" = false;
         "git.showPushSuccessNotification" = true;
+        "gitblame.inlineMessageEnabled" = true;
         "languageTool.language" = "fr";
         "languageToolLinter.serviceType" = "managed";
         "latex-workshop.latex.autoBuild.run" = "never";
