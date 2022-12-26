@@ -473,10 +473,6 @@
         "git.confirmForcePush" = false;
         "git.confirmSync" = false;
         "git.showPushSuccessNotification" = true;
-        "gitlens.advanced.messages" = {
-          "suppressCommitHasNoPreviousCommitWarning" = true;
-        };
-        "gitlens.codeLens.enabled" = false;
         "languageTool.language" = "fr";
         "languageToolLinter.serviceType" = "managed";
         "latex-workshop.latex.autoBuild.run" = "never";
@@ -491,6 +487,8 @@
         "rust-client.channel" = "stable";
         "search.seedWithNearestWord" = true;
         "search.showLineNumbers" = true;
+        "search.useGlobalIgnoreFiles" = true;
+        "search.useIgnoreFiles" = true;
         "security.workspace.trust.untrustedFiles" = "open";
         "spellright.language" = [ "en_US" "en" ];
         "sync.autoDownload" = true;
@@ -504,7 +502,7 @@
         "terminal.integrated.defaultProfile.linux" = "fish";
         "window.dialogStyle" = "custom";
         "window.titleBarStyle" = "custom";
-        "window.zoomLevel" = 2;
+        "window.zoomLevel" = 1;
         "workbench.colorCustomizations" = { };
         "workbench.colorTheme" = "One Dark Pro Flat";
         "workbench.editor.highlightModifiedTabs" = true;
