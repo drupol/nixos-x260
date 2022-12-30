@@ -60,6 +60,7 @@
         pkgs.nur.repos.rycee.firefox-addons.multi-account-containers
         pkgs.nur.repos.rycee.firefox-addons.plasma-integration
         pkgs.nur.repos.rycee.firefox-addons.privacy-badger
+        pkgs.nur.repos.rycee.firefox-addons.youchoose-ai
       ];
       profiles.default = {
         id = 0;
@@ -429,9 +430,9 @@
         pkgs.vscode-extensions.redhat.vscode-yaml
         pkgs.vscode-extensions.redhat.vscode-xml
         pkgs.vscode-extensions.usernamehw.errorlens
+        pkgs.vscode-extensions.waderyan.gitblame
         pkgs.vscode-extensions.yzhang.markdown-all-in-one
         pkgs.vscode-extensions.zhuangtongfa.material-theme
-        pkgs.master.vscode-extensions.waderyan.gitblame
       ];
       userSettings = {
         "[json]" = {
