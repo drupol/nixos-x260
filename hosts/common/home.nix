@@ -54,7 +54,6 @@
         pkgs.nur.repos.rycee.firefox-addons.browserpass
         pkgs.nur.repos.rycee.firefox-addons.enhancer-for-youtube
         pkgs.nur.repos.rycee.firefox-addons.french-dictionary
-        pkgs.nur.repos.rycee.firefox-addons.https-everywhere
         pkgs.nur.repos.rycee.firefox-addons.i-dont-care-about-cookies
         pkgs.nur.repos.rycee.firefox-addons.kristofferhagen-nord-theme
         pkgs.nur.repos.rycee.firefox-addons.multi-account-containers
