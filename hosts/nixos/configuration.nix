@@ -66,10 +66,6 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-    xrdp = {
-      enable = true;
-      defaultWindowManager = "startplasma-x11";
-    };
     xserver = {
       enable = true;
       desktopManager = {

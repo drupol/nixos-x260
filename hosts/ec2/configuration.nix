@@ -54,9 +54,6 @@
 
   services.udisks2.enable = lib.mkForce false;
 
-  services.xrdp.enable = true;
-  services.xrdp.defaultWindowManager = "startplasma-x11";
-
   # Configure keymap in X11
   services.xserver.layout = "gb";
   services.xserver.xkbOptions = "eurosign:e";
