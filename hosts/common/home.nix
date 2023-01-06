@@ -97,6 +97,9 @@
             };
 
             "Bing".metaData.hidden = true;
+            "DuckDuckGo".metaData.hidden = true;
+            "Amazon.nl".metaData.hidden = true;
+            "eBay".metaData.hidden = true;
             "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
           };
         };
