@@ -1,11 +1,14 @@
-{ config, pkgs, lib, inputs, ... }:
-
 {
-  imports =
-    [
-      inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x280
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
+  imports = [
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x280
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -73,7 +76,7 @@
       };
       layout = "be";
       xkbOptions = "eurosign:e";
-      videoDrivers = [ "displaylink" ];
+      videoDrivers = ["displaylink"];
     };
   };
 
@@ -100,7 +103,7 @@
     };
     firewall = {
       enable = false;
-      allowedTCPPorts = [ 3389 ];
+      allowedTCPPorts = [3389];
       checkReversePath = false;
     };
     useDHCP = false;
@@ -120,12 +123,11 @@
     # allowReboot = true;
   };
 
-  environment.etc."current-system-packages".text = with lib;
-    let
-      packages = builtins.map (p: "${p.name}") config.environment.systemPackages;
-      sortedUnique = builtins.sort builtins.lessThan (lib.unique packages);
-      formatted = builtins.concatStringsSep "\n" sortedUnique;
-    in
+  environment.etc."current-system-packages".text = with lib; let
+    packages = builtins.map (p: "${p.name}") config.environment.systemPackages;
+    sortedUnique = builtins.sort builtins.lessThan (lib.unique packages);
+    formatted = builtins.concatStringsSep "\n" sortedUnique;
+  in
     formatted;
 
   virtualisation.docker.enable = false;

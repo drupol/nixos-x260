@@ -1,16 +1,16 @@
-{ config, pkgs, ... }:
-
 {
-  fonts = { fontconfig = { enable = true; }; };
+  config,
+  pkgs,
+  ...
+}: {
+  fonts = {fontconfig = {enable = true;};};
 
   home.file = {
     # See https://github.com/nix-community/home-manager/issues/1586#issuecomment-723843578
-    ".mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json" =
-      {
-        source =
-          "${pkgs.plasma-browser-integration}/lib/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json";
-        recursive = true;
-      };
+    ".mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json" = {
+      source = "${pkgs.plasma-browser-integration}/lib/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json";
+      recursive = true;
+    };
     ".face" = {
       source = ./. + "/../../files/home/pol/.face";
       recursive = true;
@@ -35,17 +35,17 @@
   };
 
   programs = {
-    bat = { enable = true; };
+    bat = {enable = true;};
     browserpass = {
       enable = true;
-      browsers = [ "firefox" ];
+      browsers = ["firefox"];
     };
-    command-not-found = { enable = false; };
+    command-not-found = {enable = false;};
     direnv = {
       enable = true;
       nix-direnv.enable = true;
     };
-    exa = { enable = true; };
+    exa = {enable = true;};
     firefox = {
       enable = true;
       extensions = [
@@ -65,6 +65,42 @@
       profiles.default = {
         id = 0;
         name = "Default";
+        search = {
+          default = "Google";
+          force = true;
+          engines = {
+            "Nix Packages" = {
+              urls = [
+                {
+                  template = "https://search.nixos.org/packages";
+                  params = [
+                    {
+                      name = "type";
+                      value = "packages";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = ["@np"];
+            };
+
+            "NixOS Wiki" = {
+              urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
+              iconUpdateURL = "https://nixos.wiki/favicon.png";
+              updateInterval = 24 * 60 * 60 * 1000; # every day
+              definedAliases = ["@nw"];
+            };
+
+            "Bing".metaData.hidden = true;
+            "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
+          };
+        };
         settings = {
           # Browser settings go here
           "browser.startup.homepage" = "";
@@ -134,7 +170,7 @@
     };
     git = {
       enable = true;
-      difftastic = { enable = true; };
+      difftastic = {enable = true;};
       userName = "Pol Dellaiera";
       userEmail = "pol.dellaiera@protonmail.com";
       aliases = {
@@ -142,14 +178,12 @@
         co = "checkout";
         patch = "format-patch --stdout HEAD~1";
         rpatch = "reset --hard HEAD~1";
-        lgg =
-          "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
+        lgg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
         lol = "log --graph --decorate --pretty=oneline --abbrev-commit";
         lola = "log --graph --decorate --pretty=oneline --abbrev-commit --all";
         clb = "!/home/user/bin/git-clean-local-branches";
         pf = "push --force-with-lease";
-        rewrite =
-          "rebase - x 'git commit - -amend - C HEAD - -date=\"$(date -R)\" && sleep 1.05'";
+        rewrite = "rebase - x 'git commit - -amend - C HEAD - -date=\"$(date -R)\" && sleep 1.05'";
         # From https://gist.github.com/pksunkara/988716
         a = "add --all";
         ai = "add -i";
@@ -183,11 +217,9 @@
         cl = "clone";
         cld = "clone --depth 1";
         clg = "!sh -c 'git clone git://github.com/$1 $(basename $1)' -";
-        clgp =
-          "!sh -c 'git clone git@github.com:$(git config --get user.username)/$1 $1' -";
+        clgp = "!sh -c 'git clone git@github.com:$(git config --get user.username)/$1 $1' -";
         #############
-        co-pr =
-          "!sh -c 'git fetch origin refs/pull/$1/head:pull/$1 && git checkout pull/$1' -";
+        co-pr = "!sh -c 'git fetch origin refs/pull/$1/head:pull/$1 && git checkout pull/$1' -";
         cp = "cherry-pick";
         cpa = "cherry-pick --abort";
         cpc = "cherry-pick --continue";
@@ -316,8 +348,7 @@
         wp = "show -p";
         wr = "show -p --no-color";
         #############
-        subadd =
-          "!sh -c 'git submodule add git://github.com/$1 $2/$(basename $1)' -";
+        subadd = "!sh -c 'git submodule add git://github.com/$1 $2/$(basename $1)' -";
         subup = "submodule update --init --recursive";
         subpull = "!git submodule foreach git pull --tags origin master";
         #############
@@ -333,35 +364,31 @@
         unrelease = "!sh -c 'git tag -d v$1 && git pso :v$1' -";
         merged = "!sh -c 'git o master && git plom && git bd $1 && git rpo' -";
         aliases = "!git config -l | grep alias | cut -c 7-";
-        snap =
-          "!git stash save 'snapshot = $(date)' && git stash apply 'stash@{0}'";
-        bare =
-          "!sh -c 'git symbolic-ref HEAD refs/heads/$1 && git rm --cached -r . && git clean -xfd' -";
+        snap = "!git stash save 'snapshot = $(date)' && git stash apply 'stash@{0}'";
+        bare = "!sh -c 'git symbolic-ref HEAD refs/heads/$1 && git rm --cached -r . && git clean -xfd' -";
         whois = ''
           !sh -c 'git log -i -1 --author="$1" --pretty="format:%an <%ae>"' -'';
-        serve =
-          "daemon --reuseaddr --verbose --base-path=. --export-all ./.git";
+        serve = "daemon --reuseaddr --verbose --base-path=. --export-all ./.git";
         #############
         behind = "!git rev-list --left-only --count $(git bu)...HEAD";
         ahead = "!git rev-list --right-only --count $(git bu)...HEAD";
         #############
         ours = "!f() { git checkout --ours $@ && git add $@; }; f";
         theirs = "!f() { git checkout --theirs $@ && git add $@; }; f";
-        subrepo =
-          "!sh -c 'git filter-branch --prune-empty --subdirectory-filter $1 master' -";
+        subrepo = "!sh -c 'git filter-branch --prune-empty --subdirectory-filter $1 master' -";
         human = "name-rev --name-only --refs=refs/heads/*";
       };
       extraConfig = {
-        branch = { autosetuprebase = "always"; };
-        color = { ui = "auto"; };
+        branch = {autosetuprebase = "always";};
+        color = {ui = "auto";};
         core = {
           autocrlf = "input";
           editor = "nano";
           safecrlf = "warn";
           excludesfile = "~/.gitignore_global";
         };
-        diff = { mnemonicprefix = true; };
-        init = { defaultBranch = "main"; };
+        diff = {mnemonicprefix = true;};
+        init = {defaultBranch = "main";};
         merge = {
           conflictstyle = "diff3";
           commit = "no";
@@ -376,18 +403,18 @@
           default = "matching";
           rebase = true;
         };
-        rebase = { instructionFormat = "(%an <%ae>) %s"; };
-        rerere = { enabled = true; };
-        include = { path = "~/.gitconfig.local"; };
+        rebase = {instructionFormat = "(%an <%ae>) %s";};
+        rerere = {enabled = true;};
+        include = {path = "~/.gitconfig.local";};
         signing = {
           signByDefault = true;
           key = "0AAF2901E8040715";
         };
-        commit = { gpgsign = true; };
+        commit = {gpgsign = true;};
       };
     };
-    home-manager = { enable = true; };
-    htop = { enable = true; };
+    home-manager = {enable = true;};
+    htop = {enable = true;};
     password-store = {
       enable = true;
       settings = {
@@ -444,12 +471,12 @@
         "[php]" = {
           "editor.defaultFormatter" = "bmewburn.vscode-intelephense-client";
         };
-        "[yaml]" = { "editor.defaultFormatter" = "redhat.vscode-yaml"; };
-        "[nix]" = { "editor.defaultFormatter" = "brettm12345.nixfmt-vscode"; };
+        "[yaml]" = {"editor.defaultFormatter" = "redhat.vscode-yaml";};
+        "[nix]" = {"editor.defaultFormatter" = "brettm12345.nixfmt-vscode";};
         "cmake.configureOnOpen" = true;
         "cSpell.language" = "fr,en-GB,en-US,en";
         "cSpell.minWordLength" = 3;
-        "cSpell.userWords" = [ "methodes" "negligable" "Wopi" ];
+        "cSpell.userWords" = ["methodes" "negligable" "Wopi"];
         "diffEditor.ignoreTrimWhitespace" = false;
         "editor.bracketPairColorization.enabled" = true;
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
@@ -457,7 +484,7 @@
         "editor.fontLigatures" = true;
         "editor.guides.bracketPairs" = "active";
         "editor.mouseWheelZoom" = true;
-        "editor.rulers" = [ 80 120 ];
+        "editor.rulers" = [80 120];
         "editor.stickyScroll.maxLineCount" = 10;
         "editor.stickyScroll.enabled" = true;
         "editor.suggestSelection" = "first";
@@ -469,7 +496,7 @@
         "explorer.confirmDelete" = false;
         "editor.cursorSmoothCaretAnimation" = true;
         "files.trimTrailingWhitespace" = true;
-        "files.associations" = { "*.module" = "php"; };
+        "files.associations" = {"*.module" = "php";};
         "git.allowForcePush" = true;
         "git.autofetch" = true;
         "git.confirmForcePush" = false;
@@ -496,7 +523,7 @@
         "search.useGlobalIgnoreFiles" = true;
         "search.useIgnoreFiles" = true;
         "security.workspace.trust.untrustedFiles" = "open";
-        "spellright.language" = [ "en_US" "en" ];
+        "spellright.language" = ["en_US" "en"];
         "sync.autoDownload" = true;
         "sync.autoUpload" = true;
         "sync.forceUpload" = true;
@@ -509,7 +536,7 @@
         "window.dialogStyle" = "custom";
         "window.titleBarStyle" = "custom";
         "window.zoomLevel" = 1;
-        "workbench.colorCustomizations" = { };
+        "workbench.colorCustomizations" = {};
         "workbench.colorTheme" = "One Dark Pro Flat";
         "workbench.editor.highlightModifiedTabs" = true;
         "workbench.iconTheme" = "material-icon-theme";
@@ -522,8 +549,7 @@
     gpg-agent = {
       enable = true;
       enableSshSupport = true;
-      sshKeys = [ "143BC4FB7B3AC7C4F902ADCB579D2F66CDA1844A" ];
+      sshKeys = ["143BC4FB7B3AC7C4F902ADCB579D2F66CDA1844A"];
     };
   };
-
 }

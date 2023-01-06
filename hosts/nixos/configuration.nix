@@ -1,10 +1,11 @@
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
@@ -83,7 +84,7 @@
       };
       layout = "us";
       xkbOptions = "eurosign:e";
-      videoDrivers = [ "displaylink" ];
+      videoDrivers = ["displaylink"];
     };
   };
 
@@ -109,13 +110,13 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  security.sudo.wheelNeedsPassword = false;  # Use 'sudo' without a password
+  security.sudo.wheelNeedsPassword = false; # Use 'sudo' without a password
 
   powerManagement.enable = true;
 
   programs.ssh.forwardX11 = true;
 
-  networking.firewall.allowedTCPPorts = [ 3389 ];
+  networking.firewall.allowedTCPPorts = [3389];
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -136,4 +137,3 @@
     allowReboot = true;
   };
 }
-

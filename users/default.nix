@@ -1,6 +1,9 @@
-{ config, inputs, pkgs, ... }:
-
 {
+  config,
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ./root.nix
     ./pol.nix

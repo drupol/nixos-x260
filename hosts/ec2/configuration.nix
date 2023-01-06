@@ -1,11 +1,14 @@
-{ config, pkgs, lib, modulesPath, ... }:
-
 {
-  imports =
-    [
-      "${modulesPath}/virtualisation/amazon-image.nix"
-      ./hardware.nix
-    ];
+  config,
+  pkgs,
+  lib,
+  modulesPath,
+  ...
+}: {
+  imports = [
+    "${modulesPath}/virtualisation/amazon-image.nix"
+    ./hardware.nix
+  ];
 
   # Use the GRUB 2 boot loader.
   # boot.loader.grub.enable = true;
@@ -120,12 +123,11 @@
     allowReboot = false;
   };
 
-  environment.etc."current-system-packages".text = with lib;
-    let
-      packages = builtins.map (p: "${p.name}") config.environment.systemPackages;
-      sortedUnique = builtins.sort builtins.lessThan (lib.unique packages);
-      formatted = builtins.concatStringsSep "\n" sortedUnique;
-    in
+  environment.etc."current-system-packages".text = with lib; let
+    packages = builtins.map (p: "${p.name}") config.environment.systemPackages;
+    sortedUnique = builtins.sort builtins.lessThan (lib.unique packages);
+    formatted = builtins.concatStringsSep "\n" sortedUnique;
+  in
     formatted;
 
   #  system.copySystemConfiguration = true;

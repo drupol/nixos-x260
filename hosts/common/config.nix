@@ -1,6 +1,9 @@
-{ config, pkgs, lib, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   nix = {
     gc = {
       automatic = true;
@@ -8,7 +11,7 @@
       options = "--delete-older-than 3d";
     };
     settings = {
-      trusted-users = [ "root" "pol" ];
+      trusted-users = ["root" "pol"];
       auto-optimise-store = true;
     };
     # From https://jackson.dev/post/nix-reasonable-defaults/

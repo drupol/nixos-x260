@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   fonts = {
     fontconfig = {
       enable = true;
@@ -37,7 +39,7 @@
     };
     browserpass = {
       enable = true;
-      browsers = [ "firefox" ];
+      browsers = ["firefox"];
     };
     command-not-found = {
       enable = false;
@@ -401,5 +403,4 @@
       ];
     };
   };
-
 }
