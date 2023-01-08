@@ -59,6 +59,7 @@
         pkgs.nur.repos.rycee.firefox-addons.multi-account-containers
         pkgs.nur.repos.rycee.firefox-addons.plasma-integration
         pkgs.nur.repos.rycee.firefox-addons.privacy-badger
+        pkgs.nur.repos.rycee.firefox-addons.tournesol
         pkgs.nur.repos.rycee.firefox-addons.youchoose-ai
       ];
       profiles.default = {
