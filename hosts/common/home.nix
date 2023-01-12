@@ -457,6 +457,7 @@
         pkgs.vscode-extensions.matklad.rust-analyzer
         pkgs.vscode-extensions.mhutchie.git-graph
         pkgs.vscode-extensions.ms-vscode.makefile-tools
+        pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
         pkgs.vscode-extensions.pkief.material-icon-theme
         pkgs.vscode-extensions.redhat.vscode-yaml
         pkgs.vscode-extensions.redhat.vscode-xml
