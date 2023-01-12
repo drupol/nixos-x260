@@ -484,6 +484,7 @@
         "cSpell.userWords" = ["methodes" "negligable" "Wopi"];
         "diffEditor.ignoreTrimWhitespace" = false;
         "editor.bracketPairColorization.enabled" = true;
+        "editor.cursorSmoothCaretAnimation" = true;
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
         "editor.fontFamily" = "'Jetbrains mono'";
         "editor.fontLigatures" = true;
@@ -499,7 +500,7 @@
         "errorLens.enabled" = false;
         "explorer.confirmDragAndDrop" = false;
         "explorer.confirmDelete" = false;
-        "editor.cursorSmoothCaretAnimation" = true;
+        "extensions.ignoreRecommendations" = true;
         "files.trimTrailingWhitespace" = true;
         "files.associations" = {"*.module" = "php";};
         "git.allowForcePush" = true;
@@ -508,9 +509,9 @@
         "git.confirmSync" = false;
         "git.showPushSuccessNotification" = true;
         "gitblame.inlineMessageEnabled" = true;
-        "gitblame.inlineMessageFormat" = "\${time.ago} by \${author.name} @ \${commit.hash_short}";
+        "gitblame.inlineMessageFormat" = "\${commit.summary} by \${author.name} - \${time.ago} @ \${commit.hash_short}";
         "gitblame.inlineMessageMargin" = 4;
-        "gitblame.statusBarMessageFormat" = "\${time.ago} by \${author.name} @ \${commit.hash_short}";
+        "gitblame.statusBarMessageFormat" = "\${commit.summary} by \${author.name} - \${time.ago} @ \${commit.hash_short}";
         "languageTool.language" = "fr";
         "languageToolLinter.serviceType" = "managed";
         "latex-workshop.latex.autoBuild.run" = "never";
