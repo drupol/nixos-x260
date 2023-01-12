@@ -52,6 +52,7 @@
         pkgs.nur.repos.rycee.firefox-addons.belgium-eid
         pkgs.nur.repos.rycee.firefox-addons.better-tweetdeck
         pkgs.nur.repos.rycee.firefox-addons.browserpass
+        pkgs.nur.repos.rycee.firefox-addons.bypass-paywalls-clean
         pkgs.nur.repos.rycee.firefox-addons.enhancer-for-youtube
         pkgs.nur.repos.rycee.firefox-addons.french-dictionary
         pkgs.nur.repos.rycee.firefox-addons.i-dont-care-about-cookies
