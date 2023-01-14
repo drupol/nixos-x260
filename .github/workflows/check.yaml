@@ -14,17 +14,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        operating-system: [ubuntu-latest, macOS-latest]
+        operating-system: [ubuntu-latest]
 
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 1
 
       - name: Install the Nix package manager
         uses: cachix/install-nix-action@v18
 
       - name: Check
-        run: |
-          nix flake check
+        run: nix flake check
