@@ -40,8 +40,9 @@
       enable = true;
     };
     firewall = {
-      enable = false;
-      allowedTCPPorts = [];
+      enable = true;
+      allowedTCPPorts = [ 53 67 80 ];
+      allowedUDPPorts = [ 53 67 ];
       checkReversePath = false;
     };
     useDHCP = false;
