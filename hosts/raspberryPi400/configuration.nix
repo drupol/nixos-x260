@@ -54,7 +54,7 @@
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [53 67 80];
+      allowedTCPPorts = [53 67 80 8888 9991];
       allowedUDPPorts = [53 67];
       checkReversePath = false;
     };
@@ -85,6 +85,9 @@
   security.sudo.wheelNeedsPassword = false;
 
   services.openssh.enable = true;
+
+  services.grafana = import ./grafana.nix;
+  services.prometheus = import ./prometheus.nix;
 
   system.stateVersion = "23.05";
   system.autoUpgrade = {
