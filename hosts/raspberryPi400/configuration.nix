@@ -51,10 +51,10 @@
       end1 = {
         name = "wan";
 
-        # ipv4.addresses = [{
-        #   address = "192.168.1.2";
-        #   prefixLength = 24;
-        # }];
+        ipv4.addresses = [{
+          address = "192.168.1.2";
+          prefixLength = 24;
+        }];
 
         macAddress = "00:0e:c6:52:c6:b3";
       };
@@ -88,5 +88,5 @@
   };
 
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
-  boot.kernel.sysctl."net.ipv6.conf.all.disable_ipv6" = 1;
+  # boot.kernel.sysctl."net.ipv6.conf.all.disable_ipv6" = 1;
 }
