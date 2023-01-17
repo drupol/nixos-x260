@@ -99,6 +99,7 @@
           inherit system overlays;
           config = {
             allowUnfreePredicate = pkg: true;
+            allowUnsupportedSystem = true;
           };
         };
 
