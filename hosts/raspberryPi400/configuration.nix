@@ -64,7 +64,7 @@
   virtualisation = {
     podman = {
       enable = true;
-      defaultNetwork.dnsname.enable = true;
+      defaultNetwork.settings.dns_enabled = true;
       dockerCompat = true;
       dockerSocket.enable = true;
       extraPackages = [ pkgs.netavark ];
