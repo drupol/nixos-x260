@@ -60,4 +60,23 @@
   };
 
   hardware.enableRedistributableFirmware = true;
+
+  config.virtualisation.oci-containers.containers = {
+    pihole = {
+      image = "pihole/pihole:latest";
+      ports = [
+        "53:53"
+        "67:67"
+        "80:80"
+      ];
+      environment = {
+        TZ = "Europe/Brussels";
+      };
+      cap_add = [ "NET_ADMIN" ];
+      volumes = [
+        "./etc-pihole:/etc/pihole"
+        "./etc-dnsmasq.d:/etc/dnsmasq.d"
+      ];
+    };
+  };
 }
