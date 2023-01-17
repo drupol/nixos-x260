@@ -60,7 +60,7 @@
       };
     };
 
-    networking.defaultGateway = "192.168.1.1";
+    defaultGateway = "192.168.1.1";
   };
 
   security.sudo.wheelNeedsPassword = false;
