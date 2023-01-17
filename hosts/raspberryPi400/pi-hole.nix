@@ -7,6 +7,7 @@
   ];
   environment = {
     TZ = "Europe/Brussels";
+    WEBPASSWORD = "webpassword";
   };
   volumes = [
     "pihole:/etc/pihole"
