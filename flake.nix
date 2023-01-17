@@ -97,28 +97,32 @@
           };
         };
 
-        modules = [
-          (import ./hosts/common/config.nix)
-          (import ./hosts/common/packages.nix)
-          (import ./hosts/${host.instance}/configuration.nix)
-          (import ./activation/system-report-changes.nix)
-          (import ./users)
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users."${host.user}".imports = [
-              inputs.plasma-manager.homeManagerModules.plasma-manager
-              ./hosts/common/home.nix
-              ./activation/profile-report-changes.nix
-              {home.stateVersion = "23.05";}
-            ] ++ lib.optionals (host.desktop) [
-              ./hosts/common/kdeplasma.nix
-            ];
-          }
-        ] ++ lib.optionals (host.desktop) [
-          (import ./hosts/common/packages-desktop.nix)
-        ];
+        modules =
+          [
+            (import ./hosts/common/config.nix)
+            (import ./hosts/common/packages.nix)
+            (import ./hosts/${host.instance}/configuration.nix)
+            (import ./activation/system-report-changes.nix)
+            (import ./users)
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users."${host.user}".imports =
+                [
+                  inputs.plasma-manager.homeManagerModules.plasma-manager
+                  ./hosts/common/home.nix
+                  ./activation/profile-report-changes.nix
+                  {home.stateVersion = "23.05";}
+                ]
+                ++ lib.optionals (host.desktop) [
+                  ./hosts/common/kdeplasma.nix
+                ];
+            }
+          ]
+          ++ lib.optionals (host.desktop) [
+            (import ./hosts/common/packages-desktop.nix)
+          ];
         specialArgs = {
           inherit inputs;
           instance = host.instance;

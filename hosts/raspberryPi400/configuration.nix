@@ -62,30 +62,12 @@
   hardware.enableRedistributableFirmware = true;
 
   virtualisation = {
-    podman = {
-      enable = true;
-      defaultNetwork.settings.dns_enabled = true;
-      dockerCompat = true;
-      dockerSocket.enable = true;
-      extraPackages = [ pkgs.netavark ];
-    };
-  };
+    oci-containers = {
+      backend = "docker";
 
-  virtualisation.oci-containers.containers = {
-    pihole = {
-      image = "pihole/pihole:latest";
-      ports = [
-        "53:53"
-        "67:67"
-        "80:80"
-      ];
-      environment = {
-        TZ = "Europe/Brussels";
+      containers = {
+        pi-hole = import ./pi-hole.nix;
       };
-      volumes = [
-        "pihole:/etc/pihole"
-        "dnsmasq:/etc/dnsmasq.d"
-      ];
     };
   };
 }
