@@ -72,7 +72,6 @@
       environment = {
         TZ = "Europe/Brussels";
       };
-      cap_add = [ "NET_ADMIN" ];
       volumes = [
         "./etc-pihole:/etc/pihole"
         "./etc-dnsmasq.d:/etc/dnsmasq.d"
