@@ -10,6 +10,12 @@
       grub.enable = lib.mkDefault false;
       generic-extlinux-compatible.enable = lib.mkDefault true;
     };
+    kernel = {
+      sysctl = {
+        "net.ipv4.conf.all.forwarding" = true;
+        "net.ipv6.conf.all.forwarding" = true;
+      };
+    };
   };
 
   console.useXkbConfig = true;
@@ -36,25 +42,38 @@
     hostName = "raspberryPi400";
     useDHCP = false;
 
+    nat = {
+      enable = true;
+      internalInterfaces = ["lan"];
+      externalInterface = "wan";
+    };
+
     networkmanager = {
       enable = true;
     };
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 53 67 80 ];
-      allowedUDPPorts = [ 53 67 ];
+      allowedTCPPorts = [53 67 80];
+      allowedUDPPorts = [53 67];
       checkReversePath = false;
     };
 
     interfaces = {
+      end0 = {
+        name = "lan";
+        useDHCP = true;
+        macAddress = "dc:a6:32:e5:bf:9e";
+      };
       end1 = {
         name = "wan";
 
-        ipv4.addresses = [{
-          address = "192.168.1.2";
-          prefixLength = 24;
-        }];
+        ipv4.addresses = [
+          {
+            address = "192.168.1.2";
+            prefixLength = 24;
+          }
+        ];
 
         macAddress = "00:0e:c6:52:c6:b3";
       };
@@ -68,7 +87,6 @@
   services.openssh.enable = true;
 
   system.stateVersion = "23.05";
-
   system.autoUpgrade = {
     enable = true;
     flake = "github:drupol/nixos-x260";
@@ -86,7 +104,4 @@
       };
     };
   };
-
-  boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
-  # boot.kernel.sysctl."net.ipv6.conf.all.disable_ipv6" = 1;
 }
