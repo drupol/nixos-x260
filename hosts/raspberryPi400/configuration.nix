@@ -73,8 +73,8 @@
         TZ = "Europe/Brussels";
       };
       volumes = [
-        "./etc-pihole:/etc/pihole"
-        "./etc-dnsmasq.d:/etc/dnsmasq.d"
+        "pihole:/etc/pihole"
+        "dnsmasq:/etc/dnsmasq.d"
       ];
     };
   };
