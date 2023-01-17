@@ -19,6 +19,7 @@
     jetbrains-mono
     liberation_ttf
     neofetch
+    netavark
     p7zip
     procs
     ripgrep
