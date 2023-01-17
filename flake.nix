@@ -111,7 +111,7 @@
               inputs.plasma-manager.homeManagerModules.plasma-manager
               ./hosts/common/home.nix
               ./activation/profile-report-changes.nix
-              {home.stateVersion = "22.05";}
+              {home.stateVersion = "23.05";}
             ] ++ lib.optionals (host.desktop) [
               ./hosts/common/kdeplasma.nix
             ];
