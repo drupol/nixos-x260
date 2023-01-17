@@ -40,8 +40,8 @@
     user = "pol";
   }
   {
-    instance = "raspberrypi400";
-    hostname = "raspberrypi400";
+    instance = "raspberryPi400";
+    hostname = "raspberryPi400";
     operating-system = "nixos";
     system = "aarch64-linux";
     sshIdentityFile = "private.pem";

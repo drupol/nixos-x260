@@ -35,7 +35,7 @@
   };
 
   networking = {
-    hostName = "raspberrypi400";
+    hostName = "raspberryPi400";
     networkmanager = {
       enable = true;
     };
