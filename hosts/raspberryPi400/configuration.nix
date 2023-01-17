@@ -61,7 +61,7 @@
     };
 
     interfaces = {
-      eth0 = {
+      end0 = {
         name = "lan";
         ipv4.addresses = [
           {
@@ -71,7 +71,7 @@
         ];
         macAddress = "dc:a6:32:e5:bf:9e";
       };
-      eth1 = {
+      enp1s0u1u2 = {
         name = "wan";
 
         ipv4.addresses = [
