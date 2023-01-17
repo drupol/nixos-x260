@@ -61,7 +61,7 @@
 
   hardware.enableRedistributableFirmware = true;
 
-  config.virtualisation.oci-containers.containers = {
+  virtualisation.oci-containers.containers = {
     pihole = {
       image = "pihole/pihole:latest";
       ports = [
