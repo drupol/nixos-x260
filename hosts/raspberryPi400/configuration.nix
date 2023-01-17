@@ -59,5 +59,5 @@
     allowReboot = true;
   };
 
-  hardware.enableRedistributableFirmware = true
+  hardware.enableRedistributableFirmware = true;
 }
