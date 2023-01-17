@@ -42,6 +42,7 @@
   networking = {
     hostName = "raspberryPi400";
     useDHCP = false;
+    dhcpcd.enable = false;
 
     nat = {
       enable = true;
@@ -49,9 +50,7 @@
       externalInterface = "wan";
     };
 
-    networkmanager = {
-      enable = true;
-    };
+    useNetworkd = true;
 
     firewall = {
       enable = true;
