@@ -4,8 +4,6 @@
   lib,
   ...
 }: {
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
@@ -36,23 +34,40 @@
 
   networking = {
     hostName = "raspberryPi400";
+    useDHCP = false;
+
     networkmanager = {
       enable = true;
     };
+
     firewall = {
       enable = true;
       allowedTCPPorts = [ 53 67 80 ];
       allowedUDPPorts = [ 53 67 ];
       checkReversePath = false;
     };
-    useDHCP = false;
+
+    interfaces = {
+      end1 = {
+        name = "wan";
+
+        ipv4.addresses = [{
+          address = "192.168.1.2";
+          prefixLength = 24;
+        }];
+
+        macAddress = "00:0e:c6:52:c6:b3"
+      };
+    };
+
+    networking.defaultGateway = "192.168.1.1";
   };
 
-  security.sudo.wheelNeedsPassword = false; # Use 'sudo' without a password
+  security.sudo.wheelNeedsPassword = false;
 
   services.openssh.enable = true;
 
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.05";
 
   system.autoUpgrade = {
     enable = true;
@@ -71,4 +86,7 @@
       };
     };
   };
+
+  boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
+  boot.kernel.sysctl."net.ipv6.conf.all.disable_ipv6" = 1;
 }
