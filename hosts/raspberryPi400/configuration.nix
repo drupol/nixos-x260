@@ -56,7 +56,7 @@
           prefixLength = 24;
         }];
 
-        macAddress = "00:0e:c6:52:c6:b3"
+        macAddress = "00:0e:c6:52:c6:b3";
       };
     };
 
