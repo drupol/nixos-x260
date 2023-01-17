@@ -110,9 +110,10 @@
             home-manager.users."${host.user}".imports = [
               inputs.plasma-manager.homeManagerModules.plasma-manager
               ./hosts/common/home.nix
-              ./hosts/common/kdeplasma.nix
               ./activation/profile-report-changes.nix
               {home.stateVersion = "22.05";}
+            ] ++ lib.optionals (host.desktop) [
+              ./hosts/common/kdeplasma.nix
             ];
           }
         ] ++ lib.optionals (host.desktop) [
