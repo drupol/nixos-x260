@@ -84,19 +84,13 @@
       };
     };
 
-    mkConfig = {
-      instance,
-      hostname,
-      operating-system,
-      system,
-      user,
-      ...
-    }: {
-      "${instance}" = lib.nixosSystem {
-        inherit system;
+    mkConfig = host: {
+      "${host.instance}" = lib.nixosSystem {
+        system = host.system;
 
         pkgs = import nixpkgs {
-          inherit system overlays;
+          inherit overlays;
+          system = host.system;
           config = {
             allowUnfreePredicate = pkg: true;
             allowUnsupportedSystem = true;
@@ -106,15 +100,14 @@
         modules = [
           (import ./hosts/common/config.nix)
           (import ./hosts/common/packages.nix)
-          (import ./hosts/common/packages-desktop.nix)
-          (import ./hosts/${instance}/configuration.nix)
+          (import ./hosts/${host.instance}/configuration.nix)
           (import ./activation/system-report-changes.nix)
           (import ./users)
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users."${user}".imports = [
+            home-manager.users."${host.user}".imports = [
               inputs.plasma-manager.homeManagerModules.plasma-manager
               ./hosts/common/home.nix
               ./hosts/common/kdeplasma.nix
@@ -122,8 +115,17 @@
               {home.stateVersion = "22.05";}
             ];
           }
+        ] ++ lib.optionals (host.desktop) [
+          (import ./hosts/common/packages-desktop.nix)
         ];
-        specialArgs = {inherit inputs instance hostname operating-system system user;};
+        specialArgs = {
+          inherit inputs;
+          instance = host.instance;
+          hostname = host.hostname;
+          operating-system = host.operating-system;
+          system = host.system;
+          user = host.user;
+        };
       };
     };
   in
