@@ -93,7 +93,15 @@
       ...
     }: {
       "${instance}" = lib.nixosSystem {
-        inherit system pkgs;
+        inherit system;
+
+        pkgs = import nixpkgs {
+          inherit system overlays;
+          config = {
+            allowUnfreePredicate = pkg: true;
+          };
+        };
+
         modules = [
           (import ./hosts/common/config.nix)
           (import ./hosts/common/packages.nix)
