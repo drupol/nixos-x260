@@ -63,7 +63,12 @@
     interfaces = {
       end0 = {
         name = "lan";
-        useDHCP = true;
+        ipv4.addresses = [
+          {
+            address = "192.168.2.10";
+            prefixLength = 24;
+          }
+        ];
         macAddress = "dc:a6:32:e5:bf:9e";
       };
       end1 = {
