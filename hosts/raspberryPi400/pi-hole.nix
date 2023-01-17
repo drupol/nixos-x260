@@ -8,6 +8,7 @@
   environment = {
     TZ = "Europe/Brussels";
     WEBPASSWORD = "webpassword";
+    DNSMASQ_LISTENING = "all";
   };
   volumes = [
     "pihole:/etc/pihole"
