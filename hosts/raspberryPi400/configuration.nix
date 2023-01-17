@@ -54,7 +54,7 @@
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [22 53 67 80];
+      allowedTCPPorts = [53 67 80];
       allowedUDPPorts = [53 67];
       checkReversePath = false;
     };
