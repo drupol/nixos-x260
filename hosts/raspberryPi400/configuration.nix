@@ -51,10 +51,10 @@
       end1 = {
         name = "wan";
 
-        ipv4.addresses = [{
-          address = "192.168.1.2";
-          prefixLength = 24;
-        }];
+        # ipv4.addresses = [{
+        #   address = "192.168.1.2";
+        #   prefixLength = 24;
+        # }];
 
         macAddress = "00:0e:c6:52:c6:b3";
       };
