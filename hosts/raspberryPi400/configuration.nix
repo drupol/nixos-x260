@@ -61,6 +61,16 @@
 
   hardware.enableRedistributableFirmware = true;
 
+  virtualisation = {
+    podman = {
+      enable = true;
+      defaultNetwork.dnsname.enable = true;
+      dockerCompat = true;
+      dockerSocket.enable = true;
+      extraPackages = [ pkgs.netavark ];
+    };
+  };
+
   virtualisation.oci-containers.containers = {
     pihole = {
       image = "pihole/pihole:latest";
