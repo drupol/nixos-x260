@@ -1,9 +1,10 @@
 {
   image = "pihole/pihole:latest";
   ports = [
-    "53:53"
-    "67:67"
-    "80:80"
+    "53:53/tcp"
+    "53:53/ucp"
+    "67:67/udp"
+    "80:80/tcp"
   ];
   environment = {
     TZ = "Europe/Brussels";
