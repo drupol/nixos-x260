@@ -1,4 +1,5 @@
 {
+  autoStart = true;
   image = "pihole/pihole:latest";
 
   ports = [
@@ -32,5 +33,10 @@
     "pihole:/etc/pihole"
     "dnsmasq:/etc/dnsmasq.d"
   ];
-  extraOptions = ["--net=host" "--cap-add=NET_ADMIN" "--dns=127.0.0.1"];
+  extraOptions = [
+    "--cap-add=NET_ADMIN"
+    "--network=host"
+    "--pull=newer"
+    "--dns=127.0.0.1"
+  ];
 }

@@ -130,7 +130,6 @@
   security.sudo.wheelNeedsPassword = false;
 
   services.openssh.enable = true;
-
   services.grafana = import ./grafana.nix;
   services.prometheus = import ./prometheus.nix;
 
@@ -144,10 +143,23 @@
   hardware.enableRedistributableFirmware = true;
 
   virtualisation = {
-    oci-containers = {
-      backend = "docker";
+    containers = {
+      enable = true;
+      containersConf = {
+        settings = {
+          engine.helper_binaries_dir = ["${pkgs.netavark}/bin"];
+        };
+      };
+    };
 
-      containers = {pi-hole = import ./pi-hole.nix;};
+    podman = {
+      enable = true;
+      dockerCompat = true;
+    };
+
+    oci-containers.backend = "podman";
+    oci-containers.containers = {
+      pi-hole = import ./pi-hole.nix;
     };
   };
 
