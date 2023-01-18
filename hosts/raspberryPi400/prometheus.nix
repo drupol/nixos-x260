@@ -4,7 +4,12 @@
   exporters = {
     node = {
       enable = true;
-      enabledCollectors = [ "systemd" ];
+      port = 9002;
+      enabledCollectors = ["netdev"];
+    };
+    systemd = {
+      enable = true;
+      enabledCollectors = ["systemd"];
       port = 9991;
     };
     pihole = {
@@ -17,14 +22,18 @@
   };
   scrapeConfigs = [
     {
-      job_name = "chrysalis";
-      static_configs = [{ targets = [ "127.0.0.1:9991" ]; }];
+      job_name = "node";
+      static_configs = [{targets = ["127.0.0.1:9002"];}];
+      scrape_interval = "15s";
+    }
+    {
+      job_name = "systemd";
+      static_configs = [{targets = ["127.0.0.1:9991"];}];
+      scrape_interval = "15s";
     }
     {
       job_name = "pihole";
-      static_configs = [{
-        targets = [ "127.0.0.1:9006" ];
-      }];
+      static_configs = [{targets = ["127.0.0.1:9006"];}];
       scrape_interval = "15s";
     }
   ];

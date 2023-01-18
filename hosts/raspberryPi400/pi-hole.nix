@@ -21,7 +21,7 @@
     DHCP_IPv6 = "false";
     IPv6 = "false";
     DHCP_START = "192.168.2.100";
-    DHCP_END ="192.168.2.200";
+    DHCP_END = "192.168.2.200";
     DHCP_ROUTER = "192.168.2.10";
     DHCP_LEASETIME = "24";
     DHCP_rapid_commit = "true";
