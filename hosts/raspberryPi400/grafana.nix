@@ -13,7 +13,7 @@
       {
         name = "Prometheus";
         type = "prometheus";
-        url = "http://localhost:9001";
+        url = "http://localhost:9990";
         isDefault = true;
       }
       {

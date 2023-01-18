@@ -186,6 +186,11 @@
     };
   };
 
+  systemd.tmpfiles.rules = [
+    "d /var/lib/loki 0700 loki loki - -"
+    "d /var/lib/loki/ruler 0700 loki loki - -"
+  ];
+
   services.loki = {
     enable = true;
     configuration = {
@@ -193,58 +198,38 @@
       auth_enabled = false;
       server = {
         http_listen_port = 3100;
-        log_level = "warn";
       };
 
-      # Distributor
-      distributor.ring.kvstore.store = "inmemory";
-
-      # Ingester
-      ingester = {
-        lifecycler.ring = {
-          kvstore.store = "inmemory";
-          replication_factor = 1;
+      common = {
+        path_prefix = "/var/lib/loki";
+        storage.filesystem = {
+          chunks_directory = "/var/lib/loki/chunks";
+          rules_directory = "/var/lib/loki/rules";
         };
-        chunk_encoding = "snappy";
-        # Disable block transfers on shutdown
-        max_transfer_retries = 0;
+        replication_factor = 1;
+        ring = {
+          instance_addr = "127.0.0.1";
+          kvstore.store = "inmemory";
+        };
       };
 
-      # Storage
-      storage_config = {
-        boltdb.directory = "/var/lib/loki/boltdb";
-        filesystem.directory = "/var/lib/loki/storage";
+      schema_config = {
+        configs = [
+          {
+            from = "2022-05-15";
+            store = "boltdb-shipper";
+            object_store = "filesystem";
+            schema = "v11";
+            index = {
+              prefix = "index_";
+              period = "24h";
+            };
+          }
+        ];
       };
 
-      limits_config.retention_period = "120h";
-
-      # Table manager
-      table_manager = {
-        retention_deletes_enabled = true;
-        retention_period = "120h";
-      };
-
-      compactor = {
-        retention_enabled = true;
-        compaction_interval = "10m";
-        working_directory = "/var/lib/loki/compactor";
-      };
-
-      # Schema
-      schema_config.configs = [
-        {
-          from = "2020-11-08";
-          store = "boltdb";
-          object_store = "filesystem";
-          schema = "v11";
-          index.prefix = "index_";
-          index.period = "120h";
-        }
-      ];
-
-      limits_config.ingestion_burst_size_mb = 16;
-      query_range.cache_results = true;
-      limits_config.split_queries_by_interval = "24h";
+      ruler.alertmanager_url = "http://127.0.0.1:9001";
     };
   };
+
 }
