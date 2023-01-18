@@ -9,7 +9,7 @@
   environment = {
     TZ = "Europe/Brussels";
     WEBPASSWORD = "webpassword";
-    FTLCONF_REPLY_ADDR4: "192.168.2.10";
+    FTLCONF_REPLY_ADDR4 = "192.168.2.10";
     ServerIP = "192.168.2.10";
     VIRTUAL_HOST = "pihole.dns";
     DNSMASQ_LISTENING = "all";
