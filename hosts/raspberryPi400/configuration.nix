@@ -120,10 +120,10 @@
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [53 67 80 8888 9990 9991];
+      allowedTCPPorts = [53 67 80 8888];
       allowedUDPPorts = [53 67];
       checkReversePath = false;
-      trustedInterfaces = ["end0" "docker0"];
+      trustedInterfaces = ["end0"];
       extraCommands = ''
         iptables -t nat -A PREROUTING ! -s 192.168.2.10 -p udp --dport 53 -j DNAT --to 192.168.2.10
         iptables -t nat -A PREROUTING ! -s 192.168.2.10 -p tcp --dport 53 -j DNAT --to 192.168.2.10
