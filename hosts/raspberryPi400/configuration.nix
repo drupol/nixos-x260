@@ -125,8 +125,8 @@
       checkReversePath = false;
       trustedInterfaces = ["end0" "docker0"];
       extraCommands = ''
-        iptables -t nat -A nixos-nat-pre ! -s 192.168.2.10 -p udp --dport 53 -j DNAT --to 192.168.2.10
-        iptables -t nat -A nixos-nat-pre ! -s 192.168.2.10 -p tcp --dport 53 -j DNAT --to 192.168.2.10
+        iptables -t nat -A PREROUTING ! -s 192.168.2.10 -p udp --dport 53 -j DNAT --to 192.168.2.10
+        iptables -t nat -A PREROUTING ! -s 192.168.2.10 -p tcp --dport 53 -j DNAT --to 192.168.2.10
       '';
     };
   };
