@@ -4,12 +4,7 @@
   exporters = {
     node = {
       enable = true;
-      port = 9002;
-      enabledCollectors = ["netdev"];
-    };
-    systemd = {
-      enable = true;
-      enabledCollectors = ["systemd"];
+      enabledCollectors = ["systemd" "netdev"];
       port = 9991;
     };
     pihole = {
