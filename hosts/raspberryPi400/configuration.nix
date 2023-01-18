@@ -150,4 +150,17 @@
       containers = {pi-hole = import ./pi-hole.nix;};
     };
   };
+
+  systemd.services = {
+    prometheus-pihole-exporter = {
+      serviceConfig.ExecStart = lib.mkForce ''
+        ${pkgs.bash}/bin/bash -c "${pkgs.prometheus-pihole-exporter}/bin/pihole-exporter \
+          -pihole_api_token 4d35bbf234f12338c0617746043c52c1f92e37c9457d8f3d1441feb2036d91b8 \
+          -pihole_hostname 127.0.0.1 \
+          -pihole_port 80 \
+          -pihole_protocol http \
+          -port 9006"
+      '';
+    };
+  };
 }
