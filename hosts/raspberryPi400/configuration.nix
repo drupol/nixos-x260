@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{ config, pkgs, lib, ... }: {
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     tmpOnTmpfs = true;
@@ -35,7 +30,7 @@
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
       fsType = "ext4";
-      options = ["noatime"];
+      options = [ "noatime" ];
     };
   };
 
@@ -93,22 +88,29 @@
     hostName = "raspberryPi400";
     useDHCP = false;
     dhcpcd.enable = false;
+    usePredictableInterfaceNames = true;
 
     nat = {
       enable = true;
-      internalInterfaces = ["end0"];
+      internalInterfaces = [ "end0" ];
       externalInterface = "enp1s0u1u2";
     };
 
-    networkmanager = {
-      enable = true;
-    };
-    # useNetworkd = true;
+    interfaces.end0.ipv4.addresses = [{
+      address = "192.168.2.11";
+      prefixLength = 24;
+    }];
+    interfaces.enp1s0u1u2.ipv4.addresses = [{
+      address = "192.168.1.2";
+      prefixLength = 24;
+    }];
+
+    defaultGateway = "192.168.1.1";
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [53 67 80 8888 9990 9991];
-      allowedUDPPorts = [53 67];
+      allowedTCPPorts = [ 53 67 80 8888 9990 9991 ];
+      allowedUDPPorts = [ 53 67 ];
       checkReversePath = false;
     };
   };
@@ -133,9 +135,7 @@
     oci-containers = {
       backend = "docker";
 
-      containers = {
-        pi-hole = import ./pi-hole.nix;
-      };
+      containers = { pi-hole = import ./pi-hole.nix; };
     };
   };
 }
