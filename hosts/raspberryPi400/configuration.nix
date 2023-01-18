@@ -1,7 +1,8 @@
-{ config
-, pkgs
-, lib
-, ...
+{
+  config,
+  pkgs,
+  lib,
+  ...
 }: {
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -34,7 +35,7 @@
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
       fsType = "ext4";
-      options = [ "noatime" ];
+      options = ["noatime"];
     };
   };
 
@@ -96,7 +97,7 @@
 
     nat = {
       enable = true;
-      internalInterfaces = [ "end0" ];
+      internalInterfaces = ["end0"];
       externalInterface = "enp1s0u2";
     };
 
@@ -115,14 +116,14 @@
 
     defaultGateway = "192.168.1.1";
 
-    nameservers = [ "127.0.0.1" ];
+    nameservers = ["127.0.0.1"];
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 53 67 80 8888 9990 9991 ];
-      allowedUDPPorts = [ 53 67 ];
+      allowedTCPPorts = [53 67 80 8888 9990 9991];
+      allowedUDPPorts = [53 67];
       checkReversePath = false;
-      trustedInterfaces = [ "end0" "docker0" ];
+      trustedInterfaces = ["end0" "docker0"];
       extraCommands = ''
         iptables -t nat -A nixos-nat-pre ! -s 192.168.2.10 -p udp --dport 53 -j DNAT --to 192.168.2.10
         iptables -t nat -A nixos-nat-pre ! -s 192.168.2.10 -p tcp --dport 53 -j DNAT --to 192.168.2.10
@@ -150,7 +151,7 @@
       enable = true;
       containersConf = {
         settings = {
-          engine.helper_binaries_dir = [ "${pkgs.netavark}/bin" ];
+          engine.helper_binaries_dir = ["${pkgs.netavark}/bin"];
         };
       };
     };
@@ -181,7 +182,7 @@
 
   systemd.services.promtail = {
     description = "Promtail service for Loki";
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
 
     serviceConfig = {
       ExecStart = ''
@@ -235,5 +236,4 @@
       ruler.alertmanager_url = "http://127.0.0.1:9001";
     };
   };
-
 }
