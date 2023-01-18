@@ -18,11 +18,6 @@
   scrapeConfigs = [
     {
       job_name = "node";
-      static_configs = [{targets = ["127.0.0.1:9002"];}];
-      scrape_interval = "15s";
-    }
-    {
-      job_name = "systemd";
       static_configs = [{targets = ["127.0.0.1:9991"];}];
       scrape_interval = "15s";
     }
