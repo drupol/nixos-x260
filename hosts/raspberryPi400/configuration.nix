@@ -123,10 +123,6 @@
       allowedUDPPorts = [ 53 67 ];
       checkReversePath = false;
       trustedInterfaces = [ "end0" "docker0" ];
-      extraCommands = ''
-        iptables -t nat -A PREROUTING -i end0 -p udp ! --source 192.168.2.1 ! --destination 192.168.2.1 --dport 53 -j DNAT --to 192.168.2.1
-        iptables -t nat -A PREROUTING -i end0 -p tcp ! --source 192.168.2.1 ! --destination 192.168.2.1 --dport 53 -j DNAT --to 192.168.2.1
-      '';
     };
   };
 
