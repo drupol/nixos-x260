@@ -39,55 +39,55 @@
     };
   };
 
-  systemd.network.networks = {
-    "40-wired" = {
-      enable = true;
-      name = "end0";
-      dhcpV4Config.RouteMetric = 1024;
-      networkConfig = {
-        IPMasquerade = "yes";
-      };
-      matchConfig = {
-        Name = "end0";
-        MACAddress = "dc:a6:32:e5:bf:9e";
-      };
-      address = "192.168.2.10";
-      routes = [
-        {routeConfig = { Gateway = "192.168.1.1"; };}
-      ];
-    };
-    "50-wired" = {
-      enable = true;
-      name = "enp1s0u1u2";
-      dhcpV4Config.RouteMetric = 1024;
-      networkConfig = {
-        IPMasquerade = "yes";
-      };
-      matchConfig = {
-        Name = "enp1s0u1u2";
-        MACAddress = "00:0e:c6:52:c6:b3";
-      };
-      address = "192.168.1.2";
-      routes = [
-        {routeConfig = { Gateway = "192.168.1.1"; };}
-      ];
-    };
-    "40-wireless" = {
-      enable = true;
-      name = "wl*";
-      dhcpV4Config.RouteMetric = 2048;
-    };
-    "40-tunnel" = {
-      enable = true;
-      name = "tun*";
-      linkConfig.Unmanaged = true;
-    };
-    "40-bluetooth" = {
-      enable = true;
-      name = "bn*";
-      dhcpV4Config.RouteMetric = 3092;
-    };
-  };
+  # systemd.network.networks = {
+  #   "40-wired" = {
+  #     enable = true;
+  #     name = "end0";
+  #     dhcpV4Config.RouteMetric = 1024;
+  #     networkConfig = {
+  #       IPMasquerade = "yes";
+  #     };
+  #     matchConfig = {
+  #       Name = "end0";
+  #       MACAddress = "dc:a6:32:e5:bf:9e";
+  #     };
+  #     address = "192.168.2.10";
+  #     routes = [
+  #       {routeConfig = { Gateway = "192.168.1.1"; };}
+  #     ];
+  #   };
+  #   "50-wired" = {
+  #     enable = true;
+  #     name = "enp1s0u1u2";
+  #     dhcpV4Config.RouteMetric = 1024;
+  #     networkConfig = {
+  #       IPMasquerade = "yes";
+  #     };
+  #     matchConfig = {
+  #       Name = "enp1s0u1u2";
+  #       MACAddress = "00:0e:c6:52:c6:b3";
+  #     };
+  #     address = "192.168.1.2";
+  #     routes = [
+  #       {routeConfig = { Gateway = "192.168.1.1"; };}
+  #     ];
+  #   };
+  #   "40-wireless" = {
+  #     enable = true;
+  #     name = "wl*";
+  #     dhcpV4Config.RouteMetric = 2048;
+  #   };
+  #   "40-tunnel" = {
+  #     enable = true;
+  #     name = "tun*";
+  #     linkConfig.Unmanaged = true;
+  #   };
+  #   "40-bluetooth" = {
+  #     enable = true;
+  #     name = "bn*";
+  #     dhcpV4Config.RouteMetric = 3092;
+  #   };
+  # };
 
   networking = {
     hostName = "raspberryPi400";
@@ -100,7 +100,10 @@
       externalInterface = "enp1s0u1u2";
     };
 
-    useNetworkd = true;
+    networkmanager = {
+      enable = true;
+    };
+    # useNetworkd = true;
 
     firewall = {
       enable = true;
