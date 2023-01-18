@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     tmpOnTmpfs = true;
@@ -30,7 +35,7 @@
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
       fsType = "ext4";
-      options = [ "noatime" ];
+      options = ["noatime"];
     };
   };
 
@@ -92,25 +97,31 @@
 
     nat = {
       enable = true;
-      internalInterfaces = [ "end0" ];
+      internalInterfaces = ["end0"];
       externalInterface = "enp1s0u2";
     };
 
-    interfaces.end0.ipv4.addresses = [{
-      address = "192.168.2.10";
-      prefixLength = 24;
-    }];
-    interfaces.enp1s0u2.ipv4.addresses = [{
-      address = "192.168.1.2";
-      prefixLength = 24;
-    }];
+    interfaces.end0.ipv4.addresses = [
+      {
+        address = "192.168.2.10";
+        prefixLength = 24;
+      }
+    ];
+    interfaces.enp1s0u2.ipv4.addresses = [
+      {
+        address = "192.168.1.2";
+        prefixLength = 24;
+      }
+    ];
 
     defaultGateway = "192.168.1.1";
 
+    nameservers = ["127.0.0.1"];
+
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 53 67 80 8888 9990 9991 ];
-      allowedUDPPorts = [ 53 67 ];
+      allowedTCPPorts = [53 67 80 8888 9990 9991];
+      allowedUDPPorts = [53 67];
       checkReversePath = false;
     };
   };
@@ -135,7 +146,7 @@
     oci-containers = {
       backend = "docker";
 
-      containers = { pi-hole = import ./pi-hole.nix; };
+      containers = {pi-hole = import ./pi-hole.nix;};
     };
   };
 }
