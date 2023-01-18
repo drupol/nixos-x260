@@ -119,7 +119,7 @@
     nameservers = ["127.0.0.1"];
 
     firewall = {
-      enable = true;
+      enable = false;
       allowedTCPPorts = [53 67 80 8888 9990 9991];
       allowedUDPPorts = [53 67];
       checkReversePath = false;
