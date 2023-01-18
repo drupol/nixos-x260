@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
+{ config
+, pkgs
+, lib
+, ...
 }: {
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -35,7 +34,7 @@
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
       fsType = "ext4";
-      options = ["noatime"];
+      options = [ "noatime" ];
     };
   };
 
@@ -97,7 +96,7 @@
 
     nat = {
       enable = true;
-      internalInterfaces = ["end0"];
+      internalInterfaces = [ "end0" ];
       externalInterface = "enp1s0u2";
     };
 
@@ -116,14 +115,14 @@
 
     defaultGateway = "192.168.1.1";
 
-    nameservers = ["127.0.0.1"];
+    nameservers = [ "127.0.0.1" ];
 
     firewall = {
       enable = false;
-      allowedTCPPorts = [53 67 80 8888 9990 9991];
-      allowedUDPPorts = [53 67];
+      allowedTCPPorts = [ 53 67 80 8888 9990 9991 ];
+      allowedUDPPorts = [ 53 67 ];
       checkReversePath = false;
-      trustedInterfaces = ["end0" "docker0"];
+      trustedInterfaces = [ "end0" "docker0" ];
     };
   };
 
@@ -147,7 +146,7 @@
       enable = true;
       containersConf = {
         settings = {
-          engine.helper_binaries_dir = ["${pkgs.netavark}/bin"];
+          engine.helper_binaries_dir = [ "${pkgs.netavark}/bin" ];
         };
       };
     };
@@ -178,7 +177,7 @@
 
   systemd.services.promtail = {
     description = "Promtail service for Loki";
-    wantedBy = ["multi-user.target"];
+    wantedBy = [ "multi-user.target" ];
 
     serviceConfig = {
       ExecStart = ''
@@ -189,6 +188,63 @@
 
   services.loki = {
     enable = true;
-    configFile = ./loki.yaml;
+    configuration = {
+      # Basic stuff
+      auth_enabled = false;
+      server = {
+        http_listen_port = 3100;
+        log_level = "warn";
+      };
+
+      # Distributor
+      distributor.ring.kvstore.store = "inmemory";
+
+      # Ingester
+      ingester = {
+        lifecycler.ring = {
+          kvstore.store = "inmemory";
+          replication_factor = 1;
+        };
+        chunk_encoding = "snappy";
+        # Disable block transfers on shutdown
+        max_transfer_retries = 0;
+      };
+
+      # Storage
+      storage_config = {
+        boltdb.directory = "/var/lib/loki/boltdb";
+        filesystem.directory = "/var/lib/loki/storage";
+      };
+
+      limits_config.retention_period = "120h";
+
+      # Table manager
+      table_manager = {
+        retention_deletes_enabled = true;
+        retention_period = "120h";
+      };
+
+      compactor = {
+        retention_enabled = true;
+        compaction_interval = "10m";
+        working_directory = "/var/lib/loki/compactor";
+      };
+
+      # Schema
+      schema_config.configs = [
+        {
+          from = "2020-11-08";
+          store = "boltdb";
+          object_store = "filesystem";
+          schema = "v11";
+          index.prefix = "index_";
+          index.period = "120h";
+        }
+      ];
+
+      limits_config.ingestion_burst_size_mb = 16;
+      query_range.cache_results = true;
+      limits_config.split_queries_by_interval = "24h";
+    };
   };
 }
