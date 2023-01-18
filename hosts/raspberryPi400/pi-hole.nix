@@ -10,6 +10,7 @@
     TZ = "Europe/Brussels";
     WEBPASSWORD = "webpassword";
     DNSMASQ_LISTENING = "all";
+    ServerIP = "192.168.2.10";
   };
   volumes = [
     "pihole:/etc/pihole"
