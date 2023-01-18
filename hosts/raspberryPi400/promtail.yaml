@@ -14,7 +14,7 @@ scrape_configs:
       max_age: 12h
       labels:
         job: systemd-journal
-        host: chrysalis
+        host: local
     relabel_configs:
       - source_labels: ['__journal__systemd_unit']
         target_label: 'unit'
