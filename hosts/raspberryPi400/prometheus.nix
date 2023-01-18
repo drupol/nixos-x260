@@ -17,13 +17,20 @@
   };
   scrapeConfigs = [
     {
+      job_name = "pihole";
+      static_configs = [{targets = ["127.0.0.1:9006"];}];
+      scrape_interval = "15s";
+    }
+    # Scrape the current system
+    {
       job_name = "node";
       static_configs = [{targets = ["127.0.0.1:9991"];}];
       scrape_interval = "15s";
     }
+    # Scrape the Loki service
     {
-      job_name = "pihole";
-      static_configs = [{targets = ["127.0.0.1:9006"];}];
+      job_name = "Loki service";
+      static_configs = [{targets = ["127.0.0.1:3100"];}];
       scrape_interval = "15s";
     }
   ];
