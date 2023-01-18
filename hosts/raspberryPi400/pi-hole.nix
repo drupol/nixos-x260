@@ -1,6 +1,5 @@
 {
   image = "pihole/pihole:latest";
-  network_mode = "host";
 
   ports = [
     "53:53/tcp"
