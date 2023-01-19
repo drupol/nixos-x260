@@ -198,12 +198,11 @@
   services.loki = {
     enable = true;
     configuration = {
-      # Basic stuff
       auth_enabled = false;
       server = {
         http_listen_port = 3100;
       };
-
+      analytics.reporting_enabled = false;
       common = {
         path_prefix = "/var/lib/loki";
         storage.filesystem = {
