@@ -10,5 +10,6 @@
     ../common/config.nix
     ../../users
     ./configuration.nix
+    ./packages.nix
   ];
 }
