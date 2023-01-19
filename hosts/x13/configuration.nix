@@ -1,12 +1,13 @@
 {
   config,
   pkgs,
+  self,
+  host,
   lib,
-  inputs,
   ...
 }: {
   imports = [
-    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x13
+    self.inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x13
     ./hardware-configuration.nix
   ];
 

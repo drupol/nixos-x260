@@ -1,8 +1,12 @@
 {
   config,
   pkgs,
+  self,
+  host,
   ...
 }: {
+  home.stateVersion = "23.05";
+
   fonts = {fontconfig = {enable = true;};};
 
   home.file = {

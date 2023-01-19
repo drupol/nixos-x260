@@ -1,5 +1,5 @@
 {
-  description = "A NixOS flake for Pol's personal computer.";
+  description = "A flake for computers at home.";
 
   inputs = {
     nixpkgs.url = "github:/nixos/nixpkgs/nixos-unstable";
@@ -24,16 +24,9 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixos-hardware,
-    home-manager,
-    nur,
-    ...
-  } @ inputs: let
+  outputs = inputs: let
     # This is the same as "lib = nixpkgs.lib";
-    inherit (nixpkgs) lib;
+    inherit (inputs.nixpkgs) lib;
 
     hosts = import ./hosts.nix;
 
@@ -50,111 +43,58 @@
           system = "${prev.system}";
         };
       })
-      (final: prev: {
-        bobthefish-src = inputs.bobthefish;
-      })
-      (final: prev: {
-        z-src = inputs.z;
-      })
-      nur.overlay
+      (final: prev: {bobthefish-src = inputs.bobthefish;})
+      (final: prev: {z-src = inputs.z;})
+      inputs.nur.overlay
     ];
 
-    pkgs = import nixpkgs {
-      inherit overlays;
-      system = "x86_64-linux";
-      config = {
-        allowUnfreePredicate = pkg: true;
-      };
-    };
-
-    mkHomeConfig = {
-      instance,
-      hostname,
-      operating-system,
-      system,
-      user,
-      ...
-    }: {
-      "${user}" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          ./hosts/${instance}
-        ];
-        extraSpecialArgs = {inherit inputs instance hostname operating-system system user;};
-      };
-    };
-
-    mkConfig = host: {
-      "${host.instance}" = lib.nixosSystem {
+    mkHomeConfig = host: let
+      pkgs = import inputs.nixpkgs {
+        inherit overlays;
         system = host.system;
-
-        pkgs = import nixpkgs {
-          inherit overlays;
-          system = host.system;
-          config = {
-            allowUnfreePredicate = pkg: true;
-            allowUnsupportedSystem = true;
-          };
+        config = {allowUnfreePredicate = pkg: true;};
+      };
+    in {
+      "${host.user}" = inputs.home-manager.lib.homeManagerConfiguration {
+        modules = [
+          ./hosts/${host.instance}
+        ];
+        extraSpecialArgs = {
+          inherit host pkgs;
+          inherit (inputs) self;
         };
+      };
+    };
 
-        modules =
-          [
-            (import ./hosts/common/config.nix)
-            (import ./hosts/common/packages.nix)
-            (import ./hosts/${host.instance}/configuration.nix)
-            (import ./activation/system-report-changes.nix)
-            (import ./users)
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users."${host.user}".imports =
-                [
-                  inputs.plasma-manager.homeManagerModules.plasma-manager
-                  ./hosts/common/home.nix
-                  ./activation/profile-report-changes.nix
-                  {home.stateVersion = "23.05";}
-                ]
-                ++ lib.optionals (host.desktop) [
-                  ./hosts/common/kdeplasma.nix
-                ];
-            }
-          ]
-          ++ lib.optionals (host.desktop) [
-            (import ./hosts/common/packages-desktop.nix)
-          ];
+    mkConfig = host: let
+      pkgs = import inputs.nixpkgs {
+        inherit overlays;
+        system = host.system;
+        config = {allowUnfreePredicate = pkg: true;};
+      };
+    in {
+      "${host.instance}" = inputs.nixpkgs.lib.nixosSystem {
+        system = host.system;
+        modules = [./hosts/${host.instance}];
         specialArgs = {
-          inherit inputs;
-          instance = host.instance;
-          hostname = host.hostname;
-          operating-system = host.operating-system;
-          system = host.system;
-          user = host.user;
+          inherit host pkgs;
+          inherit (inputs) self;
         };
       };
     };
   in
     {
-      homeConfigurations = lib.foldr (el: acc: acc // mkHomeConfig el) {} (lib.filter (el: el.operating-system != "nixos") hosts);
-      nixosConfigurations = lib.foldr (el: acc: acc // mkConfig el) {} (lib.filter (el: el.operating-system == "nixos") hosts);
+      homeConfigurations =
+        lib.foldr (el: acc: acc // mkHomeConfig el) {}
+        (lib.filter (el: el.operating-system != "nixos") hosts);
+      nixosConfigurations =
+        lib.foldr (el: acc: acc // mkConfig el) {}
+        (lib.filter (el: el.operating-system == "nixos") hosts);
     }
-    // inputs.flake-utils.lib.eachDefaultSystem (
-      system: let
-        pkgs = import nixpkgs {
-          inherit system;
-          config = {
-            allowUnfreePredicate = pkg: true;
-          };
-        };
-      in {
-        formatter = pkgs.alejandra;
-
-        devShells.default = pkgs.mkShell {
-          nativeBuildInputs = [
-            pkgs.nixpkgs-fmt
-            pkgs.nixfmt
-          ];
-        };
-      }
-    );
+    // inputs.flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = import inputs.nixpkgs {
+        inherit system;
+        config = {allowUnfreePredicate = pkg: true;};
+      };
+    in {formatter = pkgs.alejandra;});
 }

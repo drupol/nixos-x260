@@ -6,7 +6,6 @@
     system = "x86_64-linux";
     sshIdentityFile = "private.pem";
     user = "pol";
-    desktop = false;
   }
   {
     instance = "elitebook820";
@@ -15,7 +14,6 @@
     system = "x86_64-linux";
     sshIdentityFile = "private.pem";
     user = "pol";
-    desktop = true;
   }
   {
     instance = "lw196205087";
@@ -24,7 +22,6 @@
     system = "x86_64-linux";
     sshIdentityFile = "private.pem";
     user = "devlin";
-    desktop = false;
   }
   {
     instance = "nixos";
@@ -33,7 +30,6 @@
     system = "x86_64-linux";
     sshIdentityFile = "private.pem";
     user = "pol";
-    desktop = true;
   }
   {
     instance = "x13";
@@ -42,7 +38,6 @@
     system = "x86_64-linux";
     sshIdentityFile = "private.pem";
     user = "pol";
-    desktop = true;
   }
   {
     instance = "raspberryPi400";
@@ -51,7 +46,6 @@
     system = "aarch64-linux";
     sshIdentityFile = "private.pem";
     user = "pol";
-    desktop = false;
   }
   {
     instance = "x260";
@@ -60,7 +54,6 @@
     system = "x86_64-linux";
     sshIdentityFile = "private.pem";
     user = "pol";
-    desktop = true;
   }
   {
     instance = "x280";
@@ -69,6 +62,5 @@
     system = "x86_64-linux";
     sshIdentityFile = "private.pem";
     user = "pol";
-    desktop = true;
   }
 ]
