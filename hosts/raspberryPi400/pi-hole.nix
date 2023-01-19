@@ -16,7 +16,6 @@
     VIRTUAL_HOST = "pihole.dns";
     DNSMASQ_LISTENING = "all";
     PIHOLE_DOMAIN = "local";
-    PIHOLE_DNS_ = "1.1.1.3;1.0.0.3;208.67.222.222;208.67.220.220";
     DNSMASQ_USER = "root";
     CUSTOM_CACHE_SIZE = "10000";
     DHCP_ACTIVE = "true";
@@ -33,7 +32,6 @@
     WEBUIBOXEDLAYOUT = "traditional";
     QUERY_LOGGING = "false";
     WEBTHEME = "default-dark";
-    REV_SERVER = "true";
   };
   volumes = [
     "pihole:/etc/pihole"
