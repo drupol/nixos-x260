@@ -203,7 +203,6 @@
       server = {
         http_listen_port = 3100;
       };
-      reporting_enabled = false;
 
       common = {
         path_prefix = "/var/lib/loki";
