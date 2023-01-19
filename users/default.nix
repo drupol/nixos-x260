@@ -8,6 +8,4 @@
     ./root.nix
     ./pol.nix
   ];
-
-  users.mutableUsers = false;
 }
