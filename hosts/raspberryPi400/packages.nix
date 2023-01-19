@@ -12,6 +12,7 @@
     cachix
     du-dust
     fd
+    git
     gnupg
     procs
     ripgrep
