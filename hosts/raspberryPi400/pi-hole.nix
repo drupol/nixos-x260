@@ -31,7 +31,6 @@
     WEBUIBOXEDLAYOUT = "traditional";
     QUERY_LOGGING = "false";
     FTLCONF_REPLY_ADDR4 = "192.168.2.10";
-    FTLCONF_DBFILE = "";
     WEBTHEME = "default-dark";
   };
   volumes = [
