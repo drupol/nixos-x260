@@ -166,6 +166,8 @@
     };
   };
 
+  prometheus-shelly-exporter = import ./shelly-exporter.nix;
+
   systemd.services = {
     prometheus-pihole-exporter = {
       serviceConfig.ExecStart = lib.mkForce ''
@@ -175,6 +177,12 @@
           -pihole_port 80 \
           -pihole_protocol http \
           -port 9006"
+      '';
+    };
+    prometheus-shelly-exporter = {
+      serviceConfig.ExecStart = lib.mkForce ''
+        ${pkgs.bash}/bin/bash -c "${prometheus-shelly-exporter}/bin/shelly_exporter \
+          -metrics-file /home/pol/nix/shelly-metrics.json
       '';
     };
   };
