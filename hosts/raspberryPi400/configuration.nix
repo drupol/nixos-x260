@@ -182,7 +182,7 @@ in{
     prometheus-shelly-exporter = {
       serviceConfig.ExecStart = lib.mkForce ''
         ${pkgs.bash}/bin/bash -c "${prometheus-shelly-exporter}/bin/shelly_exporter \
-          -metrics-file /home/pol/nix/shelly-metrics.json
+          -metrics-file /home/pol/nix/shelly-metrics.json"
       '';
     };
   };
