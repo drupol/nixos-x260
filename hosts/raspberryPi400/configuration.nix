@@ -3,9 +3,7 @@
   pkgs,
   lib,
   ...
-}: let
-  prometheus-shelly-exporter = pkgs.callPackage ../raspberryPi400/shelly-exporter.nix {};
-in{
+}: {
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     tmpOnTmpfs = true;
@@ -177,12 +175,6 @@ in{
           -pihole_port 80 \
           -pihole_protocol http \
           -port 9006"
-      '';
-    };
-    prometheus-shelly-exporter = {
-      serviceConfig.ExecStart = lib.mkForce ''
-        ${pkgs.bash}/bin/bash -c "${prometheus-shelly-exporter}/bin/shelly_exporter \
-          -metrics-file /home/pol/nix/shelly-metrics.json"
       '';
     };
   };
