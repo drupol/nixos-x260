@@ -11,16 +11,15 @@
   environment = {
     TZ = "Europe/Brussels";
     WEBPASSWORD = "webpassword";
-    FTLCONF_REPLY_ADDR4 = "192.168.2.10";
     ServerIP = "192.168.2.10";
     VIRTUAL_HOST = "pihole.dns";
     DNSMASQ_LISTENING = "all";
     PIHOLE_DOMAIN = "local";
     DNSMASQ_USER = "root";
     CUSTOM_CACHE_SIZE = "10000";
+    IPv6 = "true";
     DHCP_ACTIVE = "true";
     DHCP_IPv6 = "true";
-    IPv6 = "true";
     DHCP_START = "192.168.2.100";
     DHCP_END = "192.168.2.200";
     DHCP_ROUTER = "192.168.2.10";
@@ -31,6 +30,8 @@
     TEMPERATUREUNIT = "c";
     WEBUIBOXEDLAYOUT = "traditional";
     QUERY_LOGGING = "false";
+    FTLCONF_REPLY_ADDR4 = "192.168.2.10";
+    FTLCONF_DBFILE = "";
     WEBTHEME = "default-dark";
   };
   volumes = [
