@@ -31,7 +31,6 @@
     WEBUIBOXEDLAYOUT = "traditional";
     QUERY_LOGGING = "false";
     FTLCONF_REPLY_ADDR4 = "192.168.2.10";
-    FTLCONF_DBFILE = "";
     WEBTHEME = "default-dark";
     PIHOLE_DNS_1 = "8.8.8.8";
     PIHOLE_DNS_2 = "8.8.4.4";
