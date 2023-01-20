@@ -3,7 +3,9 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  prometheus-shelly-exporter = pkgs.callPackage ../raspberryPi400/shelly-exporter.nix {};
+in{
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     tmpOnTmpfs = true;
@@ -165,8 +167,6 @@
       pi-hole = import ./pi-hole.nix;
     };
   };
-
-  prometheus-shelly-exporter = import ./shelly-exporter.nix;
 
   systemd.services = {
     prometheus-pihole-exporter = {
