@@ -33,5 +33,11 @@
       static_configs = [{targets = ["127.0.0.1:3100"];}];
       scrape_interval = "15s";
     }
+    # Scrape the Shelly service
+    {
+      job_name = "shelly";
+      static_configs = [{targets = ["127.0.0.1:9784"];}];
+      scrape_interval = "15s";
+    }
   ];
 }
