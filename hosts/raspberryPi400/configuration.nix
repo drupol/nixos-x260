@@ -4,6 +4,10 @@
   lib,
   ...
 }: {
+  imports = [
+    ./squid.nix
+  ];
+
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     tmpOnTmpfs = true;
@@ -120,7 +124,7 @@
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [53 67 80 8888];
+      allowedTCPPorts = [53 67 80 3128 8888];
       allowedUDPPorts = [53 67];
       checkReversePath = false;
       extraCommands = ''
