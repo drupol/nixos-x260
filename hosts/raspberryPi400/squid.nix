@@ -1,4 +1,8 @@
 {
+  systemd.tmpfiles.rules = [
+    "d /var/lib/squid 0700 squid squid - -"
+  ];
+
   services.squid = {
     enable = true;
     configText =
