@@ -1,4 +1,8 @@
-{pkgs, lib, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   networking = {
     firewall = {
       allowedTCPPorts = [53 67 80 8888];
