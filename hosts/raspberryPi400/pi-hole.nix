@@ -100,7 +100,7 @@
     };
   };
 
-  services.prometheus.exporters.pi-hole = {
+  services.prometheus.exporters.pihole = {
     enable = true;
     port = 9006;
     apiToken = "4d35bbf234f12338c0617746043c52c1f92e37c9457d8f3d1441feb2036d91b8";
