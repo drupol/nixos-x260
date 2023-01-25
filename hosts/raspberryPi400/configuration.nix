@@ -4,10 +4,6 @@
   lib,
   ...
 }: {
-  imports = [
-    ./squid.nix
-  ];
-
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     tmpOnTmpfs = true;
@@ -22,8 +18,6 @@
       };
     };
   };
-
-  console.useXkbConfig = true;
 
   # Limit the systemd journal to 100 MB of disk or the
   # last 7 days of logs, whichever happens first.
@@ -124,8 +118,6 @@
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [53 67 80 3128 8888];
-      allowedUDPPorts = [53 67];
       checkReversePath = false;
       extraCommands = ''
         iptables -t nat -A PREROUTING ! -s 192.168.2.10 -p udp --dport 53 -j DNAT --to 192.168.2.10
@@ -135,10 +127,7 @@
   };
 
   security.sudo.wheelNeedsPassword = false;
-
   services.openssh.enable = true;
-  services.grafana = import ./grafana.nix;
-  services.prometheus = import ./prometheus.nix;
 
   system.stateVersion = "23.05";
   system.autoUpgrade = {
@@ -149,93 +138,10 @@
 
   hardware.enableRedistributableFirmware = true;
 
-  virtualisation = {
-    containers = {
-      enable = true;
-      containersConf = {
-        settings = {
-          engine.helper_binaries_dir = ["${pkgs.netavark}/bin"];
-        };
-      };
-    };
-
-    podman = {
-      enable = true;
-      dockerCompat = true;
-    };
-
-    oci-containers.backend = "podman";
-    oci-containers.containers = {
-      pi-hole = import ./pi-hole.nix;
-    };
-  };
-
-  systemd.services = {
-    prometheus-pihole-exporter = {
-      serviceConfig.ExecStart = lib.mkForce ''
-        ${pkgs.bash}/bin/bash -c "${pkgs.prometheus-pihole-exporter}/bin/pihole-exporter \
-          -pihole_api_token 4d35bbf234f12338c0617746043c52c1f92e37c9457d8f3d1441feb2036d91b8 \
-          -pihole_hostname 127.0.0.1 \
-          -pihole_port 80 \
-          -pihole_protocol http \
-          -port 9006"
-      '';
-    };
-  };
-
-  systemd.services.promtail = {
-    description = "Promtail service for Loki";
-    wantedBy = ["multi-user.target"];
-
-    serviceConfig = {
-      ExecStart = ''
-        ${pkgs.grafana-loki}/bin/promtail --config.file ${./promtail.yaml}
-      '';
-    };
-  };
-
-  systemd.tmpfiles.rules = [
-    "d /var/lib/loki 0700 loki loki - -"
-    "d /var/lib/loki/ruler 0700 loki loki - -"
+  imports = [
+    # ./squid.nix
+    ./pi-hole.nix
+    ./grafana.nix
+    ./prometheus.nix
   ];
-
-  services.loki = {
-    enable = true;
-    configuration = {
-      auth_enabled = false;
-      server = {
-        http_listen_port = 3100;
-      };
-      analytics.reporting_enabled = false;
-      common = {
-        path_prefix = "/var/lib/loki";
-        storage.filesystem = {
-          chunks_directory = "/var/lib/loki/chunks";
-          rules_directory = "/var/lib/loki/rules";
-        };
-        replication_factor = 1;
-        ring = {
-          instance_addr = "127.0.0.1";
-          kvstore.store = "inmemory";
-        };
-      };
-
-      schema_config = {
-        configs = [
-          {
-            from = "2022-05-15";
-            store = "boltdb-shipper";
-            object_store = "filesystem";
-            schema = "v11";
-            index = {
-              prefix = "index_";
-              period = "24h";
-            };
-          }
-        ];
-      };
-
-      ruler.alertmanager_url = "http://127.0.0.1:9001";
-    };
-  };
 }
