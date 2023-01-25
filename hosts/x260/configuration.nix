@@ -57,9 +57,6 @@
     fwupd = {
       enable = true;
     };
-    fstrim = {
-      enable = true;
-    };
     openssh = {
       enable = false;
     };
