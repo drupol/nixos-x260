@@ -20,10 +20,10 @@
   };
 
   # Limit the systemd journal to 100 MB of disk or the
-  # last 7 days of logs, whichever happens first.
+  # last 3 days of logs, whichever happens first.
   services.journald.extraConfig = ''
     SystemMaxUse=100M
-    MaxFileSec=5day
+    MaxFileSec=3day
   '';
 
   # Set your time zone.
