@@ -1,5 +1,5 @@
 {
-  description = "A flake for computers at home.";
+  description = "My Nix infrastructure at home";
 
   inputs = {
     nixpkgs.url = "github:/nixos/nixpkgs/nixos-unstable";
@@ -7,7 +7,6 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    flake-utils.url = "github:numtide/flake-utils";
     plasma-manager.url = "github:pjones/plasma-manager";
     nur.url = "github:nix-community/NUR";
 
@@ -24,77 +23,37 @@
     };
   };
 
-  outputs = inputs: let
-    # This is the same as "lib = nixpkgs.lib";
-    inherit (inputs.nixpkgs) lib;
-
+  outputs = {
+    self,
+    flake-parts,
+    ...
+  } @ inputs: let
     hosts = import ./hosts.nix;
-
-    overlays = [
-      (final: prev: {
-        master = import inputs.nixpkgs-master {
-          inherit (final) config;
-          system = "${prev.system}";
-        };
-      })
-      (final: prev: {
-        unstable = import inputs.nixpkgs-unstable {
-          inherit (final) config;
-          system = "${prev.system}";
-        };
-      })
-      (final: prev: {bobthefish-src = inputs.bobthefish;})
-      (final: prev: {z-src = inputs.z;})
-      inputs.nur.overlay
-    ];
-
-    mkHomeConfig = host: let
-      pkgs = import inputs.nixpkgs {
-        inherit overlays;
-        system = host.system;
-        config = {allowUnfreePredicate = pkg: true;};
-      };
-    in {
-      "${host.user}" = inputs.home-manager.lib.homeManagerConfiguration {
-        modules = [
-          ./hosts/${host.instance}
-        ];
-        extraSpecialArgs = {
-          inherit host pkgs;
-          inherit (inputs) self;
-        };
-      };
-    };
-
-    mkConfig = host: let
-      pkgs = import inputs.nixpkgs {
-        inherit overlays;
-        system = host.system;
-        config = {allowUnfreePredicate = pkg: true;};
-      };
-    in {
-      "${host.instance}" = inputs.nixpkgs.lib.nixosSystem {
-        system = host.system;
-        modules = [./hosts/${host.instance}];
-        specialArgs = {
-          inherit host pkgs;
-          inherit (inputs) self;
-        };
-      };
+    myLib = import ./lib/default.nix {
+      inherit self inputs;
     };
   in
-    {
-      homeConfigurations =
-        lib.foldr (el: acc: acc // mkHomeConfig el) {}
-        (lib.filter (el: el.operating-system != "nixos") hosts);
-      nixosConfigurations =
-        lib.foldr (el: acc: acc // mkConfig el) {}
-        (lib.filter (el: el.operating-system == "nixos") hosts);
-    }
-    // inputs.flake-utils.lib.eachDefaultSystem (system: let
-      pkgs = import inputs.nixpkgs {
-        inherit system;
-        config = {allowUnfreePredicate = pkg: true;};
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
+
+      perSystem = {
+        self',
+        inputs',
+        pkgs,
+        system,
+        ...
+      }: {
+        formatter = pkgs.alejandra;
       };
-    in {formatter = pkgs.alejandra;});
+
+      flake = {
+        # homeConfigurations =
+        #   inputs.nixpkgs.lib.foldr (el: acc: acc // myLib.mkHomeConfig el) {}
+        #   (inputs.nixpkgs.lib.filter (el: el.operating-system != "nixos") hosts);
+
+        nixosConfigurations =
+          inputs.nixpkgs.lib.foldr (el: acc: acc // myLib.mkNixosSystem el) {}
+          (inputs.nixpkgs.lib.filter (el: el.operating-system == "nixos") hosts);
+      };
+    };
 }

@@ -1,16 +1,15 @@
 {
   config,
+  lib,
   pkgs,
-  self,
-  host,
   ...
 }: {
   imports = [
-    ../../activation/system-report-changes.nix
-    ../common/config.nix
+    ../../modules/activation/system-report-changes.nix
+    ../common/configuration.nix
     ../common/packages.nix
     ../common/packages-desktop.nix
-    ../../users
+    ../../modules/users
     ./configuration.nix
     ./home.nix
   ];

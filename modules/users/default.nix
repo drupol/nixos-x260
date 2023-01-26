@@ -1,7 +1,7 @@
 {
   config,
-  inputs,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [

@@ -1,8 +1,8 @@
 {
-  config,
   pkgs,
   self,
   host,
+  config,
   ...
 }: {
   home.stateVersion = "23.05";

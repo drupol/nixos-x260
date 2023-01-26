@@ -79,7 +79,7 @@
   # services.xserver.libinput.enable = true;
 
   security.sudo.wheelNeedsPassword = false; # Use 'sudo' without a password
-  services.openssh.passwordAuthentication = false;
+  services.openssh.settings.passwordAuthentication = false;
 
   powerManagement.enable = true;
 

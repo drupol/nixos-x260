@@ -6,9 +6,9 @@
   ...
 }: {
   imports = [
-    ../../activation/system-report-changes.nix
-    ../common/config.nix
-    ../../users
+    ../../modules/activation/system-report-changes.nix
+    ../common/configuration.nix
+    ../../modules/users
     ./configuration.nix
   ];
 }
