@@ -6,7 +6,6 @@
   ...
 }: {
   imports = [
-    ../../modules/activation/system-report-changes.nix
     ../common/configuration.nix
     ../common/packages.nix
     ../common/packages-desktop.nix

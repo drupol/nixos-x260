@@ -27,12 +27,6 @@
         })
         ./hosts/${host.instance}
       ];
-      extraSpecialArgs = {
-        inherit host;
-        inherit (inputs) self;
-        system = host.system;
-        myPkgs = self.legacyPackages.${host.system};
-      };
     };
   };
 
@@ -42,8 +36,6 @@
 
       specialArgs = {
         inherit self inputs host;
-        system = host.system;
-        myPkgs = self.legacyPackages.${host.system};
       };
 
       modules = [
