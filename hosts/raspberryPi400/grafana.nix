@@ -15,6 +15,7 @@
       smtp = {
         enabled = true;
         host = "smtp.scarlet.be:25";
+        from_address = "pol.dellaiera@protonmail.com";
       };
     };
 
