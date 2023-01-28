@@ -30,7 +30,7 @@
   } @ inputs: let
     hosts = import ./hosts.nix;
     myLib = import ./lib/default.nix {
-      inherit self inputs;
+      inherit inputs;
     };
   in
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {

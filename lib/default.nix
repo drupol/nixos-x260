@@ -1,8 +1,6 @@
-{
-  self,
-  inputs,
-  ...
-}: {
+{inputs, ...}: let
+  inherit (inputs) self;
+in {
   mkHomeConfig = host: {
     "${host.user}" = inputs.home-manager.lib.homeManagerConfiguration {
       modules = [
@@ -32,7 +30,7 @@
 
   mkNixosSystem = host: {
     "${host.instance}" = inputs.nixpkgs.lib.nixosSystem {
-      system = host.system;
+      inherit (host) system;
 
       specialArgs = {
         inherit self inputs host;
