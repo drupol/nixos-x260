@@ -8,8 +8,12 @@
   services.grafana = {
     enable = true;
     settings = {
-      server.http_port = 8888;
-      server.http_addr = "0.0.0.0";
+      server = {
+        domain = "raspberryPi400";
+        http_port = 8888;
+        http_addr = "0.0.0.0";
+      };
+
       analytics.reporting_enabled = false;
 
       smtp = {
