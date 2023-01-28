@@ -14,7 +14,7 @@
 
       smtp = {
         enabled = true;
-        host = "smtp.scarlet.be";
+        host = "smtp.scarlet.be:25";
       };
     };
 
