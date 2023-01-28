@@ -1,4 +1,15 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  prometheus-shelly-exporter = callPackage ./shelly-exporter.nix {};
+in {
+  # systemd.services = {
+  #   prometheus-shelly-exporter = {
+  #     serviceConfig.ExecStart = lib.mkForce ''
+  #       ${pkgs.bash}/bin/bash -c "${prometheus-shelly-exporter}/bin/shelly_exporter \
+  #         -metrics-file /home/pol/nix/shelly-metrics.json"
+  #     '';
+  #   };
+  # };
+
   services.prometheus = {
     enable = true;
     port = 9990;
