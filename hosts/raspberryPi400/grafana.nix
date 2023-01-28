@@ -11,6 +11,11 @@
       server.http_port = 8888;
       server.http_addr = "0.0.0.0";
       analytics.reporting_enabled = false;
+
+      smtp = {
+        enabled = true;
+        host = "smtp.scarlet.be";
+      };
     };
 
     dataDir = "/var/lib/grafana";
