@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  prometheus-shelly-exporter = callPackage ./shelly-exporter.nix {};
+  prometheus-shelly-exporter = pkgs.callPackage ./shelly-exporter.nix {};
 in {
   # systemd.services = {
   #   prometheus-shelly-exporter = {
