@@ -31,6 +31,12 @@ in {
         static_configs = [{targets = ["127.0.0.1:9991"];}];
         scrape_interval = "15s";
       }
+      # Scrape the current system
+      {
+        job_name = "shelly";
+        static_configs = [{targets = ["127.0.0.1:9784"];}];
+        scrape_interval = "15s";
+      }
     ];
   };
 }
