@@ -1,4 +1,8 @@
-{pkgs, lib, ...}: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   prometheus-shelly-exporter = pkgs.callPackage ./shelly-exporter.nix {};
 in {
   systemd.services = {
