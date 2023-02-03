@@ -2,18 +2,7 @@
   pkgs,
   lib,
   ...
-}: let
-  prometheus-shelly-exporter = pkgs.callPackage ./shelly-exporter.nix {};
-in {
-  systemd.services = {
-    prometheus-shelly-exporter = {
-      serviceConfig.ExecStart = lib.mkForce ''
-        ${pkgs.bash}/bin/bash -c "${prometheus-shelly-exporter}/bin/shelly_exporter \
-          -metrics-file /home/pol/nix/shelly-metrics.json"
-      '';
-    };
-  };
-
+}: {
   services.prometheus = {
     enable = true;
     port = 9990;
@@ -22,6 +11,9 @@ in {
         enable = true;
         enabledCollectors = ["systemd" "netdev"];
         port = 9991;
+      };
+      shelly = {
+        enable = true;
       };
     };
     scrapeConfigs = [
