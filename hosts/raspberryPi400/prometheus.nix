@@ -14,6 +14,7 @@
       };
       shelly = {
         enable = true;
+        metrics-file = "/shelly-metrics.json";
       };
     };
     scrapeConfigs = [
