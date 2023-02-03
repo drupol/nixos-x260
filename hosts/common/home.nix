@@ -411,7 +411,10 @@
           default = "matching";
           rebase = true;
         };
-        rebase = {instructionFormat = "(%an <%ae>) %s";};
+        rebase = {
+          instructionFormat = "(%an <%ae>) %s";
+          updateRefs = true;
+        };
         rerere = {enabled = true;};
         include = {path = "~/.gitconfig.local";};
         signing = {
