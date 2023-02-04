@@ -480,71 +480,83 @@
         "[markdown]" = {
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
+        "[nix]" = {
+          "editor.defaultFormatter" = "brettm12345.nixfmt-vscode";
+        };
         "[php]" = {
           "editor.defaultFormatter" = "bmewburn.vscode-intelephense-client";
         };
-        "[yaml]" = {"editor.defaultFormatter" = "redhat.vscode-yaml";};
-        "[nix]" = {"editor.defaultFormatter" = "brettm12345.nixfmt-vscode";};
-        "cmake.configureOnOpen" = true;
+        "[yaml]" = {
+          "editor.defaultFormatter" = "redhat.vscode-yaml";
+        };
         "cSpell.language" = "fr,en-GB,en-US,en";
         "cSpell.minWordLength" = 3;
-        "cSpell.userWords" = ["methodes" "negligable" "Wopi"];
+        "cSpell.userWords" = [];
+        "cmake.configureOnOpen" = true;
         "diffEditor.ignoreTrimWhitespace" = false;
         "editor.bracketPairColorization.enabled" = true;
-        "editor.cursorSmoothCaretAnimation" = true;
+        "editor.cursorSmoothCaretAnimation" = "on";
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
         "editor.fontFamily" = "'Jetbrains mono'";
         "editor.fontLigatures" = true;
         "editor.guides.bracketPairs" = "active";
         "editor.mouseWheelZoom" = true;
-        "editor.rulers" = [80 120];
-        "editor.stickyScroll.maxLineCount" = 10;
+        "editor.rulers" = [
+          80
+          120
+        ];
         "editor.stickyScroll.enabled" = true;
+        "editor.stickyScroll.maxLineCount" = 10;
         "editor.suggestSelection" = "first";
-        "editor.unicodeHighlight.nonBasicASCII" = false;
-        "editor.unicodeHighlight.invisibleCharacters" = false;
         "editor.unicodeHighlight.ambiguousCharacters" = false;
+        "editor.unicodeHighlight.invisibleCharacters" = false;
+        "editor.unicodeHighlight.nonBasicASCII" = false;
         "errorLens.enabled" = false;
-        "explorer.confirmDragAndDrop" = false;
         "explorer.confirmDelete" = false;
+        "explorer.confirmDragAndDrop" = false;
         "extensions.ignoreRecommendations" = true;
+        "files.associations" = {
+          "*.module" = "php";
+        };
         "files.trimTrailingWhitespace" = true;
-        "files.associations" = {"*.module" = "php";};
         "git.allowForcePush" = true;
         "git.autofetch" = true;
         "git.confirmForcePush" = false;
         "git.confirmSync" = false;
         "git.showPushSuccessNotification" = true;
         "gitblame.inlineMessageEnabled" = true;
-        "gitblame.inlineMessageFormat" = "\${commit.summary} by \${author.name} - \${time.ago} @ \${commit.hash_short}";
+        "gitblame.inlineMessageFormat" = "${commit.summary} by ${author.name} - ${time.ago} @ ${commit.hash_short}";
         "gitblame.inlineMessageMargin" = 4;
-        "gitblame.statusBarMessageFormat" = "\${commit.summary} by \${author.name} - \${time.ago} @ \${commit.hash_short}";
+        "gitblame.statusBarMessageFormat" = "${commit.summary} by ${author.name} - ${time.ago} @ ${commit.hash_short}";
         "languageTool.language" = "fr";
         "languageToolLinter.serviceType" = "managed";
         "latex-workshop.latex.autoBuild.run" = "never";
         "latex-workshop.latex.external.build.command" = "make";
+        "nix.formatterPath" = "alejandra";
         "nixEnvSelector.suggestion" = false;
-        "nix.formatterPath" = "nixpkgs-fmt";
-        "plantuml.previewSnapIndicators" = true;
         "php.suggest.basic" = false;
-        "rest-client.enableTelemetry" = false;
+        "plantuml.previewSnapIndicators" = true;
         "redhat.telemetry.enabled" = false;
-        "rust-client.disableRustup" = true;
+        "rest-client.enableTelemetry" = false;
         "rust-client.channel" = "stable";
+        "rust-client.disableRustup" = true;
         "search.seedWithNearestWord" = true;
         "search.showLineNumbers" = true;
         "search.useGlobalIgnoreFiles" = true;
         "search.useIgnoreFiles" = true;
         "security.workspace.trust.untrustedFiles" = "open";
-        "spellright.language" = ["en_US" "en"];
+        "spellright.language" = [
+          "en_US"
+          "en"
+        ];
         "sync.autoDownload" = true;
         "sync.autoUpload" = true;
         "sync.forceUpload" = true;
         "sync.gist" = "09e7759563df7cb7db0fbc04b9bb69c5";
         "sync.quietSync" = true;
         "telemetry.telemetryLevel" = "off";
-        "terminal.integrated.fontSize" = 18;
         "terminal.integrated.defaultProfile.linux" = "fish";
+        "terminal.integrated.fontSize" = 18;
         "window.dialogStyle" = "custom";
         "window.titleBarStyle" = "custom";
         "window.zoomLevel" = 1;
