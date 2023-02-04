@@ -542,7 +542,7 @@
         "sync.forceUpload" = true;
         "sync.gist" = "09e7759563df7cb7db0fbc04b9bb69c5";
         "sync.quietSync" = true;
-        "telemetry.telemetryLevel": "off",
+        "telemetry.telemetryLevel" = "off";
         "terminal.integrated.fontSize" = 18;
         "terminal.integrated.defaultProfile.linux" = "fish";
         "window.dialogStyle" = "custom";
