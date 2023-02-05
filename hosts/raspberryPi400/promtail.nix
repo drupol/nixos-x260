@@ -84,13 +84,4 @@
     };
     # extraFlags
   };
-
-  services.prometheus.scrapeConfigs = [
-    # Scrape the Loki service
-    {
-      job_name = "Loki service";
-      static_configs = [{targets = ["127.0.0.1:${toString config.services.loki.configuration.server.http_listen_port}"];}];
-      scrape_interval = "15s";
-    }
-  ];
 }
