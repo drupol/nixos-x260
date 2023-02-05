@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   networking = {
     firewall = {
       allowedTCPPorts = [8888];
@@ -31,13 +35,13 @@
         {
           name = "Prometheus";
           type = "prometheus";
-          url = "http://localhost:9990";
+          url = "http://127.0.0.1:${toString config.services.prometheus.port}";
           isDefault = true;
         }
         {
           name = "Loki";
           type = "loki";
-          url = "http://localhost:3100";
+          url = "http://127.0.0.1:${toString config.services.loki.configuration.server.http_listen_port}";
           isDefault = false;
         }
       ];
