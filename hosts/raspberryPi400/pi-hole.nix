@@ -10,19 +10,6 @@
     };
   };
 
-  systemd.services = {
-    prometheus-pihole-exporter = {
-      serviceConfig.ExecStart = lib.mkForce ''
-        ${pkgs.bash}/bin/bash -c "${pkgs.prometheus-pihole-exporter}/bin/pihole-exporter \
-          -pihole_api_token 4d35bbf234f12338c0617746043c52c1f92e37c9457d8f3d1441feb2036d91b8 \
-          -pihole_hostname 127.0.0.1 \
-          -pihole_port 80 \
-          -pihole_protocol http \
-          -port 9006"
-      '';
-    };
-  };
-
   virtualisation = {
     containers = {
       enable = true;
@@ -103,20 +90,4 @@
       };
     };
   };
-
-  services.prometheus.exporters.pihole = {
-    enable = true;
-    port = 9006;
-    apiToken = "4d35bbf234f12338c0617746043c52c1f92e37c9457d8f3d1441feb2036d91b8";
-    piholeHostname = "127.0.0.1";
-    piholePort = 80;
-  };
-
-  services.prometheus.scrapeConfigs = [
-    {
-      job_name = "pihole";
-      static_configs = [{targets = ["127.0.0.1:9006"];}];
-      scrape_interval = "15s";
-    }
-  ];
 }

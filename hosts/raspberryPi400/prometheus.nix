@@ -16,6 +16,11 @@
         enable = true;
         metrics-file = "/shelly-metrics.json";
       };
+      pihole = {
+        enable = true;
+        password = "webpassword";
+        piholeHostname = "127.0.0.1";
+      };
     };
     scrapeConfigs = [
       # Scrape the current system
@@ -28,6 +33,11 @@
       {
         job_name = "shelly";
         static_configs = [{targets = ["127.0.0.1:9784"];}];
+        scrape_interval = "15s";
+      }
+      {
+        job_name = "pihole";
+        static_configs = [{targets = ["127.0.0.1:9617"];}];
         scrape_interval = "15s";
       }
     ];
