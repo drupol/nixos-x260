@@ -52,22 +52,22 @@
     exa = {enable = true;};
     firefox = {
       enable = true;
-      extensions = [
-        pkgs.nur.repos.rycee.firefox-addons.browserpass
-        pkgs.nur.repos.rycee.firefox-addons.bypass-paywalls-clean
-        pkgs.nur.repos.rycee.firefox-addons.enhancer-for-youtube
-        pkgs.nur.repos.rycee.firefox-addons.french-dictionary
-        pkgs.nur.repos.rycee.firefox-addons.i-dont-care-about-cookies
-        pkgs.nur.repos.rycee.firefox-addons.kristofferhagen-nord-theme
-        pkgs.nur.repos.rycee.firefox-addons.multi-account-containers
-        pkgs.nur.repos.rycee.firefox-addons.plasma-integration
-        pkgs.nur.repos.rycee.firefox-addons.privacy-badger
-        pkgs.nur.repos.rycee.firefox-addons.tournesol
-        pkgs.nur.repos.rycee.firefox-addons.youchoose-ai
-      ];
       profiles.default = {
         id = 0;
         name = "Default";
+        extensions = [
+          pkgs.nur.repos.rycee.firefox-addons.browserpass
+          pkgs.nur.repos.rycee.firefox-addons.bypass-paywalls-clean
+          pkgs.nur.repos.rycee.firefox-addons.enhancer-for-youtube
+          pkgs.nur.repos.rycee.firefox-addons.french-dictionary
+          pkgs.nur.repos.rycee.firefox-addons.i-dont-care-about-cookies
+          pkgs.nur.repos.rycee.firefox-addons.kristofferhagen-nord-theme
+          pkgs.nur.repos.rycee.firefox-addons.multi-account-containers
+          pkgs.nur.repos.rycee.firefox-addons.plasma-integration
+          pkgs.nur.repos.rycee.firefox-addons.privacy-badger
+          pkgs.nur.repos.rycee.firefox-addons.tournesol
+          pkgs.nur.repos.rycee.firefox-addons.youchoose-ai
+        ];
         search = {
           default = "Google";
           force = true;
