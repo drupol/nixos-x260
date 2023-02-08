@@ -59,6 +59,11 @@ in {
         inputs.home-manager.nixosModules.home-manager
         inputs.nur.nixosModules.nur
 
+        # # auto import all nix code from `./modules`, treat each one as a flake and merge them
+        # imports =
+        #   map (m: "${./.}/nix/modules/${m}")
+        #   (builtins.attrNames (builtins.readDir ./nix/modules));
+
         # Load the modules
         ../modules
         # Default configuration
