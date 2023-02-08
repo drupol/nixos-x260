@@ -63,6 +63,7 @@ in {
         ../modules
         # Default configuration
         ../hosts/common/configuration.nix
+        ../hosts/common/tailscale.nix
         ../modules/users
         # Host specific configuration
         ../hosts/${host.hostname}
