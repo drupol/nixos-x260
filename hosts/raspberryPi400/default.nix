@@ -10,5 +10,6 @@
     ../../modules/users
     ./configuration.nix
     ./packages.nix
+    ./tailscale.nix
   ];
 }
