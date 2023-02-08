@@ -22,6 +22,7 @@
     p7zip
     procs
     ripgrep
+    tailscale
     tig
     wget
   ];
