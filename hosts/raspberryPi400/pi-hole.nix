@@ -67,6 +67,10 @@
           BLOCKING_ENABLED = "true";
           IPV4_ADDRESS = "0.0.0.0";
           IPV6_ADDRESS = "0:0:0:0:0:0";
+          DNSSEC = "false";
+          REV_SERVER = "false";
+          RATE_LIMIT = "1000/60";
+          PRIVACYLEVEL = "0";
         };
         volumes = [
           "pihole:/etc/pihole"
