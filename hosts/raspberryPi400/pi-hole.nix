@@ -50,7 +50,7 @@
           TEMPERATUREUNIT = "c";
           WEBUIBOXEDLAYOUT = "traditional";
           QUERY_LOGGING = "false";
-          FTLCONF_LOCAL_ADDR4 = "0.0.0.0";
+          FTLCONF_LOCAL_ADDR4 = "192.168.2.10";
           WEBTHEME = "default-dark";
           PIHOLE_DNS_1 = "8.8.8.8";
           PIHOLE_DNS_2 = "8.8.4.4";

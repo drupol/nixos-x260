@@ -10,10 +10,10 @@
     '';
     virtualHosts."raspberrypi400".extraConfig = ''
       handle /pihole/ {
-        reverse_proxy localhost:8093
+        reverse_proxy 127.0.0.1:8093
       }
       handle /grafana/ {
-        reverse_proxy localhost:8888
+        reverse_proxy 127.0.0.1:8888
       }
     '';
   };
