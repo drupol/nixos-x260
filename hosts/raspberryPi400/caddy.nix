@@ -19,6 +19,7 @@
 
     virtualHosts."raspberrypi400:80".extraConfig = ''
       handle_path /pihole/* {
+        rewrite * /admin{uri}
         reverse_proxy 127.0.0.1:8093
       }
       handle_path /grafana/* {
