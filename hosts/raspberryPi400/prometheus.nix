@@ -20,7 +20,7 @@
         enable = true;
         password = "webpassword";
         piholeHostname = "127.0.0.1";
-        piholePort = "8093";
+        piholePort = 8093;
       };
     };
     scrapeConfigs = [
