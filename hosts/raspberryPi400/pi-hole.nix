@@ -25,12 +25,13 @@
           "53:53/tcp"
           "53:53/udp"
           "67:67/udp"
-          "8093:80/tcp"
+          "8093:8093/tcp"
           "547:547/udp"
         ];
         environment = {
           TZ = "Europe/Brussels";
           WEBPASSWORD = "webpassword";
+          WEB_PORT = "8093";
           ServerIP = "192.168.2.10";
           VIRTUAL_HOST = "pihole.dns";
           DNSMASQ_LISTENING = "all";
