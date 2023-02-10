@@ -5,7 +5,7 @@
 }: {
   networking = {
     firewall = {
-      allowedTCPPorts = [53 67 80];
+      allowedTCPPorts = [53 67];
       allowedUDPPorts = [53 67 547];
     };
   };

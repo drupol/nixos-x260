@@ -3,12 +3,6 @@
   config,
   ...
 }: {
-  networking = {
-    firewall = {
-      allowedTCPPorts = [8888];
-    };
-  };
-
   services.grafana = {
     enable = true;
     settings = {
