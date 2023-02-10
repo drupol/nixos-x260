@@ -3,14 +3,14 @@
   config,
   ...
 }: {
-  environment.systemPackages = [ pkgs.tailscale ];
+  environment.systemPackages = [pkgs.tailscale];
 
   services.headscale = {
     enable = true;
     settings = {
       dns_config = {
         magic_dns = true;
-        nameservers = [ "192.168.2.10" ];
+        nameservers = ["192.168.2.10"];
         base_domain = "pihole.local";
       };
       db_path = "/var/lib/headscale/db.sqlite";
@@ -21,7 +21,7 @@
   };
 
   networking.firewall = {
-    allowedTCPPorts = [ config.services.headscale.port ];
-    allowedUDPPorts = [ config.services.headscale.port ];
+    allowedTCPPorts = [config.services.headscale.port];
+    allowedUDPPorts = [config.services.headscale.port];
   };
 }

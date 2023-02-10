@@ -102,8 +102,6 @@
       enable = true;
     };
     firewall = {
-      enable = false;
-      allowedTCPPorts = [3389];
       checkReversePath = false;
     };
     useDHCP = false;

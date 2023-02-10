@@ -41,7 +41,7 @@
     enable = true;
 
     # always allow traffic from your Tailscale network
-    trustedInterfaces = [ config.services.tailscale.interfaceName ];
+    trustedInterfaces = [config.services.tailscale.interfaceName];
 
     # allow the Tailscale UDP port through the firewall
     allowedUDPPorts = [config.services.tailscale.port];

@@ -11,5 +11,6 @@
     ./configuration.nix
     ./packages.nix
     ./headscale.nix
+    ./caddy.nix
   ];
 }
