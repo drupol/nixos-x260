@@ -28,7 +28,7 @@
           "8093:8093/tcp"
           "547:547/udp"
         ];
-                environment = {
+        environment = {
           TZ = "Europe/Brussels";
           WEBPASSWORD = "webpassword";
           WEB_PORT = "8093";
