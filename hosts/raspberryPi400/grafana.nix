@@ -13,9 +13,10 @@
     enable = true;
     settings = {
       server = {
-        domain = "raspberryPi400";
+        domain = "raspberrypi400";
         http_port = 8888;
         http_addr = "0.0.0.0";
+        root_url = "%(protocol)s://%(domain)s:%(http_port)s/grafana/";
       };
 
       analytics.reporting_enabled = false;

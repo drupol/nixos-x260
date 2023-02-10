@@ -28,13 +28,11 @@
           "8093:8093/tcp"
           "547:547/udp"
         ];
-        environment = {
+                environment = {
           TZ = "Europe/Brussels";
           WEBPASSWORD = "webpassword";
           WEB_PORT = "8093";
-          VIRTUAL_HOST = "raspberrypi400";
           DNSMASQ_LISTENING = "all";
-          PIHOLE_DOMAIN = "local";
           DNSMASQ_USER = "root";
           CUSTOM_CACHE_SIZE = "10000";
           IPv6 = "true";
@@ -51,6 +49,7 @@
           WEBUIBOXEDLAYOUT = "traditional";
           QUERY_LOGGING = "false";
           FTLCONF_LOCAL_ADDR4 = "192.168.2.10";
+          FTLCONF_LOCAL_IPV4 = "192.168.2.10";
           WEBTHEME = "default-dark";
           PIHOLE_DNS_1 = "8.8.8.8";
           PIHOLE_DNS_2 = "8.8.4.4";
@@ -65,12 +64,13 @@
           PIHOLE_DNS_11 = "2606:4700:4700::1111";
           PIHOLE_DNS_12 = "2606:4700:4700::1001";
           BLOCKING_ENABLED = "true";
-          IPV4_ADDRESS = "0.0.0.0";
+          IPV4_ADDRESS = "192.168.2.10";
           IPV6_ADDRESS = "0:0:0:0:0:0";
           DNSSEC = "false";
           REV_SERVER = "false";
           RATE_LIMIT = "1000/60";
           PRIVACYLEVEL = "0";
+          SKIPGRAVITYONBOOT = "1";
         };
         volumes = [
           "pihole:/etc/pihole"
