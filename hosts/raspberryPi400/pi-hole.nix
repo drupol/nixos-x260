@@ -32,8 +32,7 @@
           TZ = "Europe/Brussels";
           WEBPASSWORD = "webpassword";
           WEB_PORT = "8093";
-          ServerIP = "192.168.2.10";
-          VIRTUAL_HOST = "pihole.dns";
+          VIRTUAL_HOST = "raspberrypi400";
           DNSMASQ_LISTENING = "all";
           PIHOLE_DOMAIN = "local";
           DNSMASQ_USER = "root";
