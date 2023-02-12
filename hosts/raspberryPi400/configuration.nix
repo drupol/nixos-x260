@@ -124,7 +124,7 @@
 
     defaultGateway = "192.168.1.1";
 
-    nameservers = ["8.8.8.8"];
+    nameservers = ["100.100.100.100" "8.8.8.8"];
 
     firewall = {
       enable = true;
