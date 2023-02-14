@@ -26,5 +26,11 @@
         reverse_proxy 127.0.0.1:8888
       }
     '';
+
+    virtualHosts."192.168.2.10:80".extraConfig = ''
+      handle * {
+        respond ${./wpad.dat}
+      }
+    '';
   };
 }

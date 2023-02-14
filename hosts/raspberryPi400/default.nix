@@ -10,7 +10,8 @@
     ../../modules/users
     ./configuration.nix
     ./packages.nix
-    ./headscale.nix
+    #./headscale.nix
     ./caddy.nix
+    ./squid.nix
   ];
 }
