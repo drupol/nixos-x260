@@ -6,9 +6,16 @@
   # chown squid squid*
   # chmod 400 squid*
   # Update nix-configs/common/proxycert.pem
-  certKeyPath = "/var/secrets/squidCA.full.pem";
+  certFullKeyPath = "/var/secrets/squidCA.full.pem";
+  certKeyPath = "/var/secrets/squidCA.key";
 
   configText = ''
+    shutdown_lifetime 0 seconds
+    acl intermediate_fetching transaction_initiator certificate-fetching
+    http_access allow intermediate_fetching
+
+    acl localnet src 100.64.0.0/10  # RFC 6598 shared address space (CGN)
+    acl localnet src 192.168.0.0/16 # RFC 1918 possible internal network
     acl localnet src 192.168.0.0/16 # RFC 1918 possible internal network
     acl localnet src fc00::/7       # RFC 4193 local private network range
     acl localnet src fe80::/10      # RFC 4291 link-local (directly plugged) machines
@@ -61,36 +68,16 @@
     # And finally deny all other access to this proxy
     http_access deny all
 
-    # Squid normally listens to port 3128
-    http_port 3128 intercept ssl-bump \
-      cert=${certKeyPath} \
-      generate-host-certificates=on dynamic_cert_mem_cache_size=16MB
-
-    # Configure SSL cert rewriting
+    #en fin de fichier ajouter
     sslcrtd_program ${pkgs.squid}/libexec/security_file_certgen -s /var/cache/squid/ssl_db -M 4MB
     sslcrtd_children 4 startup=1 idle=1
-
-    # SSL bump instructions
-    # Define SSL connections steps
-    acl step1 at_step SslBump1
-    acl step2 at_step SslBump2
-    acl step3 at_step SslBump3
-
-    ssl_bump peek step1    # <- enabling this breaks it
-    #ssl_bump stare step2
-    #ssl_bump bump step3
-    # Uncommenting this may also break bumping.
-    ssl_bump bump all
-
-
-    #
-    # Add any of your own refresh_pattern entries above these.
-    #
-    refresh_pattern ^ftp:           1440    20%     10080
-    refresh_pattern ^gopher:        1440    0%      1440
-    refresh_pattern -i (/cgi-bin/|\?) 0     0%      0
-    refresh_pattern .               0       20%     4320
-
+    sslproxy_cert_error allow all
+    ssl_bump stare all
+    #replacer la directive http_port, je précise que il n'y a pas de retour chariot sur le cipher= tout doit être sur une même ligne
+    http_port 3128 tcpkeepalive=60,30,3 ssl-bump generate-host-certificates=on \
+      dynamic_cert_mem_cache_size=20MB \
+      cert=${certFullKeyPath} \
+      key=${certKeyPath}
   '';
 in {
   services.squid = {

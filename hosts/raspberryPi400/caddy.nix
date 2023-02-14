@@ -27,10 +27,10 @@
       }
     '';
 
-    virtualHosts."192.168.2.10:80".extraConfig = ''
+    virtualHosts."wpad.lan:80".extraConfig = ''
       handle * {
         root * ${./resources/caddy}
-        file_server browse
+        file_server
       }
     '';
   };
