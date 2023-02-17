@@ -47,90 +47,46 @@
     };
   };
 
-  # systemd.network.networks = {
-  #   "40-wired" = {
-  #     enable = true;
-  #     name = "end0";
-  #     dhcpV4Config.RouteMetric = 1024;
-  #     networkConfig = {
-  #       IPMasquerade = "yes";
-  #     };
-  #     matchConfig = {
-  #       Name = "end0";
-  #       MACAddress = "dc:a6:32:e5:bf:9e";
-  #     };
-  #     address = "192.168.2.10";
-  #     routes = [
-  #       {routeConfig = { Gateway = "192.168.1.1"; };}
-  #     ];
-  #   };
-  #   "50-wired" = {
-  #     enable = true;
-  #     name = "enp1s0u1u2";
-  #     dhcpV4Config.RouteMetric = 1024;
-  #     networkConfig = {
-  #       IPMasquerade = "yes";
-  #     };
-  #     matchConfig = {
-  #       Name = "enp1s0u1u2";
-  #       MACAddress = "00:0e:c6:52:c6:b3";
-  #     };
-  #     address = "192.168.1.2";
-  #     routes = [
-  #       {routeConfig = { Gateway = "192.168.1.1"; };}
-  #     ];
-  #   };
-  #   "40-wireless" = {
-  #     enable = true;
-  #     name = "wl*";
-  #     dhcpV4Config.RouteMetric = 2048;
-  #   };
-  #   "40-tunnel" = {
-  #     enable = true;
-  #     name = "tun*";
-  #     linkConfig.Unmanaged = true;
-  #   };
-  #   "40-bluetooth" = {
-  #     enable = true;
-  #     name = "bn*";
-  #     dhcpV4Config.RouteMetric = 3092;
-  #   };
-  # };
+  systemd.network.networks = {
+    wan = {
+      DHCP = "no";
+      linkConfig.RequiredForOnline = "no";
+      matchConfig.MACAddress = "00:0e:c6:52:c6:b3";
+      addresses = [
+        {
+          addressConfig.Address = "192.168.1.2/24";
+        }
+      ];
+      routes = [
+        {
+          routeConfig.Gateway = "192.168.1.1";
+        }
+      ];
+      dns = [
+        "100.100.100.100"
+        "8.8.8.8"
+      ];
+    };
+    lan = {
+      DHCP = "no";
+      linkConfig.RequiredForOnline = "no";
+      matchConfig.MACAddress = "dc:a6:32:e5:bf:9e";
+      networkConfig = {
+        IPMasquerade = "yes";
+      };
+      addresses = [
+        {
+          addressConfig.Address = "192.168.2.10/24";
+        }
+      ];
+    };
+  };
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   networking = {
     hostName = "raspberryPi400";
+    useNetworkd = true;
     useDHCP = false;
-    dhcpcd.enable = false;
-    usePredictableInterfaceNames = true;
-
-    nat = {
-      enable = true;
-      internalInterfaces = ["end0"];
-      externalInterface = "enp1s0u1";
-    };
-
-    interfaces.end0.ipv4.addresses = [
-      {
-        address = "192.168.2.10";
-        prefixLength = 24;
-      }
-    ];
-    interfaces.enp1s0u1.ipv4.addresses = [
-      {
-        address = "192.168.1.2";
-        prefixLength = 24;
-      }
-    ];
-    interfaces.enp1s0u2.ipv4.addresses = [
-      {
-        address = "192.168.1.2";
-        prefixLength = 24;
-      }
-    ];
-
-    defaultGateway = "192.168.1.1";
-
-    nameservers = ["100.100.100.100" "8.8.8.8"];
 
     firewall = {
       enable = true;
