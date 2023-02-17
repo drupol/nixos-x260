@@ -83,6 +83,7 @@
   };
   systemd.services.NetworkManager-wait-online.enable = false;
   systemd.network.wait-online.enable = false;
+  services.resolved.enable = false;
 
   networking = {
     hostName = "raspberryPi400";
