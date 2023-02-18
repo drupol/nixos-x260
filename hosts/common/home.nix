@@ -147,6 +147,8 @@
           "extensions.pocket.oAuthConsumerKey" = "";
           "extensions.pocket.showHome" = false;
           "extensions.pocket.site" = "";
+          # Allow copy to clipboard
+          "dom.events.asyncClipboard.clipboardItem" = true;
         };
       };
     };
