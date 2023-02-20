@@ -98,9 +98,6 @@
     networkmanager = {
       enable = true;
     };
-    firewall = {
-      checkReversePath = false;
-    };
     useDHCP = false;
   };
 
