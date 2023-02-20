@@ -6,7 +6,10 @@
 }: {
   environment.systemPackages = [pkgs.tailscale];
 
-  services.tailscale.enable = true;
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "both";
+  };
 
   # create a oneshot job to authenticate to Tailscale
   # systemd.services.tailscale-autoconnect = {
