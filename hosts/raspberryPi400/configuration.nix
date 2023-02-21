@@ -5,8 +5,6 @@
   ...
 }: {
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
-    tmpOnTmpfs = true;
     loader = {
       grub.enable = lib.mkDefault false;
       generic-extlinux-compatible.enable = lib.mkDefault true;
