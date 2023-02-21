@@ -11,8 +11,8 @@
     };
     kernel = {
       sysctl = {
-        "net.ipv4.conf.all.forwarding" = lib.mkForce true;
-        "net.ipv6.conf.all.forwarding" = lib.mkForce true;
+        "net.ipv4.conf.all.forwarding" = lib.mkDefault true;
+        "net.ipv6.conf.all.forwarding" = lib.mkDefault true;
       };
     };
   };
