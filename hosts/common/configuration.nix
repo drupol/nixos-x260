@@ -54,4 +54,7 @@
 
   # TODO: investigate why this is not working when it is set in home.nix
   programs.command-not-found.enable = false;
+
+  # https://mastodon.online/@nomeata/109915786344697931
+  documentation.nixos.enable = false;
 }
