@@ -57,4 +57,6 @@
 
   # https://mastodon.online/@nomeata/109915786344697931
   documentation.nixos.enable = false;
+
+  systemd.services.NetworkManager-wait-online.enable = false;
 }
