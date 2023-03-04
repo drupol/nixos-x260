@@ -69,7 +69,7 @@
           enable = true;
         };
       };
-      layout = "us";
+      layout = "gb";
       xkbOptions = "eurosign:e";
       # videoDrivers = [ "displaylink" ];
     };
