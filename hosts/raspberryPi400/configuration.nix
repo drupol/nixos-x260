@@ -116,4 +116,14 @@
     ./prometheus.nix
     ./promtail.nix
   ];
+
+  virtualisation = {
+    docker = {
+      autoPrune = {
+        dates = "daily";
+        flags = ["--all" "--volumes"];
+      };
+      enable = true;
+    };
+  };
 }
