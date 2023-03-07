@@ -115,7 +115,7 @@
     ./grafana.nix
     ./prometheus.nix
     ./promtail.nix
-    ./wetty.nix
+    # ./wetty.nix
   ];
 
   virtualisation = {
