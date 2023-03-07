@@ -26,7 +26,8 @@
         reverse_proxy 127.0.0.1:8888
       }
       handle_path /wetty/* {
-        reverse_proxy 127.0.0.1:3000/wetty/
+        rewrite * /wetty{uri}
+        reverse_proxy 127.0.0.1:3000
       }
     '';
 
