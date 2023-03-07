@@ -20,6 +20,12 @@
           "--network=host"
           "--pull=newer"
         ];
+        environment = {
+          FORCESSH = true;
+          SSHHOST = "192.168.2.10";
+          SSHAUTH = "publickey";
+          SSHKEY = "/home/pol/id_rsa.pub";
+        };
       };
     };
   };
