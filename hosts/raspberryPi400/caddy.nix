@@ -25,6 +25,9 @@
       handle_path /grafana/* {
         reverse_proxy 127.0.0.1:8888
       }
+      handle_path /terminal/* {
+        reverse_proxy 127.0.0.1:3000
+      }
     '';
 
     virtualHosts."wpad.lan:80".extraConfig = ''
