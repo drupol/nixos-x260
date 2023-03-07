@@ -10,7 +10,7 @@
 
     oci-containers.backend = "docker";
     oci-containers.containers = {
-      pi-hole = {
+      wetty = {
         autoStart = true;
         image = "wettyoss/wetty:latest";
 
