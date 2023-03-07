@@ -29,6 +29,10 @@
         rewrite * /wetty{uri}
         reverse_proxy 127.0.0.1:3000
       }
+      handle_path /wetty* {
+        rewrite * /wetty{uri}
+        reverse_proxy 127.0.0.1:3000
+      }
     '';
 
     virtualHosts."wpad.lan:80".extraConfig = ''
