@@ -22,6 +22,7 @@
         ];
         environment = {
           FORCESSH = "true";
+          SSHUSER = "pol";
           SSHHOST = "192.168.2.10";
           SSHAUTH = "publickey";
           SSHKEY = "/id_rsa.pub";
