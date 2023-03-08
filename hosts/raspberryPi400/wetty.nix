@@ -25,10 +25,10 @@
           SSHUSER = "pol";
           SSHHOST = "192.168.2.10";
           SSHAUTH = "publickey";
-          SSHKEY = "/id_rsa.pub";
+          SSHKEY = "/id_rsa";
         };
         volumes = [
-          "/home/pol/id_rsa.pub:/id_rsa.pub"
+          "/home/pol/nix/id_rsa:/id_rsa"
         ];
       };
     };
