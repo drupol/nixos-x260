@@ -13,5 +13,6 @@
     #./headscale.nix
     ./caddy.nix
     ./squid.nix
+    ./home.nix
   ];
 }
