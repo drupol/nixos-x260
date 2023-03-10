@@ -118,7 +118,7 @@ set -U tide_prompt_add_newline_before false
 set -U tide_prompt_color_frame_and_connection 6C6C6C
 set -U tide_prompt_color_separator_same_color 949494
 set -U tide_prompt_icon_connection \x20
-set -U tide_prompt_min_cols 34
+set -U tide_prompt_min_cols 1024
 set -U tide_prompt_pad_items true
 set -U tide_pwd_bg_color 3465A4
 set -U tide_pwd_color_anchors E4E4E4
