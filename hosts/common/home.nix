@@ -156,11 +156,13 @@
       enable = true;
       interactiveShellInit = ''
         ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+        set fish_theme nord
+        set -gx EDITOR nano
       '';
       plugins = [
         {
-          name = "bobthefish";
-          src = pkgs.bobthefish-src;
+          name = "tide";
+          inherit (pkgs.fishPlugins.tide) src;
         }
         {
           name = "z";
