@@ -19,6 +19,7 @@
     jetbrains-mono
     liberation_ttf
     neofetch
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Hack" "JetBrainsMono" ]; })
     p7zip
     procs
     ripgrep
