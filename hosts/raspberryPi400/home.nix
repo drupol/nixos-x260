@@ -11,8 +11,8 @@
     users."${host.user}".imports = [
       {
         home.file = {
-          ".config/fish/fish_variables" = {
-            source = ./. + "/../../files/home/pol/.config/fish/fish_variables";
+          ".config/fish/conf.d/custom.fish" = {
+            source = ./. + "/../../files/home/pol/.config/fish/conf.d/custom.fish";
             recursive = true;
           };
         };
