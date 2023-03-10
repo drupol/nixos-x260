@@ -36,6 +36,10 @@
       source = ./. + "/../../files/home/pol/Pictures/Backgrounds/";
       recursive = true;
     };
+    ".config/fish/fish_variables" = {
+      source = ./. + "/../../files/home/pol/.config/fish/fish_variables";
+      recursive = true;
+    };
   };
 
   programs = {

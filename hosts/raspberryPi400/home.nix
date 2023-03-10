@@ -10,6 +10,14 @@
     useUserPackages = true;
     users."${host.user}".imports = [
       {
+        home.file = {
+          ".config/fish/fish_variables" = {
+            source = ./. + "/../../files/home/pol/.config/fish/fish_variables";
+            recursive = true;
+          };
+        };
+      }
+      {
         home.stateVersion = "23.05";
 
         programs = {
