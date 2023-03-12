@@ -9,21 +9,21 @@
     # android-studio
     element-desktop
     gimp
-    google-chrome
-    graphviz
+    # google-chrome
+    # graphviz
     # jetbrains.clion
     # jetbrains.datagrip
     # jetbrains.jdk
     # jetbrains.goland
     # jetbrains.pycharm-professional
-    jetbrains.phpstorm
+    # jetbrains.phpstorm
     # jetbrains.idea-ultimate
     # jfsutils
     kate
     kgpg
     krdc
     okular
-    plantuml
+    # plantuml
     plasma-browser-integration
     sddm-kcm
     signal-desktop
