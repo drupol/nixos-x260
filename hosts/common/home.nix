@@ -160,10 +160,12 @@
       enable = true;
       interactiveShellInit = ''
         ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
-        set fish_theme nord
-        set -gx EDITOR nano
       '';
       plugins = [
+        {
+          name = "autopair";
+          inherit (pkgs.fishPlugins.autopair) src;
+        }
         {
           name = "tide";
           inherit (pkgs.fishPlugins.tide) src;
