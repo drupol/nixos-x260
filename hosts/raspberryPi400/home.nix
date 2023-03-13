@@ -44,6 +44,10 @@
                 name = "z";
                 src = pkgs.z-src;
               }
+              {
+                name = "autopair";
+                inherit (pkgs.fishPlugins.autopair) src;
+                                      }
             ];
             shellAliases = {
               ".." = "cd ..";
