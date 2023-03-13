@@ -61,7 +61,7 @@
         name = "Default";
         extensions = [
           pkgs.nur.repos.rycee.firefox-addons.browserpass
-          pkgs.nur.repos.rycee.firefox-addons.bypass-paywalls-clean
+          # pkgs.nur.repos.rycee.firefox-addons.bypass-paywalls-clean
           pkgs.nur.repos.rycee.firefox-addons.enhancer-for-youtube
           pkgs.nur.repos.rycee.firefox-addons.foxyproxy-standard
           pkgs.nur.repos.rycee.firefox-addons.french-dictionary
