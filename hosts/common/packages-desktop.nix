@@ -9,6 +9,7 @@
     # android-studio
     element-desktop
     gimp
+    jetbrains-toolbox
     # google-chrome
     # graphviz
     # jetbrains.clion
