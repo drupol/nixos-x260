@@ -526,6 +526,7 @@
         "explorer.confirmDelete" = false;
         "explorer.confirmDragAndDrop" = false;
         "extensions.ignoreRecommendations" = true;
+        "extensions.autoCheckUpdates" = true;
         "files.associations" = {
           "*.module" = "php";
         };
