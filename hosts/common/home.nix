@@ -3,6 +3,7 @@
   self,
   host,
   config,
+  lib,
   ...
 }: {
   home.stateVersion = "23.05";
@@ -462,6 +463,24 @@
         pkgs.vscode-extensions.bmewburn.vscode-intelephense-client
         pkgs.vscode-extensions.brettm12345.nixfmt-vscode
         pkgs.vscode-extensions.bungcip.better-toml
+        (
+          pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+            meta = {
+              changelog = "https://marketplace.visualstudio.com/items/chris-hayes.chatgpt-reborn/changelog";
+              description = "A Visual Studio Code extension to support ChatGPT, GPT-3 and Codex conversations";
+              downloadPage = "https://marketplace.visualstudio.com/items?itemName=chris-hayes.chatgpt-reborn";
+              homepage = "https://github.com/christopher-hayes/vscode-chatgpt-reborn";
+              license = lib.licenses.isc;
+              maintainers = [ lib.maintainers.drupol ];
+            };
+            mktplcRef = {
+              name = "chatgpt-reborn";
+              publisher = "chris-hayes";
+              version = "3.10.2";
+              sha256 = "sha256-rVfHJxJYgwaiWuckHGcTMIoaFSs3RH4vIrp1I/48pCI=";
+            };
+          }
+        )
         pkgs.vscode-extensions.christian-kohler.path-intellisense
         pkgs.vscode-extensions.codezombiech.gitignore
         pkgs.vscode-extensions.donjayamanne.githistory
@@ -500,6 +519,13 @@
         "[yaml]" = {
           "editor.defaultFormatter" = "redhat.vscode-yaml";
         };
+        "chatgpt.promptPrefix.customPrompt1" = "Pourrais-tu améliorer le texte suivant?";
+        "chatgpt.promptPrefix.customPrompt2" = "Could you improve the following text?";
+        "chatgpt.promptPrefix.customPrompt1-enabled" = true;
+        "chatgpt.promptPrefix.customPrompt2-enabled" = true;
+        "chatgpt.gpt3.model" = "gpt-3.5-turbo";
+        "chatgpt.telemetry.disable" = true;
+        "chatgpt.response.showNotification" = true;
         "cSpell.language" = "fr,en-GB,en-US,en";
         "cSpell.minWordLength" = 3;
         "cSpell.userWords" = [];
@@ -561,11 +587,6 @@
           "en_US"
           "en"
         ];
-        "sync.autoDownload" = true;
-        "sync.autoUpload" = true;
-        "sync.forceUpload" = true;
-        "sync.gist" = "09e7759563df7cb7db0fbc04b9bb69c5";
-        "sync.quietSync" = true;
         "telemetry.telemetryLevel" = "off";
         "terminal.integrated.defaultProfile.linux" = "fish";
         "terminal.integrated.fontSize" = 18;
