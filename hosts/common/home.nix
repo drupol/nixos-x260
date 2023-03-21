@@ -463,26 +463,29 @@
         pkgs.vscode-extensions.bmewburn.vscode-intelephense-client
         pkgs.vscode-extensions.brettm12345.nixfmt-vscode
         pkgs.vscode-extensions.bungcip.better-toml
+        pkgs.vscode-extensions.chris-hayes.chatgpt-reborn
         (
           pkgs.vscode-utils.buildVscodeMarketplaceExtension {
             meta = {
-              changelog = "https://marketplace.visualstudio.com/items/chris-hayes.chatgpt-reborn/changelog";
+              changelog = "https://marketplace.visualstudio.com/items/genieai.chatgpt-vscode/changelog";
               description = "A Visual Studio Code extension to support ChatGPT, GPT-3 and Codex conversations";
-              downloadPage = "https://marketplace.visualstudio.com/items?itemName=chris-hayes.chatgpt-reborn";
-              homepage = "https://github.com/christopher-hayes/vscode-chatgpt-reborn";
+              downloadPage = "https://marketplace.visualstudio.com/items?itemName=genieai.chatgpt-vscode";
+              homepage = "https://github.com/ai-genie/chatgpt-vscode";
               license = lib.licenses.isc;
               maintainers = [ lib.maintainers.drupol ];
             };
             mktplcRef = {
-              name = "chatgpt-reborn";
-              publisher = "chris-hayes";
-              version = "3.10.2";
-              sha256 = "sha256-rVfHJxJYgwaiWuckHGcTMIoaFSs3RH4vIrp1I/48pCI=";
+              name = "chatgpt-vscode";
+              publisher = "genieai";
+              version = "0.0.2";
+              sha256 = "sha256-mdBSZ8BAJ1dFy5MXBPMwXlSmNsY5vD/+gBAI+3+QT84=";
             };
           }
         )
         pkgs.vscode-extensions.christian-kohler.path-intellisense
         pkgs.vscode-extensions.codezombiech.gitignore
+        pkgs.vscode-extensions.dhall.vscode-dhall-lsp-server
+        pkgs.vscode-extensions.dhall.dhall-lang
         pkgs.vscode-extensions.donjayamanne.githistory
         pkgs.vscode-extensions.editorconfig.editorconfig
         pkgs.vscode-extensions.esbenp.prettier-vscode
