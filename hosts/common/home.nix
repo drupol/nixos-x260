@@ -464,24 +464,6 @@
         pkgs.vscode-extensions.brettm12345.nixfmt-vscode
         pkgs.vscode-extensions.bungcip.better-toml
         pkgs.vscode-extensions.chris-hayes.chatgpt-reborn
-        (
-          pkgs.vscode-utils.buildVscodeMarketplaceExtension {
-            meta = {
-              changelog = "https://marketplace.visualstudio.com/items/genieai.chatgpt-vscode/changelog";
-              description = "A Visual Studio Code extension to support ChatGPT, GPT-3 and Codex conversations";
-              downloadPage = "https://marketplace.visualstudio.com/items?itemName=genieai.chatgpt-vscode";
-              homepage = "https://github.com/ai-genie/chatgpt-vscode";
-              license = lib.licenses.isc;
-              maintainers = [ lib.maintainers.drupol ];
-            };
-            mktplcRef = {
-              name = "chatgpt-vscode";
-              publisher = "genieai";
-              version = "0.0.2";
-              sha256 = "sha256-mdBSZ8BAJ1dFy5MXBPMwXlSmNsY5vD/+gBAI+3+QT84=";
-            };
-          }
-        )
         pkgs.vscode-extensions.christian-kohler.path-intellisense
         pkgs.vscode-extensions.codezombiech.gitignore
         pkgs.vscode-extensions.dhall.vscode-dhall-lsp-server
@@ -489,6 +471,7 @@
         pkgs.vscode-extensions.donjayamanne.githistory
         pkgs.vscode-extensions.editorconfig.editorconfig
         pkgs.vscode-extensions.esbenp.prettier-vscode
+        pkgs.vscode-extensions.genieai.chatgpt-vscode
         pkgs.vscode-extensions.james-yu.latex-workshop
         pkgs.vscode-extensions.jebbs.plantuml
         pkgs.vscode-extensions.jnoortheen.nix-ide
