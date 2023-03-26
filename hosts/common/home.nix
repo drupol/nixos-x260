@@ -560,6 +560,8 @@
         "nixEnvSelector.suggestion" = false;
         "php.suggest.basic" = false;
         "plantuml.previewSnapIndicators" = true;
+        "plantuml.render" = "PlantUMLServer";
+        "plantuml.server" = "https://www.plantuml.com/plantuml";
         "redhat.telemetry.enabled" = false;
         "rest-client.enableTelemetry" = false;
         "rust-client.channel" = "stable";
