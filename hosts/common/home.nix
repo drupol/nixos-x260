@@ -509,7 +509,7 @@
         "chatgpt.promptPrefix.customPrompt2" = "Could you improve the following text?";
         "chatgpt.promptPrefix.customPrompt1-enabled" = true;
         "chatgpt.promptPrefix.customPrompt2-enabled" = true;
-        "chatgpt.gpt3.model" = "gpt-3.5-turbo";
+        "chatgpt.gpt3.model" = "gpt-4";
         "chatgpt.telemetry.disable" = true;
         "chatgpt.response.showNotification" = true;
         "cSpell.language" = "fr,en-GB,en-US,en";
