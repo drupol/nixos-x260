@@ -512,10 +512,6 @@
         "chatgpt.gpt3.model" = "gpt-4";
         "chatgpt.telemetry.disable" = true;
         "chatgpt.response.showNotification" = true;
-        "cSpell.language" = "fr,en-GB,en-US,en";
-        "cSpell.minWordLength" = 3;
-        "cSpell.userWords" = [];
-        "cmake.configureOnOpen" = true;
         "diffEditor.ignoreTrimWhitespace" = false;
         "editor.bracketPairColorization.enabled" = true;
         "editor.cursorSmoothCaretAnimation" = "on";
@@ -552,35 +548,25 @@
         "gitblame.inlineMessageFormat" = "\${commit.summary} by \${author.name} - \${time.ago} @ \${commit.hash_short}";
         "gitblame.inlineMessageMargin" = 4;
         "gitblame.statusBarMessageFormat" = "\${commit.summary} by \${author.name} - \${time.ago} @ \${commit.hash_short}";
-        "languageTool.language" = "fr";
-        "languageToolLinter.serviceType" = "managed";
         "latex-workshop.latex.autoBuild.run" = "never";
         "latex-workshop.latex.external.build.command" = "make";
         "nix.formatterPath" = "alejandra";
-        "nixEnvSelector.suggestion" = false;
         "php.suggest.basic" = false;
         "plantuml.previewSnapIndicators" = true;
         "plantuml.render" = "PlantUMLServer";
         "plantuml.server" = "https://www.plantuml.com/plantuml";
         "redhat.telemetry.enabled" = false;
-        "rest-client.enableTelemetry" = false;
-        "rust-client.channel" = "stable";
-        "rust-client.disableRustup" = true;
         "search.seedWithNearestWord" = true;
         "search.showLineNumbers" = true;
         "search.useGlobalIgnoreFiles" = true;
         "search.useIgnoreFiles" = true;
         "security.workspace.trust.untrustedFiles" = "open";
-        "spellright.language" = [
-          "en_US"
-          "en"
-        ];
         "telemetry.telemetryLevel" = "off";
         "terminal.integrated.defaultProfile.linux" = "fish";
         "terminal.integrated.fontSize" = 18;
         "window.dialogStyle" = "custom";
         "window.titleBarStyle" = "custom";
-        "window.zoomLevel" = 1;
+        "window.zoomLevel" = 0;
         "workbench.colorCustomizations" = {};
         "workbench.colorTheme" = "One Dark Pro Flat";
         "workbench.editor.highlightModifiedTabs" = true;
