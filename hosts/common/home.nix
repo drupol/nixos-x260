@@ -466,22 +466,7 @@
         pkgs.vscode-extensions.chris-hayes.chatgpt-reborn
         pkgs.vscode-extensions.christian-kohler.path-intellisense
         pkgs.vscode-extensions.codezombiech.gitignore
-        (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
-          mktplcRef = {
-            name = "phptools-vscode";
-            publisher = "devsense";
-            version = "1.33.12924";
-            sha256 = "sha256-ImaGkIe+MTO/utfVh3Giu0+jTSN0mmhgg6LvOod1suE=";
-          };
-          meta = {
-            changelog = "https://marketplace.visualstudio.com/items/DEVSENSE.phptools-vscode/changelog";
-            description = "A visual studio code extension for full development integration for the PHP language.";
-            downloadPage = "https://marketplace.visualstudio.com/items?itemName=DEVSENSE.phptools-vscode";
-            homepage = "https://github.com/DEVSENSE/phptools-docs";
-            license = lib.licenses.asl20;
-            maintainers = [ lib.maintainers.drupol ];
-          };
-        })
+        pkgs.vscode-extensions.devsense.phptools-vscode
         pkgs.vscode-extensions.dhall.vscode-dhall-lsp-server
         pkgs.vscode-extensions.dhall.dhall-lang
         pkgs.vscode-extensions.donjayamanne.githistory
