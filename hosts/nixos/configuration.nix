@@ -77,7 +77,6 @@
       };
       layout = "us";
       xkbOptions = "eurosign:e";
-      # videoDrivers = ["displaylink"];
     };
   };
 
