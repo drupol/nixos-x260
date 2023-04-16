@@ -36,9 +36,11 @@
   };
 
   boot = {
-    cleanTmpDir = true;
+    tmp = {
+      useTmpfs = true;
+      cleanOnBoot = true;
+    };
     kernelPackages = pkgs.linuxPackages_latest;
-    tmpOnTmpfs = true;
     kernel = {
       sysctl = {
         "net.ipv4.conf.all.forwarding" = lib.mkForce true;
