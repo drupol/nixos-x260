@@ -55,8 +55,10 @@
       enable = true;
     };
     openssh = {
-      forwardX11 = true;
       enable = true;
+      settings = {
+        X11Forwarding = true;
+      };
     };
     pipewire = {
       enable = true;
