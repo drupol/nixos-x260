@@ -570,6 +570,8 @@
         "files.associations" = {
           "*.module" = "php";
         };
+        "files.autoSave" = "afterDelay";
+        "files.autoSaveDelay" = 500;
         "files.trimTrailingWhitespace" = true;
         "git.allowForcePush" = true;
         "git.autofetch" = true;
