@@ -471,8 +471,13 @@
             name = "phptools-vscode";
             publisher = "devsense";
             version = "1.33.12980";
-            sha256 = "sha256-bObDqHgEOnJnY7v7TT6s+cQEKNwAFRdrUyTTXuTxQLI=";
+            sha256 = "sha256-wypPXiykubY33Ve/EMgmbvQe+KYaY70BZsZW77GuqDs=";
+            arch = "linux-x64";
           };
+
+          postInstall = ''
+            chmod +x $out/share/vscode/extensions/devsense.phptools-vscode/out/server/devsense.php.ls
+          '';
 
           nativeBuildInputs = [
             pkgs.autoPatchelfHook
@@ -482,15 +487,6 @@
             pkgs.zlib
             pkgs.stdenv.cc.cc.lib
           ];
-
-          meta = {
-            changelog = "https://marketplace.visualstudio.com/items/DEVSENSE.phptools-vscode/changelog";
-            description = "A visual studio code extension for full development integration for the PHP language.";
-            downloadPage = "https://marketplace.visualstudio.com/items?itemName=DEVSENSE.phptools-vscode";
-            homepage = "https://github.com/DEVSENSE/phptools-docs";
-            license = lib.licenses.asl20;
-            maintainers = [ lib.maintainers.drupol ];
-          };
         })
         pkgs.vscode-extensions.dhall.vscode-dhall-lsp-server
         pkgs.vscode-extensions.dhall.dhall-lang
@@ -499,6 +495,7 @@
         pkgs.vscode-extensions.editorconfig.editorconfig
         pkgs.vscode-extensions.esbenp.prettier-vscode
         pkgs.vscode-extensions.genieai.chatgpt-vscode
+        pkgs.vscode-extensions.github.github-vscode-theme
         pkgs.vscode-extensions.james-yu.latex-workshop
         pkgs.vscode-extensions.jebbs.plantuml
         pkgs.vscode-extensions.jnoortheen.nix-ide
@@ -543,9 +540,13 @@
         "diffEditor.ignoreTrimWhitespace" = false;
         "editor.bracketPairColorization.enabled" = true;
         "editor.cursorSmoothCaretAnimation" = "on";
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        "editor.fontFamily" = "'Jetbrains mono'";
+        # "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        "editor.fontFamily" = "'Jetbrains mono', 'Firacode nerd font', monospace";
         "editor.fontLigatures" = true;
+        "editor.fontSize" = 12;
+        "editor.suggestFontSize" = 0;
+        "editor.suggest.preview" = true;
+        "editor.suggest.showStatusBar" = true;
         "editor.guides.bracketPairs" = "active";
         "editor.mouseWheelZoom" = true;
         "editor.rulers" = [
@@ -577,9 +578,10 @@
         "gitblame.inlineMessageMargin" = 4;
         "gitblame.statusBarMessageFormat" = "\${commit.summary} by \${author.name} - \${time.ago} @ \${commit.hash_short}";
         "latex-workshop.latex.autoBuild.run" = "never";
-        "latex-workshop.latex.external.build.command" = "make";
+        "latex-workshop.latex.external.build.command" = "";
         "nix.formatterPath" = "alejandra";
         "php.suggest.basic" = false;
+        "php.validate.executablePath" = ".";
         "plantuml.previewSnapIndicators" = true;
         "plantuml.render" = "PlantUMLServer";
         "plantuml.server" = "https://www.plantuml.com/plantuml";
@@ -596,7 +598,7 @@
         "window.titleBarStyle" = "custom";
         "window.zoomLevel" = 0;
         "workbench.colorCustomizations" = {};
-        "workbench.colorTheme" = "One Dark Pro Flat";
+        "workbench.colorTheme" = "GitHub Dark Default";
         "workbench.editor.highlightModifiedTabs" = true;
         "workbench.iconTheme" = "material-icon-theme";
         "workbench.startupEditor" = "none";
