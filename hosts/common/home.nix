@@ -406,6 +406,7 @@
           excludesfile = "~/.gitignore_global";
         };
         diff = {mnemonicprefix = true;};
+        include = {path = "~/.gitconfig.local";};
         init = {defaultBranch = "main";};
         merge = {
           conflictstyle = "diff3";
@@ -426,7 +427,9 @@
           updateRefs = true;
         };
         rerere = {enabled = true;};
-        include = {path = "~/.gitconfig.local";};
+        sequence = {
+          editor = "code --wait";
+        };
         signing = {
           signByDefault = true;
           key = "0AAF2901E8040715";
@@ -543,7 +546,7 @@
         # "editor.defaultFormatter" = "esbenp.prettier-vscode";
         "editor.fontFamily" = "'Jetbrains mono', 'Firacode nerd font', monospace";
         "editor.fontLigatures" = true;
-        "editor.fontSize" = 12;
+        "editor.fontSize" = 14;
         "editor.suggestFontSize" = 0;
         "editor.suggest.preview" = true;
         "editor.suggest.showStatusBar" = true;
@@ -570,6 +573,7 @@
         "files.trimTrailingWhitespace" = true;
         "git.allowForcePush" = true;
         "git.autofetch" = true;
+        "git.autoStash" = true;
         "git.confirmForcePush" = false;
         "git.confirmSync" = false;
         "git.showPushSuccessNotification" = true;
@@ -577,6 +581,7 @@
         "gitblame.inlineMessageFormat" = "\${commit.summary} by \${author.name} - \${time.ago} @ \${commit.hash_short}";
         "gitblame.inlineMessageMargin" = 4;
         "gitblame.statusBarMessageFormat" = "\${commit.summary} by \${author.name} - \${time.ago} @ \${commit.hash_short}";
+        "gitlens.codeLens.enabled" = false;
         "latex-workshop.latex.autoBuild.run" = "never";
         "latex-workshop.latex.external.build.command" = "";
         "nix.formatterPath" = "alejandra";
