@@ -587,6 +587,7 @@
         "gitblame.inlineMessageMargin" = 4;
         "gitblame.statusBarMessageFormat" = "\${commit.summary} by \${author.name} - \${time.ago} @ \${commit.hash_short}";
         "gitlens.codeLens.enabled" = false;
+        "gitlens.rebaseEditor.ordering" = "asc";
         "latex-workshop.latex.autoBuild.run" = "never";
         "latex-workshop.latex.external.build.command" = "";
         "nix.formatterPath" = "alejandra";
