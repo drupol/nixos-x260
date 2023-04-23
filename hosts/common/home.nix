@@ -461,6 +461,7 @@
       enable = true;
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
+      mutableExtensionsDir = false;
       extensions = [
         pkgs.vscode-extensions.arcticicestudio.nord-visual-studio-code
         pkgs.vscode-extensions.b4dm4n.vscode-nixpkgs-fmt
