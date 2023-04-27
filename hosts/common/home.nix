@@ -550,6 +550,7 @@
         "editor.fontFamily" = "'Jetbrains mono', 'Firacode nerd font', monospace";
         "editor.fontLigatures" = true;
         "editor.fontSize" = 14;
+        "editor.formatOnSave" = false;
         "editor.suggestFontSize" = 0;
         "editor.suggest.preview" = true;
         "editor.suggest.showStatusBar" = true;
@@ -575,6 +576,8 @@
         };
         "files.autoSave" = "afterDelay";
         "files.autoSaveDelay" = 500;
+        "files.insertFinalNewline" = true;
+        "files.trimFinalNewlines" = true;
         "files.trimTrailingWhitespace" = true;
         "git.allowForcePush" = true;
         "git.autofetch" = true;
