@@ -572,6 +572,7 @@
         "latex-workshop.latex.autoBuild.run" = "never";
         "latex-workshop.latex.external.build.command" = "";
         "nix.formatterPath" = "alejandra";
+        "nix.serverPath" =  "${pkgs.nil}/bin/nil";
         "php.suggest.basic" = false;
         "php.validate.executablePath" = "${pkgs.php}/bin/php";
         "plantuml.previewSnapIndicators" = true;
