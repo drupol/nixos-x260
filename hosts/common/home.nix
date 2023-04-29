@@ -472,28 +472,6 @@
         pkgs.vscode-extensions.chris-hayes.chatgpt-reborn
         pkgs.vscode-extensions.christian-kohler.path-intellisense
         pkgs.vscode-extensions.codezombiech.gitignore
-        (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
-          mktplcRef = {
-            name = "phptools-vscode";
-            publisher = "devsense";
-            version = "1.33.12980";
-            sha256 = "sha256-wypPXiykubY33Ve/EMgmbvQe+KYaY70BZsZW77GuqDs=";
-            arch = "linux-x64";
-          };
-
-          postInstall = ''
-            chmod +x $out/share/vscode/extensions/devsense.phptools-vscode/out/server/devsense.php.ls
-          '';
-
-          nativeBuildInputs = [
-            pkgs.autoPatchelfHook
-          ];
-
-          buildInputs = [
-            pkgs.zlib
-            pkgs.stdenv.cc.cc.lib
-          ];
-        })
         pkgs.vscode-extensions.dhall.vscode-dhall-lsp-server
         pkgs.vscode-extensions.dhall.dhall-lang
         pkgs.vscode-extensions.donjayamanne.githistory
@@ -595,7 +573,7 @@
         "latex-workshop.latex.external.build.command" = "";
         "nix.formatterPath" = "alejandra";
         "php.suggest.basic" = false;
-        "php.validate.executablePath" = ".";
+        "php.validate.executablePath" = "${pkgs.php}/bin/php";
         "plantuml.previewSnapIndicators" = true;
         "plantuml.render" = "PlantUMLServer";
         "plantuml.server" = "https://www.plantuml.com/plantuml";
@@ -608,6 +586,7 @@
         "telemetry.telemetryLevel" = "off";
         "terminal.integrated.defaultProfile.linux" = "fish";
         "terminal.integrated.fontSize" = 18;
+        "typst-lsp.serverPath" = "${pkgs.typst-lsp}/bin/typst-lsp";
         "window.dialogStyle" = "custom";
         "window.titleBarStyle" = "custom";
         "window.zoomLevel" = 0;
