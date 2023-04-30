@@ -35,9 +35,11 @@
       "ksmserver"."Reboot Without Confirmation" = "Ctrl+Alt+Shift+PgUp";
       "kwin"."Activate Window Demanding Attention" = "Ctrl+Alt+A";
       "kwin"."Decrease Opacity" = [];
+      "kwin"."Edit Tiles" = "Meta+T";
       "kwin"."Expose" = "Ctrl+F9";
       "kwin"."ExposeAll" = ["Ctrl+F10" "Launch (C)"];
       "kwin"."ExposeClass" = "Ctrl+F7";
+      "kwin"."ExposeClassCurrentDesktop" = [];
       "kwin"."FlipSwitchAll" = [];
       "kwin"."FlipSwitchCurrent" = [];
       "kwin"."Increase Opacity" = [];
@@ -94,6 +96,10 @@
       "kwin"."Switch to Screen 5" = [];
       "kwin"."Switch to Screen 6" = [];
       "kwin"."Switch to Screen 7" = [];
+      "kwin"."Switch to Screen Above" = [];
+      "kwin"."Switch to Screen Below" = [];
+      "kwin"."Switch to Screen to the Left" = [];
+      "kwin"."Switch to Screen to the Right" = [];
       "kwin"."Toggle Night Color" = [];
       "kwin"."Toggle Window Raise/Lower" = [];
       "kwin"."ToggleCurrentThumbnail" = "Meta+Ctrl+T";
@@ -128,6 +134,10 @@
       "kwin"."Window One Desktop Up" = "Meta+Ctrl+Shift+Up";
       "kwin"."Window One Desktop to the Left" = "Meta+Ctrl+Shift+Left";
       "kwin"."Window One Desktop to the Right" = "Meta+Ctrl+Shift+Right";
+      "kwin"."Window One Screen Down" = [];
+      "kwin"."Window One Screen Up" = [];
+      "kwin"."Window One Screen to the Left" = [];
+      "kwin"."Window One Screen to the Right" = [];
       "kwin"."Window Operations Menu" = "Alt+F3";
       "kwin"."Window Pack Down" = [];
       "kwin"."Window Pack Left" = [];
@@ -170,6 +180,7 @@
       "kwin"."Window to Next Screen" = "Meta+Shift+Right";
       "kwin"."Window to Previous Desktop" = [];
       "kwin"."Window to Previous Screen" = "Meta+Shift+Left";
+      "kwin"."Window to Screen %1" = [];
       "kwin"."Window to Screen 0" = [];
       "kwin"."Window to Screen 1" = [];
       "kwin"."Window to Screen 2" = [];
@@ -256,12 +267,6 @@
       "dolphinrc"."IconsMode"."PreviewSize" = 128;
       "dolphinrc"."KFileDialog Settings"."Places Icons Auto-resize" = false;
       "dolphinrc"."KFileDialog Settings"."Places Icons Static Size" = 22;
-      "dolphinrc"."KPropertiesDialog"."eDP-1 HDMI-2 Height 1920x1080" = 458;
-      "dolphinrc"."KPropertiesDialog"."eDP-1 HDMI-2 Width 1920x1080" = 387;
-      "dolphinrc"."KPropertiesDialog"."eDP-1 Height 1920x1080" = 616;
-      "dolphinrc"."KPropertiesDialog"."eDP-1 Height 1920x1200" = 616;
-      "dolphinrc"."KPropertiesDialog"."eDP-1 Width 1920x1080" = 438;
-      "dolphinrc"."KPropertiesDialog"."eDP-1 Width 1920x1200" = 438;
       "dolphinrc"."Open-with settings"."CompletionMode" = 1;
       "dolphinrc"."Open-with settings"."History" = "visu,visual";
       "dolphinrc"."SettingsDialog"."eDP-1 Height 1920x1080" = 440;
@@ -385,6 +390,8 @@
       "khotkeysrc"."WM"."inactiveBackground[$d]" = "";
       "khotkeysrc"."WM"."inactiveBlend[$d]" = "";
       "khotkeysrc"."WM"."inactiveForeground[$d]" = "";
+      "kiorc"."Confirmations"."ConfirmDelete" = false;
+      "kiorc"."Confirmations"."ConfirmEmptyTrash" = true;
       "klaunchrc"."BusyCursorSettings"."Bouncing" = false;
       "klaunchrc"."FeedbackStyle"."BusyCursor" = false;
       "krunnerrc"."Plugins"."CharacterRunnerEnabled" = true;
@@ -443,6 +450,7 @@
       "kwinrc"."SubSession: b04cdf06-f69b-4426-a388-d784c86899b5"."count" = 0;
       "kwinrc"."TabBox"."BorderActivate" = 9;
       "kwinrc"."TabBox"."BorderAlternativeActivate" = 6;
+      "kwinrc"."Tiling"."padding" = 1;
       "kwinrc"."Windows"."ElectricBorderCornerRatio" = 0.200000;
       "kwinrc"."org.kde.kdecoration2"."ButtonsOnLeft" = "MNS";
       "kxkbrc"."Layout"."DisplayNames" = ",,,";
@@ -456,8 +464,6 @@
       "plasmarc"."Theme"."name" = "breeze-dark";
       "plasmarc"."Wallpapers"."usersWallpapers" = "${config.home.homeDirectory}/Pictures/Backgrounds/Starry Nebula 219.png,${config.home.homeDirectory}/Pictures/Backgrounds/nix-snowflake-wallpaper.svg";
       "systemsettingsrc"."KFileDialog Settings"."detailViewIconSize" = 16;
-      "systemsettingsrc"."KPropertiesDialog"."eDP-1 Height 1920x1080" = 458;
-      "systemsettingsrc"."KPropertiesDialog"."eDP-1 Width 1920x1080" = 553;
       "systemsettingsrc"."Notification Messages"."FormatSettingsChanged" = false;
       "systemsettingsrc"."Open-with settings"."CompletionMode" = 1;
       "systemsettingsrc"."Open-with settings"."History" = "";
