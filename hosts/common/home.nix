@@ -472,6 +472,7 @@
         pkgs.vscode-extensions.chris-hayes.chatgpt-reborn
         pkgs.vscode-extensions.christian-kohler.path-intellisense
         pkgs.vscode-extensions.codezombiech.gitignore
+        pkgs.vscode-extensions.devsense.phptools-vscode
         pkgs.vscode-extensions.dhall.vscode-dhall-lsp-server
         pkgs.vscode-extensions.dhall.dhall-lang
         pkgs.vscode-extensions.donjayamanne.githistory
