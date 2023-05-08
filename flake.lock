@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "bobthefish": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1683513744,
-        "narHash": "sha256-DRMBZS8nT0rhKXQEGWNqR1FUavtvxH0xUdHU52WhSJQ=",
-        "owner": "oh-my-fish",
-        "repo": "theme-bobthefish",
-        "rev": "ed896b65c3ddbdf2929c38719adfb940b0d9b90d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oh-my-fish",
-        "repo": "theme-bobthefish",
-        "type": "github"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -127,11 +111,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1683561033,
-        "narHash": "sha256-TPmrfuPJK59LBiruImnjHJnQ7V8aNXAZvTH3iT6P1vE=",
+        "lastModified": 1683563630,
+        "narHash": "sha256-7awh3hk2tkVvvWEXpqHraHSJ1SutJyMPTKQFdbxSn4o=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "0cf8791b0da91b1e40e380a8e54dfb99634062f7",
+        "rev": "b966b6feb51d07b6730e368c5ecbfbf78466c1e7",
         "type": "github"
       },
       "original": {
@@ -159,11 +143,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1683544382,
-        "narHash": "sha256-0IpIcU8dIsJ+Jq8nAvYCh0Ik32OI59UkyQi103XNPjQ=",
+        "lastModified": 1683563646,
+        "narHash": "sha256-TLvYw6y6borulrZXB31QyGtDAOKxlvRwDbaJLlBT5dI=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "522ec7bef8d5f2ef6007d208b36fefd5061ceb83",
+        "rev": "3238e0da76548bc2f9536636d94aba9038294ad4",
         "type": "github"
       },
       "original": {
@@ -193,31 +177,13 @@
     },
     "root": {
       "inputs": {
-        "bobthefish": "bobthefish",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",
         "nur": "nur",
-        "plasma-manager": "plasma-manager",
-        "z": "z"
-      }
-    },
-    "z": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1649439817,
-        "narHash": "sha256-+FUBM7CodtZrYKqU542fQD+ZDGrd2438trKM0tIESs0=",
-        "owner": "jethrokuan",
-        "repo": "z",
-        "rev": "85f863f20f24faf675827fb00f3a4e15c7838d76",
-        "type": "github"
-      },
-      "original": {
-        "owner": "jethrokuan",
-        "repo": "z",
-        "type": "github"
+        "plasma-manager": "plasma-manager"
       }
     }
   },
