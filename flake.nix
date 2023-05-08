@@ -9,18 +9,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     plasma-manager.url = "github:pjones/plasma-manager";
     nur.url = "github:nix-community/NUR";
-
-    # Fish themes
-    bobthefish = {
-      url = "github:oh-my-fish/theme-bobthefish";
-      flake = false;
-    };
-
-    # Fish plugins
-    z = {
-      url = "github:jethrokuan/z";
-      flake = false;
-    };
   };
 
   outputs = {

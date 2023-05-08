@@ -171,10 +171,6 @@
           name = "tide";
           inherit (pkgs.fishPlugins.tide) src;
         }
-        {
-          name = "z";
-          src = pkgs.z-src;
-        }
       ];
       shellAliases = {
         ".." = "cd ..";
@@ -599,6 +595,10 @@
         "workbench.iconTheme" = "material-icon-theme";
         "workbench.startupEditor" = "none";
       };
+    };
+    zoxide = {
+      enable = true;
+      enableFishIntegration = true;
     };
   };
 
