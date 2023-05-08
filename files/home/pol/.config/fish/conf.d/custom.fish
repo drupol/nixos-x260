@@ -2,11 +2,6 @@
 # VERSION  3.0
 set -U fish_greeting
 set -U EDITOR nano
-set -U ZO_CMD zo
-set -U Z_CMD z
-set -U Z_DATA /home/pol/\x2elocal/share/z/data
-set -U Z_DATA_DIR /home/pol/\x2elocal/share/z
-set -U Z_EXCLUDE \x5e/home/pol\x24
 set -U _tide_left_items vi_mode\x1eos\x1epwd\x1egit
 set -U _tide_prompt_231844 \x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b38\x3b2\x3b82\x3b119\x3b195m\x1b\x5b38\x3b2\x3b255\x3b255\x3b255m\x1b\x5b48\x3b2\x3b82\x3b119\x3b195m\x20\uf313\x20\x1b\x5b38\x3b2\x3b82\x3b119\x3b195m\x1b\x5b48\x3b2\x3b52\x3b101\x3b164m\ue0b0\x1b\x5b48\x3b2\x3b52\x3b101\x3b164m\x20\x40PWD\x40\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b38\x3b2\x3b52\x3b101\x3b164m\ue0b0\x1e\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b38\x3b2\x3b46\x3b52\x3b54m\ue0b2\x1b\x5b38\x3b2\x3b78\x3b154\x3b6m\x1b\x5b48\x3b2\x3b46\x3b52\x3b54m\x20\u2714\x20\x1b\x5b38\x3b2\x3b211\x3b215\x3b207m\x1b\x5b48\x3b2\x3b46\x3b52\x3b54m\ue0b2\x1b\x5b38\x3b2\x3b0\x3b0\x3b0m\x1b\x5b48\x3b2\x3b211\x3b215\x3b207m\x2019\x3a43\x3a02\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b38\x3b2\x3b211\x3b215\x3b207m
 set -U _tide_right_items status\x1ecmd_duration\x1econtext\x1ejobs\x1enix_shell\x1etime
@@ -26,12 +21,13 @@ set -U fish_color_normal normal
 set -U fish_color_operator brcyan
 set -U fish_color_param cyan
 set -U fish_color_quote yellow
-set -U fish_color_redirection cyan\x1e\x2d\x2dbold
+set -U fish_color_redirection cyan\x1e\x2d\x2dboldtide
 set -U fish_color_search_match bryellow\x1e\x2d\x2dbackground\x3dbrblack
 set -U fish_color_selection white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
 set -U fish_color_status red
 set -U fish_color_user brgreen
 set -U fish_color_valid_path \x2d\x2dunderline
+set -U fish_greeting \x1d
 set -U fish_key_bindings fish_default_key_bindings
 set -U fish_pager_color_completion normal
 set -U fish_pager_color_description B3A06D\x1eyellow\x1e\x2di
@@ -118,7 +114,7 @@ set -U tide_prompt_add_newline_before false
 set -U tide_prompt_color_frame_and_connection 6C6C6C
 set -U tide_prompt_color_separator_same_color 949494
 set -U tide_prompt_icon_connection \x20
-set -U tide_prompt_min_cols 1024
+set -U tide_prompt_min_cols 34
 set -U tide_prompt_pad_items true
 set -U tide_pwd_bg_color 3465A4
 set -U tide_pwd_color_anchors E4E4E4
@@ -128,6 +124,7 @@ set -U tide_pwd_icon \uf07c
 set -U tide_pwd_icon_home \uf015
 set -U tide_pwd_icon_unwritable \uf023
 set -U tide_pwd_markers \x2ebzr\x1e\x2ecitc\x1e\x2egit\x1e\x2ehg\x1e\x2enode\x2dversion\x1e\x2epython\x2dversion\x1e\x2eruby\x2dversion\x1e\x2eshorten_folder_marker\x1e\x2esvn\x1e\x2eterraform\x1eCargo\x2etoml\x1ecomposer\x2ejson\x1eCVS\x1ego\x2emod\x1epackage\x2ejson
+set -U tide_pwd_truncate_margin 10
 set -U tide_right_prompt_frame_enabled false
 set -U tide_right_prompt_items status\x1ecmd_duration\x1econtext\x1ejobs\x1enode\x1evirtual_env\x1erustc\x1ejava\x1ephp\x1echruby\x1ego\x1ekubectl\x1etoolbox\x1eterraform\x1eaws\x1enix_shell\x1ecrystal\x1etime
 set -U tide_right_prompt_prefix \ue0b2
