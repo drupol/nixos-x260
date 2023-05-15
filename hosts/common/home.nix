@@ -533,11 +533,11 @@
         "chatgpt.gpt3.model" = "gpt-4";
         "chatgpt.telemetry.disable" = true;
         "chatgpt.response.showNotification" = true;
+        "debug.console.fontFamily" = "'Iosevka Comfy'";
         "diffEditor.ignoreTrimWhitespace" = false;
         "editor.bracketPairColorization.enabled" = true;
         "editor.cursorSmoothCaretAnimation" = "on";
-        # "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        "editor.fontFamily" = "'Jetbrains mono', 'Firacode nerd font', monospace";
+        "editor.fontFamily" = "'Iosevka Comfy'";
         "editor.fontLigatures" = true;
         "editor.fontSize" = 14;
         "editor.formatOnSave" = false;
@@ -574,6 +574,7 @@
         "git.autoStash" = true;
         "git.confirmForcePush" = false;
         "git.confirmSync" = false;
+        "git.enableSmartCommit" = true;
         "git.showPushSuccessNotification" = true;
         "gitblame.inlineMessageEnabled" = true;
         "gitblame.inlineMessageFormat" = "\${commit.summary} by \${author.name} - \${time.ago} @ \${commit.hash_short}";
@@ -583,6 +584,7 @@
         "gitlens.rebaseEditor.ordering" = "asc";
         "latex-workshop.latex.autoBuild.run" = "never";
         "latex-workshop.latex.external.build.command" = "";
+        "markdown.preview.fontFamily" = "'Iosevka Comfy'";
         "nix.formatterPath" = "alejandra";
         "nix.serverPath" = "${pkgs.nil}/bin/nil";
         "nix.enableLanguageServer" = true;
