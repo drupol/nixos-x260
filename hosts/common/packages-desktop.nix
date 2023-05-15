@@ -31,7 +31,7 @@
     slack
     spectacle
     tdesktop
-    teams
+    teams-for-linux
     vlc
     yakuake
   ];
