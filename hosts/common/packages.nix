@@ -16,6 +16,8 @@
     fish
     gnupg
     hack-font
+    iosevka
+    iosevka-comfy.comfy
     jetbrains-mono
     liberation_ttf
     neofetch
