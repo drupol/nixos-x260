@@ -606,6 +606,7 @@
         "nix.serverPath" = "${pkgs.nil}/bin/nil";
         "nix.enableLanguageServer" = true;
         "nix.serverSettings.nil.formatting.command" = [ "nixpkgs-fmt" ];
+        "nixfmt.path" = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
         "php.suggest.basic" = false;
         "php.validate.executablePath" = "${pkgs.php}/bin/php";
         "plantuml.previewSnapIndicators" = true;
