@@ -1,7 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }: {
   home.packages = with pkgs; [
     any-nix-shell
@@ -19,7 +18,7 @@
     jetbrains-mono
     liberation_ttf
     neofetch
-    (nerdfonts.override {fonts = ["FiraCode" "DroidSansMono" "Hack" "JetBrainsMono"];})
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Hack" "JetBrainsMono" ]; })
     p7zip
     procs
     ripgrep
