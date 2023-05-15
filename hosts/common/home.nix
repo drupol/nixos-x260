@@ -499,12 +499,13 @@
         pkgs.vscode-extensions.mhutchie.git-graph
         pkgs.vscode-extensions.mkhl.direnv
         #pkgs.vscode-extensions.ms-python.python
-        pkgs.vscode-extensions.ms-vscode.makefile-tools
+        #pkgs.vscode-extensions.ms-vscode.makefile-tools
         pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
         pkgs.vscode-extensions.nvarner.typst-lsp
         pkgs.vscode-extensions.pkief.material-icon-theme
         pkgs.vscode-extensions.redhat.vscode-yaml
         pkgs.vscode-extensions.redhat.vscode-xml
+        pkgs.vscode-extensions.rust-lang.rust-analyzer
         pkgs.vscode-extensions.usernamehw.errorlens
         pkgs.vscode-extensions.waderyan.gitblame
         pkgs.vscode-extensions.yzhang.markdown-all-in-one
@@ -520,11 +521,20 @@
         "[nix]" = {
           "editor.defaultFormatter" = "brettm12345.nixfmt-vscode";
         };
+        "[rust]" = {
+          "editor.defaultFormatter" = "rust-lang.rust-analyzer";
+        };
         "[php]" = {
           "editor.defaultFormatter" = "bmewburn.vscode-intelephense-client";
         };
         "[yaml]" = {
           "editor.defaultFormatter" = "redhat.vscode-yaml";
+        };
+        "[toml]" = {
+          "editor.defaultFormatter" = "bungcip.better-toml";
+        };
+        "[txt]" = {
+          "editor.formatOnSave" = false;
         };
         "chatgpt.promptPrefix.customPrompt1" = "Pourrais-tu améliorer le texte suivant?";
         "chatgpt.promptPrefix.customPrompt2" = "Could you improve the following text?";
@@ -559,8 +569,9 @@
         "errorLens.enabled" = false;
         "explorer.confirmDelete" = false;
         "explorer.confirmDragAndDrop" = false;
-        "extensions.ignoreRecommendations" = true;
         "extensions.autoCheckUpdates" = true;
+        "extensions.autoUpdate" = false;
+        "extensions.ignoreRecommendations" = true;
         "files.associations" = {
           "*.module" = "php";
         };
@@ -580,6 +591,12 @@
         "gitblame.inlineMessageFormat" = "\${commit.summary} by \${author.name} - \${time.ago} @ \${commit.hash_short}";
         "gitblame.inlineMessageMargin" = 4;
         "gitblame.statusBarMessageFormat" = "\${commit.summary} by \${author.name} - \${time.ago} @ \${commit.hash_short}";
+        "github.copilot.enable" = {
+          "*" = true;
+          "yaml" = true;
+          "plaintext" = true;
+          "markdown" = true;
+        };
         "gitlens.codeLens.enabled" = false;
         "gitlens.rebaseEditor.ordering" = "asc";
         "latex-workshop.latex.autoBuild.run" = "never";
@@ -588,6 +605,7 @@
         "nix.formatterPath" = "alejandra";
         "nix.serverPath" = "${pkgs.nil}/bin/nil";
         "nix.enableLanguageServer" = true;
+        "nix.serverSettings.nil.formatting.command" = [ "nixpkgs-fmt" ];
         "php.suggest.basic" = false;
         "php.validate.executablePath" = "${pkgs.php}/bin/php";
         "plantuml.previewSnapIndicators" = true;
@@ -598,12 +616,26 @@
         "search.showLineNumbers" = true;
         "search.useGlobalIgnoreFiles" = true;
         "search.useIgnoreFiles" = true;
+        "search.exclude" = {
+          "**/.direnv" = true;
+          "**/.git" = true;
+          "**/node_modules" = true;
+          "*.lock" = true;
+          "dist" = true;
+          "tmp" = true;
+        };
         "security.workspace.trust.untrustedFiles" = "open";
         "telemetry.telemetryLevel" = "off";
         "terminal.integrated.defaultProfile.linux" = "fish";
         "terminal.integrated.fontSize" = 18;
         "typst-lsp.serverPath" = "${pkgs.typst-lsp}/bin/typst-lsp";
+        "rust-analyzer.serverPath" = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+        "rust-analyzer.cargo.buildScripts.enable" = true;
+        "update.mode" = "manual";
+        "update.showReleaseNotes" = false;
         "window.dialogStyle" = "custom";
+        "window.menuBarVisibility" = "toggle";
+        "window.newWindowDimensions" = "inherit";
         "window.titleBarStyle" = "custom";
         "window.zoomLevel" = 0;
         "workbench.colorCustomizations" = {};
