@@ -5,11 +5,11 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ./openvscode-server.nix
   ];
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
   # boot.loader.grub.efiSupport = true;
   # boot.loader.grub.efiInstallAsRemovable = true;
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
@@ -48,6 +48,23 @@
   '';
 
   services = {
+    caddy = {
+      enable = true;
+      email = "example@example.com";
+      virtualHosts."code.nixos.lan".extraConfig = ''
+        tls internal
+        reverse_proxy http://127.0.0.1:3000
+      '';
+    };
+    openvscode-server = {
+      enable = true;
+      host = "127.0.0.1";
+      user = "pol";
+      userDataDir = ".";
+      serverDataDir = "/home/pol/.config/Code";
+      extensionsDir = "/home/pol/.vscode/extensions";
+      withoutConnectionToken = true;
+    };
     flatpak = {
       enable = false;
     };
@@ -111,7 +128,7 @@
 
   programs.ssh.forwardX11 = true;
 
-  networking.firewall.allowedTCPPorts = [3389];
+  networking.firewall.allowedTCPPorts = [80 443 3389];
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -131,4 +148,6 @@
     flake = "github:drupol/nixos-x260";
     allowReboot = true;
   };
+
+
 }
