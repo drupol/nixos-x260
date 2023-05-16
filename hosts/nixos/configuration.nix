@@ -61,7 +61,7 @@
       enable = true;
       host = "127.0.0.1";
       user = "pol";
-      userDataDir = ".";
+      userDataDir = "/home/pol/.config/Code";
       serverDataDir = "/home/pol/.config/Code";
       extensionsDir = "/home/pol/.vscode/extensions";
       withoutConnectionToken = true;
