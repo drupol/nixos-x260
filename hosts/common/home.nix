@@ -491,6 +491,14 @@
         pkgs.vscode-extensions.esbenp.prettier-vscode
         pkgs.vscode-extensions.genieai.chatgpt-vscode
         pkgs.vscode-extensions.github.github-vscode-theme
+        (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+          mktplcRef = {
+            name = "copilot";
+            publisher = "GitHub";
+            version = "1.86.82";
+            sha256 = "sha256-isaqjrAmu/08gnNKQPeMV4Xc8u0Hx8gB2c78WE54kYQ=";
+          };
+        })
         pkgs.vscode-extensions.james-yu.latex-workshop
         pkgs.vscode-extensions.jebbs.plantuml
         pkgs.vscode-extensions.jnoortheen.nix-ide
@@ -554,6 +562,7 @@
         "editor.suggest.preview" = true;
         "editor.suggest.showStatusBar" = true;
         "editor.guides.bracketPairs" = "active";
+        "editor.inlineSuggest.enabled" = true;
         "editor.mouseWheelZoom" = true;
         "editor.rulers" = [
           80
