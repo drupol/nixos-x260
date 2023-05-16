@@ -466,21 +466,6 @@
         pkgs.vscode-extensions.bungcip.better-toml
         pkgs.vscode-extensions.chris-hayes.chatgpt-reborn
         pkgs.vscode-extensions.christian-kohler.path-intellisense
-        (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
-          mktplcRef = {
-            name = "coder-remote";
-            publisher = "coder";
-            version = "0.1.18";
-            sha256 = "soNGZuyvG5+haWRcwYmYB+0OcyDAm4UQ419UnEd8waA=";
-          };
-          meta = {
-            description = "An extension for Visual Studio Code to open any Coder workspace in VS Code with a single click.";
-            downloadPage = "https://marketplace.visualstudio.com/items?itemName=coder.coder-remote";
-            homepage = "https://github.com/coder/vscode-coder";
-            license = lib.licenses.mit;
-            maintainers = [ lib.maintainers.drupol ];
-          };
-        })
         pkgs.vscode-extensions.codezombiech.gitignore
         pkgs.vscode-extensions.devsense.phptools-vscode
         pkgs.vscode-extensions.dhall.vscode-dhall-lsp-server
@@ -491,14 +476,8 @@
         pkgs.vscode-extensions.esbenp.prettier-vscode
         pkgs.vscode-extensions.genieai.chatgpt-vscode
         pkgs.vscode-extensions.github.github-vscode-theme
-        (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
-          mktplcRef = {
-            name = "copilot";
-            publisher = "GitHub";
-            version = "1.86.82";
-            sha256 = "sha256-isaqjrAmu/08gnNKQPeMV4Xc8u0Hx8gB2c78WE54kYQ=";
-          };
-        })
+        pkgs.vscode-extensions.github.copilot
+        pkgs.vscode-extensions.github.vscode-pull-request-github
         pkgs.vscode-extensions.james-yu.latex-workshop
         pkgs.vscode-extensions.jebbs.plantuml
         pkgs.vscode-extensions.jnoortheen.nix-ide
