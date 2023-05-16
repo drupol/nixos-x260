@@ -588,6 +588,8 @@
         "gitlens.rebaseEditor.ordering" = "asc";
         "latex-workshop.latex.autoBuild.run" = "never";
         "latex-workshop.latex.external.build.command" = "";
+        "latex-workshop.viewer.pdf.internal.port" = 35556;
+    		"latex-workshop.view.pdf.viewer" = "tab";
         "markdown.preview.fontFamily" = "'Iosevka Comfy'";
         "nix.formatterPath" = "alejandra";
         "nix.serverPath" = "${pkgs.nil}/bin/nil";
