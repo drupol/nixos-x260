@@ -483,7 +483,7 @@
             name = "latex-workshop";
             publisher = "James-Yu";
             version = "9.10.0";
-            sha256 = "";
+            sha256 = "s0+8952svPSA69M4H29zuIxUWV6xNRpIqLNd8pzGJhY=";
           };
         })
         #pkgs.vscode-extensions.james-yu.latex-workshop
