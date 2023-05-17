@@ -478,7 +478,15 @@
         pkgs.vscode-extensions.github.github-vscode-theme
         pkgs.vscode-extensions.github.copilot
         pkgs.vscode-extensions.github.vscode-pull-request-github
-        pkgs.vscode-extensions.james-yu.latex-workshop
+        (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+          mktplcRef = {
+            name = "latex-workshop";
+            publisher = "James-Yu";
+            version = "9.10.0";
+            sha256 = "";
+          };
+        })
+        #pkgs.vscode-extensions.james-yu.latex-workshop
         pkgs.vscode-extensions.jebbs.plantuml
         pkgs.vscode-extensions.jnoortheen.nix-ide
         pkgs.vscode-extensions.matklad.rust-analyzer
