@@ -478,15 +478,7 @@
         pkgs.vscode-extensions.github.github-vscode-theme
         pkgs.vscode-extensions.github.copilot
         pkgs.vscode-extensions.github.vscode-pull-request-github
-        (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
-          mktplcRef = {
-            name = "latex-workshop";
-            publisher = "James-Yu";
-            version = "9.10.0";
-            sha256 = "s0+8952svPSA69M4H29zuIxUWV6xNRpIqLNd8pzGJhY=";
-          };
-        })
-        #pkgs.vscode-extensions.james-yu.latex-workshop
+        pkgs.vscode-extensions.james-yu.latex-workshop
         pkgs.vscode-extensions.jebbs.plantuml
         pkgs.vscode-extensions.jnoortheen.nix-ide
         pkgs.vscode-extensions.matklad.rust-analyzer
@@ -623,7 +615,7 @@
         "security.workspace.trust.untrustedFiles" = "open";
         "telemetry.telemetryLevel" = "off";
         "terminal.integrated.defaultProfile.linux" = "fish";
-        "terminal.integrated.fontSize" = 18;
+        "terminal.integrated.fontSize" = 14;
         "typst-lsp.serverPath" = "${pkgs.typst-lsp}/bin/typst-lsp";
         "rust-analyzer.serverPath" = "${pkgs.rust-analyzer}/bin/rust-analyzer";
         "rust-analyzer.cargo.buildScripts.enable" = true;
