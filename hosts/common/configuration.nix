@@ -64,10 +64,4 @@
   systemd.services.NetworkManager-wait-online.enable = false;
 
   # Todo: Why ? This does not work if added only in environment.systemPackages
-  fonts.fonts = with pkgs; [
-    dina-font
-    iosevka
-    iosevka-comfy.comfy
-    nerdfonts
-  ];
 }
