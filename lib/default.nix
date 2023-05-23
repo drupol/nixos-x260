@@ -18,8 +18,6 @@ in {
                 system = host.system;
               };
             })
-            (final: prev: {bobthefish-src = inputs.bobthefish;})
-            (final: prev: {z-src = inputs.z;})
             inputs.nur.overlay
           ];
         })
@@ -51,8 +49,6 @@ in {
                 system = host.system;
               };
             })
-            (final: prev: {bobthefish-src = inputs.bobthefish;})
-            (final: prev: {z-src = inputs.z;})
             inputs.nur.overlay
           ];
         })

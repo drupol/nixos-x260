@@ -152,6 +152,4 @@
     flake = "github:drupol/nixos-x260";
     allowReboot = true;
   };
-
-
 }

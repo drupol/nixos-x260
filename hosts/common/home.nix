@@ -1,13 +1,14 @@
-{ pkgs
-, self
-, host
-, config
-, lib
-, ...
+{
+  pkgs,
+  self,
+  host,
+  config,
+  lib,
+  ...
 }: {
   home.stateVersion = "23.05";
 
-  fonts = { fontconfig = { enable = true; }; };
+  fonts = {fontconfig = {enable = true;};};
 
   home.file = {
     # See https://github.com/nix-community/home-manager/issues/1586#issuecomment-723843578
@@ -43,17 +44,17 @@
   };
 
   programs = {
-    bat = { enable = true; };
+    bat = {enable = true;};
     browserpass = {
       enable = true;
-      browsers = [ "firefox" ];
+      browsers = ["firefox"];
     };
-    command-not-found = { enable = false; };
+    command-not-found = {enable = false;};
     direnv = {
       enable = true;
       nix-direnv.enable = true;
     };
-    exa = { enable = true; };
+    exa = {enable = true;};
     firefox = {
       enable = true;
       profiles.default = {
@@ -95,14 +96,14 @@
               ];
 
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = [ "@np" ];
+              definedAliases = ["@np"];
             };
 
             "NixOS Wiki" = {
-              urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}"; }];
+              urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
               iconUpdateURL = "https://nixos.wiki/favicon.png";
               updateInterval = 24 * 60 * 60 * 1000; # every day
-              definedAliases = [ "@nw" ];
+              definedAliases = ["@nw"];
             };
 
             "Bing".metaData.hidden = true;
@@ -183,7 +184,7 @@
     };
     git = {
       enable = true;
-      difftastic = { enable = true; };
+      difftastic = {enable = true;};
       userName = "Pol Dellaiera";
       userEmail = "pol.dellaiera@protonmail.com";
       aliases = {
@@ -392,17 +393,17 @@
         human = "name-rev --name-only --refs=refs/heads/*";
       };
       extraConfig = {
-        branch = { autosetuprebase = "always"; };
-        color = { ui = "auto"; };
+        branch = {autosetuprebase = "always";};
+        color = {ui = "auto";};
         core = {
           autocrlf = "input";
           editor = "nano";
           safecrlf = "warn";
           excludesfile = "~/.gitignore_global";
         };
-        diff = { mnemonicprefix = true; };
-        include = { path = "~/.gitconfig.local"; };
-        init = { defaultBranch = "main"; };
+        diff = {mnemonicprefix = true;};
+        include = {path = "~/.gitconfig.local";};
+        init = {defaultBranch = "main";};
         merge = {
           conflictstyle = "diff3";
           commit = "no";
@@ -421,7 +422,7 @@
           instructionFormat = "(%an <%ae>) %s";
           updateRefs = true;
         };
-        rerere = { enabled = true; };
+        rerere = {enabled = true;};
         sequence = {
           editor = "code --wait";
         };
@@ -429,11 +430,11 @@
           signByDefault = true;
           key = "0AAF2901E8040715";
         };
-        commit = { gpgsign = true; };
+        commit = {gpgsign = true;};
       };
     };
-    home-manager = { enable = true; };
-    htop = { enable = true; };
+    home-manager = {enable = true;};
+    htop = {enable = true;};
     password-store = {
       enable = true;
       settings = {
@@ -587,12 +588,12 @@
         "gitlens.codeLens.enabled" = false;
         "gitlens.rebaseEditor.ordering" = "asc";
         "latex-workshop.latex.autoBuild.run" = "never";
-    		"latex-workshop.view.pdf.viewer" = "tab";
+        "latex-workshop.view.pdf.viewer" = "tab";
         "markdown.preview.fontFamily" = "'Iosevka Comfy'";
         "nix.formatterPath" = "alejandra";
         "nix.serverPath" = "${pkgs.nil}/bin/nil";
         "nix.enableLanguageServer" = true;
-        "nix.serverSettings.nil.formatting.command" = [ "nixpkgs-fmt" ];
+        "nix.serverSettings.nil.formatting.command" = ["nixpkgs-fmt"];
         "nixfmt.path" = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
         "php.suggest.basic" = false;
         "php.validate.executablePath" = "${pkgs.php}/bin/php";
@@ -626,7 +627,7 @@
         "window.newWindowDimensions" = "inherit";
         "window.titleBarStyle" = "custom";
         "window.zoomLevel" = 0;
-        "workbench.colorCustomizations" = { };
+        "workbench.colorCustomizations" = {};
         "workbench.colorTheme" = "GitHub Dark Default";
         "workbench.editor.highlightModifiedTabs" = true;
         "workbench.iconTheme" = "material-icon-theme";
@@ -643,7 +644,7 @@
     gpg-agent = {
       enable = true;
       enableSshSupport = true;
-      sshKeys = [ "143BC4FB7B3AC7C4F902ADCB579D2F66CDA1844A" ];
+      sshKeys = ["143BC4FB7B3AC7C4F902ADCB579D2F66CDA1844A"];
     };
   };
 }

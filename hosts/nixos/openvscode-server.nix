@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.services.openvscode-server;
   defaultUser = "openvscode-server";
   defaultGroup = defaultUser;
@@ -9,10 +12,10 @@ in {
     services.openvscode-server = {
       enable = lib.mkEnableOption (lib.mdDoc "openvscode-server");
 
-      package = lib.mkPackageOptionMD pkgs "openvscode-server" { };
+      package = lib.mkPackageOptionMD pkgs "openvscode-server" {};
 
       extraPackages = lib.mkOption {
-        default = [ ];
+        default = [];
         description = lib.mdDoc ''
           Additional packages to add to the openvscode-server {env}`PATH`.
         '';
@@ -25,12 +28,12 @@ in {
         description = lib.mdDoc ''
           Additional environment variables to pass to openvscode-server.
         '';
-        default = { };
-        example = { PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig"; };
+        default = {};
+        example = {PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig";};
       };
 
       extraArguments = lib.mkOption {
-        default = [ ];
+        default = [];
         description = lib.mdDoc ''
           Additional arguments to pass to openvscode-server.
         '';
@@ -75,11 +78,11 @@ in {
       };
 
       extraGroups = lib.mkOption {
-        default = [ ];
+        default = [];
         description = lib.mdDoc ''
           An array of additional groups for the `${defaultUser}` user.
         '';
-        example = [ "docker" ];
+        example = ["docker"];
         type = lib.types.listOf lib.types.str;
       };
 
@@ -150,40 +153,49 @@ in {
         '';
         type = lib.types.nullOr lib.types.str;
       };
-
     };
   };
 
   config = lib.mkIf cfg.enable {
     systemd.services.openvscode-server = {
       description = "OpenVSCode server";
-      wantedBy = [ "multi-user.target" ];
-      after = [ "network-online.target" ];
+      wantedBy = ["multi-user.target"];
+      after = ["network-online.target"];
       path = cfg.extraPackages;
       environment = cfg.extraEnvironment;
       serviceConfig = {
-        ExecStart = ''
-          ${lib.getExe cfg.package} \
-            --accept-server-license-terms \
-            --host=${cfg.host} \
-            --port=${toString cfg.port} \
-          '' + lib.optionalString (cfg.telemetryLevel == true) ''
+        ExecStart =
+          ''
+            ${lib.getExe cfg.package} \
+              --accept-server-license-terms \
+              --host=${cfg.host} \
+              --port=${toString cfg.port} \
+          ''
+          + lib.optionalString (cfg.telemetryLevel == true) ''
             --telemetry-level=${cfg.telemetryLevel} \
-          '' + lib.optionalString (cfg.withoutConnectionToken == true) ''
+          ''
+          + lib.optionalString (cfg.withoutConnectionToken == true) ''
             --without-connection-token \
-          '' + lib.optionalString (cfg.socketPath != null) ''
+          ''
+          + lib.optionalString (cfg.socketPath != null) ''
             --socket-path=${cfg.socketPath} \
-          '' + lib.optionalString (cfg.userDataDir != null) ''
+          ''
+          + lib.optionalString (cfg.userDataDir != null) ''
             --user-data-dir=${cfg.userDataDir} \
-          '' + lib.optionalString (cfg.serverDataDir != null) ''
+          ''
+          + lib.optionalString (cfg.serverDataDir != null) ''
             --server-data-dir=${cfg.serverDataDir} \
-          '' + lib.optionalString (cfg.extensionsDir != null) ''
+          ''
+          + lib.optionalString (cfg.extensionsDir != null) ''
             --extensions-dir=${cfg.extensionsDir} \
-          '' + lib.optionalString (cfg.connectionToken != null) ''
+          ''
+          + lib.optionalString (cfg.connectionToken != null) ''
             --connection-token=${cfg.connectionToken} \
-          '' + lib.optionalString (cfg.connectionTokenFile != null) ''
+          ''
+          + lib.optionalString (cfg.connectionTokenFile != null) ''
             --connection-token-file=${cfg.connectionTokenFile} \
-          '' + lib.escapeShellArgs cfg.extraArguments;
+          ''
+          + lib.escapeShellArgs cfg.extraArguments;
         ExecReload = "${pkgs.coreutils}/bin/kill -HUP $MAINPID";
         RuntimeDirectory = cfg.user;
         User = cfg.user;
@@ -204,8 +216,8 @@ in {
       }
     ];
 
-    users.groups."${defaultGroup}" = lib.mkIf (cfg.group == defaultGroup) { };
+    users.groups."${defaultGroup}" = lib.mkIf (cfg.group == defaultGroup) {};
   };
 
-  meta.maintainers = [ lib.maintainers.drupol ];
+  meta.maintainers = [lib.maintainers.drupol];
 }
