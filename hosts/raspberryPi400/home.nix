@@ -32,21 +32,15 @@
             enable = true;
             interactiveShellInit = ''
               ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
-              set fish_theme nord
-              set -gx EDITOR nano
             '';
             plugins = [
               {
-                name = "tide";
-                inherit (pkgs.fishPlugins.tide) src;
-              }
-              {
-                name = "z";
-                src = pkgs.z-src;
-              }
-              {
                 name = "autopair";
                 inherit (pkgs.fishPlugins.autopair) src;
+              }
+              {
+                name = "tide";
+                inherit (pkgs.fishPlugins.tide) src;
               }
             ];
             shellAliases = {
@@ -61,6 +55,10 @@
           };
           home-manager = {enable = true;};
           htop = {enable = true;};
+          zoxide = {
+            enable = true;
+            enableFishIntegration = true;
+          };
         };
       }
     ];
