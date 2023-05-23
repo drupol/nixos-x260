@@ -9,6 +9,8 @@
     # android-studio
     element-desktop
     gimp
+    iosevka
+    iosevka-comfy.comfy
     jetbrains-toolbox
     # google-chrome
     # graphviz
@@ -23,6 +25,7 @@
     kate
     kgpg
     krdc
+    nerdfonts
     okular
     # plantuml
     plasma-browser-integration
