@@ -7,7 +7,6 @@
 }: {
   imports = [
     ../common/configuration.nix
-    ../common/fonts.nix
     ../../modules/users
     ./configuration.nix
     ./packages.nix
