@@ -32,6 +32,7 @@
     spectacle
     tdesktop
     teams-for-linux
+    trayscale
     vlc
     yakuake
   ];
