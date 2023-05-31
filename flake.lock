@@ -91,6 +91,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-234289": {
+      "locked": {
+        "lastModified": 1685522674,
+        "narHash": "sha256-6RRhmVcx9P+oNEX6ZVloxyuXk+lEBPqhlI1CqMDN8S8=",
+        "owner": "drupol",
+        "repo": "nixpkgs",
+        "rev": "9ad59c77a3af395065217a15406a3d44c093ce39",
+        "type": "github"
+      },
+      "original": {
+        "owner": "drupol",
+        "repo": "nixpkgs",
+        "rev": "9ad59c77a3af395065217a15406a3d44c093ce39",
+        "type": "github"
+      }
+    },
     "nixpkgs-lib": {
       "locked": {
         "dir": "lib",
@@ -111,11 +127,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1685548202,
-        "narHash": "sha256-58yYklKFtU5aoCxE5gAMWWTjfF4UROlmeson9kxfOco=",
+        "lastModified": 1685549266,
+        "narHash": "sha256-QR4cKeZG3/NwHQtZH1TLRgt2olzYLk527c+1YEkLtWI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "58bf1f8bad92bea6fa0755926f517ca585f93986",
+        "rev": "facaddacdd82a5109ff3b3d6b9e56785d9663d2f",
         "type": "github"
       },
       "original": {
@@ -181,6 +197,7 @@
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-234289": "nixpkgs-234289",
         "nixpkgs-master": "nixpkgs-master",
         "nur": "nur",
         "plasma-manager": "plasma-manager"

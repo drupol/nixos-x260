@@ -49,6 +49,12 @@ in {
                 system = host.system;
               };
             })
+            (final: prev: {
+              nixpkgs-234289 = import inputs.nixpkgs-234289 {
+                inherit (final) config;
+                system = host.system;
+              };
+            })
             inputs.nur.overlay
           ];
         })
