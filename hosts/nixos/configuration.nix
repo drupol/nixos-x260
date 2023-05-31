@@ -6,7 +6,6 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./openvscode-server.nix
   ];
 
   # Use the GRUB 2 boot loader.
@@ -57,14 +56,17 @@
         reverse_proxy http://127.0.0.1:3000
       '';
     };
-    openvscode-server = {
+    code-server = {
+      package = pkgs.nixpkgs-234289.code-server;
       enable = true;
       host = "127.0.0.1";
+      port = 3000;
       user = "pol";
-      userDataDir = "/home/pol/.config/Code";
-      serverDataDir = "/home/pol/.config/Code";
-      extensionsDir = "/home/pol/.vscode/extensions";
-      withoutConnectionToken = true;
+      auth = "none";
+      extraArguments = [
+        "--user-data-dir=/home/pol/.config/Code/"
+        "--extensions-dir=/home/pol/.vscode/extensions/"
+      ];
     };
     flatpak = {
       enable = false;
