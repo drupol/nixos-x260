@@ -2,10 +2,14 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }: {
+  disabledModules = [ "services/web-apps/code-server.nix" ];
+
   imports = [
     ./hardware-configuration.nix
+    "${inputs.nixpkgs-master}/nixos/modules/services/web-apps/code-server.nix"
     ./code.nix
     ./caddy.nix
   ];

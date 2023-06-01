@@ -493,7 +493,7 @@
         pkgs.vscode-extensions.redhat.vscode-yaml
         pkgs.vscode-extensions.redhat.vscode-xml
         pkgs.vscode-extensions.rust-lang.rust-analyzer
-        pkgs.nixpkgs-master.vscode-extensions.tailscale.vscode-tailscale
+        pkgs.master.vscode-extensions.tailscale.vscode-tailscale
         pkgs.vscode-extensions.usernamehw.errorlens
         pkgs.vscode-extensions.waderyan.gitblame
         pkgs.vscode-extensions.yzhang.markdown-all-in-one
