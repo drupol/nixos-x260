@@ -6,6 +6,8 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ./code.nix
+    ./caddy.nix
   ];
 
   # Use the GRUB 2 boot loader.
@@ -48,26 +50,6 @@
   '';
 
   services = {
-    caddy = {
-      enable = true;
-      email = "example@example.com";
-      virtualHosts."code.nixos.lan".extraConfig = ''
-        tls internal
-        reverse_proxy http://127.0.0.1:3000
-      '';
-    };
-    code-server = {
-      package = pkgs.nixpkgs-234289.code-server;
-      enable = true;
-      host = "127.0.0.1";
-      port = 3000;
-      user = "pol";
-      auth = "none";
-      extraArguments = [
-        "--user-data-dir=/home/pol/.config/Code/"
-        "--extensions-dir=/home/pol/.vscode/extensions/"
-      ];
-    };
     flatpak = {
       enable = false;
     };

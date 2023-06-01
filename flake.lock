@@ -24,11 +24,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1685573046,
-        "narHash": "sha256-IktTf92Fl1yU8qI2s0MRx3//k6NDmFuqZrGHKJV8i4M=",
+        "lastModified": 1685573051,
+        "narHash": "sha256-zrpbdQVJFpNVFK3SlA6mE0le8qnKjUjcuY4OzL+wSHw=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "96078e4a939b5e5fec1cfd83a11b3df7146a58ff",
+        "rev": "3876cc613ac3983078964ffb5a0c01d00028139e",
         "type": "github"
       },
       "original": {
@@ -91,22 +91,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-234289": {
-      "locked": {
-        "lastModified": 1685522674,
-        "narHash": "sha256-6RRhmVcx9P+oNEX6ZVloxyuXk+lEBPqhlI1CqMDN8S8=",
-        "owner": "drupol",
-        "repo": "nixpkgs",
-        "rev": "9ad59c77a3af395065217a15406a3d44c093ce39",
-        "type": "github"
-      },
-      "original": {
-        "owner": "drupol",
-        "repo": "nixpkgs",
-        "rev": "9ad59c77a3af395065217a15406a3d44c093ce39",
-        "type": "github"
-      }
-    },
     "nixpkgs-lib": {
       "locked": {
         "dir": "lib",
@@ -127,11 +111,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1685576448,
-        "narHash": "sha256-CaPA2UoHf4ydSZ3H3KIydVEojlb54GtrxYtPGHT5wfU=",
+        "lastModified": 1685621370,
+        "narHash": "sha256-brxfEW3u4fCqSTwcUCDNWIGEnaLpDHf47KJeMq90M7U=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a11f65c77752b5dd561e7453e1a603cf812a50b5",
+        "rev": "70c4a233a292ba9914072714c416c754c863b7b9",
         "type": "github"
       },
       "original": {
@@ -159,11 +143,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1685576737,
-        "narHash": "sha256-pZvEMDJD8d3lj50XNErbWH95Qg3Dp9BBeq0iV1sLZZs=",
+        "lastModified": 1685619919,
+        "narHash": "sha256-h+uu1KF6VsLX089XJ4SpY+eO4U2XCShmGvxt2Sbip/s=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "1691edcbdfa3a0962d4327ff68bfda699938ce84",
+        "rev": "bf64781ceb53b626a1c443200d71a516edf75ba4",
         "type": "github"
       },
       "original": {
@@ -197,7 +181,6 @@
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-234289": "nixpkgs-234289",
         "nixpkgs-master": "nixpkgs-master",
         "nur": "nur",
         "plasma-manager": "plasma-manager"
