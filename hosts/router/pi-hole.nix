@@ -59,6 +59,7 @@
           FTLCONF_LOCAL_ADDR4 = "192.168.2.10";
           FTLCONF_LOCAL_IPV4 = "192.168.2.10";
           WEBTHEME = "default-dark";
+          PIHOLE_DOMAIN = "lan";
           PIHOLE_DNS_1 = "8.8.8.8";
           PIHOLE_DNS_2 = "8.8.4.4";
           PIHOLE_DNS_3 = "2001:4860:4860:0:0:0:0:8888";
