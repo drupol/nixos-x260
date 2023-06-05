@@ -41,7 +41,7 @@
   }
   {
     instance = "raspberryPi400";
-    hostname = "raspberryPi400";
+    hostname = "router";
     operating-system = "nixos";
     system = "aarch64-linux";
     sshIdentityFile = "private.pem";
