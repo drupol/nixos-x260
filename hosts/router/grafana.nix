@@ -12,10 +12,10 @@
     enable = true;
     settings = {
       server = {
-        domain = "router.lan";
+        domain = "grafana.router.lan";
         http_port = 8888;
         http_addr = "0.0.0.0";
-        root_url = "%(protocol)s://%(domain)s:%(http_port)s/grafana/";
+        root_url = "%(protocol)s://%(domain)s:%(http_port)s/";
       };
 
       analytics.reporting_enabled = false;
