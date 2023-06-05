@@ -40,7 +40,7 @@
     user = "pol";
   }
   {
-    instance = "raspberryPi400";
+    instance = "router";
     hostname = "router";
     operating-system = "nixos";
     system = "aarch64-linux";

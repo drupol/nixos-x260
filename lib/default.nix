@@ -1,37 +1,37 @@
 {inputs, ...}: let
   inherit (inputs) self;
 in {
-  mkHomeConfig = host: {
-    "${host.user}" = inputs.home-manager.lib.homeManagerConfiguration {
+  mkHomeConfig = hostConfig: {
+    "${hostConfig.user}" = inputs.home-manager.lib.homeManagerConfiguration {
       modules = [
         ({config, ...}: {
           nixpkgs.overlays = [
             (final: prev: {
               master = import inputs.nixpkgs-master {
                 inherit (final) config;
-                system = host.system;
+                system = hostConfig.system;
               };
             })
             (final: prev: {
               unstable = import inputs.nixpkgs-unstable {
                 inherit (final) config;
-                system = host.system;
+                system = hostConfig.system;
               };
             })
             inputs.nur.overlay
           ];
         })
-        ./hosts/${host.instance}
+        ./hosts/${hostConfig.instance}
       ];
     };
   };
 
-  mkNixosSystem = host: {
-    "${host.instance}" = inputs.nixpkgs.lib.nixosSystem {
-      inherit (host) system;
+  mkNixosSystem = hostConfig: {
+    "${hostConfig.instance}" = inputs.nixpkgs.lib.nixosSystem {
+      inherit (hostConfig) system;
 
       specialArgs = {
-        inherit self inputs host;
+        inherit self inputs hostConfig;
       };
 
       modules = [
@@ -40,13 +40,13 @@ in {
             (final: prev: {
               master = import inputs.nixpkgs-master {
                 inherit (final) config;
-                system = host.system;
+                system = hostConfig.system;
               };
             })
             (final: prev: {
               unstable = import inputs.nixpkgs-unstable {
                 inherit (final) config;
-                system = host.system;
+                system = hostConfig.system;
               };
             })
             inputs.nur.overlay
@@ -69,7 +69,7 @@ in {
         ../hosts/common/tailscale.nix
         ../modules/users
         # Host specific configuration
-        ../hosts/${host.hostname}
+        ../hosts/${hostConfig.hostname}
         # Host specific hardware configuration
         # ../hosts/${hostname}/hardware-configuration.nix
       ];
