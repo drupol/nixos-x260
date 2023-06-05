@@ -14,5 +14,9 @@
     ./caddy.nix
     ./squid.nix
     ./home.nix
+    ./pi-hole.nix
+    ./grafana.nix
+    ./prometheus.nix
+    ./promtail.nix
   ];
 }

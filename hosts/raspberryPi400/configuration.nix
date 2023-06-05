@@ -109,15 +109,6 @@
 
   hardware.enableRedistributableFirmware = true;
 
-  imports = [
-    # ./squid.nix
-    ./pi-hole.nix
-    ./grafana.nix
-    ./prometheus.nix
-    ./promtail.nix
-    ./wetty.nix
-  ];
-
   virtualisation = {
     docker = {
       autoPrune = {
