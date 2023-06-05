@@ -3,8 +3,9 @@
 , ...
 }: {
   services.caddy.virtualHosts."pi-hole.raspberrypi400.lan".extraConfig = ''
-    handle_path /pihole/* {
-      rewrite * /admin{path}
+    tls internal
+    handle_path /* {
+      rewrite * /pihole{path}
       reverse_proxy 127.0.0.1:8093
     }
   '';

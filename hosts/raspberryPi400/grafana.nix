@@ -3,7 +3,9 @@
 , ...
 }: {
   services.caddy.virtualHosts."grafana.raspberrypi400.lan".extraConfig = ''
-    handle_path /grafana/* {
+    tls internal
+    handle_path /* {
+      rewrite * /grafana{path}
       reverse_proxy 127.0.0.1:8888
     }
   '';
