@@ -13,5 +13,6 @@
     ../../modules/users
     ./configuration.nix
     ./home.nix
+    ./guacamole.nix
   ];
 }

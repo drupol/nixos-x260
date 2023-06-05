@@ -9,7 +9,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     plasma-manager.url = "github:pjones/plasma-manager";
     nur.url = "github:nix-community/NUR";
-    guacamole-nixos.url = "github:drupol/guacamole-nixos/switch-to-flake-parts";
+    guacamole-nixos.url = "github:jbuchermn/guacamole-nixos";
   };
 
   outputs = {
