@@ -29,9 +29,11 @@
 
   services.caddy.virtualHosts."remote.nixos.lan".extraConfig = ''
     tls internal
-    redir / /guacamole/ 308
-    reverse_proxy nixos.lan:8080 {
-        flush_interval -1
+    handle_path /* {
+      rewrite * /guacamole{path}
+      reverse_proxy nixos.lan:8080 {
+         flush_interval -1
+      }
     }
   '';
 }
