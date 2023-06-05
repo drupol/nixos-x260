@@ -1,12 +1,18 @@
-{
-  pkgs,
-  lib,
-  ...
+{ pkgs
+, lib
+, ...
 }: {
+  services.caddy.virtualHosts."pi-hole.raspberrypi400.lan".extraConfig = ''
+    handle_path /pihole/* {
+      rewrite * /admin{path}
+      reverse_proxy 127.0.0.1:8093
+    }
+  '';
+
   networking = {
     firewall = {
-      allowedTCPPorts = [53 67];
-      allowedUDPPorts = [53 67 547];
+      allowedTCPPorts = [ 53 67 ];
+      allowedUDPPorts = [ 53 67 547 ];
     };
   };
 

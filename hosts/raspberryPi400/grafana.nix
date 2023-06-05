@@ -1,8 +1,13 @@
-{
-  pkgs,
-  config,
-  ...
+{ pkgs
+, config
+, ...
 }: {
+  services.caddy.virtualHosts."grafana.raspberrypi400.lan".extraConfig = ''
+    handle_path /grafana/* {
+      reverse_proxy 127.0.0.1:8888
+    }
+  '';
+
   services.grafana = {
     enable = true;
     settings = {
