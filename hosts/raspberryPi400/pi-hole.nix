@@ -2,7 +2,7 @@
 , lib
 , ...
 }: {
-  services.caddy.virtualHosts."pi-hole.raspberrypi400.lan".extraConfig = ''
+  services.caddy.virtualHosts."pi-hole.router.lan".extraConfig = ''
     tls internal
     handle_path /* {
       rewrite * /pihole{path}

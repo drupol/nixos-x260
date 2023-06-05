@@ -2,7 +2,7 @@
 , config
 , ...
 }: {
-  services.caddy.virtualHosts."grafana.raspberrypi400.lan".extraConfig = ''
+  services.caddy.virtualHosts."grafana.router.lan".extraConfig = ''
     tls internal
     handle_path /* {
       rewrite * /grafana{path}
@@ -14,7 +14,7 @@
     enable = true;
     settings = {
       server = {
-        domain = "raspberrypi400";
+        domain = "routerl";
         http_port = 8888;
         http_addr = "0.0.0.0";
         root_url = "%(protocol)s://%(domain)s:%(http_port)s/grafana/";

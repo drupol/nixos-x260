@@ -84,7 +84,8 @@
   services.resolved.enable = false;
 
   networking = {
-    hostName = "raspberryPi400";
+    domain = "lan";
+    hostName = "router";
     useNetworkd = true;
     useDHCP = false;
 
