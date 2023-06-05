@@ -3,12 +3,9 @@
   config,
   ...
 }: {
-  services.caddy.virtualHosts."grafana.router.lan".extraConfig = ''
+  services.caddy.virtualHosts."grafana.router".extraConfig = ''
     tls internal
-    handle_path /* {
-      rewrite * /grafana{path}
-      reverse_proxy 127.0.0.1:8888
-    }
+    reverse_proxy 127.0.0.1:8888
   '';
 
   services.grafana = {

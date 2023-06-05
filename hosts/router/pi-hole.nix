@@ -3,12 +3,9 @@
   lib,
   ...
 }: {
-  services.caddy.virtualHosts."pi-hole.router.lan".extraConfig = ''
+  services.caddy.virtualHosts."pi-hole.router".extraConfig = ''
     tls internal
-    handle_path /* {
-      rewrite * /pihole{path}
-      reverse_proxy 127.0.0.1:8093
-    }
+    reverse_proxy 127.0.0.1:8093
   '';
 
   networking = {
