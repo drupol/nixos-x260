@@ -2,7 +2,7 @@
   config,
   pkgs,
   self,
-  host,
+  hostConfig,
   ...
 }: {
   imports = [
@@ -12,7 +12,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users."${host.user}".imports = [
+    users."${hostConfig.user}".imports = [
       self.inputs.plasma-manager.homeManagerModules.plasma-manager
       ../common/kdeplasma.nix
       ../common/home.nix

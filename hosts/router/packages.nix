@@ -2,7 +2,7 @@
   config,
   pkgs,
   self,
-  host,
+  hostConfig,
   ...
 }: {
   environment.systemPackages = with pkgs; [

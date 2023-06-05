@@ -1,7 +1,7 @@
 {
   pkgs,
   self,
-  host,
+  hostConfig,
   config,
   lib,
   ...

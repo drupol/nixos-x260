@@ -1,6 +1,7 @@
-{ pkgs
-, lib
-, ...
+{
+  pkgs,
+  lib,
+  ...
 }: {
   services.caddy.virtualHosts."pi-hole.router.lan".extraConfig = ''
     tls internal
@@ -12,8 +13,8 @@
 
   networking = {
     firewall = {
-      allowedTCPPorts = [ 53 67 ];
-      allowedUDPPorts = [ 53 67 547 ];
+      allowedTCPPorts = [53 67];
+      allowedUDPPorts = [53 67 547];
     };
   };
 

@@ -1,6 +1,7 @@
-{ pkgs
-, config
-, ...
+{
+  pkgs,
+  config,
+  ...
 }: {
   services.caddy.virtualHosts."grafana.router.lan".extraConfig = ''
     tls internal

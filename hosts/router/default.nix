@@ -2,7 +2,7 @@
   config,
   pkgs,
   self,
-  host,
+  hostConfig,
   ...
 }: {
   imports = [

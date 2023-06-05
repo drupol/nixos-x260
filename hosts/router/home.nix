@@ -2,13 +2,13 @@
   config,
   pkgs,
   self,
-  host,
+  hostConfig,
   ...
 }: {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users."${host.user}".imports = [
+    users."${hostConfig.user}".imports = [
       {
         home.file = {
           ".config/fish/conf.d/custom.fish" = {

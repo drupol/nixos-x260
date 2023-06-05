@@ -5,7 +5,7 @@
   inputs,
   ...
 }: {
-  disabledModules = [ "services/web-apps/code-server.nix" ];
+  disabledModules = ["services/web-apps/code-server.nix"];
 
   imports = [
     ./hardware-configuration.nix
