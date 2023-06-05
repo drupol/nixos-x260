@@ -3,6 +3,7 @@
 {
   services.guacamole = {
     enable = true;
+    host = "0.0.0.0";
     userMapping = ''
     <user-mapping>
         <authorize username="guacadmin" password="guacadmin">
