@@ -77,7 +77,7 @@
         volumes = [
           "pihole:/etc/pihole"
           "dnsmasq:/etc/dnsmasq.d"
-          "${./pi-hole/etc/pi-hole/pihole-FTL.conf}:/etc/pihole/pihole-FTL.conf"
+          "${./pi-hole/etc/pihole/pihole-FTL.conf}:/etc/pihole/pihole-FTL.conf"
         ];
         extraOptions = [
           "--cap-add=NET_ADMIN"
