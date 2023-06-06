@@ -28,14 +28,6 @@
       pi-hole = {
         autoStart = true;
         image = "pihole/pihole:latest";
-
-        ports = [
-          "53:53/tcp"
-          "53:53/udp"
-          "67:67/udp"
-          "8093:8093/tcp"
-          "547:547/udp"
-        ];
         environment = {
           TZ = "Europe/Brussels";
           WEBPASSWORD = "webpassword";
@@ -85,7 +77,6 @@
         volumes = [
           "pihole:/etc/pihole"
           "dnsmasq:/etc/dnsmasq.d"
-          "${./pi-hole/domain.conf}:/etc/dnsmasq.d/domain.conf"
         ];
         extraOptions = [
           "--cap-add=NET_ADMIN"
