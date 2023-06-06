@@ -72,7 +72,7 @@
           PIHOLE_DNS_10 = "1.0.0.1";
           PIHOLE_DNS_11 = "2606:4700:4700::1111";
           PIHOLE_DNS_12 = "2606:4700:4700::1001";
-          PIHOLE_PTR = "HOSTNAME";
+          PIHOLE_PTR = "HOSTNAMEFQDN";
           BLOCKING_ENABLED = "true";
           IPV4_ADDRESS = "192.168.2.10";
           IPV6_ADDRESS = "0:0:0:0:0:0";
@@ -85,6 +85,7 @@
         volumes = [
           "pihole:/etc/pihole"
           "dnsmasq:/etc/dnsmasq.d"
+          "${./pi-hole/domain.conf}:/etc/dnsmasq.d/domain.conf"
         ];
         extraOptions = [
           "--cap-add=NET_ADMIN"
