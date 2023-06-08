@@ -32,11 +32,10 @@ in {
     PATH=$PATH:${lib.makeBinPath [pkgs.nvd pkgs.nix]}
 
     # Disable nvd if there are lesser than 2 profiles in the system.
-    if [ `ls -d1v /nix/var/nix/profiles/per-user/${config.home.username}/home-manager-*-link 2>/dev/null | wc -l ` -lt 2 ];
+    if [ `ls -d1v /nix/var/nix/profiles/per-user/${config.home.username}/home-manager-*-link 2>/dev/null | wc -l ` -gt 1 ];
     then
-        return 0
+        nvd diff $(ls -d1v /nix/var/nix/profiles/per-user/${config.home.username}/home-manager-*-link | tail -2)
     fi
 
-    nvd diff $(ls -d1v /nix/var/nix/profiles/per-user/${config.home.username}/home-manager-*-link | tail -2)
   '';
 }
