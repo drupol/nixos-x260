@@ -10,6 +10,7 @@
     plasma-manager.url = "github:pjones/plasma-manager";
     nur.url = "github:nix-community/NUR";
     guacamole-nixos.url = "github:jbuchermn/guacamole-nixos";
+    deploy-rs.url = "github:serokell/deploy-rs";
   };
 
   outputs = {
@@ -33,6 +34,14 @@
         ...
       }: {
         formatter = pkgs.alejandra;
+
+        devShells = {
+          default = pkgs.mkShellNoCC {
+            nativeBuildInputs = [
+              pkgs.deploy-rs
+            ];
+          };
+        };
       };
 
       flake = {
@@ -43,6 +52,8 @@
         nixosConfigurations =
           inputs.nixpkgs.lib.foldr (el: acc: acc // myLib.mkNixosSystem el) {}
           (inputs.nixpkgs.lib.filter (el: el.operating-system == "nixos") hosts);
+
+        deploy.nodes = inputs.nixpkgs.lib.foldr (el: acc: acc // myLib.mkNode el) {} hosts;
       };
     };
 }

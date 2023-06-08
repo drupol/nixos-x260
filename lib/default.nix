@@ -75,4 +75,25 @@ in {
       ];
     };
   };
+
+  mkNode = {
+    instance,
+    hostname,
+    domain ? hostname,
+    system ? "x86_64-linux",
+    sshIdentityFile,
+    ...
+  }: {
+    "${instance}" = {
+      inherit hostname;
+      fastConnection = false;
+      profiles.system = {
+        user = "root";
+        sshUser = "pol";
+        sshOpts = [];
+        path = inputs.deploy-rs.lib.${system}.activate.nixos inputs.self.nixosConfigurations.${instance};
+        remoteBuild = false;
+      };
+    };
+  };
 }
