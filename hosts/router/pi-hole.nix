@@ -76,6 +76,7 @@
           RATE_LIMIT = "1000/60";
           PRIVACYLEVEL = "0";
           SKIPGRAVITYONBOOT = "1";
+          WEBLOGS_STDOUT="1";
         };
         volumes = [
           "pihole:/etc/pihole"
