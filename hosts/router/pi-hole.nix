@@ -52,12 +52,13 @@
           FTLCONF_RATE_LIMIT = "1000/60";
           IPv6 = "true";
           PIHOLE_DOMAIN = "lan";
-          PIHOLE_DNS_ = "8.8.8.8;8.8.4.4;2001:4860:4860:0:0:0:0#8888;2001:4860:4860:0:0:0:0#8844;208.67.222.222;208.67.220.220;1.1.1.1;1.0.0.1";
+          PIHOLE_DNS_ = "8.8.8.8;8.8.4.4;2001:4860:4860:0:0:0:0#8888;208.67.222.222;208.67.220.220;1.1.1.1;1.0.0.1";
           QUERY_LOGGING = "true";
           REV_SERVER = "false";
           SKIPGRAVITYONBOOT = "1";
           TEMPERATUREUNIT = "c";
           TZ = "Europe/Brussels";
+          WEB_BIND_ADDR = "192.168.2.10";
           WEB_PORT = "8093";
           WEBLOGS_STDOUT="1";
           WEBPASSWORD = "webpassword";
