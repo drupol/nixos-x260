@@ -3,7 +3,7 @@
 , ...
 }: {
   home.packages = with pkgs; [
-    any-nix-shell
+    nix-your-shell
     bat-extras.batman
     bottom # https://zaiste.net/posts/shell-commands-rust/
     cachix
