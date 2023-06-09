@@ -33,7 +33,7 @@
         system,
         ...
       }: {
-        formatter = pkgs.alejandra;
+        formatter = pkgs.nixpkgs-fmt;
 
         devShells = {
           default = pkgs.mkShellNoCC {
