@@ -51,6 +51,7 @@
           FTLCONF_LOCAL_ADDR4 = "192.168.2.10";
           FTLCONF_LOCAL_IPV4 = "192.168.2.10";
           FTLCONF_MAXDBDAYS = "0";
+          FTLCONF_MOZILLA_CANARY="false";
           WEBTHEME = "default-dark";
           PIHOLE_DOMAIN = "lan";
           PIHOLE_DNS_1 = "8.8.8.8";
