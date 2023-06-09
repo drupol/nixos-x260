@@ -1,9 +1,8 @@
-{
-  config,
-  pkgs,
-  self,
-  hostConfig,
-  ...
+{ config
+, pkgs
+, self
+, hostConfig
+, ...
 }: {
   home-manager = {
     useGlobalPkgs = true;

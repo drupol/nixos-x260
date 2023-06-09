@@ -1,4 +1,5 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   # Generating self-signed cert:
   # cd /var/secrets
   # openssl req -new -newkey rsa:2048 -days 3650 -nodes -x509 -keyout squidCA.key -out squidCA.pem
@@ -79,13 +80,14 @@
       cert=${certFullKeyPath} \
       key=${certKeyPath}
   '';
-in {
+in
+{
   services.squid = {
     enable = true;
     inherit configText;
   };
 
-  networking.firewall.allowedTCPPorts = [3128 3129 3130];
+  networking.firewall.allowedTCPPorts = [ 3128 3129 3130 ];
 
   systemd.services.squid.preStart = ''
     test -e /var/cache/squid/ssl_db || ${pkgs.squid}/libexec/security_file_certgen -c -s /var/cache/squid/ssl_db -M 4MB

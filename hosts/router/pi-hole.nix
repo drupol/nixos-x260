@@ -1,7 +1,6 @@
-{
-  pkgs,
-  lib,
-  ...
+{ pkgs
+, lib
+, ...
 }: {
   services.caddy.virtualHosts."pi-hole.router.lan".extraConfig = ''
     tls internal
@@ -13,8 +12,8 @@
 
   networking = {
     firewall = {
-      allowedTCPPorts = [53 67];
-      allowedUDPPorts = [53 67 547];
+      allowedTCPPorts = [ 53 67 ];
+      allowedUDPPorts = [ 53 67 547 ];
     };
   };
 
@@ -46,9 +45,9 @@
           FTLCONF_LOCAL_IPV4 = "192.168.2.10";
           FTLCONF_LOCAL_IPV6 = "0:0:0:0:0:ffff:c0a8:020a";
           FTLCONF_MAXDBDAYS = "7";
-          FTLCONF_MOZILLA_CANARY="false";
-          FTLCONF_PRIVACYLEVEL="0";
-          FTLCONF_PIHOLE_PTR="HOSTNAMEFQDN";
+          FTLCONF_MOZILLA_CANARY = "false";
+          FTLCONF_PRIVACYLEVEL = "0";
+          FTLCONF_PIHOLE_PTR = "HOSTNAMEFQDN";
           FTLCONF_RATE_LIMIT = "1000/60";
           IPv6 = "true";
           PIHOLE_DOMAIN = "lan";
@@ -60,7 +59,7 @@
           TZ = "Europe/Brussels";
           WEB_BIND_ADDR = "192.168.2.10";
           WEB_PORT = "8093";
-          WEBLOGS_STDOUT="1";
+          WEBLOGS_STDOUT = "1";
           WEBPASSWORD = "webpassword";
           WEBTHEME = "default-dark";
           WEBUIBOXEDLAYOUT = "traditional";

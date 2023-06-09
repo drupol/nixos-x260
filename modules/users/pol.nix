@@ -1,11 +1,12 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: let
+{ config
+, pkgs
+, inputs
+, ...
+}:
+let
   deviceCfg = config.modules.device;
-in {
+in
+{
   users.users.pol = {
     description = "Pol Dellaiera";
     isNormalUser = true;

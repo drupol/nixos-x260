@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
+{ config
+, pkgs
+, lib
+, ...
 }: {
   boot = {
     loader = {
@@ -31,17 +30,17 @@
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
       fsType = "ext4";
-      options = ["noatime"];
+      options = [ "noatime" ];
     };
     "/var/log" = {
       device = "none";
       fsType = "tmpfs";
-      options = ["defaults" "size=2G" "nosuid" "noatime"];
+      options = [ "defaults" "size=2G" "nosuid" "noatime" ];
     };
     "/tmp" = {
       device = "none";
       fsType = "tmpfs";
-      options = ["defaults" "size=1G" "nosuid" "noatime"];
+      options = [ "defaults" "size=1G" "nosuid" "noatime" ];
     };
   };
 
@@ -114,7 +113,7 @@
     docker = {
       autoPrune = {
         dates = "daily";
-        flags = ["--all" "--volumes"];
+        flags = [ "--all" "--volumes" ];
       };
       enable = true;
     };

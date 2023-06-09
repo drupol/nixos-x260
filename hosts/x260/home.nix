@@ -1,9 +1,8 @@
-{
-  config,
-  pkgs,
-  self,
-  hostConfig,
-  ...
+{ config
+, pkgs
+, self
+, hostConfig
+, ...
 }: {
   imports = [
     self.inputs.home-manager.nixosModules.home-manager

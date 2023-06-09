@@ -1,9 +1,8 @@
-{
-  config,
-  pkgs,
-  self,
-  hostConfig,
-  ...
+{ config
+, pkgs
+, self
+, hostConfig
+, ...
 }: {
   home-manager = {
     useGlobalPkgs = true;
@@ -21,13 +20,13 @@
         home.stateVersion = "23.05";
 
         programs = {
-          bat = {enable = true;};
-          command-not-found = {enable = false;};
+          bat = { enable = true; };
+          command-not-found = { enable = false; };
           direnv = {
             enable = true;
             nix-direnv.enable = true;
           };
-          exa = {enable = true;};
+          exa = { enable = true; };
           fish = {
             enable = true;
             interactiveShellInit = ''
@@ -53,8 +52,8 @@
               man = "batman";
             };
           };
-          home-manager = {enable = true;};
-          htop = {enable = true;};
+          home-manager = { enable = true; };
+          htop = { enable = true; };
           zoxide = {
             enable = true;
             enableFishIntegration = true;

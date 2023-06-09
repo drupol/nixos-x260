@@ -1,11 +1,10 @@
-{
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
+{ config
+, pkgs
+, lib
+, inputs
+, ...
 }: {
-  disabledModules = ["services/web-apps/code-server.nix"];
+  disabledModules = [ "services/web-apps/code-server.nix" ];
 
   imports = [
     ./hardware-configuration.nix

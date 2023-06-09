@@ -1,10 +1,12 @@
-{inputs, ...}: let
+{ inputs, ... }:
+let
   inherit (inputs) self;
-in {
+in
+{
   mkHomeConfig = hostConfig: {
     "${hostConfig.user}" = inputs.home-manager.lib.homeManagerConfiguration {
       modules = [
-        ({config, ...}: {
+        ({ config, ... }: {
           nixpkgs.overlays = [
             (final: prev: {
               master = import inputs.nixpkgs-master {
@@ -35,7 +37,7 @@ in {
       };
 
       modules = [
-        ({config, ...}: {
+        ({ config, ... }: {
           nixpkgs.overlays = [
             (final: prev: {
               master = import inputs.nixpkgs-master {
@@ -76,24 +78,24 @@ in {
     };
   };
 
-  mkNode = {
-    instance,
-    hostname,
-    domain ? hostname,
-    system ? "x86_64-linux",
-    sshIdentityFile,
-    ...
-  }: {
-    "${instance}" = {
-      inherit hostname;
-      fastConnection = false;
-      profiles.system = {
-        user = "root";
-        sshUser = "pol";
-        sshOpts = [];
-        path = inputs.deploy-rs.lib.${system}.activate.nixos inputs.self.nixosConfigurations.${instance};
-        remoteBuild = false;
+  mkNode =
+    { instance
+    , hostname
+    , domain ? hostname
+    , system ? "x86_64-linux"
+    , sshIdentityFile
+    , ...
+    }: {
+      "${instance}" = {
+        inherit hostname;
+        fastConnection = false;
+        profiles.system = {
+          user = "root";
+          sshUser = "pol";
+          sshOpts = [ ];
+          path = inputs.deploy-rs.lib.${system}.activate.nixos inputs.self.nixosConfigurations.${instance};
+          remoteBuild = false;
+        };
       };
     };
-  };
 }

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   services = {
     caddy.virtualHosts."code.nixos.lan".extraConfig = ''
       tls internal

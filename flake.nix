@@ -13,36 +13,37 @@
     deploy-rs.url = "github:serokell/deploy-rs";
   };
 
-  outputs = {
-    self,
-    flake-parts,
-    ...
-  } @ inputs: let
-    hosts = import ./hosts.nix;
-    myLib = import ./lib/default.nix {
-      inherit inputs;
-    };
-  in
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["x86_64-linux" "aarch64-linux"];
+  outputs =
+    { self
+    , flake-parts
+    , ...
+    } @ inputs:
+    let
+      hosts = import ./hosts.nix;
+      myLib = import ./lib/default.nix {
+        inherit inputs;
+      };
+    in
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" "aarch64-linux" ];
 
-      perSystem = {
-        self',
-        inputs',
-        pkgs,
-        system,
-        ...
-      }: {
-        formatter = pkgs.nixpkgs-fmt;
+      perSystem =
+        { self'
+        , inputs'
+        , pkgs
+        , system
+        , ...
+        }: {
+          formatter = pkgs.nixpkgs-fmt;
 
-        devShells = {
-          default = pkgs.mkShellNoCC {
-            nativeBuildInputs = [
-              pkgs.deploy-rs
-            ];
+          devShells = {
+            default = pkgs.mkShellNoCC {
+              nativeBuildInputs = [
+                pkgs.deploy-rs
+              ];
+            };
           };
         };
-      };
 
       flake = {
         # homeConfigurations =
@@ -50,10 +51,10 @@
         #   (inputs.nixpkgs.lib.filter (el: el.operating-system != "nixos") hosts);
 
         nixosConfigurations =
-          inputs.nixpkgs.lib.foldr (el: acc: acc // myLib.mkNixosSystem el) {}
-          (inputs.nixpkgs.lib.filter (el: el.operating-system == "nixos") hosts);
+          inputs.nixpkgs.lib.foldr (el: acc: acc // myLib.mkNixosSystem el) { }
+            (inputs.nixpkgs.lib.filter (el: el.operating-system == "nixos") hosts);
 
-        deploy.nodes = inputs.nixpkgs.lib.foldr (el: acc: acc // myLib.mkNode el) {} hosts;
+        deploy.nodes = inputs.nixpkgs.lib.foldr (el: acc: acc // myLib.mkNode el) { } hosts;
       };
     };
 }

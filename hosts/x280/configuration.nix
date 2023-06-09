@@ -1,9 +1,8 @@
-{
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
+{ config
+, pkgs
+, lib
+, inputs
+, ...
 }: {
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x280
@@ -119,7 +118,7 @@
     sortedUnique = builtins.sort builtins.lessThan (lib.unique packages);
     formatted = builtins.concatStringsSep "\n" sortedUnique;
   in
-    formatted;
+  formatted;
 
   virtualisation.docker.enable = false;
 

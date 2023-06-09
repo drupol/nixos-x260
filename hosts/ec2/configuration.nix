@@ -1,9 +1,8 @@
-{
-  config,
-  pkgs,
-  lib,
-  modulesPath,
-  ...
+{ config
+, pkgs
+, lib
+, modulesPath
+, ...
 }: {
   imports = [
     "${modulesPath}/virtualisation/amazon-image.nix"
@@ -83,7 +82,7 @@
 
   powerManagement.enable = true;
 
-  programs = {};
+  programs = { };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -125,7 +124,7 @@
     sortedUnique = builtins.sort builtins.lessThan (lib.unique packages);
     formatted = builtins.concatStringsSep "\n" sortedUnique;
   in
-    formatted;
+  formatted;
 
   #  system.copySystemConfiguration = true;
 

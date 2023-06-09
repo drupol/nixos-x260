@@ -1,14 +1,15 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: let
-  gitClone = {
-    source,
-    path,
-  }:
-    lib.hm.dag.entryAfter ["writeBoundary"] ''
+{ config
+, pkgs
+, lib
+, ...
+}:
+let
+  gitClone =
+    { source
+    , path
+    ,
+    }:
+    lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       if [[ ! -d "${path}" ]]; then
         ${pkgs.git}/bin/git clone ${source} ${path}
       fi
@@ -17,7 +18,8 @@
         ${pkgs.git}/bin/git --git-dir=${path}/.git --work-tree=${path} pull
       fi
     '';
-in {
+in
+{
   # home.activation.initPasswordStore = gitClone {
   #   source = "git@github.com:drupol/pass.git";
   #   path = "${config.xdg.configHome}/.password-store/";
@@ -28,7 +30,7 @@ in {
   #   path = "${config.home.homeDirectory}/Code/drupol/not-a-number.io/";
   # };
 
-  home.activation.profile-report-changes = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  home.activation.profile-report-changes = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     PATH=$PATH:${lib.makeBinPath [pkgs.nvd pkgs.nix]}
 
     # Disable nvd if there are lesser than 2 profiles in the system.

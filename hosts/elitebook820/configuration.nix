@@ -1,9 +1,8 @@
-{
-  config,
-  pkgs,
-  lib,
-  nixos-hardware,
-  ...
+{ config
+, pkgs
+, lib
+, nixos-hardware
+, ...
 }: {
   imports = [
     ./hardware-configuration.nix
@@ -122,7 +121,7 @@
     sortedUnique = builtins.sort builtins.lessThan (lib.unique packages);
     formatted = builtins.concatStringsSep "\n" sortedUnique;
   in
-    formatted;
+  formatted;
 
   virtualisation.docker.enable = false;
 

@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
+{ config
+, pkgs
+, lib
+, ...
 }: {
   system.activationScripts.system-report-changes = ''
     PATH=$PATH:${lib.makeBinPath [pkgs.nvd pkgs.nix]}

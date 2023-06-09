@@ -1,9 +1,8 @@
-{
-  config,
-  pkgs,
-  self,
-  hostConfig,
-  ...
+{ config
+, pkgs
+, self
+, hostConfig
+, ...
 }: {
   imports = [
     ../common/configuration.nix
