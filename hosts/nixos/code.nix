@@ -20,11 +20,11 @@
     };
     openvscode-server = {
       package = callpackage ./openvscode-server-insiders.nix {};
+      withoutConnectionToken = true;
       enable = true;
       host = "127.0.0.1";
       port = 4000;
       user = "pol";
-      auth = "none";
       userDataDir = "/home/pol/.config/Code/";
       extensionsDir = "/home/pol/.vscode/extensions/";
     };
