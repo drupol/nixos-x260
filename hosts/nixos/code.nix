@@ -19,11 +19,7 @@
       extensionsDir = "/home/pol/.vscode/extensions/";
     };
     openvscode-server = {
-      package = (pkgs.callPackage ./openvscode-server-insiders.nix {
-        nodejs = pkgs.nodejs_16;
-        inherit (pkgs.darwin.apple_sdk.frameworks) AppKit Cocoa Security;
-        inherit (pkgs.darwin) cctools;
-      });
+      package = pkgs.master.openvscode-server;
       withoutConnectionToken = true;
       enable = true;
       host = "127.0.0.1";
