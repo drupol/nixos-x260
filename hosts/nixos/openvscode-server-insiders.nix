@@ -177,5 +177,6 @@ in stdenv.mkDerivation rec {
     license = licenses.mit;
     maintainers = with maintainers; [ dguenther ghuntley emilytrau ];
     platforms = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+    mainProgram = "openvscode-server";
   };
 }
