@@ -6,6 +6,7 @@
     system = "x86_64-linux";
     sshIdentityFile = "private.pem";
     user = "pol";
+    remoteBuild = true;
   }
   {
     instance = "elitebook820";
@@ -14,6 +15,7 @@
     system = "x86_64-linux";
     sshIdentityFile = "private.pem";
     user = "pol";
+    remoteBuild = true;
   }
   {
     instance = "lw196205087";
@@ -22,6 +24,7 @@
     system = "x86_64-linux";
     sshIdentityFile = "private.pem";
     user = "devlin";
+    remoteBuild = true;
   }
   {
     instance = "nixos";
@@ -30,6 +33,7 @@
     system = "x86_64-linux";
     sshIdentityFile = "private.pem";
     user = "pol";
+    remoteBuild = true;
   }
   {
     instance = "x13";
@@ -38,6 +42,7 @@
     system = "x86_64-linux";
     sshIdentityFile = "private.pem";
     user = "pol";
+    remoteBuild = true;
   }
   {
     instance = "router";
@@ -46,6 +51,7 @@
     system = "aarch64-linux";
     sshIdentityFile = "private.pem";
     user = "pol";
+    remoteBuild = true;
   }
   {
     instance = "x260";
@@ -54,6 +60,7 @@
     system = "x86_64-linux";
     sshIdentityFile = "private.pem";
     user = "pol";
+    remoteBuild = true;
   }
   {
     instance = "x280";
@@ -62,5 +69,6 @@
     system = "x86_64-linux";
     sshIdentityFile = "private.pem";
     user = "pol";
+    remoteBuild = true;
   }
 ]

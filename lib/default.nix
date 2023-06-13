@@ -84,17 +84,18 @@ in
     , domain ? hostname
     , system ? "x86_64-linux"
     , sshIdentityFile
+    , remoteBuild ? false
     , ...
     }: {
       "${instance}" = {
         inherit hostname;
         fastConnection = false;
         profiles.system = {
+          inherit remoteBuild;
           user = "root";
           sshUser = "pol";
           sshOpts = [ ];
           path = inputs.deploy-rs.lib.${system}.activate.nixos inputs.self.nixosConfigurations.${instance};
-          remoteBuild = false;
         };
       };
     };
