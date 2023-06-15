@@ -4,6 +4,8 @@
 , ...
 }: {
   services.guacamole = {
+    package = pkgs.guacamole-nixos.guacamole-server;
+    clientPackage = pkgs.guacamole-nixos.guacamole-client;
     enable = true;
     host = "0.0.0.0";
     userMapping = ''

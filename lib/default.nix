@@ -51,13 +51,17 @@ in
                 system = hostConfig.system;
               };
             })
+            (final: prev: {
+              guacamole-nixos = import inputs.guacamole-nixos {
+                inherit (final) config;
+                system = hostConfig.system;
+              };
+            })
             inputs.nur.overlay
-            inputs.guacamole-nixos.overlays.default
           ];
         })
         inputs.home-manager.nixosModules.home-manager
         inputs.nur.nixosModules.nur
-        inputs.guacamole-nixos.nixosModules.guacamole
 
         # # auto import all nix code from `./modules`, treat each one as a flake and merge them
         # imports =

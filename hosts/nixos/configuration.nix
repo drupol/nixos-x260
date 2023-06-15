@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
     "${inputs.nixpkgs-master}/nixos/modules/services/web-apps/code-server.nix"
     "${inputs.nixpkgs-master}/nixos/modules/services/web-apps/openvscode-server.nix"
+    "${inputs.guacamole-nixos}/nixos/modules/services/web-apps/guacamole.nix"
     ./code.nix
     ./caddy.nix
   ];

@@ -9,7 +9,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     plasma-manager.url = "github:pjones/plasma-manager";
     nur.url = "github:nix-community/NUR";
-    guacamole-nixos.url = "github:jbuchermn/guacamole-nixos";
+    guacamole-nixos.url = "github:drupol/nixpkgs/add-guacamole-server-and-client";
     deploy-rs.url = "github:serokell/deploy-rs";
   };
 
