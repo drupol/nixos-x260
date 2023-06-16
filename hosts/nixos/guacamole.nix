@@ -4,9 +4,10 @@
 , ...
 }: {
   services.guacamole = {
-    package = pkgs.guacamole-nixos.guacamole-server;
-    clientPackage = pkgs.guacamole-nixos.guacamole-client;
     enable = true;
+    package = pkgs.guacamole-nixos.guacamole-server;
+    enableClient = true;
+    clientPackage = pkgs.guacamole-nixos.guacamole-client;
     host = "0.0.0.0";
     guacamoleProperties = {
       allowed-languages = "en, fr";
