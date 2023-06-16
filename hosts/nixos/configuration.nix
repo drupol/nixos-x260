@@ -4,12 +4,11 @@
 , inputs
 , ...
 }: {
-  disabledModules = [ "services/web-apps/code-server.nix" "services/web-apps/openvscode-server.nix" ];
+  disabledModules = [ "services/web-apps/code-server.nix" ];
 
   imports = [
     ./hardware-configuration.nix
     "${inputs.nixpkgs-master}/nixos/modules/services/web-apps/code-server.nix"
-    "${inputs.nixpkgs-master}/nixos/modules/services/web-apps/openvscode-server.nix"
     "${inputs.guacamole-nixos}/nixos/modules/services/web-apps/guacamole-client.nix"
     "${inputs.guacamole-nixos}/nixos/modules/services/web-apps/guacamole-server.nix"
     ./code.nix
