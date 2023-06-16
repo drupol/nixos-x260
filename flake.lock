@@ -55,11 +55,11 @@
     },
     "guacamole-nixos": {
       "locked": {
-        "lastModified": 1686911951,
-        "narHash": "sha256-IeS7epJxgspj6Y0WuYPSDWgLhyBAzqmLUNhrxHQ6TsI=",
+        "lastModified": 1686936256,
+        "narHash": "sha256-nJLV4UzFjJejboz7j1SeW/Wt8uyTEKvWXVrJlnbD1cI=",
         "owner": "drupol",
         "repo": "nixpkgs",
-        "rev": "22ffb11a09cfcfe500a4b9b450615398e2560aed",
+        "rev": "69ac43fbfaa0c9a39696c487bb26e898fc35e786",
         "type": "github"
       },
       "original": {
@@ -163,11 +163,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1686931048,
-        "narHash": "sha256-rta9I2dCC8BoCZJss9UIQEUSRbUYl7NkkqvtqJ9/K1U=",
+        "lastModified": 1686932894,
+        "narHash": "sha256-JC0kela4qBZGuh702Sz9Ikk6iRh1kYRrM2eyYseuT10=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ce384a605a8e1a8f198acf791439efb019b8e28c",
+        "rev": "eaebbdf59ac1c9dd72011854d8bbad18b22e4cff",
         "type": "github"
       },
       "original": {

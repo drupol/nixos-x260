@@ -3,11 +3,9 @@
 , pkgs
 , ...
 }: {
-  services.guacamole = {
+  services.guacamole-server = {
     enable = true;
     package = pkgs.guacamole-nixos.guacamole-server;
-    enableClient = true;
-    clientPackage = pkgs.guacamole-nixos.guacamole-client;
     host = "0.0.0.0";
     guacamoleProperties = {
       allowed-languages = "en, fr";
@@ -30,6 +28,11 @@
         </authorize>
       </user-mapping>
     '';
+  };
+
+  services.guacamole-client = {
+    enable = true;
+    package = pkgs.guacamole-nixos.guacamole-client;
   };
 
   services.xrdp.enable = true;

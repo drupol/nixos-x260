@@ -10,7 +10,8 @@
     ./hardware-configuration.nix
     "${inputs.nixpkgs-master}/nixos/modules/services/web-apps/code-server.nix"
     "${inputs.nixpkgs-master}/nixos/modules/services/web-apps/openvscode-server.nix"
-    "${inputs.guacamole-nixos}/nixos/modules/services/web-apps/guacamole.nix"
+    "${inputs.guacamole-nixos}/nixos/modules/services/web-apps/guacamole-client.nix"
+    "${inputs.guacamole-nixos}/nixos/modules/services/web-apps/guacamole-server.nix"
     ./code.nix
     ./caddy.nix
   ];
@@ -141,6 +142,4 @@
     flake = "github:drupol/nixos-x260";
     allowReboot = true;
   };
-
-  services.guacamole.enable = true;
 }
