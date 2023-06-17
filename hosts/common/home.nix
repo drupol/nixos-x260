@@ -458,45 +458,45 @@
       enableUpdateCheck = false;
       mutableExtensionsDir = false;
       extensions = [
-        pkgs.master.vscode-extensions.arcticicestudio.nord-visual-studio-code
-        pkgs.master.vscode-extensions.b4dm4n.vscode-nixpkgs-fmt
-        pkgs.master.vscode-extensions.bbenoist.nix
-        pkgs.master.vscode-extensions.bmewburn.vscode-intelephense-client
-        pkgs.master.vscode-extensions.brettm12345.nixfmt-vscode
-        pkgs.master.vscode-extensions.bungcip.better-toml
-        pkgs.master.vscode-extensions.chris-hayes.chatgpt-reborn
-        pkgs.master.vscode-extensions.christian-kohler.path-intellisense
-        pkgs.master.vscode-extensions.codezombiech.gitignore
-        pkgs.master.vscode-extensions.devsense.phptools-vscode
-        pkgs.master.vscode-extensions.dhall.vscode-dhall-lsp-server
-        pkgs.master.vscode-extensions.dhall.dhall-lang
-        pkgs.master.vscode-extensions.donjayamanne.githistory
-        pkgs.master.vscode-extensions.eamodio.gitlens
-        pkgs.master.vscode-extensions.editorconfig.editorconfig
-        pkgs.master.vscode-extensions.esbenp.prettier-vscode
-        pkgs.master.vscode-extensions.genieai.chatgpt-vscode
-        pkgs.master.vscode-extensions.github.copilot
-        pkgs.master.vscode-extensions.github.github-vscode-theme
-        pkgs.master.vscode-extensions.github.vscode-pull-request-github
-        pkgs.master.vscode-extensions.james-yu.latex-workshop
-        pkgs.master.vscode-extensions.jebbs.plantuml
-        pkgs.master.vscode-extensions.jnoortheen.nix-ide
-        pkgs.master.vscode-extensions.matklad.rust-analyzer
-        pkgs.master.vscode-extensions.mhutchie.git-graph
-        pkgs.master.vscode-extensions.mkhl.direnv
+        pkgs.vscode-extensions.arcticicestudio.nord-visual-studio-code
+        pkgs.vscode-extensions.b4dm4n.vscode-nixpkgs-fmt
+        pkgs.vscode-extensions.bbenoist.nix
+        pkgs.vscode-extensions.bmewburn.vscode-intelephense-client
+        pkgs.vscode-extensions.brettm12345.nixfmt-vscode
+        pkgs.vscode-extensions.bungcip.better-toml
+        pkgs.vscode-extensions.chris-hayes.chatgpt-reborn
+        pkgs.vscode-extensions.christian-kohler.path-intellisense
+        pkgs.vscode-extensions.codezombiech.gitignore
+        pkgs.vscode-extensions.devsense.phptools-vscode
+        pkgs.vscode-extensions.dhall.vscode-dhall-lsp-server
+        pkgs.vscode-extensions.dhall.dhall-lang
+        pkgs.vscode-extensions.donjayamanne.githistory
+        pkgs.vscode-extensions.eamodio.gitlens
+        pkgs.vscode-extensions.editorconfig.editorconfig
+        pkgs.vscode-extensions.esbenp.prettier-vscode
+        pkgs.vscode-extensions.genieai.chatgpt-vscode
+        pkgs.vscode-extensions.github.copilot
+        pkgs.vscode-extensions.github.github-vscode-theme
+        pkgs.vscode-extensions.github.vscode-pull-request-github
+        pkgs.vscode-extensions.james-yu.latex-workshop
+        pkgs.vscode-extensions.jebbs.plantuml
+        pkgs.vscode-extensions.jnoortheen.nix-ide
+        pkgs.vscode-extensions.matklad.rust-analyzer
+        pkgs.vscode-extensions.mhutchie.git-graph
+        pkgs.vscode-extensions.mkhl.direnv
         #pkgs.vscode-extensions.ms-python.python
         #pkgs.vscode-extensions.ms-vscode.makefile-tools
-        pkgs.master.vscode-extensions.ms-vscode-remote.remote-ssh
-        pkgs.master.vscode-extensions.nvarner.typst-lsp
-        pkgs.master.vscode-extensions.pkief.material-icon-theme
-        pkgs.master.vscode-extensions.redhat.vscode-yaml
-        pkgs.master.vscode-extensions.redhat.vscode-xml
-        pkgs.master.vscode-extensions.rust-lang.rust-analyzer
-        pkgs.master.vscode-extensions.tailscale.vscode-tailscale
-        pkgs.master.vscode-extensions.usernamehw.errorlens
-        pkgs.master.vscode-extensions.waderyan.gitblame
-        pkgs.master.vscode-extensions.yzhang.markdown-all-in-one
-        pkgs.master.vscode-extensions.zhuangtongfa.material-theme
+        pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
+        pkgs.vscode-extensions.nvarner.typst-lsp
+        pkgs.vscode-extensions.pkief.material-icon-theme
+        pkgs.vscode-extensions.redhat.vscode-yaml
+        pkgs.vscode-extensions.redhat.vscode-xml
+        pkgs.vscode-extensions.rust-lang.rust-analyzer
+        pkgs.vscode-extensions.tailscale.vscode-tailscale
+        pkgs.vscode-extensions.usernamehw.errorlens
+        pkgs.vscode-extensions.waderyan.gitblame
+        pkgs.vscode-extensions.yzhang.markdown-all-in-one
+        pkgs.vscode-extensions.zhuangtongfa.material-theme
       ];
       userSettings = {
         "[json]" = {
