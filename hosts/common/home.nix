@@ -475,6 +475,7 @@
         pkgs.master.vscode-extensions.editorconfig.editorconfig
         pkgs.master.vscode-extensions.esbenp.prettier-vscode
         pkgs.master.vscode-extensions.genieai.chatgpt-vscode
+        pkgs.master.vscode-extensions.github.copilot
         pkgs.master.vscode-extensions.github.github-vscode-theme
         pkgs.master.vscode-extensions.github.vscode-pull-request-github
         pkgs.master.vscode-extensions.james-yu.latex-workshop
