@@ -17,6 +17,7 @@
               <protocol>rdp</protocol>
               <param name="hostname">127.0.0.1</param>
               <param name="port">3389</param>
+              <param name="username">pol</param>
               <param name="ignore-cert">true</param>
           </connection>
 
@@ -24,6 +25,7 @@
               <protocol>ssh</protocol>
               <param name="hostname">127.0.0.1</param>
               <param name="port">22</param>
+              <param name="username">pol</param>
           </connection>
         </authorize>
       </user-mapping>
