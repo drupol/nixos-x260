@@ -55,11 +55,11 @@
     },
     "guacamole-nixos": {
       "locked": {
-        "lastModified": 1687016150,
-        "narHash": "sha256-zWVEEZI7B7U598fG5kZw3nUFdzsslq5aCdhe/OhXdbs=",
+        "lastModified": 1687071298,
+        "narHash": "sha256-NUzligp2VwpCkS/DI6FpJ8+zrJnama3H57rOFoXy2kc=",
         "owner": "drupol",
         "repo": "nixpkgs",
-        "rev": "177dd40ac0a9f7b07cf9e6cfb3168e1e2f26d97f",
+        "rev": "0f5393e49560ff77a31f350857dcc7f4c23973be",
         "type": "github"
       },
       "original": {
