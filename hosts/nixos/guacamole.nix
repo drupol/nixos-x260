@@ -6,7 +6,7 @@
   services.guacamole-server = {
     enable = true;
     package = pkgs.guacamole-nixos.guacamole-server;
-    host = "0.0.0.0";
+    host = "127.0.0.1";
     guacamoleProperties = {
       allowed-languages = "en, fr";
     };
