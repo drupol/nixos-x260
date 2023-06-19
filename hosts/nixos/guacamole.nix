@@ -7,9 +7,6 @@
     enable = true;
     package = pkgs.guacamole-nixos.guacamole-server;
     host = "127.0.0.1";
-    guacamoleProperties = {
-      allowed-languages = "en, fr";
-    };
     userMapping = ''
       <user-mapping>
           <authorize username="guacadmin" password="guacadmin">
@@ -33,6 +30,10 @@
   services.guacamole-client = {
     enable = true;
     package = pkgs.guacamole-nixos.guacamole-client;
+    guacamoleProperties = {
+      guacd-port = 4822;
+      guacd-hostname = "localhost";
+    };
   };
 
   services.xrdp.enable = true;
