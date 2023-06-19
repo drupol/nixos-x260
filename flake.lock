@@ -57,11 +57,11 @@
     },
     "guacamole-nixos": {
       "locked": {
-        "lastModified": 1687160071,
-        "narHash": "sha256-RlJ8OxhkmyrFhnUTvRMU5HRipH3ZTtAShgOxioUMqGU=",
+        "lastModified": 1687188865,
+        "narHash": "sha256-1gRyPvy/PURwI0vrV5LnXz26caiaZuvoGfVknzublys=",
         "owner": "drupol",
         "repo": "nixpkgs",
-        "rev": "c065bc9558698bf8d3ab9cc3aea2190d85563a3c",
+        "rev": "6c5d0d3bead583dc36a9621abe1186a073815e3a",
         "type": "github"
       },
       "original": {
@@ -78,11 +78,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1687098182,
-        "narHash": "sha256-kBys+Cwmcxzh7UNVWTrunOgaR02zl2XN3feA8fSlqVo=",
+        "lastModified": 1687184995,
+        "narHash": "sha256-aCsa6q6k42g0i2SYHOUZI8xpvKTpCtOmATkzfmo9kA0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "0480dabc99e1b669ebe909949180fa2786e733cd",
+        "rev": "6bdd72b914fc3472be807bc9b427650b49808a94",
         "type": "github"
       },
       "original": {
@@ -165,11 +165,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1687156045,
-        "narHash": "sha256-FFgKEhm7YJDGgrIynZoIp/c+euJw1QNKgibuOAPOdjY=",
+        "lastModified": 1687188658,
+        "narHash": "sha256-TfA34yirfasSNIn11ZcABATG9B/ECdjQZoMskNvocyM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "156dec6cf7228c3ab7a0fdc873f0351e27521727",
+        "rev": "dfa022d8797275a43874fa271e4e669bedec9a2f",
         "type": "github"
       },
       "original": {
@@ -181,11 +181,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1687159959,
-        "narHash": "sha256-RXW0Trhzetq0AAQO7RhpPjP/5PAIDh882LGIjhZQCxU=",
+        "lastModified": 1687187726,
+        "narHash": "sha256-Mn9A7b4/ebJH+AcedntU8NlNZXffBFxtgHluLNDHcAI=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "5b46228bf2deb859b313cef9e6b538b72f6b20e6",
+        "rev": "27cfb0ca1261cdff3b83eb2db8c04d017bddecab",
         "type": "github"
       },
       "original": {
