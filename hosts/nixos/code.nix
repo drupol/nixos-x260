@@ -5,7 +5,7 @@
       reverse_proxy http://127.0.0.1:3000
     '';
     code-server = {
-      package = pkgs.master.code-server;
+      package = pkgs.code-server;
       enable = true;
       host = "127.0.0.1";
       port = 3000;
