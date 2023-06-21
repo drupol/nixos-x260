@@ -30,7 +30,7 @@
   services.guacamole-client = {
     enable = true;
     package = pkgs.guacamole-nixos.guacamole-client;
-    guacamoleProperties = {
+    settings = {
       guacd-port = 4822;
       guacd-hostname = "localhost";
     };
