@@ -15,37 +15,31 @@
     guacamole-nixos.url = "github:drupol/nixpkgs/add-guacamole-server-and-client";
   };
 
-  outputs =
-    { self
-    , flake-parts
-    , ...
-    } @ inputs:
+  outputs = inputs@{ self, flake-parts, nixpkgs, nixpkgs-master, home-manager, deploy-rs, ... }:
     let
       hosts = import ./hosts.nix;
       myLib = import ./lib/default.nix {
         inherit inputs;
       };
     in
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" "aarch64-linux" ];
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
 
-      perSystem =
-        { self'
-        , inputs'
-        , pkgs
-        , system
-        , ...
-        }: {
-          formatter = pkgs.nixpkgs-fmt;
+      perSystem = { config, self', inputs', pkgs, system, ... }: {
+        formatter = pkgs.nixpkgs-fmt;
 
-          devShells = {
-            default = pkgs.mkShellNoCC {
-              nativeBuildInputs = [
-                pkgs.deploy-rs
-              ];
-            };
+        devShells = {
+          default = pkgs.mkShellNoCC {
+            buildInputs = [
+              pkgs.deploy-rs
+              pkgs.nixpkgs-fmt
+              pkgs.nixfmt
+            ];
           };
         };
+
+        checks = deploy-rs.lib.${system}.deployChecks self.deploy;
+      };
 
       flake = {
         # homeConfigurations =

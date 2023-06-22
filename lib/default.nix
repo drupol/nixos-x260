@@ -21,6 +21,7 @@ in
               };
             })
             inputs.nur.overlay
+            inputs.deploy-rs.overlay
           ];
         })
         ./hosts/${hostConfig.instance}
@@ -58,6 +59,7 @@ in
               };
             })
             inputs.nur.overlay
+            inputs.deploy-rs.overlay
           ];
         })
         inputs.home-manager.nixosModules.home-manager

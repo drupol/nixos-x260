@@ -17,15 +17,15 @@
     user = "pol";
     remoteBuild = true;
   }
-  {
-    instance = "lw196205087";
-    hostname = "lw196205087";
-    operating-system = "ubuntu";
-    system = "x86_64-linux";
-    sshIdentityFile = "private.pem";
-    user = "devlin";
-    remoteBuild = true;
-  }
+  # {
+  #   instance = "lw196205087";
+  #   hostname = "lw196205087";
+  #   operating-system = "ubuntu";
+  #   system = "x86_64-linux";
+  #   sshIdentityFile = "private.pem";
+  #   user = "devlin";
+  #   remoteBuild = true;
+  # }
   {
     instance = "nixos";
     hostname = "nixos";
