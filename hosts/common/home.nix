@@ -40,6 +40,10 @@
       source = ./. + "/../../files/home/pol/.config/fish/conf.d/custom.fish";
       recursive = true;
     };
+    ".config/oh-my-posh/config.json" = {
+      source = ./. + "/../../files/home/pol/.config/oh-my-posh/config.json";
+      recursive = true;
+    };
   };
 
   programs = {
@@ -159,7 +163,7 @@
     fish = {
       enable = true;
       interactiveShellInit = ''
-        ${pkgs.nix-your-shell}/bin/nix-your-shell fish | source
+        ${pkgs.oh-my-posh}/bin/oh-my-posh init fish --config ~/.config/oh-my-posh/config.json | source
       '';
       plugins = [
         {
