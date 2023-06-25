@@ -12,7 +12,6 @@
     plasma-manager.url = "github:pjones/plasma-manager";
     plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
     nur.url = "github:nix-community/NUR";
-    guacamole-nixos.url = "github:drupol/nixpkgs/add-guacamole-server-and-client";
   };
 
   outputs = inputs@{ self, flake-parts, nixpkgs, nixpkgs-master, home-manager, deploy-rs, ... }:

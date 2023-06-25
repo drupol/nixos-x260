@@ -8,6 +8,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users."${hostConfig.user}".imports = [
+      ../hosts/common/starship.nix
       {
         home.file = {
           ".config/fish/conf.d/custom.fish" = {
@@ -29,9 +30,6 @@
           exa = { enable = true; };
           fish = {
             enable = true;
-            interactiveShellInit = ''
-              ${pkgs.nix-your-shell}/bin/nix-your-shell fish | source
-            '';
             plugins = [
               {
                 name = "autopair";
