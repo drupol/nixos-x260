@@ -41,7 +41,7 @@
         };
 
         cmd_duration = {
-          min_time = 2000;
+          min_time = 1000;
           format = "[$duration]($style) | ";
           style = "yellow bold";
           show_milliseconds = true;
