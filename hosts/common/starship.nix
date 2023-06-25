@@ -13,7 +13,7 @@
         add_newline = false;
         scan_timeout = 1;
         format = "$directory$git_branch$git_commit$git_state$git_metrics$git_status$php$rust$character";
-        right_format = "$username$hostname$nix_shell$cmd_duration$os";
+        right_format = "$username$hostname$localip$nix_shell$cmd_duration$os";
         character = {
           success_symbol = " [❯](bold green)";
           error_symbol = " [✘](bold red)";
@@ -185,6 +185,12 @@
 
         kotlin = {
           symbol = "kt ";
+        };
+
+        localip = {
+          ssh_only = false;
+          format = "[$localipv4](bold red) | ";
+          disabled = false;
         };
 
         lua = {
