@@ -12,8 +12,8 @@
       settings = {
         add_newline = false;
         scan_timeout = 1;
-        format = "$username$directory$git_branch$git_commit$git_status ";
-        right_format = "$nix_shell$cmd_duration$os";
+        format = "$directory$git_branch$git_commit$git_status ";
+        right_format = "$username$hostname$nix_shell$cmd_duration$os";
         character = {
           success_symbol = "[>](bold green)";
           error_symbol = "[x](bold red)";
@@ -42,7 +42,7 @@
 
         cmd_duration = {
           min_time = 2000;
-          format = " | [$duration]($style)";
+          format = "[$duration]($style) | ";
           style = "yellow bold";
           show_milliseconds = true;
           disabled = false;
@@ -79,7 +79,7 @@
         };
 
         directory = {
-          format = "@[$path]($style)[$read_only]($read_only_style) ";
+          format = "[$path]($style)[$read_only]($read_only_style) ";
           read_only = " ro";
           home_symbol = "~";
           fish_style_pwd_dir_length = 1;
@@ -149,6 +149,13 @@
           symbol = "hg ";
         };
 
+
+        hostname = {
+          ssh_only = false;
+          format = "@[$hostname](bold red) | ";
+          disabled = false;
+        };
+
         java = {
           symbol = "java ";
         };
@@ -205,47 +212,47 @@
           style = "bold white";
           disabled = false;
           symbols = {
-            Alpaquita = "alq ";
-            Alpine = "alp ";
-            Amazon = "amz ";
-            Android = "andr ";
-            Arch = "rch ";
-            Artix = "atx ";
-            CentOS = "cent ";
-            Debian = "deb ";
-            DragonFly = "dfbsd ";
-            Emscripten = "emsc ";
-            EndeavourOS = "ndev ";
-            Fedora = "fed ";
-            FreeBSD = "fbsd ";
-            Garuda = "garu ";
-            Gentoo = "gent ";
-            HardenedBSD = "hbsd ";
-            Illumos = "lum ";
-            Linux = "lnx ";
-            Mabox = "mbox ";
-            Macos = "mac ";
-            Manjaro = "mjo ";
-            Mariner = "mrn ";
-            MidnightBSD = "mid ";
-            Mint = "mint ";
-            NetBSD = "nbsd ";
-            NixOS = "nix ";
-            OpenBSD = "obsd ";
-            OpenCloudOS = "ocos ";
-            openEuler = "oeul ";
-            openSUSE = "osuse ";
-            OracleLinux = "orac ";
-            Pop = "pop ";
-            Raspbian = "rasp ";
-            Redhat = "rhl ";
-            RedHatEnterprise = "rhel ";
-            Redox = "redox ";
-            Solus = "sol ";
-            SUSE = "suse ";
-            Ubuntu = "ubnt ";
-            Unknown = "unk ";
-            Windows = "win ";
+            Alpaquita = "alq";
+            Alpine = "alp";
+            Amazon = "amz";
+            Android = "andr";
+            Arch = "rch";
+            Artix = "atx";
+            CentOS = "cent";
+            Debian = "deb";
+            DragonFly = "dfbsd";
+            Emscripten = "emsc";
+            EndeavourOS = "ndev";
+            Fedora = "fed";
+            FreeBSD = "fbsd";
+            Garuda = "garu";
+            Gentoo = "gentoo";
+            HardenedBSD = "hbsd";
+            Illumos = "lum";
+            Linux = "lnx";
+            Mabox = "mbox";
+            Macos = "mac";
+            Manjaro = "mjo";
+            Mariner = "mrn";
+            MidnightBSD = "mid";
+            Mint = "mint";
+            NetBSD = "nbsd";
+            NixOS = "nixos";
+            OpenBSD = "obsd";
+            OpenCloudOS = "ocos";
+            openEuler = "oeul";
+            openSUSE = "osuse";
+            OracleLinux = "orac";
+            Pop = "pop";
+            Raspbian = "rasp";
+            Redhat = "rhl";
+            RedHatEnterprise = "rhel";
+            Redox = "redox";
+            Solus = "sol";
+            SUSE = "suse";
+            Ubuntu = "ubnt";
+            Unknown = "unk";
+            Windows = "win";
           };
         };
 
