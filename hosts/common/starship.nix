@@ -16,8 +16,8 @@
         right_format = "$username$hostname$nix_shell$cmd_duration$os";
         character = {
           success_symbol = " [❯](bold green)";
-          error_symbol = " [x](bold red)";
-          vimcmd_symbol = " [<](bold green)";
+          error_symbol = " [✘](bold red)";
+          vimcmd_symbol = " [❮](bold green)";
         };
 
         aws = {
