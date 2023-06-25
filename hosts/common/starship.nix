@@ -12,12 +12,12 @@
       settings = {
         add_newline = false;
         scan_timeout = 1;
-        format = "$directory$git_branch$git_commit$git_state$git_metrics$git_status$character";
+        format = "$directory$git_branch$git_commit$git_state$git_metrics$git_status$php$rust$character";
         right_format = "$username$hostname$nix_shell$cmd_duration$os";
         character = {
-          success_symbol = "[>](bold green)";
-          error_symbol = "[x](bold red)";
-          vimcmd_symbol = "[<](bold green)";
+          success_symbol = " [❯](bold green)";
+          error_symbol = " [x](bold red)";
+          vimcmd_symbol = " [<](bold green)";
         };
 
         aws = {
@@ -79,7 +79,7 @@
         };
 
         directory = {
-          format = "[$path]($style)[$read_only]($read_only_style) ";
+          format = "[$path]($style)[$read_only]($read_only_style)";
           read_only = " ro";
           home_symbol = "~";
           fish_style_pwd_dir_length = 1;
@@ -110,31 +110,51 @@
         };
 
         git_branch = {
-          symbol = "> ";
-          format = "$symbol$branch(:$remote_branch)";
+          symbol = ">";
+          format = " $symbol $branch(:$remote_branch)";
         };
 
         git_commit = {
           commit_hash_length = 7;
-          format = "[\(@$hash$tag\)]($style) ";
+          format = " > ([\($hash$tag\)]($style))";
           style = "green bold";
-          only_detached = false;
+          only_detached = true;
           disabled = false;
           tag_symbol = "@";
           tag_disabled = false;
           tag_max_candidates = 0;
         };
 
+        git_metrics = {
+          added_style = "bold green";
+          deleted_style = "bold red";
+          only_nonzero_diffs = true;
+          format = "( [+$added]($added_style) )([-$deleted]($deleted_style))";
+          disabled = false;
+          ignore_submodules = false;
+        };
+
         git_status = {
+          format = "( \[\\[$all_status$ahead_behind\\]\]\($style\))";
+          style = "red bold";
+          stashed = "\$";
           ahead = ">";
           behind = "<";
+          up_to_date = "";
           diverged = "<>";
-          renamed = "r";
+          conflicted = "=";
           deleted = "x";
+          renamed = "r";
+          modified = "!";
+          staged = "+";
+          untracked = "?";
+          typechanged = "";
         };
 
         golang = {
-          symbol = "go ";
+          symbol = "go";
+          format = " > [$symbol$version]($style)";
+          version_format = "@\$\{raw\}";
         };
 
         gradle = {
@@ -172,7 +192,9 @@
         };
 
         nodejs = {
-          symbol = "nodejs ";
+          symbol = "node";
+          format = " > [$symbol$version]($style)";
+          version_format = "@\$\{raw\}";
         };
 
         memory_usage = {
@@ -236,7 +258,7 @@
             MidnightBSD = "mid";
             Mint = "mint";
             NetBSD = "nbsd";
-            NixOS = "nixos";
+            NixOS = "❄️";
             OpenBSD = "obsd";
             OpenCloudOS = "ocos";
             openEuler = "oeul";
@@ -264,7 +286,9 @@
         };
 
         php = {
-          symbol = "php ";
+          symbol = "php";
+          format = " > [$symbol$version]($style)";
+          version_format = "@\$\{raw\}";
         };
 
         pijul_channel = {
@@ -292,7 +316,9 @@
         };
 
         rust = {
-          symbol = "rs ";
+          symbol = "rust";
+          format = " > [$symbol$version]($style)";
+          version_format = "@\$\{raw\}";
         };
 
         scala = {
