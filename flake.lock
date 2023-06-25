@@ -55,22 +55,6 @@
         "type": "indirect"
       }
     },
-    "guacamole-nixos": {
-      "locked": {
-        "lastModified": 1687378304,
-        "narHash": "sha256-Dm7HOLYrMBovjH9RHtWiUix8G+nZG1WlA03AGITl7x4=",
-        "owner": "drupol",
-        "repo": "nixpkgs",
-        "rev": "8a02abacab074e9c2a9ca8af64faeb703d893dac",
-        "type": "github"
-      },
-      "original": {
-        "owner": "drupol",
-        "ref": "add-guacamole-server-and-client",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -78,11 +62,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1687600357,
-        "narHash": "sha256-9MAGSFJVMr06krOAiiocq02gXvGKEHyjyjCKZJR919s=",
+        "lastModified": 1687647343,
+        "narHash": "sha256-1/o/i9KEFOBdlF9Cs04kBcqDFbYMt6W4SMqGa+QnnaI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "29872a1c8f5ed2fde270afb0583d1fabce5e0459",
+        "rev": "0ee5ab611dc1fbb5180bd7d88d2aeb7841a4d179",
         "type": "github"
       },
       "original": {
@@ -165,11 +149,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1687602141,
-        "narHash": "sha256-FbkYl/trBZwFsamakIleLFxB1vqTkiKrlTFAEiDpQ7c=",
+        "lastModified": 1687695100,
+        "narHash": "sha256-YEbSHljQCqt8dIxVeMQHILiG6Ve5pIS+oDFs1ZkssMw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e9e7adffe8eb32818a3d76a2e51fb087c3619e85",
+        "rev": "933a41a73fe2174b90cabb7d671ee2cc5658701a",
         "type": "github"
       },
       "original": {
@@ -181,11 +165,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1687599912,
-        "narHash": "sha256-Pla7ISJE8jz4wBq/1M+hf697mTYXPf8hAplpeMpxM3w=",
+        "lastModified": 1687686283,
+        "narHash": "sha256-m9KtHo9tWF3LBSn08wtaVW0lqxMAyU6T3pVh8lB/oMk=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "f1c21bcf3e551bb2a1f29af1bd5f2f7e2f3ba61f",
+        "rev": "3bf4799e587fece5fc81cc724977062fafceb13d",
         "type": "github"
       },
       "original": {
@@ -219,7 +203,6 @@
       "inputs": {
         "deploy-rs": "deploy-rs",
         "flake-parts": "flake-parts",
-        "guacamole-nixos": "guacamole-nixos",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
