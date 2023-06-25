@@ -8,7 +8,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users."${hostConfig.user}".imports = [
-      ../hosts/common/starship.nix
+      ../common/starship.nix
       {
         home.file = {
           ".config/fish/conf.d/custom.fish" = {
