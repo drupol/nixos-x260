@@ -12,7 +12,7 @@
       settings = {
         add_newline = false;
         scan_timeout = 1;
-        format = "$directory$git_branch$git_commit$git_status ";
+        format = "$directory$git_branch$git_commit$git_status$character";
         right_format = "$username$hostname$nix_shell$cmd_duration$os";
         character = {
           success_symbol = "[>](bold green)";
