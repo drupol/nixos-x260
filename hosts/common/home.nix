@@ -40,10 +40,6 @@
       source = ./. + "/../../files/home/pol/.config/fish/conf.d/custom.fish";
       recursive = true;
     };
-    ".config/oh-my-posh/config.json" = {
-      source = ./. + "/../../files/home/pol/.config/oh-my-posh/config.json";
-      recursive = true;
-    };
   };
 
   programs = {
@@ -172,6 +168,8 @@
           diverged = "<>";
           renamed = "r";
           deleted = "x";
+          typechange = "[⇢\($count\)](bold green)";
+          format = "([\[$all_status$ahead_behind\]]($style) )";
         };
 
         golang = {
