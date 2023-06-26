@@ -5,14 +5,12 @@
 }: {
   services.guacamole-server = {
     enable = true;
-    package = pkgs.guacamole-nixos.guacamole-server;
     host = "127.0.0.1";
     userMappingXml = ./guacamole/user-mapping.xml;
   };
 
   services.guacamole-client = {
     enable = true;
-    package = pkgs.guacamole-nixos.guacamole-client;
     settings = {
       guacd-port = 4822;
       guacd-hostname = "localhost";

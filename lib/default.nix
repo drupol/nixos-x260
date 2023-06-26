@@ -52,12 +52,6 @@ in
                 system = hostConfig.system;
               };
             })
-            (final: prev: {
-              guacamole-nixos = import inputs.guacamole-nixos {
-                inherit (final) config;
-                system = hostConfig.system;
-              };
-            })
             inputs.nur.overlay
             inputs.deploy-rs.overlay
           ];

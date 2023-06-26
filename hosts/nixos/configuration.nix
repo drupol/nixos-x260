@@ -4,13 +4,10 @@
 , inputs
 , ...
 }: {
-  disabledModules = [ "services/web-apps/code-server.nix" ];
+  disabledModules = [ ];
 
   imports = [
     ./hardware-configuration.nix
-    "${inputs.nixpkgs-master}/nixos/modules/services/web-apps/code-server.nix"
-    "${inputs.guacamole-nixos}/nixos/modules/services/web-apps/guacamole-client.nix"
-    "${inputs.guacamole-nixos}/nixos/modules/services/web-apps/guacamole-server.nix"
     ./code.nix
     ./caddy.nix
   ];
