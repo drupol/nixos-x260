@@ -11,7 +11,8 @@
       enableTransience = true;
       settings = {
         add_newline = false;
-        scan_timeout = 1;
+        command_timeout = 5000;
+        scan_timeout = 0;
         format = "$directory$git_branch$git_commit$git_state$git_metrics$git_status$php$rust$character";
         right_format = "$username$hostname$localip$nix_shell$cmd_duration$os";
         character = {
