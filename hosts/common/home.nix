@@ -163,10 +163,6 @@
           name = "autopair";
           inherit (pkgs.fishPlugins.autopair) src;
         }
-        {
-          name = "tide";
-          inherit (pkgs.fishPlugins.tide) src;
-        }
       ];
       shellAliases = {
         ".." = "cd ..";
