@@ -124,4 +124,6 @@
   virtualisation.docker.enable = false;
 
   hardware.bluetooth.enable = true;
+
+  services.avahi.enable = true;
 }
