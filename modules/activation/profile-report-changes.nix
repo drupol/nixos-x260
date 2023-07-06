@@ -30,14 +30,7 @@ in
   #   path = "${config.home.homeDirectory}/Code/drupol/not-a-number.io/";
   # };
 
-  home.activation.profile-report-changes = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    PATH=$PATH:${lib.makeBinPath [pkgs.nvd pkgs.nix]}
-
-    # Disable nvd if there are lesser than 2 profiles in the system.
-    if [ `ls -d1v /nix/var/nix/profiles/per-user/${config.home.username}/home-manager-*-link 2>/dev/null | wc -l ` -gt 1 ];
-    then
-        nvd diff $(ls -d1v /nix/var/nix/profiles/per-user/${config.home.username}/home-manager-*-link | tail -2)
-    fi
-
+  home.activation.profile-report-changes = config.lib.dag.entryAnywhere ''
+    ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff $oldGenPath $newGenPath
   '';
 }
