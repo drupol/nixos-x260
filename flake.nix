@@ -37,7 +37,7 @@
           };
         };
 
-        checks = deploy-rs.lib.${system}.deployChecks self.deploy;
+        checks = deploy-rs.lib.${system}.deployChecks { nodes = (inputs.nixpkgs.lib.foldr (el: acc: acc // myLib.mkNode el) { } (builtins.filter (el: el.system == "x86_64-linux") hosts)); };
       };
 
       flake = {
