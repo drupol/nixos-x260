@@ -20,8 +20,11 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v3
 
-      - name: Install the Nix package manager
-        uses: cachix/install-nix-action@v20
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v4
 
-      - name: Check
+      - name: Check Nix flake inputs
+        uses: DeterminateSystems/flake-checker-action@v4
+
+      - name: Run nix flake check
         run: nix flake check
