@@ -592,7 +592,7 @@
         "nix.serverSettings.nil.formatting.command" = [ "nixpkgs-fmt" ];
         "nixfmt.path" = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
         "php.suggest.basic" = false;
-        "php.validate.executablePath" = "${pkgs.php}/bin/php";
+        "php.validate.executablePath" = "";
         "plantuml.previewSnapIndicators" = true;
         "plantuml.render" = "PlantUMLServer";
         "plantuml.server" = "https://www.plantuml.com/plantuml";
