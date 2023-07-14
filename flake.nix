@@ -12,9 +12,10 @@
     plasma-manager.url = "github:pjones/plasma-manager";
     plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
     nur.url = "github:nix-community/NUR";
+    systems.url = "github:nix-systems/default";
   };
 
-  outputs = inputs@{ self, flake-parts, nixpkgs, nixpkgs-master, home-manager, deploy-rs, ... }:
+  outputs = inputs@{ self, flake-parts, nixpkgs, nixpkgs-master, home-manager, deploy-rs, systems, ... }:
     let
       hosts = import ./hosts.nix;
       myLib = import ./lib/default.nix {
@@ -22,7 +23,7 @@
       };
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      systems = import systems;
 
       perSystem = { config, self', inputs', pkgs, system, ... }: {
         formatter = pkgs.nixpkgs-fmt;
