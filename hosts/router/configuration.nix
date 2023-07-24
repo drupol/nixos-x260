@@ -101,11 +101,11 @@
   services.openssh.enable = true;
 
   system.stateVersion = "23.05";
-  system.autoUpgrade = {
-    enable = true;
-    flake = "github:drupol/nixos-x260";
-    allowReboot = true;
-  };
+  # system.autoUpgrade = {
+  #   enable = true;
+  #   flake = "github:drupol/nixos-x260";
+  #   allowReboot = true;
+  # };
 
   hardware.enableRedistributableFirmware = true;
 
