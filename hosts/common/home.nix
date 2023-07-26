@@ -40,10 +40,6 @@
       source = ./. + "/../../files/home/pol/.config/fish/conf.d/custom.fish";
       recursive = true;
     };
-    ".config/gh-dash/config.yml" = {
-      source = ./. + "/../../files/home/pol/.config/gh-dash/config.yml";
-      recursive = true;
-    };
   };
 
   programs = {
@@ -179,6 +175,57 @@
         ls = "exa";
         grep = "rg";
         man = "batman";
+      };
+    };
+    gh-dash = {
+      enable = true;
+      settings = {
+        prSections = [
+          {
+            title = "To review";
+            filters = "repo:NixOS/nixpkgs is:open draft:false";
+          }
+          {
+            title = "1st contribution";
+            filters = ''repo:NixOS/nixpkgs is:open draft:false label:"12. first-time contribution"'';
+          }
+          {
+            title = "1st approval";
+            filters = ''repo:NixOS/nixpkgs is:open draft:false label:"12.approvals: 1"'';
+          }
+          {
+            title = "From r-ryantm only";
+            filters = "repo:NixOS/nixpkgs is:open draft:false author:r-ryantm";
+          }
+          {
+            title = "My Pull Requests";
+            filters = "is:open author:@me";
+          }
+          {
+            title = "Needs My Review";
+            filters = "is:open review-requested:@me";
+          }
+          {
+            title = "Involved";
+            filters = "is:open involves:@me -author:@me";
+          }
+        ];
+        defaults = {
+          prsLimit = 25;
+          issuesLimit = 25;
+          view = "prs";
+        };
+        keybindings = {
+          prs = [
+            {
+              key = "v";
+              command = "cd {{.RepoPath}} && code . && gh pr checkout {{.PrNumber}}";
+            }
+          ];
+        };
+        repoPaths = {
+          "NixOS/*" = "~/Code/NixOS/*";
+        };
       };
     };
     git = {

@@ -10,7 +10,6 @@
     du-dust
     fd
     fish
-    gh
     gnupg
     neofetch
     p7zip
