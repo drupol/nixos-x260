@@ -40,6 +40,10 @@
       source = ./. + "/../../files/home/pol/.config/fish/conf.d/custom.fish";
       recursive = true;
     };
+    ".config/gh-dash/config.yml" = {
+      source = ./. + "/../../files/home/pol/.config/gh-dash/config.yml";
+      recursive = true;
+    };
   };
 
   programs = {
