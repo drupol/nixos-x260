@@ -201,11 +201,11 @@
             filters = "repo:NixOS/nixpkgs is:open draft:false author:r-ryantm";
           }
           {
-            title = "My Pull Requests";
+            title = "My PRs";
             filters = "is:open author:@me";
           }
           {
-            title = "Needs My Review";
+            title = "Needs my review";
             filters = "is:open review-requested:@me";
           }
           {
@@ -214,9 +214,13 @@
           }
         ];
         defaults = {
-          prsLimit = 25;
-          issuesLimit = 25;
+          prsLimit = 30;
+          issuesLimit = 30;
           view = "prs";
+          preview = {
+            open = false;
+          };
+          refetchIntervalMinutes = 10;
         };
         keybindings = {
           prs = [
