@@ -2,7 +2,7 @@
 , pkgs
 , ...
 }: {
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     dina-font
     iosevka
     iosevka-comfy.comfy
