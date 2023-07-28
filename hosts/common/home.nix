@@ -226,6 +226,7 @@
           view = "prs";
           preview = {
             open = false;
+            width = 100;
           };
           refetchIntervalMinutes = 10;
         };
