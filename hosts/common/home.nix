@@ -180,6 +180,12 @@
     };
     gh = {
       enable = true;
+      extensions = [
+        pkgs.gh-dash
+      ];
+      settings = {
+        git_protocol = "ssh";
+      };
     };
     gh-dash = {
       enable = true;
@@ -215,8 +221,8 @@
           }
         ];
         defaults = {
-          prsLimit = 30;
-          issuesLimit = 30;
+          prsLimit = 50;
+          issuesLimit = 10;
           view = "prs";
           preview = {
             open = false;
@@ -231,12 +237,13 @@
             }
           ];
         };
-        repoPaths = {
-          "NixOS/*" = "~/Code/NixOS/*";
-        };
         pager = {
           diff = "delta";
         };
+        repoPaths = {
+          "NixOS/*" = "~/Code/NixOS/*";
+        };
+        theme.ui.table.showSeparator = false;
       };
     };
     git = {
