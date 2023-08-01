@@ -200,6 +200,9 @@
       "mediacontrol"."previousmedia" = "Media Previous";
       "mediacontrol"."stopmedia" = "Media Stop";
       "org.kde.dolphin.desktop"."_launch" = "Meta+E";
+      "org.kde.konsole.desktop"."NewTab" = [ ];
+      "org.kde.konsole.desktop"."NewWindow" = [ ];
+      "org.kde.konsole.desktop"."_launch" = "Ctrl+Alt+T";
       "org.kde.krunner.desktop"."RunClipboard" = [ ];
       "org.kde.krunner.desktop"."_launch" = [ ];
       "org.kde.plasma.emojier.desktop"."_launch" = "Meta+.";
@@ -268,6 +271,7 @@
       "dolphinrc"."KFileDialog Settings"."Places Icons Static Size" = 22;
       "dolphinrc"."Open-with settings"."CompletionMode" = 1;
       "dolphinrc"."Open-with settings"."History" = "visu,visual";
+      "dolphinrc"."Search"."What" = "Content";
       "dolphinrc"."SettingsDialog"."eDP-1 Height 1920x1080" = 440;
       "dolphinrc"."SettingsDialog"."eDP-1 Width 1920x1080" = 585;
       "kactivitymanagerdrc"."activities"."181b1250-1bb2-402c-9d6a-29214f2b2c3f" = "NixOS Desktop";
@@ -291,6 +295,13 @@
       "kdeglobals"."DirSelect Dialog"."DirSelectDialog Size" = "811,598";
       "kdeglobals"."General"."AllowKDEAppsToRememberWindowPositions" = true;
       "kdeglobals"."General"."BrowserApplication" = "firefox.desktop";
+      "kdeglobals"."General"."XftHintStyle" = "hintslight";
+      "kdeglobals"."General"."XftSubPixel" = "none";
+      "kdeglobals"."General"."fixed" = "Iosevka Comfy,10,-1,5,50,0,0,0,0,0";
+      "kdeglobals"."General"."font" = "Iosevka Comfy,10,-1,5,50,0,0,0,0,0";
+      "kdeglobals"."General"."menuFont" = "Iosevka Comfy,10,-1,5,50,0,0,0,0,0";
+      "kdeglobals"."General"."smallestReadableFont" = "Iosevka Comfy,8,-1,5,50,0,0,0,0,0";
+      "kdeglobals"."General"."toolBarFont" = "Iosevka Comfy,10,-1,5,50,0,0,0,0,0";
       "kdeglobals"."KDE"."AnimationDurationFactor" = 0.250000;
       "kdeglobals"."KDE"."SingleClick" = false;
       "kdeglobals"."KFileDialog Settings"."Allow Expansion" = false;
@@ -314,6 +325,7 @@
       "kdeglobals"."KShortcutsDialog Settings"."Dialog Size" = "876,614";
       "kdeglobals"."WM"."activeBackground" = "49,54,59";
       "kdeglobals"."WM"."activeBlend" = "252,252,252";
+      "kdeglobals"."WM"."activeFont" = "Iosevka Comfy,10,-1,5,50,0,0,0,0,0";
       "kdeglobals"."WM"."activeForeground" = "252,252,252";
       "kdeglobals"."WM"."inactiveBackground" = "42,46,50";
       "kdeglobals"."WM"."inactiveBlend" = "161,169,177";
@@ -330,6 +342,7 @@
       "kglobalshortcutsrc"."kwin"."_k_friendly_name" = "KWin";
       "kglobalshortcutsrc"."mediacontrol"."_k_friendly_name" = "Media Controller";
       "kglobalshortcutsrc"."org.kde.dolphin.desktop"."_k_friendly_name" = "Dolphin";
+      "kglobalshortcutsrc"."org.kde.konsole.desktop"."_k_friendly_name" = "Konsole";
       "kglobalshortcutsrc"."org.kde.krunner.desktop"."_k_friendly_name" = "KRunner";
       "kglobalshortcutsrc"."org.kde.plasma.emojier.desktop"."_k_friendly_name" = "Emoji Selector";
       "kglobalshortcutsrc"."org.kde.spectacle.desktop"."_k_friendly_name" = "Spectacle";
@@ -351,6 +364,13 @@
       "khotkeysrc"."General"."BrowserApplication[$d]" = "";
       "khotkeysrc"."General"."ColorSchemeHash[$d]" = "";
       "khotkeysrc"."General"."ColorScheme[$d]" = "";
+      "khotkeysrc"."General"."XftHintStyle[$d]" = "";
+      "khotkeysrc"."General"."XftSubPixel[$d]" = "";
+      "khotkeysrc"."General"."fixed[$d]" = "";
+      "khotkeysrc"."General"."font[$d]" = "";
+      "khotkeysrc"."General"."menuFont[$d]" = "";
+      "khotkeysrc"."General"."smallestReadableFont[$d]" = "";
+      "khotkeysrc"."General"."toolBarFont[$d]" = "";
       "khotkeysrc"."Gestures"."Disabled" = true;
       "khotkeysrc"."Gestures"."MouseButton" = 2;
       "khotkeysrc"."Gestures"."Timeout" = 300;
@@ -385,6 +405,7 @@
       "khotkeysrc"."Voice"."Shortcut" = "";
       "khotkeysrc"."WM"."activeBackground[$d]" = "";
       "khotkeysrc"."WM"."activeBlend[$d]" = "";
+      "khotkeysrc"."WM"."activeFont[$d]" = "";
       "khotkeysrc"."WM"."activeForeground[$d]" = "";
       "khotkeysrc"."WM"."inactiveBackground[$d]" = "";
       "khotkeysrc"."WM"."inactiveBlend[$d]" = "";
@@ -450,6 +471,11 @@
       "kwinrc"."TabBox"."BorderActivate" = 9;
       "kwinrc"."TabBox"."BorderAlternativeActivate" = 6;
       "kwinrc"."Tiling"."padding" = 1;
+      "kwinrc"."Tiling.213a9620-187e-58a6-b80b-85d8fb95dfce"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.5854166666666671},{\"layoutDirection\":\"vertical\",\"tiles\":[{\"height\":0.5},{\"height\":0.5}],\"width\":0.41458333333333286}]}";
+      "kwinrc"."Tiling.23ae3a8b-4cf4-515e-9c19-24b391246a0f"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+      "kwinrc"."Tiling.41e80e0d-6e0e-557b-8a90-a4fafca659fd"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+      "kwinrc"."Tiling.5b7a5ba4-43cc-5910-8e98-f358f9d54b43"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+      "kwinrc"."Tiling.ff51ace0-88bb-54af-9479-58ed034df9d9"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.5},{\"width\":0.5}]}";
       "kwinrc"."Windows"."ElectricBorderCornerRatio" = 0.200000;
       "kwinrc"."org.kde.kdecoration2"."ButtonsOnLeft" = "MNS";
       "kxkbrc"."Layout"."DisplayNames" = ",,,";
