@@ -33,7 +33,6 @@
             buildInputs = [
               pkgs.deploy-rs
               pkgs.nixpkgs-fmt
-              pkgs.nixfmt
             ];
           };
         };

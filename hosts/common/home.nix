@@ -43,7 +43,13 @@
   };
 
   programs = {
-    bat = { enable = true; };
+    bat = {
+      enable = true;
+      extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
+    };
+    bottom = {
+      enable = true;
+    };
     browserpass = {
       enable = true;
       browsers = [ "firefox" ];
@@ -507,6 +513,12 @@
         commit = { gpgsign = true; };
       };
     };
+    gpg = {
+      enable = true;
+      settings = {
+        default-key = "0AAF2901E8040715";
+      };
+    };
     home-manager = { enable = true; };
     htop = { enable = true; };
     password-store = {
@@ -514,6 +526,9 @@
       settings = {
         PASSWORD_STORE_DIR = "${config.xdg.configHome}/.password-store";
       };
+    };
+    ripgrep = {
+      enable = true;
     };
     thunderbird = {
       enable = true;
