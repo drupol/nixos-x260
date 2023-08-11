@@ -63,6 +63,6 @@
   systemd.services.NetworkManager-wait-online.enable = false;
 
   nixpkgs.config.permittedInsecurePackages = [
-    "nodejs-16.20.1"
+    "nodejs-16.20.2"
   ];
 }
