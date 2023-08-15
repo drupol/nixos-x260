@@ -22,6 +22,7 @@
     kate
     kgpg
     krdc
+    libsForQt5.kdialog
     okular
     # plantuml
     plasma-browser-integration
