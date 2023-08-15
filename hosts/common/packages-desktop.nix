@@ -26,8 +26,8 @@
     # plantuml
     plasma-browser-integration
     sddm-kcm
-    signal-desktop
-    slack
+    # signal-desktop
+    # slack
     spectacle
     tdesktop
     teams-for-linux
