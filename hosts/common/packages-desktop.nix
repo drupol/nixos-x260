@@ -24,6 +24,7 @@
     krdc
     libsForQt5.kdialog
     okular
+    openarena
     openxcom
     # plantuml
     plasma-browser-integration
