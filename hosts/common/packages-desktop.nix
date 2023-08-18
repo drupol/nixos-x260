@@ -8,6 +8,7 @@
     # android-studio
     element-desktop
     gimp
+    ioquake3
     jetbrains-toolbox
     # google-chrome
     # graphviz
