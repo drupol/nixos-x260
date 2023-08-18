@@ -65,9 +65,4 @@
   nixpkgs.config.permittedInsecurePackages = [
     "nodejs-16.20.2"
   ];
-
-  environment.variables = {
-    # This is mostly for Firefox to use the KDE Plasma dialogs
-    GTK_USE_PORTAL = "1";
-  };
 }

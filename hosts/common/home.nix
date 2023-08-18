@@ -121,7 +121,7 @@
           };
         };
         settings = {
-          # Browser settings go here
+          "browser.shell.checkDefaultBrowser" = false;
           "browser.startup.homepage" = "";
           # Enable HTTPS-Only Mode
           "dom.security.https_only_mode" = true;
@@ -161,6 +161,9 @@
           "extensions.pocket.site" = "";
           # Allow copy to clipboard
           "dom.events.asyncClipboard.clipboardItem" = true;
+
+          "widget.use-xdg-desktop-portal.file-picker" = 1;
+          "widget.use-xdg-desktop-portal.mime-handler" = 1;          # Browser settings go here
         };
       };
     };
