@@ -79,7 +79,6 @@
           pkgs.nur.repos.rycee.firefox-addons.privacy-badger
           pkgs.nur.repos.rycee.firefox-addons.simple-tab-groups
           pkgs.nur.repos.rycee.firefox-addons.tournesol
-          pkgs.nur.repos.rycee.firefox-addons.youchoose-ai
         ];
         search = {
           default = "Google";
