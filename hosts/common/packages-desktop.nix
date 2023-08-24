@@ -7,6 +7,7 @@
     ark
     # android-studio
     element-desktop
+    etlegacy
     gimp
     ioquake3
     jetbrains-toolbox
