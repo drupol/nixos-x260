@@ -27,7 +27,7 @@
             enable = true;
             nix-direnv.enable = true;
           };
-          exa = { enable = true; };
+          eza = { enable = true; };
           fish = {
             enable = true;
             plugins = [
@@ -39,9 +39,9 @@
             shellAliases = {
               ".." = "cd ..";
               "..." = "cd ../..";
-              ll = "exa -lha";
+              ll = "eza -lha";
               cat = "bat";
-              ls = "exa";
+              ls = "eza";
               grep = "rg";
               man = "batman";
             };

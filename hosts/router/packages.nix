@@ -11,7 +11,7 @@
     bottom # https://zaiste.net/posts/shell-commands-rust/
     cachix
     du-dust
-    exa
+    eza
     fd
     git
     gnupg

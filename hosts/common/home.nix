@@ -59,7 +59,7 @@
       enable = true;
       nix-direnv.enable = true;
     };
-    exa = { enable = true; };
+    eza = { enable = true; };
     firefox = {
       enable = true;
       profiles.default = {
@@ -180,9 +180,9 @@
       shellAliases = {
         ".." = "cd ..";
         "..." = "cd ../..";
-        ll = "exa -lha";
+        ll = "eza -lha";
         cat = "bat";
-        ls = "exa";
+        ls = "eza";
         grep = "rg";
         man = "batman";
       };
