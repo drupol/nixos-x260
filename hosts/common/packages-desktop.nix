@@ -30,6 +30,7 @@
     openxcom
     # plantuml
     plasma-browser-integration
+    projecteur
     sddm-kcm
     # signal-desktop
     # slack
