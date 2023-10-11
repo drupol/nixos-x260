@@ -126,4 +126,6 @@
   hardware.bluetooth.enable = true;
 
   services.avahi.enable = true;
+
+  services.udev.packages = [ pkgs.projecteur ];
 }
