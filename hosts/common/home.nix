@@ -480,7 +480,7 @@
         color = { ui = "auto"; };
         core = {
           autocrlf = "input";
-          editor = "nano";
+          editor = "micro";
           safecrlf = "warn";
           excludesfile = "~/.gitignore_global";
         };

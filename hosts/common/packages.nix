@@ -7,6 +7,7 @@
     du-dust
     fd
     fish
+    micro
     neofetch
     nix-your-shell
     p7zip
