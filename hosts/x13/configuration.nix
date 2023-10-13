@@ -121,7 +121,7 @@
   in
   formatted;
 
-  virtualisation.docker.enable = false;
+  virtualisation.docker.enable = true;
 
   hardware.bluetooth.enable = true;
 

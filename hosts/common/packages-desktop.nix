@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
     akregator
     ark
+    displaylink
     # android-studio
     element-desktop
     etlegacy

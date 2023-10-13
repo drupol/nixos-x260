@@ -11,6 +11,7 @@ in
     description = "Pol Dellaiera";
     isNormalUser = true;
     extraGroups = [
+      "docker"
       "wheel"
       "audio"
       "sound"
