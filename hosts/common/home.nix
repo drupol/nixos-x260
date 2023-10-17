@@ -683,7 +683,7 @@
         "latex-workshop.latex.autoBuild.run" = "never";
         "latex-workshop.view.pdf.viewer" = "tab";
         "markdown.preview.fontFamily" = "'Iosevka Comfy'";
-        "nix.formatterPath" = "alejandra";
+        "nix.formatterPath" = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
         "nix.serverPath" = "${pkgs.nil}/bin/nil";
         "nix.enableLanguageServer" = true;
         "nix.serverSettings.nil.formatting.command" = [ "nixpkgs-fmt" ];
@@ -710,6 +710,7 @@
         "telemetry.telemetryLevel" = "off";
         "terminal.integrated.defaultProfile.linux" = "fish";
         "terminal.integrated.fontSize" = 14;
+        "typst-lsp.exportPdf" = "never";
         "typst-lsp.serverPath" = "${pkgs.typst-lsp}/bin/typst-lsp";
         "rust-analyzer.serverPath" = "${pkgs.rust-analyzer}/bin/rust-analyzer";
         "rust-analyzer.cargo.buildScripts.enable" = true;
