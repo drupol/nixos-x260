@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
     akregator
     ark
+    discord
     displaylink
     # android-studio
     element-desktop
