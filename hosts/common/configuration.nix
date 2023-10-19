@@ -23,6 +23,12 @@
     };
     # nix repl "/etc/nix/inputs/nixpkgs"
     nixPath = [ "nixpkgs=/etc/nix/inputs/nixpkgs" ];
+    registry = {
+      nixpkgs.to = {
+        type = "path";
+        path = pkgs.path;
+      };
+    };
     settings = {
       trusted-users = [ "root" "pol" ];
       auto-optimise-store = true;
