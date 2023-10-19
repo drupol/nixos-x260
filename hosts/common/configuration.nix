@@ -21,6 +21,7 @@
       dates = "weekly";
       options = "--delete-older-than 3d";
     };
+    # nix repl "/etc/nix/inputs/nixpkgs"
     nixPath = [ "nixpkgs=/etc/nix/inputs/nixpkgs" ];
     settings = {
       trusted-users = [ "root" "pol" ];
