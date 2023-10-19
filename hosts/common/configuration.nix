@@ -4,15 +4,6 @@
 , ...
 }: {
   nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 3d";
-    };
-    settings = {
-      trusted-users = [ "root" "pol" ];
-      auto-optimise-store = true;
-    };
     # From https://jackson.dev/post/nix-reasonable-defaults/
     extraOptions = ''
       connect-timeout = 5
@@ -25,6 +16,16 @@
       keep-derivations = true
       experimental-features = nix-command flakes
     '';
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 3d";
+    };
+    nixPath = [ "nixpkgs=/etc/nix/inputs/nixpkgs" ];
+    settings = {
+      trusted-users = [ "root" "pol" ];
+      auto-optimise-store = true;
+    };
   };
 
   nixpkgs = {
@@ -65,4 +66,6 @@
   nixpkgs.config.permittedInsecurePackages = [
     "nodejs-16.20.2"
   ];
+
+  environment.etc."nix/inputs/nixpkgs".source = pkgs.path;
 }
