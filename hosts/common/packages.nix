@@ -7,6 +7,7 @@
     du-dust
     fd
     fish
+    helix
     micro
     neofetch
     nix-your-shell
