@@ -522,6 +522,9 @@
         default-key = "0AAF2901E8040715";
       };
     };
+    helix = {
+      enable = true;
+    };
     home-manager = { enable = true; };
     htop = { enable = true; };
     librewolf = {
@@ -533,6 +536,9 @@
         "privacy.clearOnShutdown.cookies" = false;
         "network.cookie.lifetimePolicy" = 0;
       };
+    };
+    micro = {
+      enable = true;
     };
     password-store = {
       enable = true;
