@@ -38,7 +38,7 @@
     # slack
     spectacle
     tdesktop
-    teams-for-linux
+    # teams-for-linux
     trayscale
     vlc
     yakuake
