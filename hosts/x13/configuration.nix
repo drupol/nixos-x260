@@ -127,5 +127,9 @@
 
   services.avahi.enable = true;
 
-  services.udev.packages = [ pkgs.projecteur ];
+  programs = {
+    projecteur = {
+      enable = true;
+    };
+  };
 }
