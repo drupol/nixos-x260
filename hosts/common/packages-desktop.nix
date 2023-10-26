@@ -26,6 +26,7 @@
     kate
     kgpg
     krdc
+    ktailctl
     libsForQt5.kdialog
     okular
     openarena
@@ -39,7 +40,6 @@
     spectacle
     tdesktop
     # teams-for-linux
-    trayscale
     vlc
     yakuake
   ];
