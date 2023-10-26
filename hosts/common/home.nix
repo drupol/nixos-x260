@@ -64,6 +64,7 @@
       enable = true;
       profiles.default = {
         id = 0;
+        isDefault = true;
         name = "Default";
         extensions = [
           pkgs.nur.repos.rycee.firefox-addons.browserpass
@@ -84,6 +85,13 @@
           default = "Google";
           force = true;
           engines = {
+            "Autonomous-System-Number Search" = {
+              urls = [{ template = "https://bgp.tools/search?q={searchTerms}"; }];
+              iconUpdateURL = "https://bgp.tools/favicon-32x32.png";
+              updateInterval = 24 * 60 * 60 * 1000; # every day
+              definedAliases = [ "@asn" ];
+            };
+
             "Nix Packages" = {
               urls = [
                 {
@@ -105,11 +113,25 @@
               definedAliases = [ "@np" ];
             };
 
+            "Nixpkgs PRs" = {
+              urls = [{ template = "https://nixpk.gs/pr-tracker.html?pr={searchTerms}"; }];
+              iconUpdateURL = "https://nixos.org/favicon.png";
+              updateInterval = 24 * 60 * 60 * 1000; # every day
+              definedAliases = [ "@npr" ];
+            };
+
             "NixOS Wiki" = {
               urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}"; }];
               iconUpdateURL = "https://nixos.wiki/favicon.png";
               updateInterval = 24 * 60 * 60 * 1000; # every day
               definedAliases = [ "@nw" ];
+            };
+
+            "Noogle.dev Search" = {
+              urls = [{ template = "https://noogle.dev/?term=%22{searchTerms}%22"; }];
+              iconUpdateURL = "https://noogle.dev/favicon.png";
+              updateInterval = 24 * 60 * 60 * 1000; # every day
+              definedAliases = [ "@ngd" "@nog" ];
             };
 
             "Bing".metaData.hidden = true;
@@ -120,6 +142,7 @@
           };
         };
         settings = {
+          "browser.urlbar.update2.engineAliasRefresh" = true;
           "browser.shell.checkDefaultBrowser" = false;
           "browser.startup.homepage" = "";
           # Enable HTTPS-Only Mode
@@ -162,7 +185,17 @@
           "dom.events.asyncClipboard.clipboardItem" = true;
 
           "widget.use-xdg-desktop-portal.file-picker" = 1;
-          "widget.use-xdg-desktop-portal.mime-handler" = 1;          # Browser settings go here
+          "widget.use-xdg-desktop-portal.mime-handler" = 1;
+
+          "privacy.donottrackheader.value" = 1;
+          "browser.safebrowsing.malware.enabled" = false;
+          "browser.search.hiddenOneOffs" = "Google,Yahoo,Bing,Amazon.com,Twitter";
+          "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts" = false;
+          "browser.urlbar.trimURLs" = false;
+          "findbar.modalHighlight" = true;
+          "browser.fullscreen.autohide" = false;
+          "browser.newtabpage.activity-stream.topSitesRows" = 0;
+          "browser.urlbar.quickactions.enabled" = true;
         };
       };
     };
