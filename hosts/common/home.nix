@@ -654,14 +654,17 @@
         "[php]" = {
           "editor.defaultFormatter" = "bmewburn.vscode-intelephense-client";
         };
-        "[yaml]" = {
-          "editor.defaultFormatter" = "redhat.vscode-yaml";
-        };
         "[toml]" = {
           "editor.defaultFormatter" = "bungcip.better-toml";
         };
         "[txt]" = {
           "editor.formatOnSave" = false;
+        };
+        "[typst]" = {
+          "editor.defaultFormatter" = "nvarner.typst-lsp";
+        };
+        "[yaml]" = {
+          "editor.defaultFormatter" = "redhat.vscode-yaml";
         };
         "chatgpt.promptPrefix.customPrompt1" = "Pourrais-tu améliorer le texte suivant?";
         "chatgpt.promptPrefix.customPrompt2" = "Could you improve the following text?";
