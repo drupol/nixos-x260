@@ -759,6 +759,7 @@
         "terminal.integrated.fontSize" = 14;
         "typst-lsp.exportPdf" = "never";
         "typst-lsp.serverPath" = "${pkgs.typst-lsp}/bin/typst-lsp";
+        "typst-lsp.experimentalFormatterMode" = "on";
         "rust-analyzer.serverPath" = "${pkgs.rust-analyzer}/bin/rust-analyzer";
         "rust-analyzer.cargo.buildScripts.enable" = true;
         "update.mode" = "manual";
