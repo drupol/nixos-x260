@@ -11,7 +11,7 @@
     ./packages.nix
     #./headscale.nix
     ./caddy.nix
-    ./squid.nix
+    # ./squid.nix
     ./home.nix
     ./pi-hole.nix
     ./grafana.nix
