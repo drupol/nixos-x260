@@ -73,6 +73,7 @@
       };
       layout = "gb";
       xkbOptions = "eurosign:e";
+      videoDrivers = [ "displaylink" ];
     };
   };
 
@@ -128,6 +129,9 @@
   services.avahi.enable = true;
 
   programs = {
+    noisetorch = {
+      enable = true;
+    };
     projecteur = {
       enable = true;
     };
