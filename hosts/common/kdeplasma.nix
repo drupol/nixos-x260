@@ -4,7 +4,10 @@
 }: {
   programs.plasma = {
     enable = true;
-    workspace.clickItemTo = "select";
+    workspace = {
+      clickItemTo = "select";
+      theme = "breeze-dark";
+    };
     shortcuts = {
       "ActivityManager"."switch-to-activity-181b1250-1bb2-402c-9d6a-29214f2b2c3f" = [ ];
       "KDE Keyboard Layout Switcher"."Switch keyboard layout to Belgian" = [ ];
