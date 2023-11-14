@@ -6,6 +6,7 @@
     dina-font
     iosevka
     iosevka-comfy.comfy
+    monaspace
     nerdfonts
   ];
 }
