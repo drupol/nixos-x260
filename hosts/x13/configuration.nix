@@ -11,6 +11,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_5;
 
   # Set your time zone.
   time.timeZone = "Europe/Brussels";
@@ -73,7 +74,7 @@
       };
       layout = "gb";
       xkbOptions = "eurosign:e";
-      #videoDrivers = [ "displaylink" ];
+      videoDrivers = [ "displaylink" ];
     };
   };
 
