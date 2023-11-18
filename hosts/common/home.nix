@@ -623,6 +623,14 @@
         pkgs.vscode-extensions.jebbs.plantuml
         pkgs.vscode-extensions.jnoortheen.nix-ide
         pkgs.vscode-extensions.matklad.rust-analyzer
+        (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+          mktplcRef = {
+            name = "typst-preview";
+            publisher = "mgt19937";
+            version = "0.9.1";
+            sha256 = "sha256-GHD/i+QOnItGEYG0bl/pVl+a4Dvn7SHhICJ14VfqMjE=";
+          };
+        })
         pkgs.vscode-extensions.mhutchie.git-graph
         pkgs.vscode-extensions.mkhl.direnv
         pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
