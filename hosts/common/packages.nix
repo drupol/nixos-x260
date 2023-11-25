@@ -8,7 +8,6 @@
     fd
     fish
     neofetch
-    nix-your-shell
     p7zip
     procs
     tailscale

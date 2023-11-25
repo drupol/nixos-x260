@@ -5,7 +5,6 @@
 , ...
 }: {
   environment.systemPackages = with pkgs; [
-    nix-your-shell
     bat
     bat-extras.batman
     bottom # https://zaiste.net/posts/shell-commands-rust/
