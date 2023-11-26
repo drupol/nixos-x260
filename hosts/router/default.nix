@@ -17,5 +17,6 @@
     ./grafana.nix
     ./prometheus.nix
     ./promtail.nix
+    ./outline.nix
   ];
 }
