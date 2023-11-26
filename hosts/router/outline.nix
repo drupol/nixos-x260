@@ -55,6 +55,11 @@
     };
   };
 
+  services.caddy.virtualHosts."dex.router.lan".extraConfig = ''
+    tls internal
+    reverse_proxy 127.0.0.1:5556
+  '';
+
   services.caddy.virtualHosts."wiki.router.lan".extraConfig = ''
     tls internal
     reverse_proxy 127.0.0.1:3000
