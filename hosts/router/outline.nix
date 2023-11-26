@@ -37,7 +37,7 @@
         {
           id = "outline";
           name = "Outline Client";
-          redirectURIs = [ "http://localhost:3000/auth/oidc.callback" ];
+          redirectURIs = [ "http://wiki.router.lan/auth/oidc.callback" ];
           secretFile = "${pkgs.writeText "outline-oidc-secret" "test123"}";
         }
       ];
