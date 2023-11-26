@@ -71,7 +71,7 @@
         extraOptions = [
           "--cap-add=NET_ADMIN"
           "--network=host"
-          "--pull=newer"
+          "--pull=always"
         ];
       };
     };
