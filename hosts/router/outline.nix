@@ -13,6 +13,18 @@
     publicUrl = "http://wiki.router.lan";
     forceHttps = false;
     storage.storageType = "local";
+    oidcAuthentication = {
+      # Parts taken from
+      # http://dex.localhost/.well-known/openid-configuration
+      authUrl = "http://dex.router.lan/auth";
+      tokenUrl = "http://dex.router.lan/token";
+      userinfoUrl = "http://dex.router.lan/userinfo";
+      clientId = "outline";
+      clientSecretFile = (builtins.elemAt config.services.dex.settings.staticClients 0).secretFile;
+      scopes = [ "openid" "email" "profile" ];
+      usernameClaim = "preferred_username";
+      displayName = "Dex";
+    };
   };
 
   services.dex = {
