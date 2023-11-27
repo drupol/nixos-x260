@@ -232,7 +232,7 @@
         prSections = [
           {
             title = "To review";
-            filters = "repo:NixOS/nixpkgs is:open draft:false";
+            filters = "repo:NixOS/nixpkgs is:open draft:false status:success";
           }
           {
             title = "1st contribution";
@@ -240,11 +240,11 @@
           }
           {
             title = "1st approval";
-            filters = ''repo:NixOS/nixpkgs is:open draft:false label:"12.approvals: 1"'';
+            filters = ''repo:NixOS/nixpkgs is:open draft:false status:success label:"12.approvals: 1"'';
           }
           {
             title = "From r-ryantm only";
-            filters = "repo:NixOS/nixpkgs is:open draft:false author:r-ryantm";
+            filters = "repo:NixOS/nixpkgs is:open draft:false status:success author:r-ryantm";
           }
           {
             title = "My PRs";
