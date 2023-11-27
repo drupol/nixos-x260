@@ -10,15 +10,15 @@
 
   services.outline = {
     enable = true;
-    publicUrl = "http://wiki.router.lan";
+    publicUrl = "https://wiki.router.lan";
     forceHttps = false;
     storage.storageType = "local";
     oidcAuthentication = {
       # Parts taken from
       # http://dex.localhost/.well-known/openid-configuration
-      authUrl = "http://dex.router.lan/auth";
-      tokenUrl = "http://dex.router.lan/token";
-      userinfoUrl = "http://dex.router.lan/userinfo";
+      authUrl = "https://dex.router.lan/auth";
+      tokenUrl = "https://dex.router.lan/token";
+      userinfoUrl = "https://dex.router.lan/userinfo";
       clientId = "outline";
       clientSecretFile = (builtins.elemAt config.services.dex.settings.staticClients 0).secretFile;
       scopes = [ "openid" "email" "profile" ];
@@ -30,14 +30,14 @@
   services.dex = {
     enable = true;
     settings = {
-      issuer = "http://dex.router.lan";
+      issuer = "https://dex.router.lan";
       storage.type = "sqlite3";
       web.http = "127.0.0.1:5556";
       staticClients = [
         {
           id = "outline";
           name = "Outline Client";
-          redirectURIs = [ "http://wiki.router.lan/auth/oidc.callback" ];
+          redirectURIs = [ "https://wiki.router.lan/auth/oidc.callback" ];
           secretFile = "${pkgs.writeText "outline-oidc-secret" "test123"}";
         }
       ];
