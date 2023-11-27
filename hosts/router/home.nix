@@ -48,6 +48,7 @@
           };
           home-manager = { enable = true; };
           htop = { enable = true; };
+          micro = { enable = true; };
           zoxide = {
             enable = true;
             enableFishIntegration = true;
