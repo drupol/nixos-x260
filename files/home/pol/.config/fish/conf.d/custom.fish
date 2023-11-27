@@ -1,7 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION  3.0
 set -U fish_greeting
-set -U EDITOR micro
 set -U fish_color_autosuggestion 555\x1ebrblack
 set -U fish_color_cancel \x2dr
 set -U fish_color_command blue

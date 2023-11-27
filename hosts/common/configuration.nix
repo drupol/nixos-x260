@@ -75,4 +75,7 @@
   ];
 
   environment.etc."nix/inputs/nixpkgs".source = pkgs.path;
+
+  environment.variables.EDITOR = "micro";
+  environment.variables.VISUAL = "micro";
 }
