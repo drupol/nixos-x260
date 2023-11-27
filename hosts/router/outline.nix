@@ -11,8 +11,8 @@
   services.outline = {
     enable = true;
     publicUrl = "https://wiki.router.lan";
-    forceHttps = false;
     storage.storageType = "local";
+    enableUpdateCheck = false;
     oidcAuthentication = {
       # Parts taken from
       # http://dex.localhost/.well-known/openid-configuration
