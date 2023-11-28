@@ -17,6 +17,7 @@
     ./grafana.nix
     ./prometheus.nix
     ./promtail.nix
-    ./outline.nix
+    # ./outline.nix
+    ./wiki-js.nix
   ];
 }
