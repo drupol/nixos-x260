@@ -244,7 +244,7 @@
           }
           {
             title = "From r-ryantm only";
-            filters = "repo:NixOS/nixpkgs is:open draft:false status:success author:r-ryantm";
+            filters = ''repo:NixOS/nixpkgs is:open draft:false status:success base:master -label:"1.severity: mass-rebuild" -label:"1.severity: mass-darwin-rebuild"  author:r-ryantm'';
           }
           {
             title = "My PRs";
