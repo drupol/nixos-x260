@@ -10,7 +10,6 @@
     # android-studio
     element-desktop
     etlegacy
-    gimp
     ioquake3
     jetbrains-toolbox
     # google-chrome
@@ -25,6 +24,7 @@
     # jfsutils
     kate
     kgpg
+    krita
     krdc
     ktailctl
     libsForQt5.kdialog
