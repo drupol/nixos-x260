@@ -93,6 +93,10 @@
       extraCommands = ''
         iptables -t nat -A PREROUTING ! -s 192.168.2.10 -p udp --dport 53 -j DNAT --to 192.168.2.10
         iptables -t nat -A PREROUTING ! -s 192.168.2.10 -p tcp --dport 53 -j DNAT --to 192.168.2.10
+        iptables -I INPUT -p tcp --sport 853 -j DROP
+        iptables -I INPUT -p udp --sport 853 -j DROP
+        iptables -I OUTPUT -p tcp --dport 853 -j DROP
+        iptables -I OUTPUT -p udp --dport 853 -j DROP
       '';
     };
   };
