@@ -40,6 +40,10 @@
       source = ./. + "/../../files/home/pol/.config/fish/conf.d/custom.fish";
       recursive = true;
     };
+    ".config/birdtray-config.json" = {
+      source = ./. + "/../../files/home/pol/.config/birdtray-config.json";
+      recursive = true;
+    };
   };
 
   programs = {
@@ -584,6 +588,7 @@
       settings = {
         "general.useragent.override" = "";
         "privacy.donottrackheader.enabled" = true;
+        "network.dns.ipv4OnlyDomains" = "outlook.office365.com";
       };
       profiles = {
         default = {
@@ -625,7 +630,15 @@
         pkgs.vscode-extensions.mhutchie.git-graph
         pkgs.vscode-extensions.mkhl.direnv
         pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
-        pkgs.vscode-extensions.nvarner.typst-lsp
+        (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+          mktplcRef = {
+            name = "typst-lsp";
+            publisher = "nvarner";
+            version = "0.12.0";
+            sha256 = "sha256-9v6zJyeUBj0TOpK2otLqZ0ksjmzExKTJYRF+9akvuuo=";
+          };
+        })
+        #pkgs.vscode-extensions.nvarner.typst-lsp
         pkgs.vscode-extensions.pkief.material-icon-theme
         pkgs.vscode-extensions.redhat.vscode-yaml
         pkgs.vscode-extensions.redhat.vscode-xml
@@ -760,7 +773,6 @@
         "terminal.integrated.defaultProfile.linux" = "fish";
         "terminal.integrated.fontSize" = 14;
         "typst-lsp.exportPdf" = "never";
-        "typst-lsp.serverPath" = "${pkgs.typst-lsp}/bin/typst-lsp";
         "typst-lsp.experimentalFormatterMode" = "on";
         "rust-analyzer.serverPath" = "${pkgs.rust-analyzer}/bin/rust-analyzer";
         "rust-analyzer.cargo.buildScripts.enable" = true;

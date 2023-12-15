@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
     akregator
     ark
+    birdtray
     discord
     displaylink
     # android-studio
