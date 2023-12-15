@@ -7,6 +7,7 @@
     du-dust
     fd
     fish
+    nh
     neofetch
     p7zip
     procs
