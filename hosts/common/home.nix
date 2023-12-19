@@ -625,21 +625,14 @@
         pkgs.vscode-extensions.griimick.vhs
         pkgs.vscode-extensions.james-yu.latex-workshop
         pkgs.vscode-extensions.jebbs.plantuml
+        pkgs.vscode-extensions.jkillian.custom-local-formatters
         pkgs.vscode-extensions.jnoortheen.nix-ide
         pkgs.vscode-extensions.matklad.rust-analyzer
         pkgs.vscode-extensions.mgt19937.typst-preview
         pkgs.vscode-extensions.mhutchie.git-graph
         pkgs.vscode-extensions.mkhl.direnv
         pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
-        (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
-          mktplcRef = {
-            name = "typst-lsp";
-            publisher = "nvarner";
-            version = "0.12.0";
-            sha256 = "sha256-9v6zJyeUBj0TOpK2otLqZ0ksjmzExKTJYRF+9akvuuo=";
-          };
-        })
-        #pkgs.vscode-extensions.nvarner.typst-lsp
+        pkgs.vscode-extensions.nvarner.typst-lsp
         pkgs.vscode-extensions.pkief.material-icon-theme
         pkgs.vscode-extensions.redhat.vscode-yaml
         pkgs.vscode-extensions.redhat.vscode-xml
