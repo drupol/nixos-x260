@@ -5,7 +5,7 @@
 }: {
 
   environment.systemPackages = with pkgs; [
-    (winbox.override {wine = pkgs.wineWowPackages.stable;})
+    winbox
   ];
 
   networking = {
