@@ -615,11 +615,11 @@
         pkgs.vscode-extensions.dhall.vscode-dhall-lsp-server
         pkgs.vscode-extensions.dhall.dhall-lang
         pkgs.vscode-extensions.donjayamanne.githistory
-        pkgs.vscode-extensions.eamodio.gitlens
         pkgs.vscode-extensions.editorconfig.editorconfig
         pkgs.vscode-extensions.esbenp.prettier-vscode
         pkgs.vscode-extensions.genieai.chatgpt-vscode
         pkgs.vscode-extensions.github.copilot
+        pkgs.vscode-extensions.github.copilot-chat
         pkgs.vscode-extensions.github.github-vscode-theme
         pkgs.vscode-extensions.github.vscode-pull-request-github
         pkgs.vscode-extensions.griimick.vhs
