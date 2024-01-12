@@ -7,6 +7,7 @@
     du-dust
     fd
     fish
+    git-absorb
     nh
     neofetch
     p7zip
