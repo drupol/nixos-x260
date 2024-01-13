@@ -9,15 +9,11 @@
     ../../modules/users
     ./configuration.nix
     ./packages.nix
-    #./headscale.nix
     ./caddy.nix
-    # ./squid.nix
     ./home.nix
     ./pi-hole.nix
     ./grafana.nix
     ./prometheus.nix
     ./promtail.nix
-    # ./outline.nix
-    ./wiki-js.nix
   ];
 }
