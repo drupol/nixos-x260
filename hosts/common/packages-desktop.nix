@@ -12,7 +12,7 @@
     element-desktop
     etlegacy
     ioquake3
-    jetbrains-toolbox
+    # jetbrains-toolbox
     # google-chrome
     # graphviz
     # jetbrains.clion
@@ -34,7 +34,6 @@
     openxcom
     # plantuml
     plasma-browser-integration
-    projecteur
     sddm-kcm
     # signal-desktop
     # slack
