@@ -736,6 +736,7 @@
           "plaintext" = true;
           "markdown" = true;
         };
+        "githubPullRequests.pullBranch" = "always";
         "gitlens.codeLens.enabled" = false;
         "gitlens.rebaseEditor.ordering" = "asc";
         "latex-workshop.latex.autoBuild.run" = "never";
