@@ -10,11 +10,6 @@
   fonts = { fontconfig = { enable = true; }; };
 
   home.file = {
-    # See https://github.com/nix-community/home-manager/issues/1586#issuecomment-723843578
-    ".mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json" = {
-      source = "${pkgs.plasma-browser-integration}/lib/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json";
-      recursive = true;
-    };
     ".face" = {
       source = ./. + "/../../files/home/pol/.face";
       recursive = true;
@@ -209,7 +204,7 @@
       plugins = [
         {
           name = "autopair";
-          inherit (pkgs.fishPlugins.autopair) src;
+          src = pkgs.fishPlugins.autopair;
         }
       ];
       shellAliases = {
