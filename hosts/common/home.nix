@@ -61,6 +61,10 @@
     eza = { enable = true; };
     firefox = {
       enable = true;
+      nativeMessagingHosts = [
+        pkgs.plasma-browser-integration
+        pkgs.browserpass
+      ];
       profiles.default = {
         id = 0;
         isDefault = true;
