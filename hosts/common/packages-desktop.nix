@@ -6,6 +6,7 @@
     akregator
     ark
     birdtray
+    chromium
     discord
     displaylink
     # android-studio
