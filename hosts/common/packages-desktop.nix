@@ -30,6 +30,7 @@
     krdc
     ktailctl
     libsForQt5.kdialog
+    (mkchromecast.override {enableSonos = true;})
     okular
     openarena
     openxcom
