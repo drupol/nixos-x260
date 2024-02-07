@@ -619,8 +619,22 @@
         pkgs.vscode-extensions.editorconfig.editorconfig
         pkgs.vscode-extensions.esbenp.prettier-vscode
         pkgs.vscode-extensions.genieai.chatgpt-vscode
-        pkgs.vscode-extensions.github.copilot
-        pkgs.vscode-extensions.github.copilot-chat
+        (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+          mktplcRef = {
+            name = "copilot";
+            publisher = "github";
+            version = "1.156.691";
+            sha256 = "sha256-K7lzwfgqb0gUJAivro/ePaQetM31M+zTBRZMBy92ZuA=";
+          };
+        })
+        (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+          mktplcRef = {
+            name = "copilot-chat";
+            publisher = "github";
+            version = "0.12.2024013003";
+            sha256 = "sha256-4ArWVFko2T6ze/i+HTdXAioWC7euWCycDsQxFTrEtUw=";
+          };
+        })
         pkgs.vscode-extensions.github.github-vscode-theme
         pkgs.vscode-extensions.github.vscode-pull-request-github
         pkgs.vscode-extensions.griimick.vhs
