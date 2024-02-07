@@ -12,7 +12,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_5;
+  #boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_5;
 
   # Set your time zone.
   time.timeZone = "Europe/Brussels";
@@ -108,8 +108,8 @@
   # on your system were taken. It‘s perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  # (e.g. man configuration.nix or on https://search.nixos.org/options?&show=system.stateVersion&from=0&size=50&sort=relevance&type=packages&query=stateVersion).
+  system.stateVersion = "23.11"; # Did you read the comment?
 
   system.autoUpgrade = {
     enable = true;
@@ -124,7 +124,17 @@
   in
   formatted;
 
-  virtualisation.docker.enable = true;
+  virtualisation = {
+    docker = {
+      enable = true;
+      daemon.settings = {
+        features = {
+          "containerd-snapshotter" = true;
+        };
+      };
+      enableOnBoot = false;
+    };
+  };
 
   hardware.bluetooth.enable = true;
 
