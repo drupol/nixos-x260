@@ -3,7 +3,6 @@
 , ...
 }: {
   environment.systemPackages = with pkgs; [
-    akregator
     ark
     birdtray
     chromium
@@ -12,6 +11,7 @@
     # android-studio
     element-desktop
     etlegacy
+    gpt4all-chat
     ioquake3
     # jetbrains-toolbox
     # google-chrome
