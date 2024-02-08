@@ -132,7 +132,7 @@
           "containerd-snapshotter" = true;
         };
       };
-      enableOnBoot = false;
+      enableOnBoot = true;
     };
   };
 
