@@ -82,8 +82,10 @@
           enable = true;
         };
       };
-      layout = "us";
-      xkbOptions = "eurosign:e";
+      xkb = {
+        layout = "us";
+        options = "eurosign:e";
+      };
     };
   };
 

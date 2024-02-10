@@ -54,8 +54,8 @@
   services.udisks2.enable = lib.mkForce false;
 
   # Configure keymap in X11
-  services.xserver.layout = "gb";
-  services.xserver.xkbOptions = "eurosign:e";
+  services.xserver.xkb.layout = "gb";
+  services.xserver.xkb.options = "eurosign:e";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
