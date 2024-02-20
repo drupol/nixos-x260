@@ -26,7 +26,6 @@
     element-desktop
     graphviz
     jetbrains.phpstorm
-    plantuml
     tdesktop
     teams
   ];

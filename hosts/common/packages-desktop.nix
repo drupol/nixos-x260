@@ -7,7 +7,6 @@
     birdtray
     chromium
     discord
-    displaylink
     # android-studio
     element-desktop
     etlegacy
@@ -34,10 +33,9 @@
     okular
     openarena
     openxcom
-    # plantuml
     plasma-browser-integration
     sddm-kcm
-    # signal-desktop
+    signal-desktop
     # slack
     spectacle
     tdesktop

@@ -13,6 +13,7 @@
       ../common/home.nix
       ../common/starship.nix
       ../../modules/activation/profile-report-changes.nix
+      ../../modules/activation/kbuildsycoca5.nix
     ];
   };
 }
