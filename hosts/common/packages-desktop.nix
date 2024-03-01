@@ -28,7 +28,8 @@
     krita
     krdc
     ktailctl
-    libsForQt5.kdialog
+    kdePackages.kdialog
+    kdePackages.kpipewire
     (mkchromecast.override {enableSonos = true;})
     okular
     openarena

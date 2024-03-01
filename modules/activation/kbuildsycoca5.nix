@@ -4,7 +4,7 @@
 , ...
 }: {
   home.activation.kbuildsycoca5 = config.lib.dag.entryAnywhere ''
-    echo "Running kbuildsycoca5..."
-    ${pkgs.libsForQt5.kservice}/bin/kbuildsycoca5
+    echo "Running kbuildsycoca6..."
+    ${pkgs.kdePackages.kservice}/bin/kbuildsycoca6
   '';
 }
