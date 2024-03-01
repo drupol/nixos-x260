@@ -73,7 +73,7 @@
     xserver = {
       enable = true;
       desktopManager = {
-        plasma5 = {
+        plasma6 = {
           enable = true;
         };
       };

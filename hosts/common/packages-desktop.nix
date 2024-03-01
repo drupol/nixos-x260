@@ -10,7 +10,7 @@
     # android-studio
     element-desktop
     etlegacy
-    gpt4all-chat
+    gpt4all
     ioquake3
     # jetbrains-toolbox
     # google-chrome
