@@ -13,5 +13,6 @@
     ./configuration.nix
     ./home.nix
     ./guacamole.nix
+    ./ollama.nix
   ];
 }
