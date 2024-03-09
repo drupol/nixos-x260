@@ -10,6 +10,7 @@
     # android-studio
     element-desktop
     etlegacy
+    flameshot
     gpt4all
     ioquake3
     # jetbrains-toolbox
@@ -38,7 +39,6 @@
     sddm-kcm
     signal-desktop
     # slack
-    spectacle
     tdesktop
     # teams-for-linux
     vlc
