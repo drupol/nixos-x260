@@ -19,6 +19,7 @@ in
       "networkmanager"
       "input"
       "tty"
+      "vboxusers"
     ];
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [

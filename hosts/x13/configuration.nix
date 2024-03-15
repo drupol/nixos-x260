@@ -122,6 +122,7 @@
   formatted;
 
   virtualisation = {
+    virtualbox.host.enable = true;
     docker = {
       enable = true;
       daemon.settings = {
