@@ -127,9 +127,9 @@
       enable = true;
       daemon.settings = {
         data-root = "/home/pol/.var/lib/docker";
-        # features = {
-        #   "containerd-snapshotter" = true;
-        # };
+        features = {
+          "containerd-snapshotter" = true;
+        };
       };
       enableOnBoot = true;
     };
@@ -138,6 +138,7 @@
   hardware.bluetooth.enable = true;
 
   services.avahi.enable = true;
+  services.guix.enable = true;
 
   programs = {
     noisetorch = {
