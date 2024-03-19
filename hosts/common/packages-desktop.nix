@@ -3,7 +3,6 @@
 , ...
 }: {
   environment.systemPackages = with pkgs; [
-    ark
     birdtray
     chromium
     discord
@@ -23,25 +22,26 @@
     # jetbrains.phpstorm
     # jetbrains.idea-ultimate
     # jfsutils
-    kate
-    kgpg
-    krita
-    krdc
-    ktailctl
+    kdePackages.ark
+    kdePackages.kate
+    kdePackages.kgpg
+    kdePackages.krdc
     kdePackages.kdialog
     kdePackages.kpipewire
+    kdePackages.okular
+    kdePackages.plasma-browser-integration
+    kdePackages.sddm-kcm
+    kdePackages.spectacle
+    kdePackages.yakuake
+    krita
+    ktailctl
     (mkchromecast.override {enableSonos = true;})
-    okular
     openarena
     openxcom
-    plasma-browser-integration
-    sddm-kcm
     signal-desktop
     # slack
-    spectacle
     tdesktop
     # teams-for-linux
     vlc
-    yakuake
   ];
 }
