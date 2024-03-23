@@ -7,7 +7,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_7;
+  # boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_7;
 
   # Set your time zone.
   time.timeZone = "Europe/Brussels";
