@@ -7,7 +7,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_7;
 
   # Set your time zone.
   time.timeZone = "Europe/Brussels";
@@ -109,20 +108,12 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   system.autoUpgrade = {
-    enable = true;
+    enable = false;
     flake = "github:drupol/nixos-x260";
-    # allowReboot = true;
+    allowReboot = true;
   };
 
-  environment.etc."current-system-packages".text = with lib; let
-    packages = builtins.map (p: "${p.name}") config.environment.systemPackages;
-    sortedUnique = builtins.sort builtins.lessThan (lib.unique packages);
-    formatted = builtins.concatStringsSep "\n" sortedUnique;
-  in
-  formatted;
-
   virtualisation = {
-    virtualbox.host.enable = true;
     docker = {
       enable = true;
       daemon.settings = {
