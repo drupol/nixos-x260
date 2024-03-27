@@ -138,18 +138,16 @@
         git_status = {
           format = "( \[\\[$all_status$ahead_behind\\]\]\($style\))";
           style = "red bold";
-          stashed = "\$";
-          ahead = ">";
-          behind = "<";
-          up_to_date = "";
-          diverged = "<>";
-          conflicted = "=";
+          ahead = "↑";
+          behind = "↓";
+          conflicted = "✖";
           deleted = "x";
-          renamed = "r";
+          diverged = "⇅";
           modified = "!";
+          renamed = "r";
           staged = "+";
+          stashed = "";
           untracked = "?";
-          typechanged = "";
         };
 
         golang = {
