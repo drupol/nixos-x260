@@ -647,7 +647,7 @@
         pkgs.vscode-extensions.zhuangtongfa.material-theme
       ];
       userSettings = {
-        "[json]" = {
+        "[jsonc]" = {
           "editor.defaultFormatter" = "vscode.json-language-features";
         };
         "[markdown]" = {
@@ -669,7 +669,7 @@
           "editor.formatOnSave" = false;
         };
         "[typst]" = {
-          "editor.defaultFormatter" = "nvarner.typst-lsp";
+          "editor.defaultFormatter" = "jkillian.custom-local-formatters";
         };
         "[yaml]" = {
           "editor.defaultFormatter" = "redhat.vscode-yaml";
@@ -681,6 +681,14 @@
         "chatgpt.gpt3.model" = "gpt-4";
         "chatgpt.telemetry.disable" = true;
         "chatgpt.response.showNotification" = true;
+        "customLocalFormatters.formatters" = [
+          {
+            "command" = "typstyle -i \${file}";
+              "languages" = [
+              "typst"
+            ];
+          }
+        ];
         "debug.console.fontFamily" = "'Iosevka Comfy'";
         "diffEditor.ignoreTrimWhitespace" = false;
         "editor.bracketPairColorization.enabled" = true;

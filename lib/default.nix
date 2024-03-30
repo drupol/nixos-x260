@@ -1,29 +1,32 @@
 { inputs, ... }:
 let
   inherit (inputs) self;
+
+  externalModulesFor = hostConfig: [
+    ({ config, ... }: {
+      nixpkgs.overlays = [
+        (final: prev: {
+          master = import inputs.nixpkgs-master {
+            inherit (final) config;
+            system = hostConfig.system;
+          };
+        })
+        (final: prev: {
+          unstable = import inputs.nixpkgs-unstable {
+            inherit (final) config;
+            system = hostConfig.system;
+          };
+        })
+        inputs.nur.overlay
+        inputs.deploy-rs.overlays.default
+      ];
+    })
+  ];
 in
 {
   mkHomeConfig = hostConfig: {
     "${hostConfig.user}" = inputs.home-manager.lib.homeManagerConfiguration {
-      modules = [
-        ({ config, ... }: {
-          nixpkgs.overlays = [
-            (final: prev: {
-              master = import inputs.nixpkgs-master {
-                inherit (final) config;
-                system = hostConfig.system;
-              };
-            })
-            (final: prev: {
-              unstable = import inputs.nixpkgs-unstable {
-                inherit (final) config;
-                system = hostConfig.system;
-              };
-            })
-            inputs.nur.overlay
-            inputs.deploy-rs.overlay
-          ];
-        })
+      modules = (externalModulesFor hostConfig) ++ [
         ./hosts/${hostConfig.instance}
       ];
     };
@@ -37,25 +40,7 @@ in
         inherit self inputs hostConfig;
       };
 
-      modules = [
-        ({ config, ... }: {
-          nixpkgs.overlays = [
-            (final: prev: {
-              master = import inputs.nixpkgs-master {
-                inherit (final) config;
-                system = hostConfig.system;
-              };
-            })
-            (final: prev: {
-              unstable = import inputs.nixpkgs-unstable {
-                inherit (final) config;
-                system = hostConfig.system;
-              };
-            })
-            inputs.nur.overlay
-            inputs.deploy-rs.overlay
-          ];
-        })
+      modules = (externalModulesFor hostConfig) ++ [
         inputs.home-manager.nixosModules.home-manager
         inputs.nur.nixosModules.nur
 
