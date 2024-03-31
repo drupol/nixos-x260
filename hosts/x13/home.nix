@@ -12,6 +12,7 @@
       ../common/kdeplasma.nix
       ../common/home.nix
       ../common/starship.nix
+      ../common/lazygit.nix
       ../../modules/activation/profile-report-changes.nix
       ../../modules/activation/kbuildsycoca5.nix
     ];
