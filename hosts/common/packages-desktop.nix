@@ -35,7 +35,7 @@
     kdePackages.yakuake
     krita
     ktailctl
-    (mkchromecast.override {enableSonos = true;})
+    (mkchromecast.override { enableSonos = true; })
     openarena
     openxcom
     signal-desktop

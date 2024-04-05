@@ -8,6 +8,7 @@
   programs = {
     firefox = {
       enable = true;
+      package = (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) { });
       nativeMessagingHosts = [
         pkgs.plasma-browser-integration
         pkgs.browserpass
@@ -94,9 +95,12 @@
           };
         };
         settings = {
+          "app.update.auto" = false;
+          "browser.aboutConfig.showWarning" = false;
           "browser.urlbar.update2.engineAliasRefresh" = true;
           "browser.shell.checkDefaultBrowser" = false;
           "browser.startup.homepage" = "";
+          "cookiebanners.service.mode" = 2;
           # Enable HTTPS-Only Mode
           "dom.security.https_only_mode" = true;
           "dom.security.https_only_mode_ever_enabled" = true;
@@ -108,7 +112,18 @@
           # Disable all sorts of telemetry
           "browser.newtabpage.activity-stream.feeds.telemetry" = false;
           "browser.newtabpage.activity-stream.telemetry" = false;
+          "browser.fullscreen.autohide" = false;
+          "browser.newtabpage.activity-stream.topSitesRows" = 0;
+          "browser.urlbar.quickactions.enabled" = true;
+          "browser.safebrowsing.malware.enabled" = false;
+          "browser.search.hiddenOneOffs" = "Google,Yahoo,Bing,Amazon.com,Twitter";
+          "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts" = false;
+          "browser.urlbar.trimURLs" = false;
           "browser.ping-centre.telemetry" = false;
+          "browser.urlbar.suggest.bookmark" = false;
+          "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
+          "browser.urlbar.suggest.quicksuggest.sponsored" = false;
+          "browser.urlbar.suggest.searches" = false;
           "toolkit.telemetry.archive.enabled" = false;
           "toolkit.telemetry.bhrPing.enabled" = false;
           "toolkit.telemetry.enabled" = false;
@@ -135,19 +150,16 @@
           "extensions.pocket.site" = "";
           # Allow copy to clipboard
           "dom.events.asyncClipboard.clipboardItem" = true;
-
+          "trailhead.firstrun.didSeeAboutWelcome" = true;
           "widget.use-xdg-desktop-portal.file-picker" = 1;
+          "widget.use-xdg-desktop-portal.location" = 1;
           "widget.use-xdg-desktop-portal.mime-handler" = 1;
+          "widget.use-xdg-desktop-portal.open-uri" = 1;
+          "widget.use-xdg-desktop-portal.settings" = 1;
 
           "privacy.donottrackheader.value" = 1;
-          "browser.safebrowsing.malware.enabled" = false;
-          "browser.search.hiddenOneOffs" = "Google,Yahoo,Bing,Amazon.com,Twitter";
-          "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts" = false;
-          "browser.urlbar.trimURLs" = false;
           "findbar.modalHighlight" = true;
-          "browser.fullscreen.autohide" = false;
-          "browser.newtabpage.activity-stream.topSitesRows" = 0;
-          "browser.urlbar.quickactions.enabled" = true;
+          "datareporting.healthreport.uploadEnabled" = false;
         };
       };
     };

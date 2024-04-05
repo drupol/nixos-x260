@@ -212,4 +212,13 @@
       sshKeys = [ "143BC4FB7B3AC7C4F902ADCB579D2F66CDA1844A" ];
     };
   };
+
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        libsForQt5.xdg-desktop-portal-kde
+      ];
+    };
+  };
 }

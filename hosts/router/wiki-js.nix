@@ -26,7 +26,7 @@
       port = 3000;
 
       db = {
-        db   = "wikijs";
+        db = "wikijs";
         user = "wikijs";
         host = "/run/postgresql";
       };
