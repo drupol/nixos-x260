@@ -17,7 +17,6 @@
         pkgs.vscode-extensions.bbenoist.nix
         pkgs.vscode-extensions.bmewburn.vscode-intelephense-client
         pkgs.vscode-extensions.brettm12345.nixfmt-vscode
-        pkgs.vscode-extensions.chris-hayes.chatgpt-reborn
         pkgs.vscode-extensions.christian-kohler.path-intellisense
         pkgs.vscode-extensions.codezombiech.gitignore
         pkgs.vscode-extensions.devsense.phptools-vscode
@@ -26,7 +25,6 @@
         pkgs.vscode-extensions.donjayamanne.githistory
         pkgs.vscode-extensions.editorconfig.editorconfig
         pkgs.vscode-extensions.esbenp.prettier-vscode
-        pkgs.vscode-extensions.genieai.chatgpt-vscode
         pkgs.vscode-extensions.github.copilot
         pkgs.vscode-extensions.github.copilot-chat
         pkgs.vscode-extensions.github.github-vscode-theme
@@ -40,8 +38,9 @@
         pkgs.vscode-extensions.mgt19937.typst-preview
         pkgs.vscode-extensions.mhutchie.git-graph
         pkgs.vscode-extensions.mkhl.direnv
+        pkgs.vscode-extensions.ms-vscode-remote.remote-containers
         pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
-        pkgs.master.vscode-extensions.myriad-dreamin.tinymist
+        pkgs.vscode-extensions.myriad-dreamin.tinymist
         pkgs.vscode-extensions.nvarner.typst-lsp
         pkgs.vscode-extensions.pkief.material-icon-theme
         pkgs.vscode-extensions.redhat.vscode-yaml
@@ -82,13 +81,6 @@
         "[yaml]" = {
           "editor.defaultFormatter" = "redhat.vscode-yaml";
         };
-        "chatgpt.promptPrefix.customPrompt1" = "Pourrais-tu améliorer le texte suivant?";
-        "chatgpt.promptPrefix.customPrompt2" = "Could you improve the following text?";
-        "chatgpt.promptPrefix.customPrompt1-enabled" = true;
-        "chatgpt.promptPrefix.customPrompt2-enabled" = true;
-        "chatgpt.gpt3.model" = "gpt-4";
-        "chatgpt.telemetry.disable" = true;
-        "chatgpt.response.showNotification" = true;
         "customLocalFormatters.formatters" = [
           {
             "command" = "typstyle -i \${file}";

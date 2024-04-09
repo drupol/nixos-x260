@@ -7,7 +7,6 @@
     iosevka
     iosevka-comfy.comfy
     monaspace
-    nerdfonts
   ];
 
   fonts.fontconfig = {
