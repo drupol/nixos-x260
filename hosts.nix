@@ -71,4 +71,13 @@
     user = "pol";
     remoteBuild = true;
   }
+  {
+    instance = "minimac";
+    hostname = "minimac";
+    operating-system = "nixos";
+    system = "x86_64-linux";
+    sshIdentityFile = "private.pem";
+    user = "pol";
+    remoteBuild = true;
+  }
 ]
