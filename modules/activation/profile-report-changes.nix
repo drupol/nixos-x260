@@ -31,6 +31,8 @@ in
   # };
 
   home.activation.profile-report-changes = config.lib.dag.entryAnywhere ''
-    ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff $oldGenPath $newGenPath
+    if [[ -n "$oldGenPath" && -n "$newGenPath" ]]; then
+      ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff $oldGenPath $newGenPath
+    fi
   '';
 }
