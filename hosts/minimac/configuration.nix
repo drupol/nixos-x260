@@ -61,6 +61,7 @@
     };
     xserver = {
       enable = true;
+      videoDrivers = [ "nvidia" ];
       displayManager = {
         sddm = {
           enable = true;
@@ -114,4 +115,6 @@
   hardware.bluetooth.enable = true;
 
   services.avahi.enable = true;
+
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_340;
 }
