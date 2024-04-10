@@ -43,7 +43,7 @@
       enable = true;
     };
     openssh = {
-      enable = false;
+      enable = true;
       settings = {
         X11Forwarding = true;
       };
@@ -70,7 +70,6 @@
         layout = "gb";
         options = "eurosign:e";
       };
-      videoDrivers = [ "displaylink" ];
     };
   };
 
