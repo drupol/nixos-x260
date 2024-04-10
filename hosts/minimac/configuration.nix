@@ -119,4 +119,5 @@
   services.avahi.enable = true;
 
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_340;
+  nixpkgs.config.nvidia.acceptLicense = true;
 }
