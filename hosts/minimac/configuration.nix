@@ -6,7 +6,6 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   # Set your time zone.
   time.timeZone = "Europe/Brussels";
@@ -92,7 +91,7 @@
   # };
 
   networking = {
-    hostName = "x13";
+    hostName = "minimac";
     networkmanager = {
       enable = true;
     };
@@ -113,30 +112,7 @@
     allowReboot = true;
   };
 
-  virtualisation = {
-    docker = {
-      enable = true;
-      daemon.settings = {
-        data-root = "/home/pol/.var/lib/docker";
-        features = {
-          "containerd-snapshotter" = true;
-        };
-      };
-      enableOnBoot = true;
-    };
-  };
-
   hardware.bluetooth.enable = true;
 
   services.avahi.enable = true;
-  services.guix.enable = true;
-
-  programs = {
-    noisetorch = {
-      enable = true;
-    };
-    projecteur = {
-      enable = true;
-    };
-  };
 }
