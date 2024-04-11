@@ -1,8 +1,13 @@
 { config
 , lib
 , pkgs
+, inputs
 , ...
 }: {
+  imports = [
+    inputs.nixos-hardware-macmini.nixosModules.apple-macmini-4-1
+  ];
+
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_6;
 
   # Bootloader.
@@ -63,7 +68,6 @@
     };
     xserver = {
       enable = true;
-      videoDrivers = [ "nvidiaLegacy340" ];
       displayManager = {
         sddm = {
           enable = true;
@@ -117,21 +121,4 @@
   hardware.bluetooth.enable = true;
 
   services.avahi.enable = true;
-
-  nixpkgs.config.nvidia.acceptLicense = true;
-
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.legacy_340;
-  };
 }

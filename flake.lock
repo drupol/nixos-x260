@@ -113,6 +113,22 @@
         "type": "github"
       }
     },
+    "nixos-hardware-macmini": {
+      "locked": {
+        "lastModified": 1712837232,
+        "narHash": "sha256-yVvjrnFxPqhVYaVDMY+N2v9ZxNUTCVPN4tfVg+4GlFY=",
+        "owner": "drupol",
+        "repo": "nixos-hardware",
+        "rev": "1eccfe91d9e6b4c0e8e6131e38920dd2facf026e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "drupol",
+        "ref": "add-macmini-4",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1712608508,
@@ -221,6 +237,7 @@
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
+        "nixos-hardware-macmini": "nixos-hardware-macmini",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-unstable": "nixpkgs-unstable",
