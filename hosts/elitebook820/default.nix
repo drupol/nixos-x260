@@ -5,6 +5,7 @@
 , ...
 }: {
   imports = [
+    ./hardware-configuration.nix
     ../common/configuration.nix
     ../common/fonts.nix
     ../common/packages.nix

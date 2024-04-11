@@ -1,9 +1,11 @@
 { config
 , lib
 , pkgs
+, inputs
 , ...
 }: {
   imports = [
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x13
     ./hardware-configuration.nix
     ../common/configuration.nix
     ../common/fonts.nix

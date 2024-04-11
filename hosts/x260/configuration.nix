@@ -4,11 +4,6 @@
 , inputs
 , ...
 }: {
-  imports = [
-    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x260
-    ./hardware-configuration.nix
-  ];
-
   # Use the GRUB 2 boot loader.
   # boot.loader.grub.enable = true;
   # boot.loader.grub.version = 2;
