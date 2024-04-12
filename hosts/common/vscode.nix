@@ -18,6 +18,7 @@
         pkgs.vscode-extensions.bmewburn.vscode-intelephense-client
         pkgs.vscode-extensions.brettm12345.nixfmt-vscode
         pkgs.vscode-extensions.christian-kohler.path-intellisense
+        pkgs.vscode-extensions.coder.coder-remote
         pkgs.vscode-extensions.codezombiech.gitignore
         pkgs.vscode-extensions.devsense.phptools-vscode
         pkgs.vscode-extensions.dhall.vscode-dhall-lsp-server
