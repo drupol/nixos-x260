@@ -116,7 +116,7 @@
 
   services.avahi.enable = true;
 
-  programs.ssh = {
+  services.ssh = {
     enable = true;
     forwardX11 = true;
   };
