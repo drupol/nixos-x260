@@ -4,12 +4,6 @@
 , inputs
 , ...
 }: {
-  imports = [
-    inputs.nixos-hardware.nixosModules.apple-macmini-4-1
-  ];
-
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_6;
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -121,4 +115,9 @@
   hardware.bluetooth.enable = true;
 
   services.avahi.enable = true;
+
+  programs.ssh = {
+    enable = true;
+    forwardX11 = true;
+  };
 }
