@@ -5,7 +5,7 @@
 , ...
 }: {
   imports = [
-    inputs.nixos-hardware-macmini.nixosModules.apple-macmini-4-1
+    inputs.nixos-hardware.nixosModules.apple-macmini-4-1
   ];
 
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_6;
