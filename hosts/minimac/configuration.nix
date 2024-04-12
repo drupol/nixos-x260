@@ -115,9 +115,4 @@
   hardware.bluetooth.enable = true;
 
   services.avahi.enable = true;
-
-  services.ssh = {
-    enable = true;
-    forwardX11 = true;
-  };
 }
