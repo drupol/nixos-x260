@@ -8,6 +8,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # 4G is way too small...
+  boot.tmp.useTmpfs = lib.mkForce false;
+
   # Set your time zone.
   time.timeZone = "Europe/Brussels";
 

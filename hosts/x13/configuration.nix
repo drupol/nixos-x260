@@ -115,6 +115,9 @@
   };
 
   virtualisation = {
+    podman = {
+      enable = true;
+    };
     docker = {
       enable = true;
       daemon.settings = {
@@ -140,4 +143,6 @@
       enable = true;
     };
   };
+
+  services.thermald.enable = true;
 }
