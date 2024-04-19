@@ -34,7 +34,7 @@
   # last 7 days of logs, whichever happens first.
   services.journald.extraConfig = ''
     SystemMaxUse=100M
-    MaxFileSec=5day
+    MaxFileSec=3day
   '';
 
   services = {
@@ -46,6 +46,9 @@
     };
     openssh = {
       enable = true;
+      settings = {
+        X11Forwarding = true;
+      };
     };
     pipewire = {
       enable = true;
@@ -69,6 +72,7 @@
         layout = "be";
         options = "eurosign:e";
       };
+      videoDrivers = [ "displaylink" ];
     };
   };
 
@@ -110,14 +114,9 @@
     # allowReboot = true;
   };
 
-  environment.etc."current-system-packages".text = with lib; let
-    packages = builtins.map (p: "${p.name}") config.environment.systemPackages;
-    sortedUnique = builtins.sort builtins.lessThan (lib.unique packages);
-    formatted = builtins.concatStringsSep "\n" sortedUnique;
-  in
-  formatted;
-
   virtualisation.docker.enable = false;
 
   hardware.bluetooth.enable = true;
+
+  services.thermald.enable = true;
 }
