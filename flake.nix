@@ -16,41 +16,19 @@
     systems.url = "github:nix-systems/default";
   };
 
-  outputs = inputs@{ self, flake-parts, nixpkgs, nixpkgs-master, home-manager, deploy-rs, systems, ... }:
-    let
-      hosts = import ./hosts.nix;
-      myLib = import ./lib/default.nix {
-        inherit inputs;
-      };
-    in
+  outputs =
+    inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = import systems;
+      systems = import inputs.systems;
 
-      perSystem = { config, self', inputs', pkgs, system, ... }: {
-        formatter = pkgs.nixpkgs-fmt;
-
-        devShells = {
-          default = pkgs.mkShellNoCC {
-            buildInputs = [
-              pkgs.deploy-rs
-              pkgs.nixpkgs-fmt
-            ];
-          };
-        };
-
-        checks = deploy-rs.lib.${system}.deployChecks { nodes = (inputs.nixpkgs.lib.foldr (el: acc: acc // myLib.mkNode el) { } (builtins.filter (el: el.system == "x86_64-linux") hosts)); };
-      };
-
-      flake = {
-        # homeConfigurations =
-        #   inputs.nixpkgs.lib.foldr (el: acc: acc // myLib.mkHomeConfig el) {}
-        #   (inputs.nixpkgs.lib.filter (el: el.operating-system != "nixos") hosts);
-
-        nixosConfigurations =
-          inputs.nixpkgs.lib.foldr (el: acc: acc // myLib.mkNixosSystem el) { }
-            (inputs.nixpkgs.lib.filter (el: el.operating-system == "nixos") hosts);
-
-        deploy.nodes = inputs.nixpkgs.lib.foldr (el: acc: acc // myLib.mkNode el) { } hosts;
-      };
+      imports = [
+        ./imports/formatter.nix
+        ./imports/devshells.nix
+        ./imports/overlay.nix
+        ./imports/nixosConfigurations.nix
+        ./imports/lib.nix
+        ./imports/deploy.nix
+        ./imports/checks.nix
+      ];
     };
 }
