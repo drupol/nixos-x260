@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   nix = {
     # From https://jackson.dev/post/nix-reasonable-defaults/
     extraOptions = ''
@@ -26,7 +27,10 @@
       };
     };
     settings = {
-      trusted-users = [ "root" "pol" ];
+      trusted-users = [
+        "root"
+        "pol"
+      ];
       auto-optimise-store = true;
     };
   };

@@ -1,11 +1,10 @@
 { ... }:
 {
-  perSystem = { pkgs, ... }: {
-    devShells = {
-      default = pkgs.mkShellNoCC {
-        packages = [
-        ];
+  perSystem =
+    { pkgs, ... }:
+    {
+      devShells = {
+        default = pkgs.mkShellNoCC { packages = [ ]; };
       };
     };
-  };
 }

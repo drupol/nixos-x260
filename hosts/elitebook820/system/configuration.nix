@@ -1,9 +1,5 @@
-{ config
-, pkgs
-, lib
-, nixos-hardware
-, ...
-}: {
+{ ... }:
+{
   # Use the GRUB 2 boot loader.
   # boot.loader.grub.enable = true;
   # boot.loader.grub.version = 2;
@@ -15,9 +11,6 @@
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # Define on which hard drive you want to install Grub.
   # boot.loader.grub.device = "nodev"; # or "nodev" for efi only
-
-  # Set your time zone.
-  time.timeZone = "Europe/Brussels";
 
   # services.acpid.enable = true;
 
@@ -33,13 +26,6 @@
   # };
   console.useXkbConfig = true;
 
-  # Limit the systemd journal to 100 MB of disk or the
-  # last 7 days of logs, whichever happens first.
-  services.journald.extraConfig = ''
-    SystemMaxUse=100M
-    MaxFileSec=5day
-  '';
-
   services = {
     flatpak = {
       enable = false;
@@ -47,27 +33,14 @@
     fwupd = {
       enable = true;
     };
-    openssh = {
-      enable = false;
-    };
     pipewire = {
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-    desktopManager = {
-      plasma6 = {
-        enable = true;
-      };
-    };
     xserver = {
       enable = true;
-      displayManager = {
-        sddm = {
-          enable = true;
-        };
-      };
       xkb = {
         layout = "be";
         options = "eurosign:e";
@@ -113,13 +86,6 @@
     flake = "github:drupol/nixos-x260";
     # allowReboot = true;
   };
-
-  environment.etc."current-system-packages".text = with lib; let
-    packages = builtins.map (p: "${p.name}") config.environment.systemPackages;
-    sortedUnique = builtins.sort builtins.lessThan (lib.unique packages);
-    formatted = builtins.concatStringsSep "\n" sortedUnique;
-  in
-  formatted;
 
   virtualisation.docker.enable = false;
 

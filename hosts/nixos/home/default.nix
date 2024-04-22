@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   thunderbird.enable = true;
   firefox.enable = true;
   code.enable = true;

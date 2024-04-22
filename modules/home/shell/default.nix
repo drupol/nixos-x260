@@ -1,7 +1,8 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 let
   cfg = config.shell;
@@ -23,17 +24,26 @@ in
     programs = {
       bat = {
         enable = true;
-        extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
+        extraPackages = with pkgs.bat-extras; [
+          batdiff
+          batman
+          batgrep
+          batwatch
+        ];
       };
       bottom = {
         enable = true;
       };
-      command-not-found = { enable = false; };
+      command-not-found = {
+        enable = false;
+      };
       direnv = {
         enable = true;
         nix-direnv.enable = true;
       };
-      eza = { enable = true; };
+      eza = {
+        enable = true;
+      };
       fish = {
         enable = true;
         plugins = [
@@ -51,7 +61,9 @@ in
           man = "batman";
         };
       };
-      htop = { enable = true; };
+      htop = {
+        enable = true;
+      };
       ripgrep = {
         enable = true;
       };

@@ -1,8 +1,10 @@
-{ config
-, lib
-, pkgs
-, ...
-}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
 
   boot = {
     tmp = {
@@ -30,7 +32,6 @@
     LC_TELEPHONE = "fr_BE.UTF-8";
     LC_TIME = "fr_BE.UTF-8";
   };
-
 
   # https://mastodon.online/@nomeata/109915786344697931
   documentation.nixos.enable = false;

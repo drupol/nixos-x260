@@ -1,4 +1,5 @@
-{ lib, ...}: {
+{ lib, ... }:
+{
   boot = {
     loader = {
       grub.enable = lib.mkDefault false;
@@ -21,12 +22,22 @@
     "/var/log" = {
       device = "none";
       fsType = "tmpfs";
-      options = [ "defaults" "size=2G" "nosuid" "noatime" ];
+      options = [
+        "defaults"
+        "size=2G"
+        "nosuid"
+        "noatime"
+      ];
     };
     "/tmp" = {
       device = "none";
       fsType = "tmpfs";
-      options = [ "defaults" "size=1G" "nosuid" "noatime" ];
+      options = [
+        "defaults"
+        "size=1G"
+        "nosuid"
+        "noatime"
+      ];
     };
   };
 
@@ -35,19 +46,9 @@
       DHCP = "no";
       linkConfig.RequiredForOnline = "no";
       matchConfig.MACAddress = "00:0e:c6:52:c6:b3";
-      addresses = [
-        {
-          addressConfig.Address = "192.168.1.2/24";
-        }
-      ];
-      routes = [
-        {
-          routeConfig.Gateway = "192.168.1.1";
-        }
-      ];
-      dns = [
-        "8.8.8.8"
-      ];
+      addresses = [ { addressConfig.Address = "192.168.1.2/24"; } ];
+      routes = [ { routeConfig.Gateway = "192.168.1.1"; } ];
+      dns = [ "8.8.8.8" ];
     };
     lan = {
       DHCP = "no";
@@ -56,11 +57,7 @@
       networkConfig = {
         IPMasquerade = "yes";
       };
-      addresses = [
-        {
-          addressConfig.Address = "192.168.2.10/24";
-        }
-      ];
+      addresses = [ { addressConfig.Address = "192.168.2.10/24"; } ];
     };
   };
   systemd.services.NetworkManager-wait-online.enable = false;
@@ -102,7 +99,10 @@
     docker = {
       autoPrune = {
         dates = "daily";
-        flags = [ "--all" "--volumes" ];
+        flags = [
+          "--all"
+          "--volumes"
+        ];
       };
       enable = true;
     };

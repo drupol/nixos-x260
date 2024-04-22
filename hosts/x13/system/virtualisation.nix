@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   virtualisation = {
     podman = {
       enable = true;

@@ -1,18 +1,17 @@
-{ config
-, lib
-, pkgs
-, inputs
-, ...
-}: {
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+{
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # 4G is way too small...
   boot.tmp.useTmpfs = lib.mkForce false;
-
-  # Set your time zone.
-  time.timeZone = "Europe/Brussels";
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -32,25 +31,12 @@
   # };
   console.useXkbConfig = true;
 
-  # Limit the systemd journal to 100 MB of disk or the
-  # last 3 days of logs, whichever happens first.
-  services.journald.extraConfig = ''
-    SystemMaxUse=100M
-    MaxFileSec=3day
-  '';
-
   services = {
     flatpak = {
       enable = false;
     };
     fwupd = {
       enable = true;
-    };
-    openssh = {
-      enable = true;
-      settings = {
-        X11Forwarding = true;
-      };
     };
     pipewire = {
       enable = true;

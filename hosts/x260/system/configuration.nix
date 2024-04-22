@@ -1,9 +1,11 @@
-{ config
-, pkgs
-, lib
-, inputs
-, ...
-}: {
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
+{
   # Use the GRUB 2 boot loader.
   # boot.loader.grub.enable = true;
   # boot.loader.grub.version = 2;
@@ -33,13 +35,6 @@
   #   keyMap = "us";
   # };
   console.useXkbConfig = true;
-
-  # Limit the systemd journal to 100 MB of disk or the
-  # last 7 days of logs, whichever happens first.
-  services.journald.extraConfig = ''
-    SystemMaxUse=100M
-    MaxFileSec=5day
-  '';
 
   services = {
     flatpak = {

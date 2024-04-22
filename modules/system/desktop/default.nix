@@ -1,8 +1,9 @@
-{ config
-, lib
-, pkgs
-, hostConfig
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  hostConfig,
+  ...
 }:
 let
   cfg = config.desktop;
@@ -16,9 +17,7 @@ in
     xdg = {
       portal = {
         config.common.default = "kde";
-        extraPortals = with pkgs; [
-          libsForQt5.xdg-desktop-portal-kde
-        ];
+        extraPortals = with pkgs; [ libsForQt5.xdg-desktop-portal-kde ];
       };
     };
 

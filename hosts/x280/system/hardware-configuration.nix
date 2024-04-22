@@ -1,15 +1,22 @@
-{ config
-, lib
-, inputs
-, modulesPath
-, ...
-}: {
+{
+  config,
+  lib,
+  inputs,
+  modulesPath,
+  ...
+}:
+{
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x280
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [
+    "xhci_pci"
+    "nvme"
+    "usb_storage"
+    "sd_mod"
+  ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
@@ -34,9 +41,7 @@
     fsType = "ext4";
   };
 
-  swapDevices = [
-    { device = "/dev/disk/by-uuid/005040e5-7773-438e-8ede-f3f63a242d7d"; }
-  ];
+  swapDevices = [ { device = "/dev/disk/by-uuid/005040e5-7773-438e-8ede-f3f63a242d7d"; } ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

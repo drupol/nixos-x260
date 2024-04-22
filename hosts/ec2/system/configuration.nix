@@ -1,9 +1,11 @@
-{ config
-, pkgs
-, lib
-, modulesPath
-, ...
-}: {
+{
+  config,
+  pkgs,
+  lib,
+  modulesPath,
+  ...
+}:
+{
   imports = [
     "${modulesPath}/virtualisation/amazon-image.nix"
     ./hardware.nix
@@ -24,9 +26,6 @@
   networking.hostName = "ec2"; # Define your hostname.
   networking.networkmanager.enable = true; # Enables wireless support via wpa_supplicant.
 
-  # Set your time zone.
-  time.timeZone = "Europe/Brussels";
-
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
@@ -46,10 +45,6 @@
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
   # };
-
-  services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
 
   services.udisks2.enable = lib.mkForce false;
 
@@ -119,12 +114,12 @@
     allowReboot = false;
   };
 
-  environment.etc."current-system-packages".text = with lib; let
-    packages = builtins.map (p: "${p.name}") config.environment.systemPackages;
-    sortedUnique = builtins.sort builtins.lessThan (lib.unique packages);
-    formatted = builtins.concatStringsSep "\n" sortedUnique;
-  in
-  formatted;
+  # Limit the systemd journal to 100 MB of disk or the
+  # last 7 days of logs, whichever happens first.
+  services.journald.extraConfig = ''
+    SystemMaxUse=100M
+    MaxFileSec=3day
+  '';
 
   #  system.copySystemConfiguration = true;
 

@@ -1,10 +1,12 @@
-{ pkgs
-, config
-, ...
-}: {
+{ pkgs, config, ... }:
+{
   home.stateVersion = "23.05";
 
-  fonts = { fontconfig = { enable = true; }; };
+  fonts = {
+    fontconfig = {
+      enable = true;
+    };
+  };
 
   home.file = {
     ".face" = {
@@ -35,7 +37,9 @@
   };
 
   programs = {
-    home-manager = { enable = true; };
+    home-manager = {
+      enable = true;
+    };
     librewolf = {
       enable = true;
       settings = {
@@ -64,5 +68,4 @@
       sshKeys = [ "143BC4FB7B3AC7C4F902ADCB579D2F66CDA1844A" ];
     };
   };
-
 }

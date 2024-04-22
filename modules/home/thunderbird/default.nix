@@ -1,7 +1,8 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 let
   cfg = config.thunderbird;
@@ -20,9 +21,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
-      birdtray
-    ];
+    home.packages = with pkgs; [ birdtray ];
 
     programs.thunderbird = {
       enable = true;

@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   programs.plasma = {
     enable = true;
     workspace = {
@@ -30,7 +31,11 @@
       "kmix"."mic_mute" = "Microphone Mute";
       "kmix"."mute" = "Volume Mute";
       "ksmserver"."Halt Without Confirmation" = "Ctrl+Alt+Shift+PgDown";
-      "ksmserver"."Lock Session" = ["Meta+L" "Ctrl+Alt+L" "Screensaver"];
+      "ksmserver"."Lock Session" = [
+        "Meta+L"
+        "Ctrl+Alt+L"
+        "Screensaver"
+      ];
       "ksmserver"."Log Out" = "Ctrl+Alt+Del";
       "ksmserver"."Log Out Without Confirmation" = "Ctrl+Alt+Shift+Del";
       "ksmserver"."Reboot" = [ ];
@@ -42,7 +47,10 @@
       "kwin"."Decrease Opacity" = [ ];
       "kwin"."Edit Tiles" = "Meta+T";
       "kwin"."Expose" = "Ctrl+F9";
-      "kwin"."ExposeAll" = ["Ctrl+F10" "Launch (C)"];
+      "kwin"."ExposeAll" = [
+        "Ctrl+F10"
+        "Launch (C)"
+      ];
       "kwin"."ExposeClass" = "Ctrl+F7";
       "kwin"."ExposeClassCurrentDesktop" = [ ];
       "kwin"."FlipSwitchAll" = [ ];
@@ -219,7 +227,10 @@
       "org_kde_powerdevil"."Sleep" = "Sleep";
       "org_kde_powerdevil"."Toggle Keyboard Backlight" = "Keyboard Light On/Off";
       "org_kde_powerdevil"."Turn Off Screen" = [ ];
-      "org_kde_powerdevil"."powerProfile" = ["Battery" "Meta+B"];
+      "org_kde_powerdevil"."powerProfile" = [
+        "Battery"
+        "Meta+B"
+      ];
       "plasmashell"."activate task manager entry 1" = "Meta+1";
       "plasmashell"."activate task manager entry 10" = [ ];
       "plasmashell"."activate task manager entry 2" = "Meta+2";
@@ -248,13 +259,26 @@
       "plasmashell"."switch to previous activity" = [ ];
       "plasmashell"."toggle do not disturb" = [ ];
       "services/krunner.desktop"."RunClipboard" = "Alt+Shift+F2";
-      "services/krunner.desktop"."_launch" = ["" "" "Alt+Space" "Alt+F2" "Search"];
+      "services/krunner.desktop"."_launch" = [
+        ""
+        ""
+        "Alt+Space"
+        "Alt+F2"
+        "Search"
+      ];
       "services/org.kde.krunner.desktop"."RunClipboard" = [ ];
       "services/org.kde.krunner.desktop"."_launch" = [ ];
       "services/org.kde.plasma-systemmonitor.desktop"."_launch" = "Ctrl+Esc";
       "services/org.kde.plasma.emojier.desktop"."_launch" = "Meta+.";
       "services/services.krunner.desktop"."RunClipboard" = "Alt+Shift+F2";
-      "services/services.krunner.desktop"."_launch" = ["" "" "" "Alt+Space" "Alt+F2" "Search"];
+      "services/services.krunner.desktop"."_launch" = [
+        ""
+        ""
+        ""
+        "Alt+Space"
+        "Alt+F2"
+        "Search"
+      ];
       "services/services.org.kde.krunner.desktop"."RunClipboard" = [ ];
       "services/services.org.kde.krunner.desktop"."_launch" = [ ];
       "services/services.org.kde.plasma-systemmonitor.desktop"."_launch" = "Ctrl+Esc";
@@ -448,10 +472,12 @@
       "kwinrc"."Desktops"."Number".value = 1;
       "kwinrc"."Desktops"."Rows".value = 1;
       "kwinrc"."DrmOutputs.bd455426-91b5-5aa4-b78c-9e21c3c810ab.bd455426-91b5-5aa4-b78c-9e21c3c810ab"."Mode".value = "1920x1080_60049";
-      "kwinrc"."DrmOutputs.bd455426-91b5-5aa4-b78c-9e21c3c810ab.bd455426-91b5-5aa4-b78c-9e21c3c810ab"."Scale".value = 1;
+      "kwinrc"."DrmOutputs.bd455426-91b5-5aa4-b78c-9e21c3c810ab.bd455426-91b5-5aa4-b78c-9e21c3c810ab"."Scale".value =
+        1;
       "kwinrc"."DrmOutputs.bd455426-91b5-5aa4-b78c-9e21c3c810ab.bd455426-91b5-5aa4-b78c-9e21c3c810ab"."Transform".value = "normal";
       "kwinrc"."DrmOutputs/bd455426-91b5-5aa4-b78c-9e21c3c810ab/bd455426-91b5-5aa4-b78c-9e21c3c810ab"."Mode".value = "1920x1080_60049";
-      "kwinrc"."DrmOutputs/bd455426-91b5-5aa4-b78c-9e21c3c810ab/bd455426-91b5-5aa4-b78c-9e21c3c810ab"."Scale".value = 1;
+      "kwinrc"."DrmOutputs/bd455426-91b5-5aa4-b78c-9e21c3c810ab/bd455426-91b5-5aa4-b78c-9e21c3c810ab"."Scale".value =
+        1;
       "kwinrc"."DrmOutputs/bd455426-91b5-5aa4-b78c-9e21c3c810ab/bd455426-91b5-5aa4-b78c-9e21c3c810ab"."Transform".value = "normal";
       "kwinrc"."Effect-DesktopGrid"."DesktopNameAlignment".value = 132;
       "kwinrc"."Effect-DimInactive"."Strength".value = 10;

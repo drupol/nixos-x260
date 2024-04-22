@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   programs = {
     noisetorch = {
       enable = true;

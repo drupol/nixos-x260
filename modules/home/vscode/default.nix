@@ -1,7 +1,8 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 let
   cfg = config.code;
@@ -100,9 +101,7 @@ in
         "customLocalFormatters.formatters" = [
           {
             "command" = "typstyle -i \${file}";
-            "languages" = [
-              "typst"
-            ];
+            "languages" = [ "typst" ];
           }
         ];
         "debug.console.fontFamily" = "'Iosevka Comfy'";

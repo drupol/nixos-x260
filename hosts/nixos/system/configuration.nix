@@ -1,9 +1,11 @@
-{ config
-, pkgs
-, lib
-, inputs
-, ...
-}: {
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
+{
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   # boot.loader.grub.efiSupport = true;

@@ -1,10 +1,13 @@
-{ config
-, lib
-, pkgs
-, ...
-}: let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
   cfg = config.programs.winbox;
-in {
+in
+{
   options = {
     programs.winbox.enable = lib.mkEnableOption "winbox";
   };
@@ -13,9 +16,7 @@ in {
     programs.winbox = {
       enable = true;
     };
-    environment.systemPackages = with pkgs; [
-      winbox
-    ];
+    environment.systemPackages = with pkgs; [ winbox ];
     networking = {
       firewall.allowedUDPPorts = [ 5678 ];
     };

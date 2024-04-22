@@ -1,14 +1,9 @@
-{ config
-, lib
-, ...
-}:
+{ config, lib, ... }:
 let
   cfg = config.desktop;
 in
 {
-  imports = [
-    (lib.mkIf cfg.enable ( import ./kdeplasma.nix { }))
-  ];
+  imports = [ (lib.mkIf cfg.enable (import ./kdeplasma.nix { })) ];
 
   options = {
     desktop = {

@@ -1,9 +1,11 @@
-{ config
-, lib
-, pkgs
-, inputs
-, ...
-}: {
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+{
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -64,7 +66,6 @@
     flake = "github:drupol/nixos-x260";
     allowReboot = true;
   };
-
 
   hardware.bluetooth.enable = true;
 }

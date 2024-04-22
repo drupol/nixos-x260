@@ -1,7 +1,8 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 let
   cfg = config.git;
@@ -300,16 +301,14 @@ in
           unassumeall = "!git assumed | xargs git unassume";
           assumeall = "!git status -s | awk {'print $2'} | xargs git assume";
           #############
-          bump = ''
-            !sh -c 'git commit -am "Version bump v$1" && git psuoc && git release $1' -'';
+          bump = ''!sh -c 'git commit -am "Version bump v$1" && git psuoc && git release $1' -'';
           release = "!sh -c 'git tag v$1 && git pst' -";
           unrelease = "!sh -c 'git tag -d v$1 && git pso :v$1' -";
           merged = "!sh -c 'git o master && git plom && git bd $1 && git rpo' -";
           aliases = "!git config -l | grep alias | cut -c 7-";
           snap = "!git stash save 'snapshot = $(date)' && git stash apply 'stash@{0}'";
           bare = "!sh -c 'git symbolic-ref HEAD refs/heads/$1 && git rm --cached -r . && git clean -xfd' -";
-          whois = ''
-            !sh -c 'git log -i -1 --author="$1" --pretty="format:%an <%ae>"' -'';
+          whois = ''!sh -c 'git log -i -1 --author="$1" --pretty="format:%an <%ae>"' -'';
           serve = "daemon --reuseaddr --verbose --base-path=. --export-all ./.git";
           #############
           behind = "!git rev-list --left-only --count $(git bu)...HEAD";
@@ -321,17 +320,27 @@ in
           human = "name-rev --name-only --refs=refs/heads/*";
         };
         extraConfig = {
-          branch = { autosetuprebase = "always"; };
-          color = { ui = "auto"; };
+          branch = {
+            autosetuprebase = "always";
+          };
+          color = {
+            ui = "auto";
+          };
           core = {
             autocrlf = "input";
             editor = "micro";
             safecrlf = "warn";
             excludesfile = "~/.gitignore_global";
           };
-          diff = { mnemonicprefix = true; };
-          include = { path = "~/.gitconfig.local"; };
-          init = { defaultBranch = "main"; };
+          diff = {
+            mnemonicprefix = true;
+          };
+          include = {
+            path = "~/.gitconfig.local";
+          };
+          init = {
+            defaultBranch = "main";
+          };
           merge = {
             conflictstyle = "diff3";
             commit = "no";
@@ -350,7 +359,9 @@ in
             instructionFormat = "(%an <%ae>) %s";
             updateRefs = true;
           };
-          rerere = { enabled = true; };
+          rerere = {
+            enabled = true;
+          };
           sequence = {
             editor = "code --wait";
           };
@@ -358,7 +369,9 @@ in
             signByDefault = true;
             key = "0AAF2901E8040715";
           };
-          commit = { gpgsign = true; };
+          commit = {
+            gpgsign = true;
+          };
         };
       };
     };

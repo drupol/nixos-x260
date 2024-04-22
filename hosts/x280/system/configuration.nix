@@ -1,9 +1,5 @@
-{ config
-, pkgs
-, lib
-, inputs
-, ...
-}: {
+{ ... }:
+{
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -27,25 +23,12 @@
   # };
   console.useXkbConfig = true;
 
-  # Limit the systemd journal to 100 MB of disk or the
-  # last 7 days of logs, whichever happens first.
-  services.journald.extraConfig = ''
-    SystemMaxUse=100M
-    MaxFileSec=3day
-  '';
-
   services = {
     flatpak = {
       enable = false;
     };
     fwupd = {
       enable = true;
-    };
-    openssh = {
-      enable = true;
-      settings = {
-        X11Forwarding = true;
-      };
     };
     pipewire = {
       enable = true;

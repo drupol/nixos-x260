@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   code.enable = true;
   desktop.enable = true;
   firefox.enable = true;

@@ -1,7 +1,5 @@
-{ config
-, pkgs
-, ...
-}: {
+{ config, pkgs, ... }:
+{
   fonts.packages = with pkgs; [
     dina-font
     iosevka
@@ -19,5 +17,4 @@
       serif = [ "Iosevka Comfy" ];
     };
   };
-
 }

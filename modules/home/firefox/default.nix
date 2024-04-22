@@ -1,7 +1,8 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 let
   cfg = config.firefox;
@@ -58,7 +59,7 @@ in
           force = true;
           engines = {
             "Autonomous-System-Number Search" = {
-              urls = [{ template = "https://bgp.tools/search?q={searchTerms}"; }];
+              urls = [ { template = "https://bgp.tools/search?q={searchTerms}"; } ];
               iconUpdateURL = "https://bgp.tools/favicon-32x32.png";
               updateInterval = 24 * 60 * 60 * 1000; # every day
               definedAliases = [ "@asn" ];
@@ -86,24 +87,27 @@ in
             };
 
             "Nixpkgs PRs" = {
-              urls = [{ template = "https://nixpk.gs/pr-tracker.html?pr={searchTerms}"; }];
+              urls = [ { template = "https://nixpk.gs/pr-tracker.html?pr={searchTerms}"; } ];
               iconUpdateURL = "https://nixos.org/favicon.png";
               updateInterval = 24 * 60 * 60 * 1000; # every day
               definedAliases = [ "@npr" ];
             };
 
             "NixOS Wiki" = {
-              urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}"; }];
+              urls = [ { template = "https://nixos.wiki/index.php?search={searchTerms}"; } ];
               iconUpdateURL = "https://nixos.wiki/favicon.png";
               updateInterval = 24 * 60 * 60 * 1000; # every day
               definedAliases = [ "@nw" ];
             };
 
             "Noogle.dev Search" = {
-              urls = [{ template = "https://noogle.dev/?term=%22{searchTerms}%22"; }];
+              urls = [ { template = "https://noogle.dev/?term=%22{searchTerms}%22"; } ];
               iconUpdateURL = "https://noogle.dev/favicon.png";
               updateInterval = 24 * 60 * 60 * 1000; # every day
-              definedAliases = [ "@ngd" "@nog" ];
+              definedAliases = [
+                "@ngd"
+                "@nog"
+              ];
             };
 
             "Bing".metaData.hidden = true;
@@ -160,8 +164,7 @@ in
           "experiments.supported" = false;
           "network.allow-experiments" = false;
           # Disable Pocket Integration
-          "browser.newtabpage.activity-stream.section.highlights.includePocket" =
-            false;
+          "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
           "extensions.pocket.enabled" = false;
           "extensions.pocket.api" = "";
           "extensions.pocket.oAuthConsumerKey" = "";

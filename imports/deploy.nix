@@ -1,7 +1,10 @@
-{ inputs, ... }: {
+{ inputs, ... }:
+{
   flake = {
-    deploy.nodes = inputs.nixpkgs.lib.foldr
-      (config: acc: acc // {
+    deploy.nodes = inputs.nixpkgs.lib.foldr (
+      config: acc:
+      acc
+      // {
         "${config.instance}" = {
           inherit (config) hostname;
           fastConnection = false;
@@ -10,11 +13,12 @@
             user = "root";
             sshUser = "pol";
             sshOpts = [ ];
-            path = inputs.deploy-rs.lib.${config.system}.activate.nixos inputs.self.nixosConfigurations.${config.instance};
+            path =
+              inputs.deploy-rs.lib.${config.system}.activate.nixos
+                inputs.self.nixosConfigurations.${config.instance};
           };
         };
-      })
-      { }
-      (import ./hosts.nix);
+      }
+    ) { } (import ./hosts.nix);
   };
 }

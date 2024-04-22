@@ -1,3 +1,4 @@
-{ ... }: {
-    time.timeZone = "Europe/Brussels";
+{ ... }:
+{
+  time.timeZone = "Europe/Brussels";
 }
