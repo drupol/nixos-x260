@@ -9,7 +9,7 @@ let
 in
 {
   options = {
-    games.enable = lib.mkEnableOption "Games";
+    games.enable = lib.mkEnableOption "various games";
   };
 
   config = lib.mkIf cfg.enable {

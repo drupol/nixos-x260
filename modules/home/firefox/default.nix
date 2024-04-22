@@ -12,11 +12,7 @@ in
 
   options = {
     firefox = {
-      enable = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-        description = "Enable Firefox";
-      };
+      enable = lib.mkEnableOption "firefox";
     };
   };
 

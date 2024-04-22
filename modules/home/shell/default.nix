@@ -12,11 +12,7 @@ in
 
   options = {
     shell = {
-      enable = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-        description = "Enable shell";
-      };
+      enable = lib.mkEnableOption "shell";
     };
   };
 

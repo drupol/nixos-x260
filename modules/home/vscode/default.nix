@@ -12,11 +12,7 @@ in
 
   options = {
     code = {
-      enable = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-        description = "Enable VSCode for development";
-      };
+      enable = lib.mkEnableOption "code";
     };
   };
 

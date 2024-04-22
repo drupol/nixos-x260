@@ -37,9 +37,6 @@
   };
 
   programs = {
-    home-manager = {
-      enable = true;
-    };
     librewolf = {
       enable = true;
       settings = {

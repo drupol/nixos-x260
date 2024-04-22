@@ -11,13 +11,7 @@ in
   imports = [ ];
 
   options = {
-    git = {
-      enable = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-        description = "Enable Git and friends";
-      };
-    };
+    git.enable = lib.mkEnableOption "git and friends";
   };
 
   config = lib.mkIf cfg.enable {

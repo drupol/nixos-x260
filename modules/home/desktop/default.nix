@@ -7,11 +7,7 @@ in
 
   options = {
     desktop = {
-      enable = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-        description = "Enable KDE Plasma Desktop";
-      };
+      enable = lib.mkEnableOption "desktop";
     };
   };
 

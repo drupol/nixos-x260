@@ -12,11 +12,7 @@ in
 
   options = {
     thunderbird = {
-      enable = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-        description = "Enable Thunderbird";
-      };
+      enable = lib.mkEnableOption "thunderbird";
     };
   };
 
