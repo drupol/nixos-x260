@@ -6,6 +6,7 @@ on:
     paths:
     - '**.nix'
     - flake.lock
+    - .github/workflows/*.yaml
 
 jobs:
   build:
@@ -21,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v7
+        uses: DeterminateSystems/nix-installer-action@main
 
       - name: Check Nix flake inputs
         uses: DeterminateSystems/flake-checker-action@v5
