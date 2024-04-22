@@ -1,4 +1,4 @@
-{ inputs, self, ... }:
+{ inputs, self, lib, ... }:
 {
   flake = {
     nixosConfigurations = inputs.nixpkgs.lib.foldr (
@@ -27,11 +27,11 @@
                   extraSpecialArgs = {
                     inherit hostConfig;
                   };
-                  users."${hostConfig.user}".imports =
-                    [ ]
-                    ++ (inputs.self.lib.umport { path = ../hosts/common/home; })
-                    ++ (inputs.self.lib.umport { path = ./. + "/../hosts/${hostConfig.hostname}/home"; })
-                    ++ (inputs.self.lib.umport { path = ../modules/home; });
+                  users."${hostConfig.user}".imports = lib.optionals (lib.pathExists (./. + "/../hosts/${hostConfig.hostname}/home")) (
+                      (inputs.self.lib.umport { path = ../hosts/common/home; })
+                      ++ (inputs.self.lib.umport { path = ./. + "/../hosts/${hostConfig.hostname}/home"; })
+                      ++ (inputs.self.lib.umport { path = ../modules/home; })
+                  );
                 };
               })
             ];

@@ -6,5 +6,4 @@
   shell.enable = true;
   thunderbird.enable = true;
   git.enable = true;
-  games.enable = false;
 }
