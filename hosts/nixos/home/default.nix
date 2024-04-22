@@ -5,4 +5,5 @@
   code.enable = true;
   git.enable = true;
   shell.enable = true;
+  desktop.enable = true;
 }

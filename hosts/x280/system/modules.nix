@@ -1,5 +1,3 @@
-{ lib, ... }:
-{
-  vpn.enable = true;
+{ lib, ... }: {
   sshd.enable = lib.mkForce false;
 }
