@@ -14,11 +14,13 @@
 
           modules =
             (self.lib.overlays hostConfig.system)
-            ++ (inputs.self.lib.umport { path = ../modules/system; })
-            ++ (inputs.self.lib.umport { path = ../hosts/common/system; })
-            ++ (inputs.self.lib.umport { path = ./. + "/../hosts/${hostConfig.hostname}/system"; })
-            ++ [ inputs.home-manager.nixosModules.home-manager ]
-            ++ [
+            ++ (inputs.self.lib.umport { paths = [
+              ../modules/system
+              ../hosts/common/system
+              (./. + "/../hosts/${hostConfig.hostname}/system")
+            ];})
+            ++ lib.optionals (lib.pathExists (./. + "/../hosts/${hostConfig.hostname}/home")) [
+              inputs.home-manager.nixosModules.home-manager
               ({
                 home-manager = {
                   useGlobalPkgs = true;
@@ -27,14 +29,16 @@
                   extraSpecialArgs = {
                     inherit hostConfig;
                   };
-                  users."${hostConfig.user}".imports = lib.optionals (lib.pathExists (./. + "/../hosts/${hostConfig.hostname}/home")) (
-                      (inputs.self.lib.umport { path = ../hosts/common/home; })
-                      ++ (inputs.self.lib.umport { path = ./. + "/../hosts/${hostConfig.hostname}/home"; })
-                      ++ (inputs.self.lib.umport { path = ../modules/home; })
-                  );
+                  users."${hostConfig.user}".imports = inputs.self.lib.umport {
+                    paths = [
+                      ../modules/home
+                      ../hosts/common/home
+                      (./. + "/../hosts/${hostConfig.hostname}/home")
+                    ];
+                  };
                 };
               })
-            ];
+              ];
         };
       }
     ) { } (inputs.nixpkgs.lib.filter (el: el.operating-system == "nixos") (import ../hosts.nix));
