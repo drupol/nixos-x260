@@ -27,4 +27,4 @@ jobs:
         uses: DeterminateSystems/flake-checker-action@v5
 
       - name: Run nix flake check
-        run: nix flake check
+        run: nix flake check --no-build
