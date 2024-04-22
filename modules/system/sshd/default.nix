@@ -4,7 +4,9 @@ let
 in
 {
   options = {
-    sshd.enable = lib.mkEnableOption "sshd";
+    sshd.enable = lib.mkEnableOption "sshd" // {
+      default = false;
+    };
   };
 
   config = lib.mkIf cfg.enable {

@@ -14,11 +14,5 @@
     nscd.enableNsncd = true;
     # needed for store VS Code auth token
     gnome.gnome-keyring.enable = true;
-    openssh = {
-      enable = true;
-      settings = {
-        X11Forwarding = true;
-      };
-    };
   };
 }
