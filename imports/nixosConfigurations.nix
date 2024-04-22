@@ -9,19 +9,25 @@
             inherit self inputs hostConfig;
           };
 
-          modules = (self.lib.overlays hostConfig.system) ++ [
-            inputs.home-manager.nixosModules.home-manager
-            inputs.nur.nixosModules.nur
-            # Load the modules
-            ../modules/users
-            # Default configuration
-            ../hosts/common/configuration.nix
-            ../hosts/common/tailscale.nix
-            ../modules/users
-            # Host specific configuration
-            ../hosts/${hostConfig.hostname}
-            # Host specific hardware configuration
-            # ../hosts/${hostname}/hardware-configuration.nix
+          modules = (self.lib.overlays hostConfig.system)
+            ++ (inputs.self.lib.umport { path = ../modules/system; })
+            ++ (inputs.self.lib.umport { path = ../hosts/common/system; })
+            ++ (inputs.self.lib.umport { path = ./. + "/../hosts/${hostConfig.hostname}/system"; }) ++ [
+            inputs.home-manager.nixosModules.home-manager ] ++ [
+            ({
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
+                extraSpecialArgs = {
+                  inherit hostConfig;
+                };
+                users."${hostConfig.user}".imports = [ ]
+                  ++ (inputs.self.lib.umport { path = ../hosts/common/home; })
+                  ++ (inputs.self.lib.umport { path = ./. + "/../hosts/${hostConfig.hostname}/home"; })
+                  ++ (inputs.self.lib.umport { path = ../modules/home; });
+              };
+            })
           ];
         };
       })

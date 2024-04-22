@@ -20,7 +20,6 @@
     p7zip
     procs
     ripgrep
-    tig
     wget
 
     element-desktop

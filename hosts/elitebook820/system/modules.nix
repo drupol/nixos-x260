@@ -1,0 +1,3 @@
+{ ... }: {
+  vpn.enable = true;
+}

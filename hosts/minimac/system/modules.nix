@@ -1,0 +1,3 @@
+{ ... }: {
+  sshd.enable = true;
+}
