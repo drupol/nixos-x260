@@ -109,11 +109,6 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.11"; # Did you read the comment?
 
-  system.autoUpgrade = {
-    enable = false;
-    allowReboot = false;
-  };
-
   # Limit the systemd journal to 100 MB of disk or the
   # last 7 days of logs, whichever happens first.
   services.journald.extraConfig = ''

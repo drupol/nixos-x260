@@ -55,11 +55,5 @@
   # (e.g. man configuration.nix or on https://search.nixos.org/options?&show=system.stateVersion&from=0&size=50&sort=relevance&type=packages&query=stateVersion).
   system.stateVersion = "23.11"; # Did you read the comment?
 
-  system.autoUpgrade = {
-    enable = false;
-    flake = "github:drupol/nixos-x260";
-    allowReboot = true;
-  };
-
   hardware.bluetooth.enable = true;
 }
