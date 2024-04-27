@@ -1,8 +1,4 @@
-{
-  lib,
-  modulesPath,
-  ...
-}:
+{ lib, modulesPath, ... }:
 {
   imports = [
     "${modulesPath}/virtualisation/amazon-image.nix"

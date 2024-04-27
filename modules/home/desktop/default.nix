@@ -1,4 +1,9 @@
-{ config, lib, pkgs, hostConfig, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.desktop;
 in

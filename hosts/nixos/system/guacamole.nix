@@ -1,6 +1,4 @@
-{
-  ...
-}:
+{ ... }:
 {
   services.guacamole-server = {
     enable = true;

@@ -1,4 +1,9 @@
-{ inputs, self, lib, ... }:
+{
+  inputs,
+  self,
+  lib,
+  ...
+}:
 {
   flake = {
     nixosConfigurations = inputs.nixpkgs.lib.foldr (
@@ -14,11 +19,13 @@
 
           modules =
             (self.lib.overlays hostConfig.system)
-            ++ (inputs.self.lib.umport { paths = [
-              ../modules/system
-              ../hosts/common/system
-              (./. + "/../hosts/${hostConfig.hostname}/system")
-            ];})
+            ++ (inputs.self.lib.umport {
+              paths = [
+                ../modules/system
+                ../hosts/common/system
+                (./. + "/../hosts/${hostConfig.hostname}/system")
+              ];
+            })
             ++ lib.optionals (lib.pathExists (./. + "/../hosts/${hostConfig.hostname}/home")) [
               inputs.home-manager.nixosModules.home-manager
               ({
@@ -38,7 +45,7 @@
                   };
                 };
               })
-              ];
+            ];
         };
       }
     ) { } (inputs.nixpkgs.lib.filter (el: el.operating-system == "nixos") (import ../hosts.nix));
