@@ -61,6 +61,7 @@ in
         pkgs.vscode-extensions.rust-lang.rust-analyzer
         pkgs.vscode-extensions.tailscale.vscode-tailscale
         pkgs.vscode-extensions.tamasfe.even-better-toml
+        pkgs.master.vscode-extensions.tekumara.typos-vscode
         pkgs.vscode-extensions.usernamehw.errorlens
         pkgs.vscode-extensions.waderyan.gitblame
         pkgs.vscode-extensions.yzhang.markdown-all-in-one
@@ -130,9 +131,6 @@ in
         "extensions.autoCheckUpdates" = true;
         "extensions.autoUpdate" = false;
         "extensions.ignoreRecommendations" = true;
-        "files.associations" = {
-          "*.module" = "php";
-        };
         "files.autoSave" = "afterDelay";
         "files.autoSaveDelay" = 500;
         "files.insertFinalNewline" = true;
@@ -158,13 +156,11 @@ in
         "githubPullRequests.pullBranch" = "always";
         "gitlens.codeLens.enabled" = false;
         "gitlens.rebaseEditor.ordering" = "asc";
-        "latex-workshop.latex.autoBuild.run" = "never";
-        "latex-workshop.view.pdf.viewer" = "tab";
         "markdown.preview.fontFamily" = "'Iosevka Comfy'";
-        "nix.formatterPath" = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
-        "nix.serverPath" = "${pkgs.nil}/bin/nil";
+        "nix.formatterPath" = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
+        "nix.serverPath" = "${pkgs.nixd}/bin/nixd";
         "nix.enableLanguageServer" = true;
-        "nix.serverSettings.nil.formatting.command" = [ "nixpkgs-fmt" ];
+        "nix.serverSettings".nixd.formatting.command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
         "nixfmt.path" = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
         "php.suggest.basic" = false;
         "php.validate.executablePath" = "";
