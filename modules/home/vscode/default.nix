@@ -24,10 +24,8 @@ in
       mutableExtensionsDir = false;
       extensions = [
         pkgs.vscode-extensions.arcticicestudio.nord-visual-studio-code
-        pkgs.vscode-extensions.b4dm4n.vscode-nixpkgs-fmt
         pkgs.vscode-extensions.bbenoist.nix
         pkgs.vscode-extensions.bmewburn.vscode-intelephense-client
-        pkgs.vscode-extensions.brettm12345.nixfmt-vscode
         pkgs.vscode-extensions.christian-kohler.path-intellisense
         pkgs.vscode-extensions.coder.coder-remote
         pkgs.vscode-extensions.codezombiech.gitignore
@@ -75,7 +73,7 @@ in
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
         "[nix]" = {
-          "editor.defaultFormatter" = "brettm12345.nixfmt-vscode";
+          "editor.defaultFormatter" = "jkillian.custom-local-formatters";
         };
         "[rust]" = {
           "editor.defaultFormatter" = "rust-lang.rust-analyzer";
@@ -99,6 +97,10 @@ in
           {
             "command" = "typstyle -i \${file}";
             "languages" = [ "typst" ];
+          }
+          {
+            "command" = "${pkgs.nixfmt-rfc-style}/bin/nixfmt \${file}";
+            "languages" = [ "nix" ];
           }
         ];
         "debug.console.fontFamily" = "'Iosevka Comfy'";
