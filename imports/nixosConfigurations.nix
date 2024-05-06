@@ -28,7 +28,7 @@
             })
             ++ lib.optionals (lib.pathExists (./. + "/../hosts/${hostConfig.hostname}/home")) [
               inputs.home-manager.nixosModules.home-manager
-              ({
+              {
                 home-manager = {
                   useGlobalPkgs = true;
                   useUserPackages = true;
@@ -44,7 +44,7 @@
                     ];
                   };
                 };
-              })
+              }
             ];
         };
       }
