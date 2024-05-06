@@ -55,6 +55,39 @@
         "type": "indirect"
       }
     },
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems_2"
+      },
+      "locked": {
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flakey-profile": {
+      "locked": {
+        "lastModified": 1712898590,
+        "narHash": "sha256-FhGIEU93VHAChKEXx905TSiPZKga69bWl1VB37FK//I=",
+        "owner": "lf-",
+        "repo": "flakey-profile",
+        "rev": "243c903fd8eadc0f63d205665a92d4df91d42d9d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lf-",
+        "repo": "flakey-profile",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -62,11 +95,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1714931954,
-        "narHash": "sha256-QXpLmgmisNK2Zgpnu9DiO9ScrKJuJ4zmiMTNpObVIuk=",
+        "lastModified": 1714976273,
+        "narHash": "sha256-IbYND3kbkN/GmV8pK8mglViHbdUgIJ1H48HiRPq2w3E=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "3dfe05aa9b5646995ace887931fa60269a039777",
+        "rev": "2b87a11125f988a9f67ee63eeaa3682bc841d9b5",
         "type": "github"
       },
       "original": {
@@ -96,6 +129,48 @@
         "type": "github"
       }
     },
+    "lix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1714955862,
+        "narHash": "sha256-REWlo2RYHfJkxnmZTEJu3Cd/2VM+wjjpPy7Xi4BdDTQ=",
+        "ref": "refs/tags/2.90-beta.1",
+        "rev": "b6799ab0374a8e1907a48915d3187e07da41d88c",
+        "revCount": 15501,
+        "type": "git",
+        "url": "https://git@git.lix.systems/lix-project/lix"
+      },
+      "original": {
+        "ref": "refs/tags/2.90-beta.1",
+        "type": "git",
+        "url": "https://git@git.lix.systems/lix-project/lix"
+      }
+    },
+    "lix-module": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "flakey-profile": "flakey-profile",
+        "lix": [
+          "lix"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1714868057,
+        "narHash": "sha256-Q9vGkxmuarySjPKO6yixjZ0tkaVIQS2wU9FpCpDA7+I=",
+        "ref": "refs/heads/main",
+        "rev": "e31baf57680bab449ab5b40179cc4a08a99f5314",
+        "revCount": 62,
+        "type": "git",
+        "url": "https://git.lix.systems/lix-project/nixos-module"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.lix.systems/lix-project/nixos-module"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1714885415,
@@ -116,8 +191,11 @@
       "locked": {
         "lastModified": 1714906307,
         "narHash": "sha256-UlRZtrCnhPFSJlDQE7M0eyhgvuuHBTe1eJ9N9AQlJQ0=",
+        "lastModified": 1714906307,
+        "narHash": "sha256-UlRZtrCnhPFSJlDQE7M0eyhgvuuHBTe1eJ9N9AQlJQ0=",
         "owner": "nixos",
         "repo": "nixpkgs",
+        "rev": "25865a40d14b3f9cf19f19b924e2ab4069b09588",
         "rev": "25865a40d14b3f9cf19f19b924e2ab4069b09588",
         "type": "github"
       },
@@ -142,11 +220,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1714950275,
-        "narHash": "sha256-07zeH0RASD8LRi8cFavW6Ibx2Alhr3heimSLQio3C1k=",
+        "lastModified": 1714976857,
+        "narHash": "sha256-iWmutlbe3L8USKVFhyHNEMyGr387rahbujhrmXjlCuI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "48705e5f4d446e2fc56309cc74cda16ad3d7e7c7",
+        "rev": "dd1290b0f857782a60b251f89651c831cd3eef9d",
         "type": "github"
       },
       "original": {
@@ -160,8 +238,11 @@
       "locked": {
         "lastModified": 1714912032,
         "narHash": "sha256-clkcOIkg8G4xuJh+1onLG4HPMpbtzdLv4rHxFzgsH9c=",
+        "lastModified": 1714912032,
+        "narHash": "sha256-clkcOIkg8G4xuJh+1onLG4HPMpbtzdLv4rHxFzgsH9c=",
         "owner": "nixos",
         "repo": "nixpkgs",
+        "rev": "ee4a6e0f566fe5ec79968c57a9c2c3c25f2cf41d",
         "rev": "ee4a6e0f566fe5ec79968c57a9c2c3c25f2cf41d",
         "type": "github"
       },
@@ -174,11 +255,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1714949109,
-        "narHash": "sha256-TiWZhQzkODk/0rhEG6UC+Bu3Sf/OnsCLLgu6cPO1bH0=",
+        "lastModified": 1714976822,
+        "narHash": "sha256-DoSDuNNZDvhP6irtsoHyCcIOZzY+Sp/7Q6PXIvI900Y=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "1da664fdb786f4536b209f252b68860777e5a6b6",
+        "rev": "b67f5a5c3989f2a875c0294f5b8620a5dbedf721",
         "type": "github"
       },
       "original": {
@@ -213,13 +294,15 @@
         "deploy-rs": "deploy-rs",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
+        "lix": "lix",
+        "lix-module": "lix-module",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nur": "nur",
         "plasma-manager": "plasma-manager",
-        "systems": "systems_2"
+        "systems": "systems_3"
       }
     },
     "systems": {
@@ -238,6 +321,21 @@
       }
     },
     "systems_2": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_3": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
