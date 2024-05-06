@@ -17,8 +17,9 @@
             inherit self inputs hostConfig;
           };
 
-          modules = [ inputs.lix-module.nixosModules.default ] ++
-            (self.lib.overlays hostConfig.system)
+          modules =
+            [ inputs.lix-module.nixosModules.default ]
+            ++ (self.lib.overlays hostConfig.system)
             ++ (inputs.self.lib.umport {
               paths = [
                 ../modules/system
