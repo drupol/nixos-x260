@@ -57,6 +57,9 @@ in
           man = "batman";
         };
       };
+      fzf = {
+        enable = true;
+      };
       htop = {
         enable = true;
       };
