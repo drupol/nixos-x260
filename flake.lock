@@ -173,11 +173,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1715010655,
-        "narHash": "sha256-FmdhvR/hgBkPDvIv/HOEIQsSMaVXh8wvTrnep8dF3Jc=",
+        "lastModified": 1715148395,
+        "narHash": "sha256-lRxjTxY3103LGMjWdVqntKZHhlmMX12QUjeFrQMmGaE=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "d1659c9eb8af718118fb4bbe2c86797c8b8623eb",
+        "rev": "a4e2b7909fc1bdf30c30ef21d388fde0b5cdde4a",
         "type": "github"
       },
       "original": {
@@ -189,11 +189,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1714906307,
-        "narHash": "sha256-UlRZtrCnhPFSJlDQE7M0eyhgvuuHBTe1eJ9N9AQlJQ0=",
+        "lastModified": 1715087517,
+        "narHash": "sha256-CLU5Tsg24Ke4+7sH8azHWXKd0CFd4mhLWfhYgUiDBpQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "25865a40d14b3f9cf19f19b924e2ab4069b09588",
+        "rev": "b211b392b8486ee79df6cdfb1157ad2133427a29",
         "type": "github"
       },
       "original": {
@@ -217,11 +217,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1715126230,
-        "narHash": "sha256-GQR7Gl9Qel7Eb/P0YeXbjdMaEXf4Kj8dwx8A4OMe6Wg=",
+        "lastModified": 1715184436,
+        "narHash": "sha256-GySDOHwaApTZWH9NId9cy3Dq+1mVzMOaE8qWMVwP+J4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "57443256a0191e0d9f5f6cd130e930096581be48",
+        "rev": "4f554f0ff09c4cd34ca201c759c29008d1010eac",
         "type": "github"
       },
       "original": {
@@ -249,11 +249,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1715125545,
-        "narHash": "sha256-AI2E0Iut+PIJuEBXfPiHOa2Jax+tr01R+kgzbzAOvhA=",
+        "lastModified": 1715178868,
+        "narHash": "sha256-RiC7r0+933y0qONcheDSRzxhLiB8GYcriaB4wEtiI08=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "ac738fd9b74da4668ded80bf070c428d500c4179",
+        "rev": "2b5ab3c85d241f88187d0b46c714bbb241ff139e",
         "type": "github"
       },
       "original": {
