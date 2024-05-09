@@ -33,6 +33,8 @@
 
   systemd.services.NetworkManager-wait-online.enable = false;
 
-  environment.variables.EDITOR = "micro";
-  environment.variables.VISUAL = "micro";
+  environment.variables = {
+    EDITOR = "micro";
+    VISUAL = "micro";
+  };
 }

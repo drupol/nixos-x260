@@ -27,12 +27,6 @@
   console.useXkbConfig = true;
 
   services = {
-    flatpak = {
-      enable = false;
-    };
-    fwupd = {
-      enable = true;
-    };
     pipewire = {
       enable = true;
       alsa.enable = true;

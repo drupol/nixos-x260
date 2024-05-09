@@ -117,8 +117,5 @@
   virtualisation.docker.enable = true;
 
   hardware.bluetooth.enable = true;
-
-  # services.flatpak.enable = true;
-
   # networking.resolvconf.dnsExtensionMechanism = false;
 }
