@@ -52,7 +52,6 @@ in
         pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
         pkgs.vscode-extensions.ms-vsliveshare.vsliveshare
         pkgs.vscode-extensions.myriad-dreamin.tinymist
-        pkgs.vscode-extensions.nvarner.typst-lsp
         pkgs.vscode-extensions.pkief.material-icon-theme
         pkgs.vscode-extensions.redhat.vscode-yaml
         pkgs.vscode-extensions.redhat.vscode-xml
@@ -186,8 +185,6 @@ in
         "telemetry.telemetryLevel" = "off";
         "terminal.integrated.defaultProfile.linux" = "fish";
         "terminal.integrated.fontSize" = 14;
-        "typst-lsp.exportPdf" = "never";
-        "typst-lsp.experimentalFormatterMode" = "on";
         "rust-analyzer.serverPath" = "${pkgs.rust-analyzer}/bin/rust-analyzer";
         "rust-analyzer.cargo.buildScripts.enable" = true;
         "update.mode" = "manual";
