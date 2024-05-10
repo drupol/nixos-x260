@@ -12,7 +12,9 @@ in
 
   options = {
     desktop = {
-      enable = lib.mkEnableOption "desktop";
+      enable = lib.mkEnableOption "desktop" // {
+        default = false;
+      };
     };
   };
 
