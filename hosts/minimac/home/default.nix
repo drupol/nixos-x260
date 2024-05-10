@@ -5,4 +5,5 @@
   firefox.enable = true;
   shell.enable = true;
   git.enable = true;
+  messaging.enable = true;
 }

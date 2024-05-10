@@ -7,4 +7,5 @@
   thunderbird.enable = true;
   git.enable = true;
   games.enable = true;
+  messaging.enable = true;
 }

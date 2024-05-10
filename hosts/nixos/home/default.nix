@@ -6,4 +6,5 @@
   git.enable = true;
   shell.enable = true;
   desktop.enable = true;
+  messaging.enable = true;
 }
