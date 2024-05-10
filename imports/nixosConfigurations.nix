@@ -18,9 +18,7 @@
           };
 
           modules =
-            [ inputs.lix-module.nixosModules.default ]
-            ++ (self.lib.overlays hostConfig.system)
-            ++ (inputs.self.lib.umport {
+            (inputs.self.lib.umport {
               paths = [
                 ../modules/system
                 ../hosts/common/system
@@ -28,7 +26,6 @@
               ];
             })
             ++ lib.optionals (lib.pathExists (./. + "/../hosts/${hostConfig.hostname}/home")) [
-              inputs.home-manager.nixosModules.home-manager
               {
                 home-manager = {
                   useGlobalPkgs = true;

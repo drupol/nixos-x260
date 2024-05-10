@@ -2,28 +2,6 @@
 {
   flake = {
     lib = {
-      overlays = system: [
-        (
-          { config, ... }:
-          {
-            nixpkgs.overlays = [
-              (final: prev: {
-                master = import inputs.nixpkgs-master {
-                  inherit (final) config;
-                  inherit system;
-                };
-              })
-              (final: prev: {
-                unstable = import inputs.nixpkgs-unstable {
-                  inherit (final) config;
-                  inherit system;
-                };
-              })
-              inputs.nur.overlay
-            ];
-          }
-        )
-      ];
       # Proudly found here: https://github.com/yunfachi/nypkgs/blob/master/lib/umport.nix
       umport =
         {
