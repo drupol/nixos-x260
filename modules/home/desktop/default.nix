@@ -21,7 +21,7 @@ in
     thunderbird.enable = true;
 
     home.packages = with pkgs; [
-      chromium
+      (chromium.override { enableWideVine = true; })
       discord
       element-desktop
       gpt4all
