@@ -24,8 +24,6 @@ in
 
     home.packages = with pkgs; [
       (chromium.override { enableWideVine = true; })
-      discord
-      element-desktop
       gpt4all
       kdePackages.ark
       kdePackages.kate
@@ -41,8 +39,6 @@ in
       krita
       ktailctl
       (mkchromecast.override { enableSonos = true; })
-      signal-desktop
-      tdesktop
       vlc
     ];
   };
