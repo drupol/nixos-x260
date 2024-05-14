@@ -22,10 +22,10 @@
               paths = [
                 ../modules/system
                 ../hosts/common/system
-                ../hosts/${hostConfig.hostname}/system
+                ./../hosts/${hostConfig.hostname}/system
               ];
             })
-            ++ lib.optionals (lib.pathExists /../hosts/${hostConfig.hostname}/home) [
+            ++ lib.optionals (lib.pathExists ./../hosts/${hostConfig.hostname}/home) [
               {
                 home-manager = {
                   useGlobalPkgs = true;
@@ -38,7 +38,7 @@
                     paths = [
                       ../modules/home
                       ../hosts/common/home
-                      /../hosts/${hostConfig.hostname}/home
+                      ./../hosts/${hostConfig.hostname}/home
                     ];
                   };
                 };
