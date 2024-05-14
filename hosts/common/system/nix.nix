@@ -9,8 +9,6 @@
       max-free = 1000000000
       fallback = true
       warn-dirty = false
-      keep-outputs = true
-      keep-derivations = true
       experimental-features = nix-command flakes
     '';
     gc = {
