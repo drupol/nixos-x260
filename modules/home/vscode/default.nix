@@ -81,7 +81,7 @@ in
           "editor.defaultFormatter" = "bmewburn.vscode-intelephense-client";
         };
         "[toml]" = {
-          "editor.defaultFormatter" = "bungcip.better-toml";
+          "editor.defaultFormatter" = "tamasfe.even-better-toml";
         };
         "[txt]" = {
           "editor.formatOnSave" = false;
@@ -155,16 +155,11 @@ in
           "markdown" = true;
         };
         "githubPullRequests.pullBranch" = "always";
-        "gitlens.codeLens.enabled" = false;
-        "gitlens.rebaseEditor.ordering" = "asc";
         "markdown.preview.fontFamily" = "'Iosevka Comfy'";
         "nix.formatterPath" = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
         "nix.serverPath" = "${pkgs.nixd}/bin/nixd";
         "nix.enableLanguageServer" = true;
         "nix.serverSettings".nixd.formatting.command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
-        "nixfmt.path" = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
-        "php.suggest.basic" = false;
-        "php.validate.executablePath" = "";
         "plantuml.previewSnapIndicators" = true;
         "plantuml.render" = "PlantUMLServer";
         "plantuml.server" = "https://www.plantuml.com/plantuml";
@@ -185,7 +180,6 @@ in
         "telemetry.telemetryLevel" = "off";
         "terminal.integrated.defaultProfile.linux" = "fish";
         "terminal.integrated.fontSize" = 14;
-        "rust-analyzer.serverPath" = "${pkgs.rust-analyzer}/bin/rust-analyzer";
         "rust-analyzer.cargo.buildScripts.enable" = true;
         "update.mode" = "manual";
         "update.showReleaseNotes" = false;
