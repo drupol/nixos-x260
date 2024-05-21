@@ -36,7 +36,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     makeWrapper ${chromium}/bin/chromium $out/bin/${finalAttrs.meta.mainProgram} \
       --add-flags "--enable-features=UseOzonePlatform,WebRTCPipeWireCapturer" \
       --add-flags "--ozone-platform=wayland" \
-      --add-flags "--user-data-dir=\$XDG_CONFIG_HOME/discord-chromium" \
+      --add-flags "--user-data-dir=\$XDG_CONFIG_HOME/chromium-discord" \
       --add-flags "--app=https://discord.com/app"
     runHook postInstall
   '';
