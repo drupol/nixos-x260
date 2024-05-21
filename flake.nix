@@ -14,6 +14,7 @@
     plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
     nur.url = "github:nix-community/NUR";
     systems.url = "github:nix-systems/default";
+    flake-parts.url = "github:hercules-ci/flake-parts";
     lix = {
       url = "git+https://git@git.lix.systems/lix-project/lix?ref=refs/tags/2.90-beta.1";
       flake = false;
@@ -31,6 +32,8 @@
       systems = import inputs.systems;
 
       imports = [
+        inputs.flake-parts.flakeModules.easyOverlay
+        ./imports/pkgs.nix
         ./imports/formatter.nix
         ./imports/devshells.nix
         ./imports/overlay.nix

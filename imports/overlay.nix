@@ -21,6 +21,7 @@
           })
           inputs.nur.overlay
           inputs.deploy-rs.overlays.default
+          inputs.self.overlays.default
         ];
         config = { };
       };
