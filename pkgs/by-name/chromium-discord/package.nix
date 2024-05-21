@@ -53,6 +53,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
         "InstantMessaging"
       ];
       mimeTypes = [ "x-scheme-handler/discord" ];
+      startupWMClass = "chrome-discord.com__app-Default";
     })
   ];
 

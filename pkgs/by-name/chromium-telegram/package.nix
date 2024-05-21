@@ -43,6 +43,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
         "Network"
         "InstantMessaging"
       ];
+      startupWMClass = "chrome-web.telegram.org__-Default";
     })
   ];
 

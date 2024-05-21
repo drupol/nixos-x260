@@ -45,6 +45,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
         "InstantMessaging"
       ];
       mimeTypes = [ "x-scheme-handler/msteams" ];
+      startupWMClass = "chrome-teams.microsoft.com__-Default";
     })
   ];
 
