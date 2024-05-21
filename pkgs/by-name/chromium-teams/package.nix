@@ -1,60 +1,12 @@
 {
-  makeDesktopItem,
-  lib,
-  stdenvNoCC,
-  makeBinaryWrapper,
-  chromium,
-  copyDesktopItems,
+  inputs,
+  pkgs,
 }:
 
-stdenvNoCC.mkDerivation (finalAttrs: {
-  pname = "chromium-teams";
-  version = "1.0.0";
-
-  buildInputs = [ chromium ];
-
-  nativeBuildInputs = [
-    makeBinaryWrapper
-    copyDesktopItems
-  ];
-
-  dontUnpack = true;
-  dontConfigure = true;
-  dontBuild = true;
-
-  installPhase = ''
-    runHook preInstall
-    install -Dm644 ${./Microsoft_Office_Teams.svg} $out/share/icons/hicolor/scalable/apps/teams.svg
-    makeWrapper ${chromium}/bin/chromium $out/bin/${finalAttrs.meta.mainProgram} \
-      --add-flags "--enable-features=UseOzonePlatform,WebRTCPipeWireCapturer" \
-      --add-flags "--ozone-platform=wayland" \
-      --add-flags "--user-data-dir=\$XDG_CONFIG_HOME/chromium-teams" \
-      --add-flags "--app=https://teams.microsoft.com"
-    runHook postInstall
-  '';
-
-  desktopItems = [
-    (makeDesktopItem {
-      name = "teams";
-      exec = "teams";
-      icon = "teams";
-      desktopName = "Teams";
-      genericName = finalAttrs.meta.description;
-      categories = [
-        "Network"
-        "InstantMessaging"
-      ];
-      mimeTypes = [ "x-scheme-handler/msteams" ];
-      startupWMClass = "chrome-teams.microsoft.com__-Default";
-    })
-  ];
-
-  meta = {
-    description = "Microsoft Teams";
-    homepage = "https://discord.com";
-    license = lib.licenses.unfree;
-    mainProgram = "teams";
-    maintainers = with lib.maintainers; [ ];
-    platforms = chromium.meta.platforms;
-  };
-})
+inputs.self.lib.mkChromiumApp pkgs {
+  appName = "teams";
+  desktopName = "Microsoft Teams";
+  icon = ./Microsoft_Office_Teams.svg;
+  url = "https://teams.microsoft.com";
+  class = "chrome-teams.microsoft.com__-Default";
+}
