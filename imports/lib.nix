@@ -1,4 +1,4 @@
-{ inputs, lib, ... }:
+{ lib, ... }:
 {
   flake = {
     lib = {
@@ -73,14 +73,15 @@
             (pkgs.makeDesktopItem {
               name = args.appName;
               exec = args.appName;
-              icon = args.icon or args.appName ;
+              icon = args.icon or args.appName;
               desktopName = args.desktopName or args.appName;
               genericName = args.genericName or args.appName;
               categories = args.categories or [ ];
               startupWMClass = args.class or args.appName;
             })
           ];
-        })).overrideAttrs(args);
+        })).overrideAttrs
+          (args);
     };
   };
 }
