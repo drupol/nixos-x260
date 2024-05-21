@@ -24,6 +24,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   installPhase = ''
     runHook preInstall
+    install -Dm644 ${./Microsoft_Office_Teams.svg} $out/share/icons/hicolor/scalable/apps/teams.svg
     makeWrapper ${chromium}/bin/chromium $out/bin/${finalAttrs.meta.mainProgram} \
       --add-flags "--enable-features=UseOzonePlatform,WebRTCPipeWireCapturer" \
       --add-flags "--ozone-platform=wayland" \
