@@ -1,7 +1,6 @@
 {
   inputs,
   lib,
-  system,
   hostConfig,
   ...
 }:
@@ -23,6 +22,7 @@
           };
         })
         inputs.nur.overlay
+        inputs.self.overlays.default
       ];
     }
   ] ++ lib.optionals (hostConfig.instance != "router") [ inputs.lix-module.nixosModules.default ];
