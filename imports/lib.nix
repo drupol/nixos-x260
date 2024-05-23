@@ -64,7 +64,7 @@
               --add-flags "--enable-features=UseOzonePlatform,WebRTCPipeWireCapturer,WebUIDarkMode" \
               --add-flags "--ozone-platform-hint=auto" \
               --add-flags "--disable-sync-preferences" \
-              --add-flags "--user-data-dir=\$HOME/.config/chromium-${args.appName}" \
+              --add-flags "--user-data-dir=~/.config/chromium-${args.appName}" \
               --add-flags "--app=${args.url}"
             runHook postInstall
           '';
