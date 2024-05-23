@@ -17,6 +17,9 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    xdg.enable = true;
+    xdg.mime.enable = true;
+
     programs = {
       bat = {
         enable = true;
