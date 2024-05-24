@@ -40,7 +40,6 @@ in
         pkgs.vscode-extensions.github.github-vscode-theme
         pkgs.vscode-extensions.github.vscode-pull-request-github
         pkgs.vscode-extensions.griimick.vhs
-        pkgs.vscode-extensions.james-yu.latex-workshop
         pkgs.vscode-extensions.jebbs.plantuml
         pkgs.vscode-extensions.jkillian.custom-local-formatters
         pkgs.vscode-extensions.jnoortheen.nix-ide
