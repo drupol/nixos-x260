@@ -196,11 +196,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1716558617,
-        "narHash": "sha256-347rjZyL6NM19rW/Da85//FVy6mHzomKwplyIPj1xM8=",
+        "lastModified": 1716628749,
+        "narHash": "sha256-bLbjD7pz2OeWlm0qzWjkeJogdLsJ0hqIPNSQ51Kauio=",
         "ref": "refs/heads/main",
-        "rev": "aa1b84a74e5c53a6a19320018fd0b7b2871d246e",
-        "revCount": 30,
+        "rev": "73492b1c063c1f84429e2050527e0008cf80494f",
+        "revCount": 31,
         "type": "git",
         "url": "file:///home/pol/Code/drupol/nix-oracle-db"
       },
@@ -321,11 +321,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1716625719,
-        "narHash": "sha256-c+Nb5fKgMfszulGX/x98J+EkAI0CIvNqtVU/p4To/os=",
+        "lastModified": 1716628190,
+        "narHash": "sha256-qHlmGlw+6fnXWkyFneBkxh7uAzeeySyeEvqR+40yp8M=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "52700673c62a1c72c22cdd1b2b235a8aa72b4e3e",
+        "rev": "a098423c7c3eef1d3b190d57f29a5921cf6b14f7",
         "type": "github"
       },
       "original": {
