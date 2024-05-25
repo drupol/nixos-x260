@@ -17,6 +17,5 @@
     };
     thermald.enable = true;
     avahi.enable = true;
-    guix.enable = true;
   };
 }
