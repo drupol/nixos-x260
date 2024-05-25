@@ -24,6 +24,7 @@
       inputs.lix.follows = "lix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-oracle-db.url = "/home/pol/Code/drupol/nix-oracle-db/";
   };
 
   outputs =

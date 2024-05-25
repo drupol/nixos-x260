@@ -172,6 +172,26 @@
         "url": "https://git.lix.systems/lix-project/nixos-module"
       }
     },
+    "nix-oracle-db": {
+      "inputs": {
+        "flake-parts": "flake-parts_2",
+        "nixpkgs": "nixpkgs",
+        "systems": "systems_3"
+      },
+      "locked": {
+        "lastModified": 1716558617,
+        "narHash": "sha256-347rjZyL6NM19rW/Da85//FVy6mHzomKwplyIPj1xM8=",
+        "ref": "refs/heads/main",
+        "rev": "aa1b84a74e5c53a6a19320018fd0b7b2871d246e",
+        "revCount": 30,
+        "type": "git",
+        "url": "file:///home/pol/Code/drupol/nix-oracle-db"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/pol/Code/drupol/nix-oracle-db"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1716173274,

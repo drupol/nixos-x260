@@ -6,6 +6,7 @@
 }:
 {
   imports = [
+    inputs.nix-oracle-db.nixosModules.oracle-database-container
     inputs.home-manager.nixosModules.home-manager
     {
       nixpkgs.overlays = [
