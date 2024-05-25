@@ -196,17 +196,17 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1716628749,
-        "narHash": "sha256-bLbjD7pz2OeWlm0qzWjkeJogdLsJ0hqIPNSQ51Kauio=",
-        "ref": "refs/heads/main",
-        "rev": "73492b1c063c1f84429e2050527e0008cf80494f",
-        "revCount": 31,
-        "type": "git",
-        "url": "file:///home/pol/Code/drupol/nix-oracle-db"
+        "lastModified": 1716629116,
+        "narHash": "sha256-G7+1bWB0Qopnyyo7QYqkN2u86NUe4nitWV/D76bG5c0=",
+        "owner": "drupol",
+        "repo": "nix-oracle-db",
+        "rev": "1805868e25b199f56e7fca49393d80d00bf2fea1",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/pol/Code/drupol/nix-oracle-db"
+        "owner": "drupol",
+        "repo": "nix-oracle-db",
+        "type": "github"
       }
     },
     "nixos-hardware": {
