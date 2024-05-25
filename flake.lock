@@ -196,11 +196,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1716629116,
-        "narHash": "sha256-G7+1bWB0Qopnyyo7QYqkN2u86NUe4nitWV/D76bG5c0=",
+        "lastModified": 1716629646,
+        "narHash": "sha256-I8F70iPKqnNx6LiwG5hMM21zV5ajy1LZDR4c3bgUcFY=",
         "owner": "drupol",
         "repo": "nix-oracle-db",
-        "rev": "1805868e25b199f56e7fca49393d80d00bf2fea1",
+        "rev": "898851ab0fc10b6d6137aba170d70ed9e6c6f569",
         "type": "github"
       },
       "original": {
