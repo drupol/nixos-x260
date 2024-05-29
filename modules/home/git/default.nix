@@ -95,6 +95,9 @@ in
       };
       lazygit = {
         enable = true;
+        settings = {
+          git.overrideGpg = true;
+        };
       };
       git = {
         enable = true;
