@@ -22,7 +22,9 @@ in
       browsers = [ "firefox" ];
     };
 
-    programs.firefox = {
+    programs.firefox = let
+      defaultFont = "Iosevka Comfy";
+    in {
       enable = true;
       package = (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) { });
       nativeMessagingHosts = [
@@ -178,6 +180,16 @@ in
           "privacy.donottrackheader.value" = 1;
           "findbar.modalHighlight" = true;
           "datareporting.healthreport.uploadEnabled" = false;
+
+          # override fonts
+          "font.minimum-size.x-western" = 12;
+          "font.size.fixed.x-western" = 14;
+          "font.size.monospace.x-western" = 14;
+          "font.size.variable.x-western" = 14;
+          "font.name.monospace.x-western" = "${defaultFont}";
+          "font.name.sans-serif.x-western" = "${defaultFont}";
+          "font.name.serif.x-western" = "${defaultFont}";
+          "browser.display.use_document_fonts" = 0;
         };
       };
     };
