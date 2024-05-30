@@ -16,7 +16,7 @@ in
     xdg = {
       portal = {
         config.common.default = "kde";
-        extraPortals = with pkgs; [ libsForQt5.xdg-desktop-portal-kde ];
+        extraPortals = with pkgs; [ kdePackages.xdg-desktop-portal-kde ];
       };
     };
 
