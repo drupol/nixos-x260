@@ -97,7 +97,7 @@ in
             "languages" = [ "typst" ];
           }
           {
-            "command" = "${pkgs.nixfmt-rfc-style}/bin/nixfmt \${file}";
+            "command" = "${lib.getExe pkgs.nixfmt-rfc-style} \${file}";
             "languages" = [ "nix" ];
           }
         ];
@@ -155,10 +155,10 @@ in
         };
         "githubPullRequests.pullBranch" = "always";
         "markdown.preview.fontFamily" = "'Iosevka Comfy'";
-        "nix.formatterPath" = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
-        "nix.serverPath" = "${pkgs.nixd}/bin/nixd";
+        "nix.formatterPath" = lib.getExe pkgs.nixfmt-rfc-style;
+        "nix.serverPath" = lib.getExe pkgs.nixd;
         "nix.enableLanguageServer" = true;
-        "nix.serverSettings".nixd.formatting.command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
+        "nix.serverSettings".nixd.formatting.command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
         "plantuml.previewSnapIndicators" = true;
         "plantuml.render" = "PlantUMLServer";
         "plantuml.server" = "https://www.plantuml.com/plantuml";
