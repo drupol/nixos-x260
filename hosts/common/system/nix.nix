@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ ... }:
 {
   nix = {
     # From https://jackson.dev/post/nix-reasonable-defaults/
     extraOptions = ''
       connect-timeout = 5
-      log-lines = 25
+      log-lines = 50
       min-free = 128000000
       max-free = 1000000000
       fallback = true
@@ -15,14 +15,6 @@
       automatic = true;
       dates = "daily";
       options = "--delete-older-than 3d";
-    };
-    # nix repl "/etc/nix/inputs/nixpkgs"
-    nixPath = [ "nixpkgs=/etc/nix/inputs/nixpkgs" ];
-    registry = {
-      nixpkgs.to = {
-        type = "path";
-        path = pkgs.path;
-      };
     };
     settings = {
       trusted-users = [
@@ -41,6 +33,4 @@
       allowUnfreePredicate = pkg: true;
     };
   };
-
-  environment.etc."nix/inputs/nixpkgs".source = pkgs.path;
 }
