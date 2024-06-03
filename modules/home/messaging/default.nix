@@ -19,6 +19,7 @@ in
       chromium-discord
       chromium-teams
       chromium-telegram
+      chromium-meet
       element-desktop
       signal-desktop
     ];
