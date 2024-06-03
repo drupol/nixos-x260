@@ -23,8 +23,6 @@ in
     thunderbird.enable = true;
 
     home.packages = with pkgs; [
-      (chromium.override { enableWideVine = true; })
-      gpt4all
       kdePackages.ark
       kdePackages.kate
       kdePackages.kgpg
