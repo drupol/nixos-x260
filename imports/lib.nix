@@ -63,6 +63,7 @@
             makeWrapper ${lib.getExe (pkgs.chromium.override { enableWideVine = true; })} $out/bin/${args.appName} \
               --add-flags "--enable-features=UseOzonePlatform,WebRTCPipeWireCapturer,WebUIDarkMode" \
               --add-flags "--ozone-platform-hint=auto" \
+              --add-flags "--profile-directory=${args.profile or "Default"}" \
               --add-flags "--disable-sync-preferences" \
               --add-flags "--app=${args.url}"
             runHook postInstall

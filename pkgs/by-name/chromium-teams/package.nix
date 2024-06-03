@@ -9,4 +9,6 @@ inputs.self.lib.mkChromiumApp pkgs {
   icon = ./Microsoft_Office_Teams.svg;
   url = "https://teams.microsoft.com";
   class = "chrome-teams.microsoft.com__-Default";
+  categories = [ "Network" "Chat" "InstantMessaging" ];
+  profile = "TeamsProfile";
 }
