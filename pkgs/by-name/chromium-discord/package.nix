@@ -5,10 +5,10 @@
 
 inputs.self.lib.mkChromiumApp pkgs {
   appName = "discord";
+  categories = [ "Network" "Chat" "InstantMessaging" ];
+  class = "chrome-discord.com__app-DiscordProfile";
   desktopName = "Discord";
   icon = ./discord-icon.svg;
-  url = "https://discord.com/app";
-  class = "chrome-discord.com__app-Default";
-  categories = [ "Network" "Chat" "InstantMessaging" ];
   profile = "DiscordProfile";
+  url = "https://discord.com/app";
 }
