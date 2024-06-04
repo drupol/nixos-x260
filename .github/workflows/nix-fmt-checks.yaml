@@ -13,8 +13,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v11
+      - name: Install Lix
+        run: |
+          curl -sSf -L https://install.lix.systems/lix | sh -s -- install --enable-flakes --no-confirm
 
       - name: Run nix formatter tool
         run: nix fmt . -- --check
