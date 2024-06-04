@@ -23,7 +23,7 @@ in
         enable = true;
         package = pkgs.master.open-webui;
         environment = {
-          OLLAMA_API_BASE_URL = "http://0.0.0.0:11434";
+          OLLAMA_API_BASE_URL = "http://127.0.0.1:11434";
           HF_HOME = "/var/lib/open-webui/";
           SENTENCE_TRANSFORMERS_HOME = "/var/lib/open-webui/";
           WEBUI_AUTH = "False";
@@ -34,5 +34,15 @@ in
         enable = true;
       };
     };
+
+    networking = {
+      firewall = {
+        allowedTCPPorts = [
+          8080
+        ];
+      };
+    };
   };
+
+
 }
