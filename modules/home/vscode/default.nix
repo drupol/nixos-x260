@@ -43,7 +43,6 @@ in
         pkgs.vscode-extensions.jebbs.plantuml
         pkgs.vscode-extensions.jkillian.custom-local-formatters
         pkgs.vscode-extensions.jnoortheen.nix-ide
-        pkgs.vscode-extensions.matklad.rust-analyzer
         pkgs.vscode-extensions.mgt19937.typst-preview
         pkgs.vscode-extensions.mhutchie.git-graph
         pkgs.vscode-extensions.mkhl.direnv
