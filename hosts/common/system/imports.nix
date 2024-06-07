@@ -22,6 +22,12 @@
             inherit (hostConfig) system;
           };
         })
+        (final: prev: {
+          ollama139 = import inputs.ollama139 {
+            inherit (final) config;
+            inherit (hostConfig) system;
+          };
+        })
         inputs.nur.overlay
         inputs.self.overlays.default
       ];
