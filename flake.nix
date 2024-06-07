@@ -25,7 +25,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-oracle-db.url = "github:drupol/nix-oracle-db";
-    ollama139.url = "github:NixOS/nixpkgs/aa61b27554a5fc282758bf0324781e3464ef2cde";
   };
 
   outputs =
