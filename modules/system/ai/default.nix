@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   lib,
   ...
@@ -7,6 +8,10 @@ let
   cfg = config.ai;
 in
 {
+  disabledModules = [ "services/misc/open-webui.nix" ];
+
+  imports = [ "${inputs.nixpkgs-unstable}/nixos/modules/services/misc/open-webui.nix" ];
+
   options = {
     ai.enable = lib.mkEnableOption "ai";
   };
@@ -21,8 +26,6 @@ in
           ENABLE_OLLAMA_API = "True";
           OLLAMA_BASE_URL = "http://127.0.0.1:11434";
           OLLAMA_API_BASE_URL = "http://127.0.0.1:11434/api";
-          HF_HOME = "/var/lib/open-webui/";
-          SENTENCE_TRANSFORMERS_HOME = "/var/lib/open-webui/";
           WEBUI_AUTH = "False";
           DEVICE_TYPE = "cpu";
           ENABLE_RAG_HYBRID_SEARCH = "True";
