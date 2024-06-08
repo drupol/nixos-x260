@@ -9,9 +9,7 @@ let
 in
 {
   options = {
-    messaging = {
-      enable = lib.mkEnableOption "messaging";
-    };
+    messaging.enable = lib.mkEnableOption "messaging";
   };
 
   config = lib.mkIf cfg.enable {
@@ -22,6 +20,7 @@ in
       chromium-meet
       element-desktop
       signal-desktop
+      simplex-chat-desktop
     ];
   };
 }
