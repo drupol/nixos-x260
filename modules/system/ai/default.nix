@@ -2,6 +2,7 @@
   inputs,
   config,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -20,6 +21,7 @@ in
     services = {
       open-webui = {
         enable = true;
+        package = pkgs.unstable.open-webui;
         openFirewall = true;
         host = "0.0.0.0";
         environment = {
