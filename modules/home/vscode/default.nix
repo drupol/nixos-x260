@@ -29,14 +29,13 @@ in
         pkgs.vscode-extensions.christian-kohler.path-intellisense
         pkgs.vscode-extensions.coder.coder-remote
         pkgs.vscode-extensions.codezombiech.gitignore
-        pkgs.vscode-extensions.devsense.phptools-vscode
         pkgs.vscode-extensions.dhall.vscode-dhall-lsp-server
         pkgs.vscode-extensions.dhall.dhall-lang
         pkgs.vscode-extensions.donjayamanne.githistory
         pkgs.vscode-extensions.editorconfig.editorconfig
         pkgs.vscode-extensions.esbenp.prettier-vscode
-        pkgs.vscode-extensions.github.copilot
-        pkgs.vscode-extensions.github.copilot-chat
+        pkgs.master.vscode-extensions.github.copilot
+        pkgs.master.vscode-extensions.github.copilot-chat
         pkgs.vscode-extensions.github.github-vscode-theme
         pkgs.vscode-extensions.github.vscode-pull-request-github
         pkgs.vscode-extensions.griimick.vhs
@@ -56,7 +55,7 @@ in
         pkgs.vscode-extensions.rust-lang.rust-analyzer
         pkgs.vscode-extensions.tailscale.vscode-tailscale
         pkgs.vscode-extensions.tamasfe.even-better-toml
-        pkgs.master.vscode-extensions.tekumara.typos-vscode
+        pkgs.vscode-extensions.tekumara.typos-vscode
         pkgs.vscode-extensions.usernamehw.errorlens
         pkgs.vscode-extensions.waderyan.gitblame
         pkgs.vscode-extensions.yzhang.markdown-all-in-one
