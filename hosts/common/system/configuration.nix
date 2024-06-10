@@ -9,12 +9,6 @@
       cleanOnBoot = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
-    kernel = {
-      sysctl = {
-        "net.ipv4.conf.all.forwarding" = lib.mkForce true;
-        "net.ipv6.conf.all.forwarding" = lib.mkForce true;
-      };
-    };
   };
 
   i18n.defaultLocale = "en_GB.UTF-8";

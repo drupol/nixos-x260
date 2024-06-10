@@ -1,12 +1,21 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
-  # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+  boot = {
+    # Use the GRUB 2 boot loader.
+    loader.grub.enable = true;
+    # boot.loader.grub.efiSupport = true;
+    # boot.loader.grub.efiInstallAsRemovable = true;
+    # boot.loader.efi.efiSysMountPoint = "/boot/efi";
+    # Define on which hard drive you want to install Grub.
+    loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+    kernel = {
+      sysctl = {
+        "net.ipv4.conf.all.forwarding" = lib.mkForce true;
+        "net.ipv6.conf.all.forwarding" = lib.mkForce true;
+      };
+    };
+  };
+
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
