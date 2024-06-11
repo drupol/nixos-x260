@@ -11,7 +11,7 @@ in
 {
   disabledModules = [ "services/misc/open-webui.nix" ];
 
-  imports = [ "${inputs.master}/nixos/modules/services/misc/open-webui.nix" ];
+  imports = [ "${inputs.nixpkgs-master}/nixos/modules/services/misc/open-webui.nix" ];
 
   options = {
     ai.enable = lib.mkEnableOption "ai";
