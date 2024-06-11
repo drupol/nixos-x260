@@ -11,7 +11,7 @@ in
 {
   disabledModules = [ "services/misc/open-webui.nix" ];
 
-  imports = [ "${inputs.nixpkgs-unstable}/nixos/modules/services/misc/open-webui.nix" ];
+  imports = [ "${inputs.master}/nixos/modules/services/misc/open-webui.nix" ];
 
   options = {
     ai.enable = lib.mkEnableOption "ai";
@@ -21,9 +21,8 @@ in
     services = {
       open-webui = {
         enable = true;
-        package = pkgs.unstable.open-webui;
-        openFirewall = true;
-        host = "0.0.0.0";
+        package = pkgs.master.open-webui;
+        port = 8080;
         environment = {
           ENABLE_OLLAMA_API = "True";
           OLLAMA_BASE_URL = "http://127.0.0.1:11434";
@@ -39,8 +38,18 @@ in
       ollama = {
         enable = true;
       };
+
+      services.caddy = {
+        enable = true;
+        virtualHosts."localhost".extraConfig = ''
+          reverse_proxy 127.0.0.1:8080
+        '';
+      };
     };
+
+    networking.firewall.allowedTCPPorts = [
+      80
+      443
+    ];
   };
-
-
 }
