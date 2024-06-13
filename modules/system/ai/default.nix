@@ -32,6 +32,8 @@ in
           ENABLE_RAG_HYBRID_SEARCH = "True";
           RAG_EMBEDDING_ENGINE = "ollama";
           RAG_EMBEDDING_MODEL = "mxbai-embed-large:latest";
+          RAG_EMBEDDING_MODEL_AUTO_UPDATE = "True";
+          RAG_RERANKING_MODEL_AUTO_UPDATE = "True";
         };
       };
 
