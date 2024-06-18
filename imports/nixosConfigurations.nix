@@ -18,7 +18,8 @@
           };
 
           modules =
-            (inputs.self.lib.umport {
+            [ inputs.nixos-generators.nixosModules.all-formats ]
+            ++ (inputs.self.lib.umport {
               paths = [
                 ../modules/system
                 ../hosts/common/system

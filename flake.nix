@@ -25,6 +25,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-oracle-db.url = "github:drupol/nix-oracle-db";
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
