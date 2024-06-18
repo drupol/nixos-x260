@@ -44,7 +44,7 @@ in
       caddy = {
         enable = true;
         virtualHosts."192.168.1.37".extraConfig = ''
-          handle_path /searx/* {
+          handle_path /ai/* {
             reverse_proxy 127.0.0.1:8080
           }
         '';
