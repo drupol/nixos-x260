@@ -1,7 +1,10 @@
 { lib, pkgs, ... }:
 {
   # See https://github.com/NixOS/nixpkgs/pull/308801
-  system.switch = { enable = false; enableNg = true; };
+  system.switch = {
+    enable = false;
+    enableNg = true;
+  };
 
   boot = {
     tmp = {
