@@ -1,6 +1,0 @@
-{ ... }:
-{
-  services.ollama = {
-    enable = true;
-  };
-}
