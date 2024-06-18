@@ -34,6 +34,7 @@ in
           RAG_EMBEDDING_MODEL = "mxbai-embed-large:latest";
           RAG_EMBEDDING_MODEL_AUTO_UPDATE = "True";
           RAG_RERANKING_MODEL_AUTO_UPDATE = "True";
+          ENABLE_RAG_WEB_SEARCH = "True";
           RAG_WEB_SEARCH_ENGINE = "searxng";
           SEARXNG_QUERY_URL = "http://192.168.1.37/searx/search?q=<query>";
           RAG_WEB_SEARCH_RESULT_COUNT = "5";
