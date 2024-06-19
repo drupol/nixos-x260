@@ -24,10 +24,11 @@ in
         package = pkgs.master.open-webui;
         port = 8080;
         environment = {
+          WEBUI_URL = "https://192.168.1.37/ai";
+          WEBUI_AUTH = "False";
           ENABLE_OLLAMA_API = "True";
           OLLAMA_BASE_URL = "http://127.0.0.1:11434";
           OLLAMA_API_BASE_URL = "http://127.0.0.1:11434/api";
-          WEBUI_AUTH = "False";
           DEVICE_TYPE = "cpu";
           ENABLE_RAG_HYBRID_SEARCH = "True";
           RAG_EMBEDDING_ENGINE = "ollama";
@@ -35,6 +36,7 @@ in
           RAG_EMBEDDING_MODEL_AUTO_UPDATE = "True";
           RAG_RERANKING_MODEL_AUTO_UPDATE = "True";
           ENABLE_RAG_WEB_SEARCH = "True";
+          ENABLE_RAG_WEB_LOADER_SSL_VERIFICATION = "False";
           RAG_WEB_SEARCH_ENGINE = "searxng";
           SEARXNG_QUERY_URL = "http://192.168.1.37/searx/search?q=<query>";
           RAG_WEB_SEARCH_RESULT_COUNT = "5";
@@ -48,7 +50,9 @@ in
       caddy = {
         enable = true;
         virtualHosts."192.168.1.37".extraConfig = ''
-          reverse_proxy 127.0.0.1:8080
+          handle_path /ai/* {
+            reverse_proxy 127.0.0.1:8080
+          }
         '';
       };
     };
