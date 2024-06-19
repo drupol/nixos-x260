@@ -24,7 +24,6 @@ in
         package = pkgs.master.open-webui;
         port = 8080;
         environment = {
-          WEBUI_URL = "https://192.168.1.37/ai";
           WEBUI_AUTH = "False";
           ENABLE_OLLAMA_API = "True";
           OLLAMA_BASE_URL = "http://127.0.0.1:11434";
@@ -50,9 +49,7 @@ in
       caddy = {
         enable = true;
         virtualHosts."192.168.1.37".extraConfig = ''
-          handle_path /ai/* {
-            reverse_proxy 127.0.0.1:8080
-          }
+          reverse_proxy 127.0.0.1:8080
         '';
       };
     };
