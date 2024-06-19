@@ -37,6 +37,9 @@ in
             "Search on category select"
             "Tracker URL remover"
             "Hostname replace"
+            "Unit converter plugin"
+            "Basic Calculator"
+            "Open Access DOI rewrite"
           ];
 
           search = {
