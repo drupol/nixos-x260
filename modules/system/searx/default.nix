@@ -1,10 +1,4 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, ... }:
 let
   cfg = config.searx;
 in
@@ -26,6 +20,8 @@ in
             debug = false;
           };
 
+          default_doi_resolver = "sci-hub.se";
+
           server = {
             port = 3002;
             bind_address = "127.0.0.1";
@@ -36,9 +32,20 @@ in
             public_instance = false;
           };
 
+          enabled_plugins = [
+            "Hash plugin"
+            "Search on category select"
+            "Tracker URL remover"
+            "Hostname replace"
+          ];
+
           search = {
             safe_search = 0; # 0 = None, 1 = Moderate, 2 = Strict
-            formats = ["html" "json" "rss"];
+            formats = [
+              "html"
+              "json"
+              "rss"
+            ];
             autocomplete = "google"; # "dbpedia", "duckduckgo", "google", "startpage", "swisscows", "qwant", "wikipedia" - leave blank to turn it off by default
             default_lang = "en";
           };
