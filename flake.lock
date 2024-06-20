@@ -150,27 +150,22 @@
     "lix": {
       "flake": false,
       "locked": {
-        "lastModified": 1718419213,
-        "narHash": "sha256-WY7BGnu5PnbK4O8cKKv9kvxwzZIGbIQUQLGPHFXitI0=",
-        "ref": "refs/tags/2.90.0-rc1",
-        "rev": "253546d5fbf8a5aa60ac8164c1b4f5794dc4e9d1",
-        "revCount": 15780,
-        "type": "git",
-        "url": "https://git@git.lix.systems/lix-project/lix"
+        "lastModified": 1718767907,
+        "narHash": "sha256-gpd+mGQxqVHw2kO6rSPQel8TkChHh9UpqxjsmQi0QJM=",
+        "rev": "85f282ef572577899b3d80ba8def1b920a386218",
+        "type": "tarball",
+        "url": "https://git.lix.systems/api/v1/repos/lix-project/lix/archive/85f282ef572577899b3d80ba8def1b920a386218.tar.gz"
       },
       "original": {
-        "ref": "refs/tags/2.90.0-rc1",
-        "type": "git",
-        "url": "https://git@git.lix.systems/lix-project/lix"
+        "type": "tarball",
+        "url": "https://git.lix.systems/lix-project/lix/archive/main.tar.gz"
       }
     },
     "lix-module": {
       "inputs": {
         "flake-utils": "flake-utils",
         "flakey-profile": "flakey-profile",
-        "lix": [
-          "lix"
-        ],
+        "lix": "lix",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -303,11 +298,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1718841735,
-        "narHash": "sha256-4z895uBSuAtbEmwVhz1Jq7lBvrBNgjHNL3tNNxZJSE0=",
+        "lastModified": 1718867892,
+        "narHash": "sha256-Tjk7AVWnBU+zaIg8CajI6s89R5kbFkxcUMQ67XyDPTc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "9ac814f96ac41463c3d0507bc0d8c54d43564303",
+        "rev": "1c3a28d84f970e7774af04372ade06399add182e",
         "type": "github"
       },
       "original": {
@@ -351,11 +346,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1718838769,
-        "narHash": "sha256-rIKa++VEoAscMAafCQla0WFp0hGD+y+/lGn19d0eh9U=",
+        "lastModified": 1718867920,
+        "narHash": "sha256-tEQrb5MjDJczZ8rmfhjIec+DarPvQvamIf3k3X1URmk=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "d82b8fd6c2b5e097bc16661369d8ef1d9f0951ee",
+        "rev": "17503a380c2f2f05ae457c908b819d9b94ce4269",
         "type": "github"
       },
       "original": {
@@ -390,7 +385,6 @@
         "deploy-rs": "deploy-rs",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
-        "lix": "lix",
         "lix-module": "lix-module",
         "nix-oracle-db": "nix-oracle-db",
         "nixos-generators": "nixos-generators",
