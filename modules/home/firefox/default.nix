@@ -30,7 +30,7 @@ in
         enable = true;
         package = (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) { });
         nativeMessagingHosts = [
-          pkgs.plasma-browser-integration
+          pkgs.kdePackages.plasma-browser-integration
           pkgs.browserpass
         ];
         profiles.default = {
