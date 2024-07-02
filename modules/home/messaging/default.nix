@@ -15,10 +15,10 @@ in
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       chromium-discord
+      chromium-element
+      chromium-meet
       chromium-teams
       chromium-telegram
-      chromium-meet
-      element-desktop
       signal-desktop
       simplex-chat-desktop
     ];
