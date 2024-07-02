@@ -13,7 +13,6 @@
         layout = "gb";
         options = "eurosign:e";
       };
-      videoDrivers = [ "displaylink" ];
     };
     thermald.enable = true;
     avahi.enable = true;
