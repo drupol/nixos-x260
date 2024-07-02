@@ -30,7 +30,6 @@ in
         enable = true;
         package = (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) { });
         nativeMessagingHosts = [
-          pkgs.kdePackages.plasma-browser-integration
           pkgs.browserpass
         ];
         profiles.default = {
@@ -48,7 +47,6 @@ in
             pkgs.nur.repos.rycee.firefox-addons.kristofferhagen-nord-theme
             pkgs.nur.repos.rycee.firefox-addons.languagetool
             pkgs.nur.repos.rycee.firefox-addons.multi-account-containers
-            pkgs.nur.repos.rycee.firefox-addons.plasma-integration
             pkgs.nur.repos.rycee.firefox-addons.privacy-badger
             pkgs.nur.repos.rycee.firefox-addons.refined-saved-replies
             pkgs.nur.repos.rycee.firefox-addons.simple-tab-groups

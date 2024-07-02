@@ -30,7 +30,6 @@ in
       kdePackages.kdialog
       kdePackages.kpipewire
       kdePackages.okular
-      kdePackages.plasma-browser-integration
       kdePackages.sddm-kcm
       kdePackages.spectacle
       kdePackages.yakuake
