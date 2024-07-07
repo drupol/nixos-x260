@@ -9,16 +9,16 @@ let
   cfg = config.ai;
 in
 {
-  disabledModules = [ "services/misc/open-webui.nix" ];
-
-  imports = [ "${inputs.nixpkgs-master}/nixos/modules/services/misc/open-webui.nix" ];
-
   options = {
     ai.enable = lib.mkEnableOption "ai";
   };
 
   config = lib.mkIf cfg.enable {
     services = {
+      ollama = {
+        enable = true;
+      };
+
       open-webui = {
         enable = true;
         package = pkgs.master.open-webui;
@@ -40,10 +40,6 @@ in
           SEARXNG_QUERY_URL = "http://192.168.1.37/searx/search?q=<query>";
           RAG_WEB_SEARCH_RESULT_COUNT = "5";
         };
-      };
-
-      ollama = {
-        enable = true;
       };
 
       caddy = {
