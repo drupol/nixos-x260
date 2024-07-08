@@ -34,8 +34,8 @@ in
         pkgs.vscode-extensions.donjayamanne.githistory
         pkgs.vscode-extensions.editorconfig.editorconfig
         pkgs.vscode-extensions.esbenp.prettier-vscode
-        pkgs.master.vscode-extensions.github.copilot
-        pkgs.master.vscode-extensions.github.copilot-chat
+        pkgs.vscode-extensions.github.copilot
+        pkgs.vscode-extensions.github.copilot-chat
         pkgs.vscode-extensions.github.github-vscode-theme
         pkgs.vscode-extensions.github.vscode-pull-request-github
         pkgs.vscode-extensions.griimick.vhs
@@ -43,7 +43,6 @@ in
         pkgs.vscode-extensions.jebbs.plantuml
         pkgs.vscode-extensions.jkillian.custom-local-formatters
         pkgs.vscode-extensions.jnoortheen.nix-ide
-        pkgs.vscode-extensions.mgt19937.typst-preview
         pkgs.vscode-extensions.mhutchie.git-graph
         pkgs.vscode-extensions.mkhl.direnv
         pkgs.vscode-extensions.ms-python.python
