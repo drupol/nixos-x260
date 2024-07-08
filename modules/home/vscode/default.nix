@@ -49,7 +49,7 @@ in
         pkgs.vscode-extensions.ms-vscode-remote.remote-containers
         pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
         pkgs.vscode-extensions.ms-vsliveshare.vsliveshare
-        pkgs.vscode-extensions.myriad-dreamin.tinymist
+        pkgs.master.vscode-extensions.myriad-dreamin.tinymist
         pkgs.vscode-extensions.pkief.material-icon-theme
         pkgs.vscode-extensions.redhat.vscode-yaml
         pkgs.vscode-extensions.redhat.vscode-xml
