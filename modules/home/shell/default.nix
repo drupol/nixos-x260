@@ -64,6 +64,9 @@ in
           grep = "rg";
           man = "batman";
         };
+        functions = {
+          fish_greeting = "";
+        };
       };
       fzf = {
         enable = true;
