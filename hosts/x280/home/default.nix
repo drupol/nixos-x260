@@ -6,4 +6,5 @@
   shell.enable = true;
   thunderbird.enable = true;
   git.enable = true;
+  messaging.enable = true;
 }
