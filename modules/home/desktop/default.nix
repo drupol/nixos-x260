@@ -35,7 +35,6 @@ in
       kdePackages.yakuake
       krita
       ktailctl
-      (mkchromecast.override { enableSonos = true; })
       vlc
     ];
   };
