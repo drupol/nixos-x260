@@ -19,9 +19,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    firefox.enable = true;
-    thunderbird.enable = true;
-
     home.packages = with pkgs; [
       kdePackages.ark
       kdePackages.kate
