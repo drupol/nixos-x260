@@ -92,7 +92,7 @@ in
         };
         "customLocalFormatters.formatters" = [
           {
-            "command" = "typstyle -i \${file}";
+            "command" = "${lib.getExe pkgs.typstyle} -i \${file}";
             "languages" = [ "typst" ];
           }
           {
