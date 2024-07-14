@@ -42,6 +42,7 @@ in
           RAG_EMBEDDING_ENGINE = "ollama";
           RAG_EMBEDDING_MODEL = "mxbai-embed-large:latest";
           RAG_EMBEDDING_MODEL_AUTO_UPDATE = "True";
+          RAG_RERANKING_MODEL = "BAAI/bge-reranker-v2-m3";
           RAG_RERANKING_MODEL_AUTO_UPDATE = "True";
           RAG_WEB_SEARCH_ENGINE = "searxng";
           RAG_WEB_SEARCH_RESULT_COUNT = "5";
