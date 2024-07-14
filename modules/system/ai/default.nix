@@ -48,7 +48,7 @@ in
           RAG_WEB_SEARCH_ENGINE = "searxng";
           RAG_WEB_SEARCH_RESULT_COUNT = "5";
           RESET_CONFIG_ON_START = "True";
-          SEARXNG_QUERY_URL = "http://127.0.0.1/searx/search?q=<query>";
+          SEARXNG_QUERY_URL = "http://127.0.0.1:3002/search?q=<query>";
           TIKA_SERVER_URL = "http://127.0.0.1:9998/";
           WEBUI_AUTH = "False";
         };
