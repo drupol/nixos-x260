@@ -39,6 +39,7 @@ in
           ENABLE_RAG_WEB_SEARCH = "True";
           OLLAMA_BASE_URL = "http://127.0.0.1:11434";
           OLLAMA_API_BASE_URL = "http://127.0.0.1:11434/api";
+          PDF_EXTRACT_IMAGES = "True";
           RAG_EMBEDDING_ENGINE = "ollama";
           RAG_EMBEDDING_MODEL = "mxbai-embed-large:latest";
           RAG_EMBEDDING_MODEL_AUTO_UPDATE = "True";
