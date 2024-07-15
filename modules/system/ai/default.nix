@@ -9,8 +9,6 @@ let
   cfg = config.ai;
 in
 {
-  imports = [ "${inputs.nixpkgs-master}/nixos/modules/services/search/tika.nix" ];
-
   options = {
     ai.enable = lib.mkEnableOption "ai";
   };
@@ -19,7 +17,7 @@ in
     services = {
       tika = {
         enable = true;
-        package = pkgs.master.tika;
+        package = pkgs.tika;
       };
 
       ollama = {
@@ -28,7 +26,7 @@ in
 
       open-webui = {
         enable = true;
-        package = pkgs.master.open-webui;
+        package = pkgs.open-webui;
         port = 8080;
         environment = {
           CONTENT_EXTRACTION_ENGINE = "tika";
