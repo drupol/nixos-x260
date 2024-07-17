@@ -14,6 +14,12 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    environment.systemPackages = [
+      # If Tesseract is available, Tika will use it.
+      # To fix upstream
+      pkgs.tesseract
+    ];
+
     services = {
       tika = {
         enable = true;
