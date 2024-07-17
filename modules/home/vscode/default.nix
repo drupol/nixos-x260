@@ -63,6 +63,9 @@ in
         pkgs.vscode-extensions.zhuangtongfa.material-theme
       ];
       userSettings = {
+        "[json]" = {
+          "editor.defaultFormatter" = "vscode.json-language-features";
+        };
         "[jsonc]" = {
           "editor.defaultFormatter" = "vscode.json-language-features";
         };
