@@ -37,6 +37,7 @@ in
         environment = {
           CONTENT_EXTRACTION_ENGINE = "tika";
           DEVICE_TYPE = "cpu";
+          DOCS_DIR = "/var/lib/open-webui/uploads";
           ENABLE_OLLAMA_API = "True";
           ENABLE_RAG_HYBRID_SEARCH = "True";
           ENABLE_RAG_WEB_LOADER_SSL_VERIFICATION = "False";
