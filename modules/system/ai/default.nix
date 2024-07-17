@@ -32,7 +32,7 @@ in
 
       open-webui = {
         enable = true;
-        package = pkgs.open-webui;
+        package = pkgs.master.open-webui;
         port = 8080;
         environment = {
           CONTENT_EXTRACTION_ENGINE = "tika";
@@ -53,6 +53,7 @@ in
           RAG_WEB_SEARCH_RESULT_COUNT = "5";
           RESET_CONFIG_ON_START = "True";
           SEARXNG_QUERY_URL = "http://127.0.0.1:3002/search?q=<query>";
+          TEXT_EXTRACTION_ENGINE="tika";
           TIKA_SERVER_URL = "http://127.0.0.1:9998/";
           WEBUI_AUTH = "False";
         };
