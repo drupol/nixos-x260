@@ -14,16 +14,10 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [
-      # If Tesseract is available, Tika will use it.
-      # To fix upstream
-      pkgs.tesseract
-    ];
-
     services = {
       tika = {
         enable = true;
-        package = pkgs.tika;
+        package = pkgs.master.tika;
       };
 
       ollama = {
@@ -37,7 +31,6 @@ in
         environment = {
           CONTENT_EXTRACTION_ENGINE = "tika";
           DEVICE_TYPE = "cpu";
-          DOCS_DIR = "/var/lib/open-webui/uploads";
           ENABLE_OLLAMA_API = "True";
           ENABLE_RAG_HYBRID_SEARCH = "True";
           ENABLE_RAG_WEB_LOADER_SSL_VERIFICATION = "False";
@@ -56,6 +49,7 @@ in
           SEARXNG_QUERY_URL = "http://127.0.0.1:3002/search?q=<query>";
           TIKA_SERVER_URL = "http://127.0.0.1:9998/";
           WEBUI_AUTH = "False";
+          WEBUI_NAME = "LLM @ Home";
         };
       };
 
