@@ -26,6 +26,7 @@ in
         pkgs.vscode-extensions.arcticicestudio.nord-visual-studio-code
         pkgs.vscode-extensions.bbenoist.nix
         pkgs.vscode-extensions.bmewburn.vscode-intelephense-client
+        pkgs.vscode-extensions.charliermarsh.ruff
         pkgs.vscode-extensions.christian-kohler.path-intellisense
         pkgs.vscode-extensions.coder.coder-remote
         pkgs.vscode-extensions.codezombiech.gitignore
