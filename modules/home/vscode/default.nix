@@ -163,7 +163,7 @@ in
         "nix.enableLanguageServer" = true;
         "nix.serverSettings".nixd.formatting.command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
         "plantuml.previewSnapIndicators" = true;
-        "plantuml.render" = "PlantUMLServer";
+        "plantuml.render" = "Local";
         "plantuml.server" = "https://www.plantuml.com/plantuml";
         "redhat.telemetry.enabled" = false;
         "search.seedWithNearestWord" = true;
