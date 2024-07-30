@@ -166,6 +166,7 @@ in
         "plantuml.previewSnapIndicators" = true;
         "plantuml.render" = "Local";
         "plantuml.server" = "https://www.plantuml.com/plantuml";
+        "python.analysis.autoImportCompletions" = true;
         "redhat.telemetry.enabled" = false;
         "search.seedWithNearestWord" = true;
         "search.showLineNumbers" = true;
