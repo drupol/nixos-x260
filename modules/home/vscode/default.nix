@@ -47,6 +47,7 @@ in
         pkgs.vscode-extensions.mhutchie.git-graph
         pkgs.vscode-extensions.mkhl.direnv
         pkgs.vscode-extensions.ms-python.python
+        pkgs.vscode-extensions.ms-python.vscode-pylance
         pkgs.vscode-extensions.ms-vscode-remote.remote-containers
         pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
         pkgs.vscode-extensions.ms-vsliveshare.vsliveshare
