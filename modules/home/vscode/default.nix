@@ -35,8 +35,8 @@ in
         pkgs.vscode-extensions.donjayamanne.githistory
         pkgs.vscode-extensions.editorconfig.editorconfig
         pkgs.vscode-extensions.esbenp.prettier-vscode
-        pkgs.vscode-extensions.github.copilot
-        pkgs.vscode-extensions.github.copilot-chat
+        pkgs.master.vscode-extensions.github.copilot
+        pkgs.master.vscode-extensions.github.copilot-chat
         pkgs.vscode-extensions.github.github-vscode-theme
         pkgs.vscode-extensions.github.vscode-pull-request-github
         pkgs.vscode-extensions.griimick.vhs
