@@ -67,7 +67,8 @@
               --add-flags "--ozone-platform-hint=auto" \
               --add-flags "--profile-directory=${args.profile or "Default"}" \
               --add-flags "--disable-sync-preferences" \
-              --add-flags "--app=${args.url}"
+              --add-flags "--app=${args.url}" \
+              --add-flags "--window-size=800,800"
             runHook postInstall
           '';
 
