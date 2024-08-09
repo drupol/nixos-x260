@@ -17,7 +17,7 @@ in
     services = {
       tika = {
         enable = true;
-        package = pkgs.master.tika;
+        package = pkgs.tika;
       };
 
       ollama = {
@@ -39,7 +39,7 @@ in
           OLLAMA_API_BASE_URL = "http://127.0.0.1:11434/api";
           PDF_EXTRACT_IMAGES = "True";
           RAG_EMBEDDING_ENGINE = "ollama";
-          RAG_EMBEDDING_MODEL = "mxbai-embed-large:latest";
+          RAG_EMBEDDING_MODEL = "bge-m3:latest";
           RAG_EMBEDDING_MODEL_AUTO_UPDATE = "True";
           RAG_RERANKING_MODEL = "BAAI/bge-reranker-v2-m3";
           RAG_RERANKING_MODEL_AUTO_UPDATE = "True";
