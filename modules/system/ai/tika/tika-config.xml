@@ -1,5 +1,8 @@
-<server>
-  <params>
-    <taskTimeoutMillis>3600000</taskTimeoutMillis>
-  </params>
-</server>
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+  <server>
+    <params>
+      <taskTimeoutMillis>3600000</taskTimeoutMillis>
+    </params>
+  </server>
+</properties>
