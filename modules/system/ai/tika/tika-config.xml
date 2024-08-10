@@ -1,0 +1,5 @@
+<server>
+  <params>
+    <taskTimeoutMillis>3600000</taskTimeoutMillis>
+  </params>
+</server>

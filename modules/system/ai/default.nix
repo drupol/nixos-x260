@@ -18,6 +18,7 @@ in
       tika = {
         enable = true;
         package = pkgs.tika;
+        configFile = ./tika/tika-config.xml;
       };
 
       ollama = {
