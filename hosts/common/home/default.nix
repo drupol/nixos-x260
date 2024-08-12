@@ -34,10 +34,6 @@
       source = ./. + "/../../../files/home/pol/Pictures/Backgrounds/";
       recursive = true;
     };
-    ".config/birdtray-config.json" = {
-      source = ./. + "/../../../files/home/pol/.config/birdtray-config.json";
-      recursive = true;
-    };
   };
 
   programs = {
