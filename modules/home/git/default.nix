@@ -78,9 +78,6 @@ in
               }
             ];
           };
-          pager = {
-            diff = "delta";
-          };
           repoPaths = {
             "NixOS/*" = "~/Code/NixOS/*";
           };
@@ -101,16 +98,6 @@ in
       };
       git = {
         enable = true;
-        delta = {
-          enable = true;
-          options = {
-            navigate = true;
-            side-by-side = true;
-            line-numbers = true;
-            decorations = true;
-            syntax-theme = "OneHalfDark";
-          };
-        };
         userName = "Pol Dellaiera";
         userEmail = "pol.dellaiera@protonmail.com";
         aliases = {
