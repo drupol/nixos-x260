@@ -80,4 +80,13 @@
     user = "pol";
     remoteBuild = true;
   }
+  {
+    instance = "imac";
+    hostname = "imac";
+    operating-system = "nixos";
+    system = "x86_64-linux";
+    sshIdentityFile = "private.pem";
+    user = "pol";
+    remoteBuild = true;
+  }
 ]
