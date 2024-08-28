@@ -22,6 +22,12 @@
             inherit (hostConfig) system;
           };
         })
+        (final: prev: {
+          pr-337948 = import inputs.nixpkgs-pr-337948 {
+            inherit (final) config;
+            inherit (hostConfig) system;
+          };
+        })
         inputs.nur.overlay
         inputs.self.overlays.default
       ];
