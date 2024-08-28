@@ -258,11 +258,11 @@
     },
     "nixos-hardware-pr-1089": {
       "locked": {
-        "lastModified": 1724846648,
-        "narHash": "sha256-r0CByceLP1/ZXjLShDSEPQ2reNhNTdW82lN8fhMF7Mk=",
+        "lastModified": 1724857499,
+        "narHash": "sha256-W0tAF0RfCKmCRAKESra8mcSy1xNo2jUmZzkfISQHYkc=",
         "owner": "drupol",
         "repo": "nixos-hardware",
-        "rev": "8bbd075d004cfb61f1f8bc5e12dd5bf2c178e0d1",
+        "rev": "55ab90d3d4b198d6196acb85e8c5af6f50347269",
         "type": "github"
       },
       "original": {
@@ -314,16 +314,32 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1724845463,
-        "narHash": "sha256-0I+tSx1kKrFCQxtJmAgkj41OpvzTyyWGrv9Av4XTli8=",
+        "lastModified": 1724857169,
+        "narHash": "sha256-bQGqU1j4CgU9c6ggkj0ZZ7WuPXo44NYVygiLaYLdOBc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "8a2f45a81fc123a1b460f31f9aad41b40aae9836",
+        "rev": "a92f0fb638629024c54cf68635595a5a2c5b6495",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
         "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-pr-337948": {
+      "locked": {
+        "lastModified": 1724856022,
+        "narHash": "sha256-vINyEXC7ULEPQZfAZakLXdyRxRsTjMtJUsA4llXxpSc=",
+        "owner": "drupol",
+        "repo": "nixpkgs",
+        "rev": "bda39f6ccfda822f504fcd50bc304aaf62479677",
+        "type": "github"
+      },
+      "original": {
+        "owner": "drupol",
+        "ref": "broadcom-sta/add-patches",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -408,6 +424,7 @@
         "nixos-hardware-pr-1089": "nixos-hardware-pr-1089",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-master": "nixpkgs-master",
+        "nixpkgs-pr-337948": "nixpkgs-pr-337948",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nur": "nur",
         "plasma-manager": "plasma-manager",

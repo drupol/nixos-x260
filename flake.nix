@@ -5,6 +5,7 @@
     nixpkgs.url = "github:/nixos/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixpkgs-unstable.url = "github:/nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-pr-337948.url = "github:drupol/nixpkgs/broadcom-sta/add-patches";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-hardware-pr-1089.url = "github:drupol/nixos-hardware/add-imac-14-2";
     home-manager.url = "github:nix-community/home-manager";

@@ -19,6 +19,12 @@
               inherit system;
             };
           })
+          (final: prev: {
+            pr-337948 = import inputs.nixpkgs-pr-337948 {
+              inherit (final) config;
+              inherit system;
+            };
+          })
           inputs.nur.overlay
           inputs.deploy-rs.overlays.default
           inputs.self.overlays.default
