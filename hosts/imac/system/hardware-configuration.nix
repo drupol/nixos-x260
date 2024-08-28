@@ -6,7 +6,7 @@
 {
   imports =
     [
-      inputs.nixos-hardware.nixosModules.apple-imac-18-2
+      inputs.nixos-hardware-pr-1089.nixosModules.apple-imac-18-2
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
@@ -39,5 +39,4 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  hardware.bluetooth.enable = true;
 }
