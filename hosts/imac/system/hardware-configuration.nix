@@ -6,14 +6,13 @@
 {
   imports =
     [
-      inputs.nixos-hardware-pr-1089.nixosModules.apple-imac-18-2
+      inputs.nixos-hardware-pr-1089.nixosModules.apple-imac-14-2
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/7f407c85-1ca8-4d01-8e4a-73a6f607caa7";
