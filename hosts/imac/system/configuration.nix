@@ -52,6 +52,7 @@
   system.stateVersion = "24.05"; # Did you read the comment?
 
   nixpkgs.config.nvidia.acceptLicense = true;
+  nixpkgs.config.allowBroken = true;
   hardware.graphics.enable = true;
   hardware.nvidia = {
 
