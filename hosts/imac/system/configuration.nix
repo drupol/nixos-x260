@@ -82,6 +82,6 @@
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = pkgs.kernelPackages.nvidiaPackages.legacy_390;
+    package = pkgs.linuxPackages_latest.nvidiaPackages.legacy_390;
   };
 }
