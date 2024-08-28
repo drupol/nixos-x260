@@ -258,11 +258,11 @@
     },
     "nixos-hardware-pr-1089": {
       "locked": {
-        "lastModified": 1724832826,
-        "narHash": "sha256-XWmFG1X5U1zhdUzxGbTichT5Rss7hnbK7s8PawsFp50=",
+        "lastModified": 1724833752,
+        "narHash": "sha256-fujFkA56a9uX1XPMAPyuA2JORXYpj4JDcuorUZ2+xT4=",
         "owner": "drupol",
         "repo": "nixos-hardware",
-        "rev": "86b30ab37affa97aa222c39c9978b848492cc2a7",
+        "rev": "76cfc899f882e1d3e93c2fb30ed408bb73ef37fb",
         "type": "github"
       },
       "original": {
