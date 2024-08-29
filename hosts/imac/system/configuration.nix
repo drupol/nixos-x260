@@ -86,5 +86,5 @@
     package = pkgs.master.linuxPackages_latest.nvidiaPackages.legacy_390;
   };
 
-  boot.extraModulePackages = [ pkgs.pr-337948.linuxPackages_latest.broadcom_sta ];
+  boot.extraModulePackages = [ pkgs.master.linuxPackages_latest.broadcom_sta ];
 }
