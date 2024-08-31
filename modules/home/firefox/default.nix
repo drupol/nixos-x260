@@ -51,6 +51,7 @@ in
             pkgs.nur.repos.rycee.firefox-addons.refined-saved-replies
             pkgs.nur.repos.rycee.firefox-addons.simple-tab-groups
             pkgs.nur.repos.rycee.firefox-addons.tournesol
+            pkgs.nur.repos.rycee.firefox-addons.violentmonkey
           ];
           search = {
             default = "Google";
