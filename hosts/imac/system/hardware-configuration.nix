@@ -11,7 +11,7 @@
 
 {
   imports = [
-    inputs.nixos-hardware-pr-1089.nixosModules.apple-imac-14-2
+    inputs.nixos-hardware.nixosModules.apple-imac-14-2
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 

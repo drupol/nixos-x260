@@ -83,8 +83,8 @@
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = pkgs.master.linuxPackages_latest.nvidiaPackages.legacy_390;
+    package = pkgs.linuxPackages_latest.nvidiaPackages.legacy_390;
   };
 
-  boot.extraModulePackages = [ pkgs.master.linuxPackages_latest.broadcom_sta ];
+  boot.extraModulePackages = [ pkgs.linuxPackages_latest.broadcom_sta ];
 }
