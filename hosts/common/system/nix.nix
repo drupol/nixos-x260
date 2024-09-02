@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   nix = {
+    package = pkgs.nixVersions.latest;
+
     # See https://discourse.nixos.org/t/24-05-add-flake-to-nix-path/46310/9
     # See https://hachyderm.io/@leftpaddotpy/112539055867932912
     channel.enable = false;
@@ -27,8 +29,6 @@
         "pol"
       ];
       auto-optimise-store = true;
-      extra-substituters = [ "https://cache.lix.systems" ];
-      trusted-public-keys = [ "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o=" ];
     };
   };
 
