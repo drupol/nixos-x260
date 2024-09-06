@@ -31,7 +31,7 @@ in
         port = 8080;
         environment = {
           CONTENT_EXTRACTION_ENGINE = "tika";
-          DOCS_DIR = "/var/lib/private/open-webui/uploads/";
+          DOCS_DIR = "/home/pol/docs";
           DEVICE_TYPE = "cpu";
           ENABLE_OLLAMA_API = "True";
           ENABLE_RAG_HYBRID_SEARCH = "True";
