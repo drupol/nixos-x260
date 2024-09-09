@@ -4,7 +4,7 @@ inputs.self.lib.mkChromiumApp pkgs {
   appName = "google-protonmail";
   categories = [
     "Network"
-    "Mail"
+    "Email"
   ];
   class = "chrome-mail.proton.me__-ProtonmailProfile";
   desktopName = "Google Meet";
