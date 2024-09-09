@@ -7,7 +7,7 @@ inputs.self.lib.mkChromiumApp pkgs {
     "Email"
   ];
   class = "chrome-mail.proton.me__-ProtonmailProfile";
-  desktopName = "Google Meet";
+  desktopName = "Protonmail";
   icon = ./proton-mail-seeklogo.svg;
   profile = "ProtonmailProfile";
   url = "https://mail.proton.me";
