@@ -17,10 +17,10 @@ in
       chromium-discord
       chromium-element
       chromium-meet
+      chromium-protonmail
       chromium-teams
       chromium-telegram
       signal-desktop
-      simplex-chat-desktop
     ];
   };
 }
