@@ -358,6 +358,9 @@ in
           };
         };
       };
+      jujutsu = {
+        enable = true;
+      };
     };
   };
 }
