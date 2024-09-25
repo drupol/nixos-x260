@@ -360,6 +360,20 @@ in
       };
       jujutsu = {
         enable = true;
+        settings = {
+          user = {
+            email = "pol.dellaiera@protonmail.com";
+            name = "Pol Dellaiera";
+          };
+          ui = {
+            default-command = "log";
+            pager = ":builtin";
+            paginate = "auto";
+          };
+          git = {
+            auto-local-branch = true;
+          };
+        };
       };
     };
   };
