@@ -367,11 +367,14 @@ in
           };
           ui = {
             default-command = "log";
-            pager = ":builtin";
+            pager = "less -FRX"; # default includes -X, which prevents cleanup
             paginate = "auto";
           };
           git = {
             auto-local-branch = true;
+          };
+          template-aliases = {
+            "format_short_id(id)" = "id.shortest()";
           };
         };
       };
