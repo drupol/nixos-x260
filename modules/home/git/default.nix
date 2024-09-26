@@ -369,6 +369,7 @@ in
             default-command = "log";
             pager = "less -FRX"; # default includes -X, which prevents cleanup
             paginate = "auto";
+            graph.style = "square";
           };
           git = {
             auto-local-branch = true;
