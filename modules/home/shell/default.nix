@@ -87,7 +87,7 @@ in
           add_newline = false;
           command_timeout = 5000;
           scan_timeout = 1;
-          format = "$directory$git_branch$git_commit$git_state$git_metrics$git_status$php$rust$character";
+          format = "$directory$git_branch$git_commit$git_state$git_metrics$git_status$custom$php$rust$character";
           right_format = "$username$hostname$localip$nix_shell$cmd_duration$os";
           character = {
             success_symbol = " [❯](bold green)";
@@ -442,6 +442,37 @@ in
 
           zig = {
             symbol = "zig ";
+          };
+
+          custom.jj = {
+            when = "jj root";
+            command = ''
+              jj log -r@ -l1 --ignore-working-copy --no-graph --color always  -T '
+                separate(" ",
+                  branches.map(|x| if(
+                      x.name().substr(0, 10).starts_with(x.name()),
+                      x.name().substr(0, 10),
+                      x.name().substr(0, 9) ++ "…")
+                    ).join(" "),
+                  tags.map(|x| if(
+                      x.name().substr(0, 10).starts_with(x.name()),
+                      x.name().substr(0, 10),
+                      x.name().substr(0, 9) ++ "…")
+                    ).join(" "),
+                  surround("\"","\"",
+                    if(
+                       description.first_line().substr(0, 24).starts_with(description.first_line()),
+                       description.first_line().substr(0, 24),
+                       description.first_line().substr(0, 23) ++ "…"
+                    )
+                  ),
+                  if(conflict, "conflict"),
+                  if(divergent, "divergent"),
+                  if(hidden, "hidden"),
+                )
+              '
+            '';
+            detect_folders = [ ".jj" ];
           };
         };
       };
