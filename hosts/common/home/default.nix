@@ -39,6 +39,12 @@
   programs = {
     micro = {
       enable = true;
+      settings = {
+      	diffgutter = true;
+        keymenu = true;
+        tabsize = 2;
+        tabstospaces = true;
+      };
     };
     password-store = {
       enable = true;
