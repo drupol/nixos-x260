@@ -373,10 +373,26 @@ in
           };
           git = {
             auto-local-branch = true;
+            fetch = [
+              "origin"
+            ];
           };
           template-aliases = {
             "format_short_id(id)" = "id.shortest()";
           };
+          revset-aliases = {
+            "immutable_heads()" = "trunk() | tags() | remote_branches(remote=origin)";
+          };
+          revsets.log = "@ | ancestors(reachable(@, mutable()), 2)";
+
+          aliases = {
+            ll = [
+              "log"
+              "-r"
+              "@ | ancestors(reachable(@ | mine(), mutable()), 2) | trunk()"
+            ];
+          };
+
         };
       };
     };
