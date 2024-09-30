@@ -13,7 +13,6 @@
       SystemMaxUse=100M
       MaxFileSec=3day
     '';
-    fstrim.enable = true;
     nscd.enableNsncd = true;
     # needed for store VS Code auth token
     gnome.gnome-keyring.enable = true;
