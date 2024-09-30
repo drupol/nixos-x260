@@ -2,7 +2,7 @@
 {
   services = {
     flatpak = {
-      enable = false;
+      enable = true;
     };
     fwupd = {
       enable = true;
