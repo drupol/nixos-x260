@@ -383,13 +383,13 @@ in
           revset-aliases = {
             "immutable_heads()" = "trunk() | tags() | remote_branches(remote=origin)";
           };
-          revsets.log = "@ | ancestors(reachable(@, mutable()), 2)";
+          revsets.log = "@ | ancestors(reachable(@, mutable()))";
 
           aliases = {
             ll = [
               "log"
               "-r"
-              "@ | ancestors(reachable(@ | mine(), mutable()), 2) | trunk()"
+              "@ | ancestors(reachable(@ | mine(), mutable())) | trunk()"
             ];
           };
 
