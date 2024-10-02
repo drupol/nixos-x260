@@ -35,22 +35,8 @@ in
         pkgs.vscode-extensions.donjayamanne.githistory
         pkgs.vscode-extensions.editorconfig.editorconfig
         pkgs.vscode-extensions.esbenp.prettier-vscode
-        (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
-          mktplcRef = {
-            publisher = "github";
-            name = "copilot";
-            version = "1.234.1133";
-            hash = "sha256-kRQIB4ozN8f+JPG2U6tA/u0r3/J05kYfMuksaJrumZM=";
-          };
-        })
-        (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
-          mktplcRef = {
-            publisher = "github";
-            name = "copilot-chat";
-            version = "0.21.2024090602";
-            hash = "sha256-9wl/orFbf1OFwGnF1uLfyOOtO2v5k2H1aUMBtngXDfs=";
-          };
-        })
+        pkgs.master.vscode-extensions.github.copilot
+        pkgs.master.vscode-extensions.github.copilot-chat
         pkgs.vscode-extensions.github.github-vscode-theme
         pkgs.vscode-extensions.github.vscode-pull-request-github
         pkgs.vscode-extensions.griimick.vhs
