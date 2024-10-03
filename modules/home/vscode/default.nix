@@ -48,6 +48,14 @@ in
         pkgs.vscode-extensions.mkhl.direnv
         pkgs.vscode-extensions.ms-python.python
         pkgs.vscode-extensions.ms-python.vscode-pylance
+        (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+          mktplcRef = {
+            name = "jupyter";
+            publisher = "ms-toolsai";
+            version = "2024.8.1"; # Latest version compatible with VSCode ^1.93
+            hash = "sha256-eFInKB1xwVVJFIsXHxsuRJeLKTe3Cb8svquHJOW0P+I=";
+          };
+        })
         pkgs.vscode-extensions.ms-vscode-remote.remote-containers
         pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
         pkgs.vscode-extensions.ms-vsliveshare.vsliveshare
