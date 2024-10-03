@@ -360,6 +360,7 @@ in
       };
       jujutsu = {
         enable = true;
+        package = pkgs.unstable.jujutsu;
         settings = {
           user = {
             email = "pol.dellaiera@protonmail.com";
@@ -381,7 +382,7 @@ in
             "format_short_id(id)" = "id.shortest()";
           };
           revset-aliases = {
-            "immutable_heads()" = "trunk() | tags() | remote_branches(remote=origin)";
+            "immutable_heads()" = "trunk() | tags() | remote_bookmarks(remote=origin)";
           };
           revsets.log = "@ | ancestors(reachable(@, mutable()))";
 
