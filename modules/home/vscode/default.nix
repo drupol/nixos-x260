@@ -61,6 +61,14 @@ in
         pkgs.vscode-extensions.ms-vsliveshare.vsliveshare
         pkgs.vscode-extensions.myriad-dreamin.tinymist
         pkgs.vscode-extensions.pkief.material-icon-theme
+        (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+          mktplcRef = {
+            name = "pylyzer";
+            publisher = "pylyzer";
+            version = "0.1.8";
+            hash = "sha256-GoY4cobxL64bREtgl7q/iR66axSM3tBrle/b9h3ED8Q=";
+          };
+        })
         pkgs.vscode-extensions.redhat.vscode-yaml
         pkgs.vscode-extensions.redhat.vscode-xml
         pkgs.vscode-extensions.rust-lang.rust-analyzer
