@@ -360,7 +360,6 @@ in
       };
       jujutsu = {
         enable = true;
-        package = pkgs.unstable.jujutsu;
         settings = {
           user = {
             email = "pol.dellaiera@protonmail.com";
