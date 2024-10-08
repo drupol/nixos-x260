@@ -394,7 +394,7 @@ in
             xl = [
               "log"
               "-r"
-              "'all()'"
+              "\"all()\""
             ];
             evolve = [
               "rebase"
