@@ -391,8 +391,18 @@ in
               "-r"
               "@ | ancestors(reachable(@ | mine(), mutable())) | trunk()"
             ];
+            xl = [
+              "log"
+              "-r"
+              "'all()'"
+            ];
+            evolve = [
+              "rebase"
+              "--skip-empty"
+              "-d"
+              "main"
+            ];
           };
-
         };
       };
     };
