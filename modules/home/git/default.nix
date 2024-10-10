@@ -367,9 +367,10 @@ in
           };
           ui = {
             default-command = "log";
+            diff-editor = ":builtin";
+            graph.style = "square";
             pager = "less -FRX"; # default includes -X, which prevents cleanup
             paginate = "auto";
-            graph.style = "square";
           };
           git = {
             auto-local-branch = true;
