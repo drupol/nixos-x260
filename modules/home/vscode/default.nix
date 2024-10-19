@@ -61,7 +61,7 @@ in
         pkgs.vscode-extensions.tamasfe.even-better-toml
         pkgs.vscode-extensions.tekumara.typos-vscode
         pkgs.vscode-extensions.usernamehw.errorlens
-        pkgs.vscode-extensions.visualjj.visualjj
+        pkgs.master.vscode-extensions.visualjj.visualjj
         pkgs.vscode-extensions.waderyan.gitblame
         pkgs.vscode-extensions.yzhang.markdown-all-in-one
         pkgs.vscode-extensions.zhuangtongfa.material-theme
