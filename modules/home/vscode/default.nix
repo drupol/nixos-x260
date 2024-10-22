@@ -56,7 +56,6 @@ in
         pkgs.vscode-extensions.pkief.material-icon-theme
         pkgs.vscode-extensions.redhat.vscode-yaml
         pkgs.vscode-extensions.redhat.vscode-xml
-        pkgs.vscode-extensions.rust-lang.rust-analyzer
         pkgs.vscode-extensions.tailscale.vscode-tailscale
         pkgs.vscode-extensions.tamasfe.even-better-toml
         pkgs.vscode-extensions.tekumara.typos-vscode
