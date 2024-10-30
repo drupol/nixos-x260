@@ -34,6 +34,7 @@
         ./imports/devshells.nix
         ./imports/overlay.nix
         ./imports/nixosConfigurations.nix
+        ./imports/homeConfigurations.nix
         ./imports/lib.nix
         ./imports/deploy.nix
         ./imports/checks.nix
