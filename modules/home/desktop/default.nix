@@ -33,6 +33,7 @@ in
       krita
       ktailctl
       vlc
+      vscode-runner
     ];
   };
 }
