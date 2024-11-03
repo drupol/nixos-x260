@@ -114,11 +114,12 @@ in
         "editor.fontLigatures" = true;
         "editor.fontSize" = 14;
         "editor.formatOnSave" = false;
+        "editor.guides.bracketPairs" = true;
+        "editor.inlineSuggest.enabled" = true;
+        "editor.renderWhitespace" = "boundary";
         "editor.suggestFontSize" = 0;
         "editor.suggest.preview" = true;
         "editor.suggest.showStatusBar" = true;
-        "editor.guides.bracketPairs" = "active";
-        "editor.inlineSuggest.enabled" = true;
         "editor.mouseWheelZoom" = true;
         "editor.rulers" = [
           80
@@ -133,6 +134,11 @@ in
         "errorLens.enabled" = false;
         "explorer.confirmDelete" = false;
         "explorer.confirmDragAndDrop" = false;
+        "explorer.fileNesting.enabled" = true;
+        "explorer.fileNesting.patterns" = {
+          "*.md" = "\${capture}.*.md";
+          "config.toml" = "config.*.toml,params.toml";
+        };
         "extensions.autoCheckUpdates" = true;
         "extensions.autoUpdate" = false;
         "extensions.ignoreRecommendations" = true;
@@ -176,6 +182,7 @@ in
         "search.exclude" = {
           "**/.direnv" = true;
           "**/.git" = true;
+          "**/.jj" = true;
           "**/node_modules" = true;
           "*.lock" = true;
           "dist" = true;
@@ -185,9 +192,10 @@ in
         "telemetry.telemetryLevel" = "off";
         "terminal.integrated.defaultProfile.linux" = "fish";
         "terminal.integrated.fontSize" = 14;
+        "terminal.integrated.tabs.enabled" = true;
         "rust-analyzer.cargo.buildScripts.enable" = true;
-        "update.mode" = "manual";
-        "update.showReleaseNotes" = false;
+        "update.mode" = "none";
+        "update.showReleaseNotes" = true;
         "window.dialogStyle" = "custom";
         "window.menuBarVisibility" = "toggle";
         "window.newWindowDimensions" = "inherit";
@@ -195,8 +203,11 @@ in
         "window.zoomLevel" = 0;
         "workbench.colorCustomizations" = { };
         "workbench.colorTheme" = "GitHub Dark Default";
+        "workbench.commandPalette.experimental.suggestCommands" = true;
+        "workbench.editor.enablePreview" = false; # Prevents temporary editor tabs
         "workbench.editor.highlightModifiedTabs" = true;
         "workbench.iconTheme" = "material-icon-theme";
+        "workbench.panel.defaultLocation" = "bottom";
         "workbench.startupEditor" = "none";
       };
     };
