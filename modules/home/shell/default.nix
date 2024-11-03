@@ -450,36 +450,7 @@ in
           custom.jj = {
             when = "jj root";
             format = " $output";
-            command = ''
-              jj log -n 1 --ignore-working-copy --no-graph --color always -r @ -T '
-                  surround(
-                      "(",
-                      ")",
-                      separate(
-                          " ",
-                          branches.join(", "),
-                          coalesce(
-                              surround(
-                                  "\"",
-                                  "\"",
-                                  if(
-                                      description.first_line().substr(0, 24).starts_with(description.first_line()),
-                                      description.first_line().substr(0, 24),
-                                      description.first_line().substr(0, 23) ++ "…"
-                                  )
-                              ),
-                              "(no description set)"
-                          ),
-                          change_id.shortest(),
-                          commit_id.shortest(),
-                          if(conflict, "(conflict)"),
-                          if(empty, "(empty)"),
-                          if(divergent, "(divergent)"),
-                          if(hidden, "(hidden)"),
-                      )
-                  )
-              '
-            '';
+            command = "jj log --color always --no-pager -r @ --no-graph -T starship";
             detect_folders = [ ".jj" ];
           };
         };
