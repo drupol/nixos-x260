@@ -450,7 +450,7 @@ in
           custom.jj = {
             when = "jj root";
             format = " $output";
-            command = "jj log --color always --no-pager -r @ --no-graph -T starship";
+            command = "jj log --ignore-working-copy --color always --no-pager -r @ --no-graph -T starship";
             detect_folders = [ ".jj" ];
           };
         };
