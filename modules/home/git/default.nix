@@ -380,17 +380,6 @@ in
           };
           template-aliases = {
             "format_short_id(id)" = "id.shortest()";
-            starship = ''
-              concat(
-                format_short_change_id_with_hidden_and_divergent_info(self),
-                surround(" ", "", local_bookmarks.join(" ")),
-                surround(
-                  " ",
-                  "",
-                  parents.map(|parent| "~" ++ parent.local_bookmarks().join(" ")).join(" "),
-                ),
-              )
-            '';
           };
           revset-aliases = {
             "immutable_heads()" = "trunk() | tags() | remote_bookmarks(remote=origin)";
