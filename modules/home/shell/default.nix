@@ -90,7 +90,7 @@ in
           add_newline = false;
           command_timeout = 5000;
           scan_timeout = 1;
-          format = "$directory$git_branch$git_commit$git_state$git_metrics$git_status$custom$php$rust$character";
+          format = "$directory$custom$php$rust$character";
           right_format = "$username$hostname$localip$nix_shell$cmd_duration$os";
           character = {
             success_symbol = " [❯](bold green)";
@@ -185,46 +185,6 @@ in
 
           gcloud = {
             symbol = "gcp ";
-          };
-
-          git_branch = {
-            symbol = ">";
-            format = " $symbol $branch(:$remote_branch)";
-          };
-
-          git_commit = {
-            commit_hash_length = 7;
-            format = " > ([\($hash$tag\)]($style))";
-            style = "green bold";
-            only_detached = true;
-            disabled = false;
-            tag_symbol = "@";
-            tag_disabled = false;
-            tag_max_candidates = 0;
-          };
-
-          git_metrics = {
-            added_style = "bold green";
-            deleted_style = "bold red";
-            only_nonzero_diffs = true;
-            format = "( [+$added]($added_style) )([-$deleted]($deleted_style))";
-            disabled = false;
-            ignore_submodules = false;
-          };
-
-          git_status = {
-            format = "( \[\\[$all_status$ahead_behind\\]\]\($style\))";
-            style = "red bold";
-            ahead = "↑";
-            behind = "↓";
-            conflicted = "✖";
-            deleted = "x";
-            diverged = "⇅";
-            modified = "!";
-            renamed = "r";
-            staged = "+";
-            stashed = "";
-            untracked = "?";
           };
 
           golang = {
