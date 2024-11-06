@@ -449,7 +449,7 @@ in
 
           custom.jj = {
             when = "jj root --ignore-working-copy";
-            format = " $output";
+            format = " > $output";
             command = ''
               jj log -n 1 --ignore-working-copy --no-graph --color always -r @ -T '
                   surround(
