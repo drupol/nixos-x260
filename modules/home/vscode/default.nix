@@ -197,6 +197,7 @@ in
         "rust-analyzer.cargo.buildScripts.enable" = true;
         "update.mode" = "none";
         "update.showReleaseNotes" = true;
+        "visualjj.refreshInterval" = 60;
         "window.dialogStyle" = "custom";
         "window.menuBarVisibility" = "toggle";
         "window.newWindowDimensions" = "inherit";
