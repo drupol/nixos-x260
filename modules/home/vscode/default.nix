@@ -47,6 +47,7 @@ in
         pkgs.vscode-extensions.mhutchie.git-graph
         pkgs.vscode-extensions.mkhl.direnv
         pkgs.vscode-extensions.mongodb.mongodb-vscode
+        pkgs.vscode-extensions.ms-python.debugpy
         pkgs.vscode-extensions.ms-python.python
         pkgs.vscode-extensions.ms-python.vscode-pylance
         pkgs.vscode-extensions.ms-toolsai.jupyter
