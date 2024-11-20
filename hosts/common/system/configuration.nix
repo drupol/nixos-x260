@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 {
   # See https://github.com/NixOS/nixpkgs/pull/308801
   system.switch = {
@@ -11,7 +11,7 @@
       useTmpfs = true;
       cleanOnBoot = true;
     };
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_6_11;
   };
 
   i18n.defaultLocale = "en_GB.UTF-8";
