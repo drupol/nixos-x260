@@ -444,6 +444,8 @@ in
           };
         };
       };
+
+      yazi.enable = true;
     };
   };
 }
