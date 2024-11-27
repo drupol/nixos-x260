@@ -73,9 +73,6 @@ in
       htop = {
         enable = true;
       };
-      nh = {
-        enable = true;
-      };
       ripgrep = {
         enable = true;
       };
