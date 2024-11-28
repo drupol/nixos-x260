@@ -35,7 +35,7 @@ in
         pkgs.vscode-extensions.donjayamanne.githistory
         pkgs.vscode-extensions.editorconfig.editorconfig
         pkgs.vscode-extensions.esbenp.prettier-vscode
-        pkgs.vscode-extensions.github.copilot
+        pkgs.master.vscode-extensions.github.copilot
         pkgs.vscode-extensions.github.copilot-chat
         pkgs.vscode-extensions.github.github-vscode-theme
         pkgs.vscode-extensions.github.vscode-pull-request-github
@@ -62,7 +62,19 @@ in
         pkgs.vscode-extensions.tamasfe.even-better-toml
         pkgs.vscode-extensions.tekumara.typos-vscode
         pkgs.vscode-extensions.usernamehw.errorlens
-        pkgs.master.vscode-extensions.visualjj.visualjj
+        (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+          vsix = pkgs.fetchurl {
+            url = "https://download.visualjj.com/visualjj-linux-x64-0.13.0.vsix";
+            name = "visualjj-visualjj-0.13.0.zip";
+            hash = "sha256-mhfn/Lw/W1T2PaIglwrO/7VacDutT6Tgs133ePHL7W4=";
+          };
+
+          mktplcRef = {
+            name = "visualjj";
+            publisher = "visualjj";
+            version = "0.13.0";
+          };
+        })
         pkgs.vscode-extensions.waderyan.gitblame
         pkgs.vscode-extensions.yzhang.markdown-all-in-one
         pkgs.vscode-extensions.zhuangtongfa.material-theme
