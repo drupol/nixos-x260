@@ -11,7 +11,7 @@
       useTmpfs = true;
       cleanOnBoot = true;
     };
-    kernelPackages = pkgs.linuxPackages_6_11;
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   i18n.defaultLocale = "en_GB.UTF-8";
