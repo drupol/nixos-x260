@@ -80,9 +80,6 @@ in
         "[nix]" = {
           "editor.defaultFormatter" = "jkillian.custom-local-formatters";
         };
-        "[rust]" = {
-          "editor.defaultFormatter" = "rust-lang.rust-analyzer";
-        };
         "[php]" = {
           "editor.defaultFormatter" = "bmewburn.vscode-intelephense-client";
         };
@@ -195,7 +192,7 @@ in
         "terminal.integrated.defaultProfile.linux" = "fish";
         "terminal.integrated.fontSize" = 14;
         "terminal.integrated.tabs.enabled" = true;
-        "rust-analyzer.cargo.buildScripts.enable" = true;
+        "typos.config" = ".typos.toml";
         "update.mode" = "none";
         "update.showReleaseNotes" = true;
         "window.dialogStyle" = "custom";
