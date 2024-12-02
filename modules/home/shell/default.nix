@@ -73,6 +73,11 @@ in
       htop = {
         enable = true;
       };
+      nix-your-shell = {
+        enable = true;
+        enableNushellIntegration = false;
+        enableZshIntegration = false;
+      };
       ripgrep = {
         enable = true;
       };
