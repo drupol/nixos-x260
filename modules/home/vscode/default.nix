@@ -192,7 +192,6 @@ in
         "terminal.integrated.defaultProfile.linux" = "fish";
         "terminal.integrated.fontSize" = 14;
         "terminal.integrated.tabs.enabled" = true;
-        "typos.config" = ".typos.toml";
         "update.mode" = "none";
         "update.showReleaseNotes" = true;
         "window.dialogStyle" = "custom";
