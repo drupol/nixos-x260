@@ -1,0 +1,8 @@
+{ ... }:
+{
+  virtualisation = {
+    podman = {
+      enable = true;
+    };
+  };
+}

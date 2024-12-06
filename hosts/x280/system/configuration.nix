@@ -23,22 +23,6 @@
   # };
   console.useXkbConfig = true;
 
-  services = {
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "be";
-        options = "eurosign:e";
-      };
-    };
-  };
-
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
@@ -63,11 +47,13 @@
     useDHCP = false;
   };
 
-  system.stateVersion = "24.05";
-
-  virtualisation.docker.enable = true;
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://search.nixos.org/options?&show=system.stateVersion&from=0&size=50&sort=relevance&type=packages&query=stateVersion).
+  system.stateVersion = "25.05"; # Did you read the comment?
 
   hardware.bluetooth.enable = true;
-
-  services.thermald.enable = true;
 }
