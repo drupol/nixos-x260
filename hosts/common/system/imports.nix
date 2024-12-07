@@ -22,7 +22,7 @@
             inherit (hostConfig) system;
           };
         })
-        inputs.nur.overlay
+        inputs.nur.overlays.default
         inputs.self.overlays.default
       ];
     }

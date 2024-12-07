@@ -19,7 +19,7 @@
               inherit system;
             };
           })
-          inputs.nur.overlay
+          inputs.nur.overlays.default
           inputs.deploy-rs.overlays.default
           inputs.self.overlays.default
         ];
