@@ -151,6 +151,7 @@ in
         "git.blame.editorDecoration.enabled" = true;
         "git.blame.statusBarItem.enabled" = true;
         "git.blame.editorDecoration.template" = "\${subject}, \${authorName} (\${authorDateAgo})";
+        "git.blame.statusBarItem.template" = "\${subject}, \${authorName} (\${authorDateAgo})";
         "git.confirmForcePush" = false;
         "git.confirmSync" = false;
         "git.enableSmartCommit" = true;
