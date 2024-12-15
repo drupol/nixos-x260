@@ -63,7 +63,6 @@ in
         pkgs.vscode-extensions.tekumara.typos-vscode
         pkgs.vscode-extensions.usernamehw.errorlens
         pkgs.vscode-extensions.visualjj.visualjj
-        pkgs.vscode-extensions.waderyan.gitblame
         pkgs.vscode-extensions.yzhang.markdown-all-in-one
         pkgs.vscode-extensions.zhuangtongfa.material-theme
       ];
@@ -149,14 +148,13 @@ in
         "git.allowForcePush" = true;
         "git.autofetch" = true;
         "git.autoStash" = true;
+        "git.blame.editorDecoration.enabled" = true;
+        "git.blame.statusBarItem.enabled" = true;
+        "git.blame.editorDecoration.template" = "\${subject}, \${authorName} (\${authorDateAgo})";
         "git.confirmForcePush" = false;
         "git.confirmSync" = false;
         "git.enableSmartCommit" = true;
         "git.showPushSuccessNotification" = true;
-        "gitblame.inlineMessageEnabled" = true;
-        "gitblame.inlineMessageFormat" = "\${commit.summary} by \${author.name} - \${time.ago} @ \${commit.hash_short}";
-        "gitblame.inlineMessageMargin" = 4;
-        "gitblame.statusBarMessageFormat" = "\${commit.summary} by \${author.name} - \${time.ago} @ \${commit.hash_short}";
         "github.copilot.enable" = {
           "*" = true;
           "yaml" = true;
