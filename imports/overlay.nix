@@ -19,11 +19,11 @@
               inherit system;
             };
           })
+          inputs.nix-webapps.overlays.lib
           inputs.nur.overlays.default
           inputs.deploy-rs.overlays.default
           inputs.self.overlays.default
         ];
-        config = { };
       };
     };
 }

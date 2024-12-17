@@ -20,6 +20,8 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pkgs-by-name-for-flake-parts.url = "github:drupol/pkgs-by-name-for-flake-parts";
+    nix-webapps.url = "github:TLATER/nix-webapps";
   };
 
   outputs =
@@ -29,6 +31,7 @@
 
       imports = [
         inputs.flake-parts.flakeModules.easyOverlay
+        inputs.pkgs-by-name-for-flake-parts.flakeModule
         ./imports/pkgs.nix
         ./imports/formatter.nix
         ./imports/devshells.nix
