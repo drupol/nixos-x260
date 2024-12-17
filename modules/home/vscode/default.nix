@@ -36,10 +36,9 @@ in
         pkgs.vscode-extensions.editorconfig.editorconfig
         pkgs.vscode-extensions.esbenp.prettier-vscode
         pkgs.master.vscode-extensions.github.copilot
-        pkgs.vscode-extensions.github.copilot-chat
+        pkgs.master.vscode-extensions.github.copilot-chat
         pkgs.vscode-extensions.github.github-vscode-theme
         pkgs.vscode-extensions.github.vscode-pull-request-github
-        pkgs.vscode-extensions.griimick.vhs
         pkgs.vscode-extensions.humao.rest-client
         pkgs.vscode-extensions.jebbs.plantuml
         pkgs.vscode-extensions.jkillian.custom-local-formatters
@@ -62,7 +61,7 @@ in
         pkgs.vscode-extensions.tamasfe.even-better-toml
         pkgs.vscode-extensions.tekumara.typos-vscode
         pkgs.vscode-extensions.usernamehw.errorlens
-        pkgs.vscode-extensions.visualjj.visualjj
+        pkgs.master.vscode-extensions.visualjj.visualjj
         pkgs.vscode-extensions.yzhang.markdown-all-in-one
         pkgs.vscode-extensions.zhuangtongfa.material-theme
       ];
@@ -181,6 +180,7 @@ in
           "**/.direnv" = true;
           "**/.git" = true;
           "**/.jj" = true;
+          "**/.venv" = true;
           "**/node_modules" = true;
           "*.lock" = true;
           "dist" = true;
