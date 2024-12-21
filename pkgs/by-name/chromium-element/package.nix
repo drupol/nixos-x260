@@ -1,6 +1,6 @@
-{ inputs, pkgs }:
+{ pkgs }:
 
-inputs.self.lib.mkChromiumApp pkgs {
+pkgs.nix-webapps-lib.mkChromiumApp {
   appName = "element";
   categories = [
     "Network"

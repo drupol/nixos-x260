@@ -40,51 +40,6 @@
           )
           ++ (if recursive then concatMap (path: toList path) (unique include) else unique include)
         );
-
-      mkChromiumApp =
-        pkgs: args:
-        (pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
-          pname = "chromium-app-${args.appName}";
-          version = "1.0.0";
-
-          buildInputs = [ pkgs.chromium ];
-
-          nativeBuildInputs = [
-            pkgs.makeBinaryWrapper
-            pkgs.copyDesktopItems
-          ];
-
-          dontUnpack = true;
-          dontConfigure = true;
-          dontBuild = true;
-
-          installPhase = ''
-            runHook preInstall
-            makeWrapper ${
-              lib.getExe (pkgs.chromium.override { enableWideVine = true; })
-            } $out/bin/${args.appName} \
-              --add-flags "--enable-features=UseOzonePlatform,WebRTCPipeWireCapturer,WebUIDarkMode" \
-              --add-flags "--ozone-platform-hint=auto" \
-              --add-flags "--profile-directory=${args.profile or "Default"}" \
-              --add-flags "--disable-sync-preferences" \
-              --add-flags "--app=${args.url}" \
-              --add-flags "--window-size=800,800"
-            runHook postInstall
-          '';
-
-          desktopItems = [
-            (pkgs.makeDesktopItem {
-              name = args.appName;
-              exec = args.appName;
-              icon = args.icon or args.appName;
-              desktopName = args.desktopName or args.appName;
-              genericName = args.genericName or args.appName;
-              categories = args.categories or [ ];
-              startupWMClass = args.class or args.appName;
-            })
-          ];
-        })).overrideAttrs
-          (args);
     };
   };
 }

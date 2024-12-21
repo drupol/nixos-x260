@@ -1,9 +1,4 @@
-{
-  inputs,
-  lib,
-  hostConfig,
-  ...
-}:
+{ inputs, hostConfig, ... }:
 {
   imports = [
     inputs.nix-oracle-db.nixosModules.oracle-database-container
@@ -22,6 +17,7 @@
             inherit (hostConfig) system;
           };
         })
+        inputs.nix-webapps.overlays.lib
         inputs.nur.overlays.default
         inputs.self.overlays.default
       ];
