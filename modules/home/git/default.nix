@@ -385,6 +385,7 @@ in
             "immutable_heads()" = "trunk() | tags() | remote_bookmarks(remote=origin)";
           };
           revsets.log = "@ | ancestors(reachable(@, mutable()))";
+          snapshot.max-new-file-size = "15M";
 
           aliases = {
             ll = [
