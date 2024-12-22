@@ -7,9 +7,8 @@ pkgs.nix-webapps-lib.mkChromiumApp {
     "Chat"
     "InstantMessaging"
   ];
-  class = "chrome-teams.microsoft.com__-TeamsProfile";
+  class = "chrome-teams.microsoft.com__-Default";
   desktopName = "Microsoft Teams";
   icon = ./Microsoft_Office_Teams.svg;
-  profile = "TeamsProfile";
   url = "https://teams.microsoft.com";
 }

@@ -6,9 +6,8 @@ pkgs.nix-webapps-lib.mkChromiumApp {
     "Network"
     "Email"
   ];
-  class = "chrome-mail.proton.me__-ProtonmailProfile";
+  class = "chrome-mail.proton.me__-Default";
   desktopName = "Protonmail";
   icon = ./proton-mail-seeklogo.svg;
-  profile = "ProtonmailProfile";
   url = "https://mail.proton.me";
 }

@@ -7,9 +7,8 @@ pkgs.nix-webapps-lib.mkChromiumApp {
     "Chat"
     "InstantMessaging"
   ];
-  class = "chrome-discord.com__app-DiscordProfile";
+  class = "chrome-discord.com__app-Default";
   desktopName = "Discord";
   icon = ./discord-icon.svg;
-  profile = "DiscordProfile";
   url = "https://discord.com/app";
 }

@@ -7,9 +7,8 @@ pkgs.nix-webapps-lib.mkChromiumApp {
     "Chat"
     "InstantMessaging"
   ];
-  class = "chrome-meet.google.com__-GoogleMeetProfile";
+  class = "chrome-meet.google.com__-Default";
   desktopName = "Google Meet";
   icon = ./Google_Meet_icon.svg;
-  profile = "GoogleMeetProfile";
   url = "https://meet.google.com";
 }

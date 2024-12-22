@@ -7,8 +7,7 @@ pkgs.nix-webapps-lib.mkChromiumApp {
     "Chat"
     "InstantMessaging"
   ];
-  class = "chrome-web.telegram.org__-TelegramProfile";
+  class = "chrome-web.telegram.org__-Default";
   desktopName = "Telegram";
-  profile = "TelegramProfile";
   url = "https://web.telegram.org";
 }
