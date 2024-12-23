@@ -2,6 +2,11 @@
 {
   virtualisation = {
     podman = {
+      defaultNetwork.settings = {
+        dns_enabled = true;
+      };
+      dockerCompat = true;
+      dockerSocket.enable = true;
       enable = true;
     };
     docker = {
