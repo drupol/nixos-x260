@@ -1,0 +1,22 @@
+<user-mapping>
+    <authorize username="guacadmin" password="guacadmin">
+      <connection name="nixos.lan rdp">
+          <protocol>rdp</protocol>
+          <param name="hostname">nixos.lan</param>
+          <param name="port">3389</param>
+          <param name="ignore-cert">true</param>
+      </connection>
+
+      <connection name="nixos.lan ssh">
+          <protocol>ssh</protocol>
+          <param name="hostname">nixos.lan</param>
+          <param name="port">22</param>
+      </connection>
+
+      <connection name="router.lan ssh">
+          <protocol>ssh</protocol>
+          <param name="hostname">router.lan</param>
+          <param name="port">22</param>
+      </connection>
+    </authorize>
+</user-mapping>

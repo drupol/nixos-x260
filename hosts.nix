@@ -89,4 +89,13 @@
     user = "pol";
     remoteBuild = true;
   }
+  {
+    instance = "xeonixos";
+    hostname = "xeonixos";
+    operating-system = "nixos";
+    system = "x86_64-linux";
+    sshIdentityFile = "private.pem";
+    user = "pol";
+    remoteBuild = true;
+  }
 ]
