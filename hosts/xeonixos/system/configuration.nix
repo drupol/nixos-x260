@@ -14,7 +14,7 @@
     # Use the GRUB 2 boot loader.
     loader.grub.enable = true;
     loader.grub.device = "/dev/sdb";
-    loader.grub.useOSProber = true;
+    loader.grub.useOSProber = false;
 
     # boot.loader.grub.efiSupport = true;
     # boot.loader.grub.efiInstallAsRemovable = true;
