@@ -16,7 +16,7 @@ in
     home.packages = with pkgs; [
       etlegacy
       ioquake3
-      openarena
+      #openarena
       openxcom
     ];
   };
