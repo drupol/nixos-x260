@@ -31,7 +31,6 @@ in
         port = 8080;
         environment = {
           CONTENT_EXTRACTION_ENGINE = "tika";
-          DOCS_DIR = "/docs";
           DEVICE_TYPE = "cpu";
           ENABLE_OLLAMA_API = "True";
           ENABLE_RAG_HYBRID_SEARCH = "True";
@@ -43,8 +42,8 @@ in
           RAG_EMBEDDING_ENGINE = "ollama";
           RAG_EMBEDDING_MODEL = "bge-m3:latest";
           RAG_EMBEDDING_MODEL_AUTO_UPDATE = "True";
-          RAG_RERANKING_MODEL = "BAAI/bge-reranker-v2-m3";
-          RAG_RERANKING_MODEL_AUTO_UPDATE = "True";
+          RAG_FILE_MAX_COUNT = 2;
+          RAG_TEXT_SPLITTER = "token";
           RAG_WEB_SEARCH_ENGINE = "searxng";
           RAG_WEB_SEARCH_RESULT_COUNT = "5";
           RESET_CONFIG_ON_START = "True";
@@ -57,7 +56,7 @@ in
 
       caddy = {
         enable = true;
-        virtualHosts."192.168.2.164".extraConfig = ''
+        virtualHosts."192.168.2.133".extraConfig = ''
           reverse_proxy 127.0.0.1:8080
         '';
       };
