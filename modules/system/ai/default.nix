@@ -42,7 +42,7 @@ in
           RAG_EMBEDDING_ENGINE = "ollama";
           RAG_EMBEDDING_MODEL = "bge-m3:latest";
           RAG_EMBEDDING_MODEL_AUTO_UPDATE = "True";
-          RAG_FILE_MAX_COUNT = 2;
+          RAG_FILE_MAX_COUNT = "2";
           RAG_TEXT_SPLITTER = "token";
           RAG_WEB_SEARCH_ENGINE = "searxng";
           RAG_WEB_SEARCH_RESULT_COUNT = "5";
