@@ -56,7 +56,7 @@ in
 
       caddy = {
         enable = true;
-        virtualHosts."192.168.2.133".extraConfig = ''
+        virtualHosts."192.168.2.164".extraConfig = ''
           reverse_proxy 127.0.0.1:8080
         '';
       };
