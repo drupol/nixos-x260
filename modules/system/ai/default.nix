@@ -1,5 +1,4 @@
 {
-  inputs,
   config,
   lib,
   pkgs,
@@ -43,6 +42,7 @@ in
           RAG_EMBEDDING_MODEL = "bge-m3:latest";
           RAG_EMBEDDING_MODEL_AUTO_UPDATE = "True";
           RAG_FILE_MAX_COUNT = "2";
+          RAG_RERANKING_MODEL = "BAAI/bge-reranker-v2-m3";
           RAG_TEXT_SPLITTER = "token";
           RAG_WEB_SEARCH_ENGINE = "searxng";
           RAG_WEB_SEARCH_RESULT_COUNT = "5";
