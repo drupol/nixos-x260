@@ -22,6 +22,9 @@ in
 
       ollama = {
         enable = true;
+        environmentVariables = {
+          "OLLAMA_FLASH_ATTENTION" = "true";
+        };
       };
 
       open-webui = {
