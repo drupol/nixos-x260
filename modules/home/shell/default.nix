@@ -23,11 +23,6 @@ in
     programs = {
       bat = {
         enable = true;
-        extraPackages = with pkgs.bat-extras; [
-          batman
-          batgrep
-          batwatch
-        ];
       };
       bottom = {
         enable = true;
@@ -61,7 +56,6 @@ in
           cat = "bat";
           ls = "eza";
           grep = "rg";
-          man = "batman";
         };
         functions = {
           fish_greeting = "";

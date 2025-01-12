@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    bat-extras.batman
     bottom # https://zaiste.net/posts/shell-commands-rust/
     cachix
     dina-font

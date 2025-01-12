@@ -113,7 +113,6 @@
         cat = "bat";
         ls = "eza";
         grep = "rg";
-        man = "batman";
       };
     };
     git = {
