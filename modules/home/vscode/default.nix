@@ -55,6 +55,7 @@ in
         pkgs.vscode-extensions.ms-vsliveshare.vsliveshare
         pkgs.vscode-extensions.myriad-dreamin.tinymist
         pkgs.vscode-extensions.pkief.material-icon-theme
+        pkgs.vscode-extensions.pylyzer.pylyzer
         pkgs.vscode-extensions.redhat.vscode-yaml
         pkgs.vscode-extensions.redhat.vscode-xml
         pkgs.vscode-extensions.tailscale.vscode-tailscale
@@ -170,6 +171,7 @@ in
         "plantuml.previewSnapIndicators" = true;
         "plantuml.render" = "Local";
         "plantuml.server" = "https://www.plantuml.com/plantuml";
+        "pylyzer.executablePath" = lib.getExe pkgs.pylyzer;
         "python.analysis.autoImportCompletions" = true;
         "redhat.telemetry.enabled" = false;
         "search.seedWithNearestWord" = true;
