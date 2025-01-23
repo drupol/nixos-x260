@@ -17,6 +17,76 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    programs.zed-editor = {
+      enable = true;
+      package = pkgs.unstable.zed-editor;
+      extensions = [
+        "dockercompose"
+        "dockerfile"
+        "github-theme"
+        "macos-classic"
+        "make"
+        "one-dark-pro"
+        "ruff"
+        "toml"
+        "typst"
+        "nix"
+      ];
+      userSettings = {
+        base_keymap = "VSCode";
+        ui_font_size = 14;
+        buffer_font_size = 14;
+        theme = {
+          mode = "system";
+          light = "One Light";
+          dark = "One Dark";
+        };
+        buffer_font_family = "Iosevka Comfy";
+        load_direnv = "direct";
+        lsp = {
+          nix = {
+            binary.path_lookup = true;
+          };
+          tinymist = {
+            binary.path_lookup = true;
+          };
+        };
+        languages = {
+          Typst = {
+            formatter = {
+              language_server = {
+                name = "tinymist";
+              };
+            };
+          };
+          Python = {
+            language_servers = [
+              "pyright"
+              "ruff"
+            ];
+            format_on_save = "on";
+            formatter = [
+              {
+                code_actions = {
+                  "source.organizeImports.ruff" = false;
+                  "source.fixAll.ruff" = true;
+                };
+              }
+              {
+                language_server = {
+                  name = "ruff";
+                };
+              }
+            ];
+            show_inline_completions = true;
+          };
+        };
+        features = {
+          inline_completion_provider = "copilot";
+        };
+      };
+    };
+
     programs.vscode = {
       enable = true;
       enableExtensionUpdateCheck = false;
@@ -47,6 +117,14 @@ in
         pkgs.vscode-extensions.mkhl.direnv
         pkgs.vscode-extensions.mongodb.mongodb-vscode
         pkgs.vscode-extensions.ms-python.debugpy
+        (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+          mktplcRef = {
+            publisher = "ms-python";
+            name = "mypy-type-checker";
+            version = "2024.1.13171012";
+            hash = "sha256-H266LB87rBzQBoycWTKyoHlVa7z1J9OmuZW6c2GuVDc=";
+          };
+        })
         pkgs.vscode-extensions.ms-python.python
         pkgs.vscode-extensions.ms-python.vscode-pylance
         pkgs.vscode-extensions.ms-toolsai.jupyter

@@ -11,7 +11,6 @@
     defaultFonts = {
       monospace = [
         "Iosevka Comfy"
-        "Iosevka Comfy"
       ];
       sansSerif = [ "Iosevka Comfy" ];
       serif = [ "Iosevka Comfy" ];
