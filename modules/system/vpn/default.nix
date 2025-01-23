@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 let
   cfg = config.vpn;
 in
@@ -8,20 +8,12 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    services.tailscale = {
+    services.netbird = {
       enable = true;
-      useRoutingFeatures = "both";
     };
 
-    networking.firewall = {
-      # enable the firewall
-      enable = true;
-
-      # always allow traffic from your Tailscale network
-      trustedInterfaces = [ config.services.tailscale.interfaceName ];
-
-      # allow the Tailscale UDP port through the firewall
-      allowedUDPPorts = [ config.services.tailscale.port ];
-    };
+    environment.systemPackages = [
+      pkgs.netbird-ui
+    ];
   };
 }
