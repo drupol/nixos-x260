@@ -11,8 +11,7 @@
       useTmpfs = true;
       cleanOnBoot = true;
     };
-    # Because of https://github.com/NixOS/nixpkgs/issues/375917
-    kernelPackages = pkgs.linuxPackages_6_12;
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   i18n.defaultLocale = "en_GB.UTF-8";
