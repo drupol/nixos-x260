@@ -34,6 +34,7 @@ in
       ktailctl
       vlc
       vscode-runner
+      zotero
     ];
   };
 }
