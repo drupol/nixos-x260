@@ -84,6 +84,7 @@ in
         features = {
           inline_completion_provider = "copilot";
         };
+        wrap_guides = [80 120];
       };
     };
 
