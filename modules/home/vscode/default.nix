@@ -53,7 +53,7 @@ in
           tinymist = {
             binary.path = lib.getExe pkgs.tinymist;
           };
-          typos-lsp = {
+          typos = {
             binary = {
               path = lib.getExe pkgs.typos-lsp;
             };
