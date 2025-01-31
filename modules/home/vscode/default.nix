@@ -47,6 +47,9 @@ in
         buffer_font_family = "Iosevka Comfy";
         load_direnv = "direct";
         lsp = {
+          nil = {
+            binary.path = lib.getExe pkgs.nil;
+          };
           nixd = {
             binary.path = lib.getExe pkgs.nixd;
           };
@@ -54,9 +57,7 @@ in
             binary.path = lib.getExe pkgs.tinymist;
           };
           typos = {
-            binary = {
-              path = lib.getExe pkgs.typos-lsp;
-            };
+            binary.path = lib.getExe pkgs.typos-lsp;
           };
         };
         languages = {
