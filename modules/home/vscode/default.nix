@@ -48,10 +48,10 @@ in
         load_direnv = "direct";
         lsp = {
           nix = {
-            binary.path_lookup = true;
+            binary.path = lib.getExe pkgs.nixd;
           };
           tinymist = {
-            binary.path_lookup = true;
+            binary.path = lib.getExe pkgs.tinymist;
           };
           typos-lsp = {
             binary = {
