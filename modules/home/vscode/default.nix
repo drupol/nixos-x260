@@ -53,6 +53,12 @@ in
           tinymist = {
             binary.path_lookup = true;
           };
+          typos-lsp = {
+            binary = {
+              path_lookup = true;
+              path = lib.getExe pkgs.typos-lsp;
+            };
+          };
         };
         languages = {
           Typst = {
