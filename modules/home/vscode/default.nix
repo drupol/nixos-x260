@@ -21,14 +21,17 @@ in
       enable = true;
       package = pkgs.unstable.zed-editor;
       extensions = [
-        "dockercompose"
+        "docker-compose"
         "dockerfile"
         "github-theme"
-        "macos-classic"
+        "graphviz"
+        "just"
         "make"
         "one-dark-pro"
+        "plantuml"
         "ruff"
         "toml"
+        "typos"
         "typst"
         "nix"
       ];
