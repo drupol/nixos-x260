@@ -47,7 +47,7 @@ in
         buffer_font_family = "Iosevka Comfy";
         load_direnv = "direct";
         lsp = {
-          nix = {
+          nixd = {
             binary.path = lib.getExe pkgs.nixd;
           };
           tinymist = {
