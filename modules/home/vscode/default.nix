@@ -55,7 +55,6 @@ in
           };
           typos-lsp = {
             binary = {
-              path_lookup = true;
               path = lib.getExe pkgs.typos-lsp;
             };
           };
