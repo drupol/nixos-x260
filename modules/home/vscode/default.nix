@@ -25,6 +25,7 @@ in
         "dockerfile"
         "github-theme"
         "graphviz"
+        "http"
         "just"
         "make"
         "one-dark-pro"
