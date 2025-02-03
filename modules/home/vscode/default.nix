@@ -94,6 +94,8 @@ in
         features = {
           inline_completion_provider = "copilot";
         };
+        auto_update = false;
+        hour_format = "hour24";
         wrap_guides = [80 120];
       };
     };
@@ -104,6 +106,7 @@ in
       enableUpdateCheck = false;
       mutableExtensionsDir = false;
       extensions = [
+        pkgs.master.vscode-extensions.anweber.vscode-httpyac
         pkgs.vscode-extensions.arcticicestudio.nord-visual-studio-code
         pkgs.vscode-extensions.bbenoist.nix
         pkgs.vscode-extensions.bmewburn.vscode-intelephense-client
@@ -120,7 +123,6 @@ in
         pkgs.master.vscode-extensions.github.copilot-chat
         pkgs.vscode-extensions.github.github-vscode-theme
         pkgs.vscode-extensions.github.vscode-pull-request-github
-        pkgs.vscode-extensions.humao.rest-client
         pkgs.vscode-extensions.jebbs.plantuml
         pkgs.vscode-extensions.jkillian.custom-local-formatters
         pkgs.vscode-extensions.jnoortheen.nix-ide
