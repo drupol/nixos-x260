@@ -148,6 +148,11 @@ in
             symbol = "deno ";
           };
 
+          direnv = {
+            format = " > [$symbol$version]($style)";
+            version_format = "@\$\{raw\}";
+          };
+
           dotnet = {
             symbol = ".NET ";
           };
@@ -342,7 +347,9 @@ in
           };
 
           python = {
-            symbol = "py ";
+            symbol = "py";
+            format = " > [$symbol$version]($style)";
+            version_format = "@\$\{raw\}";
           };
 
           raku = {
