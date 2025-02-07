@@ -86,7 +86,7 @@ in
           add_newline = false;
           command_timeout = 5000;
           scan_timeout = 1;
-          format = "$directory$custom$php$rust$character";
+          format = "$directory$custom$php$rust$python$character";
           right_format = "$username$hostname$localip$nix_shell$cmd_duration$os";
           character = {
             success_symbol = " [❯](bold green)";
@@ -440,8 +440,6 @@ in
           };
         };
       };
-
-      yazi.enable = true;
     };
   };
 }
