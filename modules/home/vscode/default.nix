@@ -28,6 +28,7 @@ in
         "http"
         "just"
         "make"
+        "material-icon-theme"
         "one-dark-pro"
         "plantuml"
         "ruff"
@@ -46,6 +47,7 @@ in
           dark = "One Dark";
         };
         buffer_font_family = "Iosevka Comfy";
+        icon_theme = "Material Icon Theme";
         load_direnv = "direct";
         lsp = {
           nil = {
