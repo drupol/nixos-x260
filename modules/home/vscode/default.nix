@@ -106,7 +106,7 @@ in
       enableUpdateCheck = false;
       mutableExtensionsDir = false;
       extensions = [
-        pkgs.master.vscode-extensions.anweber.vscode-httpyac
+        pkgs.vscode-extensions.anweber.vscode-httpyac
         pkgs.vscode-extensions.arcticicestudio.nord-visual-studio-code
         pkgs.vscode-extensions.bbenoist.nix
         pkgs.vscode-extensions.bmewburn.vscode-intelephense-client
@@ -119,8 +119,8 @@ in
         pkgs.vscode-extensions.donjayamanne.githistory
         pkgs.vscode-extensions.editorconfig.editorconfig
         pkgs.vscode-extensions.esbenp.prettier-vscode
-        pkgs.master.vscode-extensions.github.copilot
-        pkgs.master.vscode-extensions.github.copilot-chat
+        pkgs.vscode-extensions.github.copilot
+        pkgs.vscode-extensions.github.copilot-chat
         pkgs.vscode-extensions.github.github-vscode-theme
         pkgs.vscode-extensions.github.vscode-pull-request-github
         pkgs.vscode-extensions.jebbs.plantuml
@@ -139,7 +139,7 @@ in
           };
         })
         pkgs.vscode-extensions.ms-python.python
-        pkgs.vscode-extensions.ms-python.vscode-pylance
+        pkgs.master.vscode-extensions.ms-python.vscode-pylance
         pkgs.vscode-extensions.ms-toolsai.jupyter
         pkgs.vscode-extensions.ms-vscode-remote.remote-containers
         pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
@@ -148,11 +148,10 @@ in
         pkgs.vscode-extensions.pkief.material-icon-theme
         pkgs.vscode-extensions.redhat.vscode-yaml
         pkgs.vscode-extensions.redhat.vscode-xml
-        pkgs.vscode-extensions.tailscale.vscode-tailscale
         pkgs.vscode-extensions.tamasfe.even-better-toml
         pkgs.vscode-extensions.tekumara.typos-vscode
         pkgs.vscode-extensions.usernamehw.errorlens
-        pkgs.master.vscode-extensions.visualjj.visualjj
+        pkgs.vscode-extensions.visualjj.visualjj
         pkgs.vscode-extensions.yzhang.markdown-all-in-one
         pkgs.vscode-extensions.zhuangtongfa.material-theme
       ];

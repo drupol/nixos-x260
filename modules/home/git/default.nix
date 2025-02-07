@@ -19,7 +19,7 @@ in
       gh = {
         enable = true;
         extensions = [
-          pkgs.master.gh-copilot
+          pkgs.gh-copilot
           pkgs.gh-dash
         ];
         settings = {

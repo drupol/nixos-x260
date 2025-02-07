@@ -30,7 +30,7 @@ in
 
       open-webui = {
         enable = true;
-        package = pkgs.master.open-webui;
+        package = pkgs.open-webui;
         port = 8080;
         environment = {
           CONTENT_EXTRACTION_ENGINE = "tika";
