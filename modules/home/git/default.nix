@@ -100,6 +100,9 @@ in
         enable = true;
         userName = "Pol Dellaiera";
         userEmail = "pol.dellaiera@protonmail.com";
+        ignores = [
+          ".direnv"
+        ];
         aliases = {
           ll = "log --stat --abbrev-commit";
           co = "checkout";
