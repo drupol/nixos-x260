@@ -101,7 +101,10 @@ in
         tabs = {
           file_icons = true;
         };
-        wrap_guides = [80 120];
+        wrap_guides = [
+          80
+          120
+        ];
       };
     };
 
@@ -124,8 +127,8 @@ in
         pkgs.vscode-extensions.donjayamanne.githistory
         pkgs.vscode-extensions.editorconfig.editorconfig
         pkgs.vscode-extensions.esbenp.prettier-vscode
-        pkgs.vscode-extensions.github.copilot
-        pkgs.vscode-extensions.github.copilot-chat
+        pkgs.master.vscode-extensions.github.copilot
+        pkgs.master.vscode-extensions.github.copilot-chat
         pkgs.vscode-extensions.github.github-vscode-theme
         pkgs.vscode-extensions.github.vscode-pull-request-github
         pkgs.vscode-extensions.jebbs.plantuml
@@ -135,14 +138,7 @@ in
         pkgs.vscode-extensions.mkhl.direnv
         pkgs.vscode-extensions.mongodb.mongodb-vscode
         pkgs.vscode-extensions.ms-python.debugpy
-        (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
-          mktplcRef = {
-            publisher = "ms-python";
-            name = "mypy-type-checker";
-            version = "2024.1.13171012";
-            hash = "sha256-H266LB87rBzQBoycWTKyoHlVa7z1J9OmuZW6c2GuVDc=";
-          };
-        })
+        pkgs.master.vscode-extensions.ms-python.mypy-type-checker
         pkgs.vscode-extensions.ms-python.python
         pkgs.master.vscode-extensions.ms-python.vscode-pylance
         pkgs.vscode-extensions.ms-toolsai.jupyter
@@ -208,6 +204,9 @@ in
         "editor.formatOnSave" = false;
         "editor.guides.bracketPairs" = true;
         "editor.inlineSuggest.enabled" = true;
+        "editor.inlineSuggest.edits" = {
+          renderSideBySide = true;
+        };
         "editor.renderWhitespace" = "boundary";
         "editor.suggestFontSize" = 0;
         "editor.suggest.preview" = true;
@@ -250,11 +249,12 @@ in
         "git.confirmSync" = false;
         "git.enableSmartCommit" = true;
         "git.showPushSuccessNotification" = true;
+        "github.copilot.nextEditSuggestions" = true;
         "github.copilot.enable" = {
           "*" = true;
-          "yaml" = true;
-          "plaintext" = true;
-          "markdown" = true;
+          yaml = true;
+          plaintext = true;
+          markdown = true;
         };
         "githubPullRequests.pullBranch" = "always";
         "markdown.preview.fontFamily" = "'Iosevka Comfy'";
