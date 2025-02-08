@@ -373,7 +373,7 @@ in
             paginate = "auto";
           };
           git = {
-            auto-local-branch = true;
+            auto-local-bookmark = true;
             fetch = [
               "origin"
             ];
