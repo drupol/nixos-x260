@@ -98,6 +98,9 @@ in
         };
         auto_update = false;
         hour_format = "hour24";
+        tabs = {
+          file_icons = true;
+        };
         wrap_guides = [80 120];
       };
     };
