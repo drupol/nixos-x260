@@ -23,10 +23,12 @@ in
       extensions = [
         "docker-compose"
         "dockerfile"
+        "git-firefly"
         "github-theme"
         "graphviz"
         "http"
         "just"
+        "latex"
         "make"
         "material-icon-theme"
         "one-dark-pro"
