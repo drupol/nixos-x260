@@ -8,14 +8,17 @@
   flake = {
     nixosConfigurations = inputs.nixpkgs.lib.foldr (
       hostConfig: acc:
+      let
+        specialArgs = {
+          inherit self inputs hostConfig;
+        } // self.packages.${hostConfig.system};
+      in
       acc
       // {
         "${hostConfig.instance}" = inputs.nixpkgs.lib.nixosSystem {
           inherit (hostConfig) system;
 
-          specialArgs = {
-            inherit self inputs hostConfig;
-          };
+          inherit specialArgs;
 
           modules =
             [ inputs.nixos-generators.nixosModules.all-formats ]
@@ -32,9 +35,7 @@
                   useGlobalPkgs = true;
                   useUserPackages = true;
                   sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
-                  extraSpecialArgs = {
-                    inherit hostConfig inputs self;
-                  };
+                  extraSpecialArgs = specialArgs;
                   users."${hostConfig.user}".imports = inputs.self.lib.umport {
                     paths = [
                       ../modules/home

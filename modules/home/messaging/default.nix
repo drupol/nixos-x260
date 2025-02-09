@@ -1,8 +1,13 @@
 {
-  self,
   config,
   lib,
   pkgs,
+  chromium-discord,
+  chromium-element,
+  chromium-meet,
+  chromium-protonmail,
+  chromium-teams,
+  chromium-telegram,
   ...
 }:
 let
@@ -14,9 +19,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    # TODO: Find a way to use the `pkgs` variable here.
-    # See https://github.com/drupol/pkgs-by-name-for-flake-parts/pull/2
-    home.packages = with self.packages.x86_64-linux; [
+    home.packages = [
       chromium-discord
       chromium-element
       chromium-meet

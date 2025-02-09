@@ -23,15 +23,26 @@
 
         profiles = inputs.nixpkgs.lib.foldr (
           hostConfig: acc:
+          let
+            system = if hostConfig.system != "" then hostConfig.system else builtins.currentSystem;
+
+            specialArgs = {
+              inherit
+                self
+                inputs
+                hostConfig
+                username
+                homeDirectory
+                system
+                ;
+            } // self.packages.${system};
+          in
           acc
           // {
             "${hostConfig.instance}-${username}" = inputs.home-manager.lib.homeManagerConfiguration {
               inherit (hostConfig) system;
               pkgs = import inputs.nixpkgs { };
-              extraSpecialArgs = {
-                system = if hostConfig.system != "" then hostConfig.system else builtins.currentSystem;
-                inherit inputs self username homeDirectory;
-              };
+              extraSpecialArgs = specialArgs;
 
               modules = lib.optionals (lib.pathExists ./../hosts/${hostConfig.hostname}/home) [
                 {
@@ -39,9 +50,7 @@
                     useGlobalPkgs = true;
                     useUserPackages = true;
                     sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
-                    extraSpecialArgs = {
-                      inherit hostConfig inputs self;
-                    };
+                    extraSpecialArgs = specialArgs;
                     users."${hostConfig.user}".imports = inputs.self.lib.umport {
                       paths = [
                         ../modules/home
