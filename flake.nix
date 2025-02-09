@@ -30,7 +30,6 @@
       systems = import inputs.systems;
 
       imports = [
-        inputs.flake-parts.flakeModules.easyOverlay
         inputs.pkgs-by-name-for-flake-parts.flakeModule
         ./imports/pkgs.nix
         ./imports/formatter.nix

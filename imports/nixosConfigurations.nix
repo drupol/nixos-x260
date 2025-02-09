@@ -33,7 +33,7 @@
                   useUserPackages = true;
                   sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
                   extraSpecialArgs = {
-                    inherit hostConfig;
+                    inherit hostConfig inputs self;
                   };
                   users."${hostConfig.user}".imports = inputs.self.lib.umport {
                     paths = [

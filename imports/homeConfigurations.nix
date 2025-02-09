@@ -1,5 +1,6 @@
 {
   inputs,
+  self,
   lib,
   ...
 }:
@@ -29,7 +30,7 @@
               pkgs = import inputs.nixpkgs { };
               extraSpecialArgs = {
                 system = if hostConfig.system != "" then hostConfig.system else builtins.currentSystem;
-                inherit inputs username homeDirectory;
+                inherit inputs self username homeDirectory;
               };
 
               modules = lib.optionals (lib.pathExists ./../hosts/${hostConfig.hostname}/home) [
@@ -39,7 +40,7 @@
                     useUserPackages = true;
                     sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
                     extraSpecialArgs = {
-                      inherit hostConfig;
+                      inherit hostConfig inputs self;
                     };
                     users."${hostConfig.user}".imports = inputs.self.lib.umport {
                       paths = [
