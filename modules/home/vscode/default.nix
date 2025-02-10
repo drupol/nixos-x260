@@ -31,13 +31,14 @@ in
         "latex"
         "make"
         "material-icon-theme"
+        "nix"
         "one-dark-pro"
         "plantuml"
+        "pylsp"
         "ruff"
         "toml"
         "typos"
         "typst"
-        "nix"
       ];
       userSettings = {
         base_keymap = "VSCode";
@@ -54,9 +55,26 @@ in
         lsp = {
           nil = {
             binary.path = lib.getExe pkgs.nil;
+            initialization_options = {
+              formatting = {
+                command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
+              };
+            };
           };
           nixd = {
             binary.path = lib.getExe pkgs.nixd;
+          };
+          pylsp = {
+            settings = {
+              plugins = {
+                pycodestyle = {
+                  enabled = false;
+                };
+                mypy = {
+                  enabled = true;
+                };
+              };
+            };
           };
           tinymist = {
             binary.path = lib.getExe pkgs.tinymist;
@@ -75,6 +93,7 @@ in
           };
           Python = {
             language_servers = [
+              "pylsp"
               "pyright"
               "ruff"
             ];
@@ -82,7 +101,7 @@ in
             formatter = [
               {
                 code_actions = {
-                  "source.organizeImports.ruff" = false;
+                  "source.organizeImports.ruff" = true;
                   "source.fixAll.ruff" = true;
                 };
               }
