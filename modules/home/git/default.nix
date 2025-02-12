@@ -15,6 +15,10 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    home.packages = [
+      pkgs.mergiraf
+    ];
+
     programs = {
       gh = {
         enable = true;
