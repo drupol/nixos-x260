@@ -36,7 +36,7 @@ in
           id = 0;
           isDefault = true;
           name = "Default";
-          extensions = [
+          extensions.packages = [
             pkgs.nur.repos.rycee.firefox-addons.browserpass
             # pkgs.nur.repos.rycee.firefox-addons.bypass-paywalls-clean
             pkgs.nur.repos.rycee.firefox-addons.enhancer-for-youtube

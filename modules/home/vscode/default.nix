@@ -41,16 +41,23 @@ in
         "typst"
       ];
       userSettings = {
+        tab_size = 2;
+        autosave = "on_focus_change";
         base_keymap = "VSCode";
+        ui_font_family = "Iosevka Comfy";
+        buffer_font_family = "Iosevka Comfy";
         ui_font_size = 14;
         buffer_font_size = 14;
         theme = {
           mode = "system";
           light = "One Light";
-          dark = "One Dark";
+          dark = "Github Dark";
         };
-        buffer_font_family = "Iosevka Comfy";
-        icon_theme = "Material Icon Theme";
+        icon_theme = {
+          mode = "system";
+          light = "Material Icon Theme";
+          dark = "Material Icon Theme";
+        };
         load_direnv = "direct";
         lsp = {
           nil = {
@@ -116,16 +123,29 @@ in
         };
         features = {
           inline_completion_provider = "copilot";
+          edit_prediction_provider = "copilot";
         };
+        show_edit_predictions = true;
         auto_update = false;
         hour_format = "hour24";
         tabs = {
           file_icons = true;
+          git_status = true;
         };
         wrap_guides = [
           80
           120
         ];
+        ensure_final_newline_on_save = true;
+        preview_tabs = {
+          enabled = true;
+          enable_preview_from_file_finder = true;
+          enable_preview_from_code_navigation = true;
+        };
+        telemetry = {
+          diagnostics = false;
+          metrics = false;
+        };
       };
     };
 
@@ -148,20 +168,23 @@ in
         pkgs.vscode-extensions.donjayamanne.githistory
         pkgs.vscode-extensions.editorconfig.editorconfig
         pkgs.vscode-extensions.esbenp.prettier-vscode
+
         pkgs.master.vscode-extensions.github.copilot
         pkgs.master.vscode-extensions.github.copilot-chat
+
         pkgs.vscode-extensions.github.github-vscode-theme
         pkgs.vscode-extensions.github.vscode-pull-request-github
         pkgs.vscode-extensions.jebbs.plantuml
         pkgs.vscode-extensions.jkillian.custom-local-formatters
         pkgs.vscode-extensions.jnoortheen.nix-ide
-        pkgs.vscode-extensions.mhutchie.git-graph
         pkgs.vscode-extensions.mkhl.direnv
         pkgs.vscode-extensions.mongodb.mongodb-vscode
-        pkgs.vscode-extensions.ms-python.debugpy
+
+        pkgs.master.vscode-extensions.ms-python.debugpy
         pkgs.master.vscode-extensions.ms-python.mypy-type-checker
-        pkgs.vscode-extensions.ms-python.python
+        pkgs.master.vscode-extensions.ms-python.python
         pkgs.master.vscode-extensions.ms-python.vscode-pylance
+
         pkgs.vscode-extensions.ms-toolsai.jupyter
         pkgs.vscode-extensions.ms-vscode-remote.remote-containers
         pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
@@ -173,7 +196,9 @@ in
         pkgs.vscode-extensions.tamasfe.even-better-toml
         pkgs.vscode-extensions.tekumara.typos-vscode
         pkgs.vscode-extensions.usernamehw.errorlens
-        pkgs.vscode-extensions.visualjj.visualjj
+
+        pkgs.master.vscode-extensions.visualjj.visualjj
+
         pkgs.vscode-extensions.yzhang.markdown-all-in-one
         pkgs.vscode-extensions.zhuangtongfa.material-theme
       ];
