@@ -4,7 +4,7 @@
   # See https://github.com/nix-community/home-manager/issues/5452
   systemd.user.startServices = "sd-switch";
 
-  home.stateVersion = "23.05";
+  home.stateVersion = "24.11";
 
   fonts = {
     fontconfig = {
