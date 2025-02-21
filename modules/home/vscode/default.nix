@@ -73,6 +73,7 @@ in
           inline_completion_provider = "copilot";
           edit_prediction_provider = "copilot";
         };
+        format_on_save = "on";
         hour_format = "hour24";
         icon_theme = {
           mode = "system";
