@@ -41,7 +41,6 @@ in
         "typst"
       ];
       userSettings = {
-        tab_size = 2;
         assistant = {
           default_model = {
             provider = "copilot_chat";
@@ -56,21 +55,25 @@ in
         #   };
         #   version = "2";
         # };
+        auto_update = false;
         autosave = {
           after_delay = {
             milliseconds = 1000;
           };
         };
         base_keymap = "VSCode";
-        ui_font_family = "Iosevka Comfy";
+        ensure_final_newline_on_save = true;
         buffer_font_family = "Iosevka Comfy";
-        ui_font_size = 14;
-        buffer_font_size = 14;
-        theme = {
-          mode = "system";
-          light = "One Light";
-          dark = "Github Dark";
+        buffer_font_features = {
+          calt = true;
+          ligatures = true;
         };
+        buffer_font_size = 14;
+        features = {
+          inline_completion_provider = "copilot";
+          edit_prediction_provider = "copilot";
+        };
+        hour_format = "hour24";
         icon_theme = {
           mode = "system";
           light = "Material Icon Theme";
@@ -78,6 +81,37 @@ in
         };
         inlay_hints = {
           enable = true;
+        };
+        languages = {
+          Typst = {
+            formatter = {
+              language_server = {
+                name = "tinymist";
+              };
+            };
+          };
+          Python = {
+            language_servers = [
+              "pylsp"
+              "pyright"
+              "ruff"
+            ];
+            format_on_save = "on";
+            formatter = [
+              {
+                code_actions = {
+                  "source.organizeImports.ruff" = true;
+                  "source.fixAll.ruff" = true;
+                };
+              }
+              {
+                language_server = {
+                  name = "ruff";
+                };
+              }
+            ];
+            show_inline_completions = true;
+          };
         };
         load_direnv = "direct";
         lsp = {
@@ -111,66 +145,36 @@ in
             binary.path = lib.getExe pkgs.typos-lsp;
           };
         };
-        languages = {
-          Typst = {
-            formatter = {
-              language_server = {
-                name = "tinymist";
-              };
-            };
-          };
-          Python = {
-            language_servers = [
-              "pylsp"
-              "pyright"
-              "ruff"
-            ];
-            format_on_save = "on";
-            formatter = [
-              {
-                code_actions = {
-                  "source.organizeImports.ruff" = true;
-                  "source.fixAll.ruff" = true;
-                };
-              }
-              {
-                language_server = {
-                  name = "ruff";
-                };
-              }
-            ];
-            show_inline_completions = true;
-          };
-        };
-        features = {
-          inline_completion_provider = "copilot";
-          edit_prediction_provider = "copilot";
-        };
-        show_edit_predictions = true;
-        auto_update = false;
-        hour_format = "hour24";
-        tabs = {
-          file_icons = true;
-          git_status = true;
-        };
-        terminal.env = {
-          EDITOR = "zed --wait";
-          VISUAL = "zed --wait";
-        };
-        wrap_guides = [
-          80
-          120
-        ];
-        ensure_final_newline_on_save = true;
         preview_tabs = {
           enabled = true;
           enable_preview_from_file_finder = true;
           enable_preview_from_code_navigation = true;
         };
+        show_edit_predictions = true;
+        tabs = {
+          file_icons = true;
+          git_status = true;
+        };
+        tab_size = 2;
         telemetry = {
           diagnostics = false;
           metrics = false;
         };
+        terminal.env = {
+          EDITOR = "zed --wait";
+          VISUAL = "zed --wait";
+        };
+        theme = {
+          mode = "system";
+          light = "One Light";
+          dark = "Github Dark";
+        };
+        ui_font_family = "Iosevka Comfy";
+        ui_font_size = 14;
+        wrap_guides = [
+          80
+          120
+        ];
       };
     };
 
