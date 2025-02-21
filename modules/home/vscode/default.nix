@@ -42,7 +42,25 @@ in
       ];
       userSettings = {
         tab_size = 2;
-        autosave = "on_focus_change";
+        assistant = {
+          default_model = {
+            provider = "copilot_chat";
+            model = "gpt-4o";
+          };
+          version = "2";
+        };
+        # assistant = {
+        #   default_model = {
+        #     provider = "zed.dev";
+        #     model = "claude-3-5-sonnet-latest";
+        #   };
+        #   version = "2";
+        # };
+        autosave = {
+          after_delay = {
+            milliseconds = 1000;
+          };
+        };
         base_keymap = "VSCode";
         ui_font_family = "Iosevka Comfy";
         buffer_font_family = "Iosevka Comfy";
@@ -57,6 +75,9 @@ in
           mode = "system";
           light = "Material Icon Theme";
           dark = "Material Icon Theme";
+        };
+        inlay_hints = {
+          enable = true;
         };
         load_direnv = "direct";
         lsp = {
@@ -131,6 +152,10 @@ in
         tabs = {
           file_icons = true;
           git_status = true;
+        };
+        terminal.env = {
+          EDITOR = "zed --wait";
+          VISUAL = "zed --wait";
         };
         wrap_guides = [
           80
@@ -332,6 +357,8 @@ in
         "terminal.integrated.defaultProfile.linux" = "fish";
         "terminal.integrated.fontSize" = 14;
         "terminal.integrated.tabs.enabled" = true;
+        "tinymist.preview.scrollSync" = "onSelectionChange";
+        "tinymist.formatterMode" = "typstyle";
         "update.mode" = "none";
         "update.showReleaseNotes" = true;
         "window.dialogStyle" = "custom";
