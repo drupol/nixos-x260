@@ -5,15 +5,16 @@
     description = "Pol Dellaiera";
     isNormalUser = true;
     extraGroups = [
-      "docker"
-      "wheel"
       "audio"
-      "sound"
-      "video"
-      "networkmanager"
+      "docker"
       "input"
+      "networkmanager"
+      "podman"
+      "sound"
       "tty"
       "vboxusers"
+      "video"
+      "wheel"
     ];
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [
