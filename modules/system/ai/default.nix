@@ -60,7 +60,11 @@ in
 
       caddy = {
         enable = true;
-        virtualHosts."192.168.2.164".extraConfig = ''
+        virtualHosts."192.168.2.164:443".extraConfig = ''
+          reverse_proxy 127.0.0.1:8080
+        '';
+
+        virtualHosts."192.168.2.164:80".extraConfig = ''
           reverse_proxy 127.0.0.1:8080
         '';
       };
