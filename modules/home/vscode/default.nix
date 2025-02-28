@@ -84,6 +84,19 @@ in
           enable = true;
         };
         languages = {
+          Nix = {
+            language_servers = [
+              "nixd"
+              "!nil"
+            ];
+            formatter.external = {
+              command = "${lib.getExe pkgs.nixfmt-rfc-style}";
+              arguments = [
+                "--quiet"
+                "--"
+              ];
+            };
+          };
           Typst = {
             formatter = {
               language_server = {
@@ -116,16 +129,13 @@ in
         };
         load_direnv = "direct";
         lsp = {
-          nil = {
-            binary.path = lib.getExe pkgs.nil;
-            initialization_options = {
-              formatting = {
-                command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
-              };
-            };
-          };
           nixd = {
             binary.path = lib.getExe pkgs.nixd;
+          };
+          pyright = {
+            binary = {
+              path_lookup = pkgs.pyright;
+            };
           };
           pylsp = {
             settings = {
