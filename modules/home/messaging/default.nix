@@ -2,12 +2,6 @@
   config,
   lib,
   pkgs,
-  chromium-discord,
-  chromium-element,
-  chromium-meet,
-  chromium-protonmail,
-  chromium-teams,
-  chromium-telegram,
   ...
 }:
 let
@@ -20,12 +14,12 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = [
-      chromium-discord
-      chromium-element
-      chromium-meet
-      chromium-protonmail
-      chromium-teams
-      chromium-telegram
+      pkgs.local.chromium-discord
+      pkgs.local.chromium-element
+      pkgs.local.chromium-meet
+      pkgs.local.chromium-protonmail
+      pkgs.local.chromium-teams
+      pkgs.local.chromium-telegram
       pkgs.signal-desktop
     ];
   };

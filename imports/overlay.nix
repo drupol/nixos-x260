@@ -1,6 +1,17 @@
-{ inputs, ... }:
+{ inputs, withSystem, ... }:
 
 {
+  flake = {
+    overlays.default =
+      final: prev:
+      withSystem prev.stdenv.hostPlatform.system (
+        { config, ... }:
+        {
+          local = config.packages;
+        }
+      );
+  };
+
   perSystem =
     { system, ... }:
     {
@@ -22,6 +33,7 @@
           inputs.nix-webapps.overlays.lib
           inputs.nur.overlays.default
           inputs.deploy-rs.overlays.default
+          inputs.self.overlays.default
         ];
       };
     };
