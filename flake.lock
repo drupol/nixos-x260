@@ -153,6 +153,22 @@
         "type": "github"
       }
     },
+    "litellm": {
+      "locked": {
+        "lastModified": 1742125198,
+        "narHash": "sha256-+OMfJHhSMCSo9Rfm1k2DA42bZN5n/l/dNEU9bseOxZ4=",
+        "owner": "drupol",
+        "repo": "nixpkgs",
+        "rev": "1dfa93133c58641fdefb1556de5c9f9c1a1e02b3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "drupol",
+        "ref": "push-tpunuvwkqtkn",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nix-oracle-db": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -303,11 +319,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1742126284,
-        "narHash": "sha256-LWMiQvOmvpe8t49cIY+YayyXpxY4GwOGFYkcCXsKYz0=",
+        "lastModified": 1742150426,
+        "narHash": "sha256-h80cHV5CsgUJfKh1Aj1Zc6GB7jk7988WUWx40gC6odA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ceb974118158a3591e3b40068ded6e9f2c7327e1",
+        "rev": "dd399d80d81f03ee2310578591372afbfeb145d0",
         "type": "github"
       },
       "original": {
@@ -388,11 +404,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1742125445,
-        "narHash": "sha256-pOOV+e0MDR9EJW8SS/l93Au8w97LXwDDENxWX/1xI84=",
+        "lastModified": 1742149371,
+        "narHash": "sha256-ondHZWH8YRIv5itRDhaXd5Jtscprma6hE+SnkNdFzxk=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "fcbc0243a01b537b4ea2e8190d3e79cbc6343e4d",
+        "rev": "14825ea222c88060fae8704e56446c9aed71a47e",
         "type": "github"
       },
       "original": {
@@ -457,6 +473,7 @@
         "deploy-rs": "deploy-rs",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
+        "litellm": "litellm",
         "nix-oracle-db": "nix-oracle-db",
         "nix-webapps": "nix-webapps",
         "nixos-generators": "nixos-generators",

@@ -22,6 +22,7 @@
     };
     pkgs-by-name-for-flake-parts.url = "github:drupol/pkgs-by-name-for-flake-parts";
     nix-webapps.url = "github:TLATER/nix-webapps";
+    litellm.url = "github:drupol/nixpkgs/push-tpunuvwkqtkn";
   };
 
   outputs =
