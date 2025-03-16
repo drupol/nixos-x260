@@ -2,7 +2,6 @@
   config,
   lib,
   inputs,
-  pkgs,
   ...
 }:
 let
@@ -10,21 +9,13 @@ let
 in
 {
   imports = [
-    "${inputs.litellm}/nixos/modules/services/misc/litellm.nix"
+    "${inputs.nixpkgs-master}/nixos/modules/services/misc/litellm.nix"
   ];
 
   config = lib.mkIf cfg.enable {
     services = {
       litellm = {
         enable = true;
-        package = (
-          pkgs.master.python3Packages.litellm.overridePythonAttrs (oldAttrs: {
-            dependencies =
-              (oldAttrs.dependencies or [ ])
-              ++ pkgs.master.python3Packages.litellm.optional-dependencies.proxy
-              ++ pkgs.master.python3Packages.litellm.optional-dependencies.extra_proxy;
-          })
-        );
         host = "0.0.0.0";
         port = 8888;
         settings = {
@@ -36,9 +27,37 @@ in
                 api_key = "os.environ/OPENAI_API_KEY";
               };
             }
+            {
+              model_name = "gpt-4o";
+              litellm_params = {
+                model = "openai/gpt-4o";
+                api_key = "os.environ/OPENAI_API_KEY";
+              };
+            }
+            {
+              model_name = "deepseek-v3";
+              litellm_params = {
+                model = "github/deepseek-v3";
+                api_key = "os.environ/GITHUB_API_KEY";
+              };
+            }
+            {
+              model_name = "deepseek-r1";
+              litellm_params = {
+                model = "github/deepseek-r1";
+                api_key = "os.environ/GITHUB_API_KEY";
+              };
+            }
+            {
+              model_name = "Llama-3.3-70B-Instruct";
+              litellm_params = {
+                model = "github/Llama-3.3-70B-Instruct";
+                api_key = "os.environ/GITHUB_API_KEY";
+              };
+            }
           ];
         };
-        environmentFile = ./secrets.env;
+        environmentFile = "/home/pol/Code/drupol/nixos-x260/secrets.env";
         openFirewall = true;
       };
     };
