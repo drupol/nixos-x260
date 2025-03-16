@@ -57,6 +57,13 @@ in
                 api_key = "os.environ/GITHUB_API_KEY";
               };
             }
+            {
+              model_name = "Gemini";
+              litellm_params = {
+                model = "gemini/gemini-2.0-pro-exp-02-05";
+                api_key = "os.environ/GEMINI_API_KEY";
+              };
+            }
           ];
         };
         environmentFile = "/home/pol/Code/drupol/nixos-x260/secrets.env";
