@@ -2,6 +2,7 @@
   config,
   lib,
   inputs,
+  pkgs,
   ...
 }:
 let
@@ -16,6 +17,7 @@ in
     services = {
       litellm = {
         enable = true;
+        package = pkgs.master.litellm;
         host = "0.0.0.0";
         port = 8888;
         settings = {
