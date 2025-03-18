@@ -64,6 +64,13 @@ in
                 api_key = "os.environ/GEMINI_API_KEY";
               };
             }
+            {
+              model_name = "mistral/open-mistral-nemo";
+              litellm_params = {
+                model = "mistral/open-mistral-nemo";
+                api_key = "os.environ/MISTRAL_API_KEY";
+              };
+            }
           ];
         };
         environmentFile = "/home/pol/Code/drupol/nixos-x260/secrets.env";
