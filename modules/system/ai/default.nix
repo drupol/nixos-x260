@@ -70,11 +70,11 @@ in
         virtualHosts."192.168.2.164:80".extraConfig = ''
           reverse_proxy 127.0.0.1:8080
         '';
-        virtualHosts."nixos.netbird.io:443".extraConfig = ''
+        virtualHosts."nixos.netbird.cloud:443".extraConfig = ''
           reverse_proxy 127.0.0.1:8080
         '';
 
-        virtualHosts."nixos.netbird.io:80".extraConfig = ''
+        virtualHosts."nixos.netbird.cloud:80".extraConfig = ''
           reverse_proxy 127.0.0.1:8080
         '';
       };
