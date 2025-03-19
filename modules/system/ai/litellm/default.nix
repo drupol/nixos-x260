@@ -9,10 +9,6 @@ let
   cfg = config.ai;
 in
 {
-  imports = [
-    "${inputs.nixpkgs-master}/nixos/modules/services/misc/litellm.nix"
-  ];
-
   config = lib.mkIf cfg.enable {
     services = {
       litellm = {
