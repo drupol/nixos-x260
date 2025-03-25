@@ -55,17 +55,17 @@ in
             pkgs.nur.repos.rycee.firefox-addons.violentmonkey
           ];
           search = {
-            default = "Google";
+            default = "google";
             force = true;
             engines = {
-              "Autonomous-System-Number Search" = {
+              "autonomous-system-number-search" = {
                 urls = [ { template = "https://bgp.tools/search?q={searchTerms}"; } ];
-                iconUpdateURL = "https://bgp.tools/favicon-32x32.png";
+                icon = "https://bgp.tools/favicon-32x32.png";
                 updateInterval = 24 * 60 * 60 * 1000; # every day
                 definedAliases = [ "@asn" ];
               };
 
-              "Nix Packages" = {
+              "nix-packages" = {
                 urls = [
                   {
                     template = "https://search.nixos.org/packages";
@@ -86,23 +86,23 @@ in
                 definedAliases = [ "@np" ];
               };
 
-              "Nixpkgs PRs" = {
+              "nixpkgs-prs" = {
                 urls = [ { template = "https://nixpk.gs/pr-tracker.html?pr={searchTerms}"; } ];
-                iconUpdateURL = "https://nixos.org/favicon.png";
+                icon = "https://nixos.org/favicon.png";
                 updateInterval = 24 * 60 * 60 * 1000; # every day
                 definedAliases = [ "@npr" ];
               };
 
-              "NixOS Wiki" = {
-                urls = [ { template = "https://nixos.wiki/index.php?search={searchTerms}"; } ];
-                iconUpdateURL = "https://nixos.wiki/favicon.png";
+              "nixos-wiki" = {
+                urls = [ { template = "https://wiki.nixos.org/index.php?search={searchTerms}"; } ];
+                icon = "https://wiki.nixos.org/favicon.png";
                 updateInterval = 24 * 60 * 60 * 1000; # every day
                 definedAliases = [ "@nw" ];
               };
 
-              "Noogle.dev Search" = {
+              "noogle-dev-search" = {
                 urls = [ { template = "https://noogle.dev/?term=%22{searchTerms}%22"; } ];
-                iconUpdateURL = "https://noogle.dev/favicon.png";
+                icon = "https://noogle.dev/favicon.png";
                 updateInterval = 24 * 60 * 60 * 1000; # every day
                 definedAliases = [
                   "@ngd"
@@ -110,11 +110,11 @@ in
                 ];
               };
 
-              "Bing".metaData.hidden = true;
-              "DuckDuckGo".metaData.hidden = true;
-              "Amazon.nl".metaData.hidden = true;
-              "eBay".metaData.hidden = true;
-              "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
+              "bing".metaData.hidden = true;
+              "duckduckgo".metaData.hidden = true;
+              "amazonnl".metaData.hidden = true;
+              "ebay".metaData.hidden = true;
+              "google".metaData.alias = "@g";
             };
           };
           settings = {
