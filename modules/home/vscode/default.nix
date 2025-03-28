@@ -69,6 +69,16 @@ in
           ligatures = true;
         };
         buffer_font_size = 14;
+        edit_predictions = {
+          disabled_globs = [
+            "**/.env*"
+            "**/*.pem"
+            "**/*.key"
+            "**/*.cert"
+            "**/*.crt"
+            "**/secrets.yml"
+          ];
+        };
         features = {
           inline_completion_provider = "copilot";
           edit_prediction_provider = "copilot";
@@ -86,17 +96,8 @@ in
         languages = {
           Markdown = {
             format_on_save = "on";
-            formatter = {
-              external = {
-                command = lib.getExe pkgs.nodePackages.prettier;
-                arguments = [
-                  "--prose-wrap"
-                  "always"
-                  "--stdin-filepath"
-                  "{buffer_path}"
-                ];
-              };
-            };
+            preferred_line_length = 120;
+            soft_wrap = "preferred_line_length";
           };
           Nix = {
             language_servers = [
