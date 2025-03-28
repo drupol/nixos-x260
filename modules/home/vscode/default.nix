@@ -84,6 +84,20 @@ in
           enable = true;
         };
         languages = {
+          Markdown = {
+            format_on_save = "on";
+            formatter = {
+              external = {
+                command = lib.getExe pkgs.nodePackages.prettier;
+                arguments = [
+                  "--prose-wrap"
+                  "always"
+                  "--stdin-filepath"
+                  "{buffer_path}"
+                ];
+              };
+            };
+          };
           Nix = {
             language_servers = [
               "nixd"
