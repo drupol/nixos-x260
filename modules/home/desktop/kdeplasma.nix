@@ -298,7 +298,7 @@
       "katerc"."KTextEditor Renderer"."Line Height Multiplier" = 1;
       "katerc"."KTextEditor Renderer"."Show Indentation Lines" = false;
       "katerc"."KTextEditor Renderer"."Show Whole Bracket Expression" = false;
-      "katerc"."KTextEditor Renderer"."Text Font" = "Iosevka Comfy,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
+      "katerc"."KTextEditor Renderer"."Text Font" = "Aporetic Sans Mono,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
       "katerc"."KTextEditor Renderer"."Text Font Features" = "";
       "katerc"."KTextEditor Renderer"."Word Wrap Marker" = false;
       "katerc"."KTextEditor::Search"."Search History" = "trainer.,pylanc";
@@ -330,11 +330,11 @@
       "kdeglobals"."General"."BrowserApplication" = "firefox.desktop";
       "kdeglobals"."General"."XftHintStyle" = "hintslight";
       "kdeglobals"."General"."XftSubPixel" = "none";
-      "kdeglobals"."General"."fixed" = "Iosevka Comfy,10,-1,5,50,0,0,0,0,0";
-      "kdeglobals"."General"."font" = "Iosevka Comfy,10,-1,5,50,0,0,0,0,0";
-      "kdeglobals"."General"."menuFont" = "Iosevka Comfy,10,-1,5,50,0,0,0,0,0";
-      "kdeglobals"."General"."smallestReadableFont" = "Iosevka Comfy,8,-1,5,50,0,0,0,0,0";
-      "kdeglobals"."General"."toolBarFont" = "Iosevka Comfy,10,-1,5,50,0,0,0,0,0";
+      "kdeglobals"."General"."fixed" = "Aporetic Sans Mono,10,-1,5,50,0,0,0,0,0";
+      "kdeglobals"."General"."font" = "Aporetic Sans Mono,10,-1,5,50,0,0,0,0,0";
+      "kdeglobals"."General"."menuFont" = "Aporetic Sans Mono,10,-1,5,50,0,0,0,0,0";
+      "kdeglobals"."General"."smallestReadableFont" = "Aporetic Sans Mono,8,-1,5,50,0,0,0,0,0";
+      "kdeglobals"."General"."toolBarFont" = "Aporetic Sans Mono,10,-1,5,50,0,0,0,0,0";
       "kdeglobals"."KDE"."AnimationDurationFactor" = 0.25;
       "kdeglobals"."KDE"."SingleClick" = false;
       "kdeglobals"."KFileDialog Settings"."Allow Expansion" = false;
@@ -359,7 +359,7 @@
       "kdeglobals"."KShortcutsDialog Settings"."Dialog Size" = "876,614";
       "kdeglobals"."WM"."activeBackground" = "49,54,59";
       "kdeglobals"."WM"."activeBlend" = "252,252,252";
-      "kdeglobals"."WM"."activeFont" = "Iosevka Comfy,10,-1,5,50,0,0,0,0,0";
+      "kdeglobals"."WM"."activeFont" = "Aporetic Sans Mono,10,-1,5,50,0,0,0,0,0";
       "kdeglobals"."WM"."activeForeground" = "252,252,252";
       "kdeglobals"."WM"."inactiveBackground" = "42,46,50";
       "kdeglobals"."WM"."inactiveBlend" = "161,169,177";
@@ -671,7 +671,7 @@
       "spectaclerc"."Annotations"."rectangleFillColor" = "255,255,255,0";
       "spectaclerc"."Annotations"."rectangleShadow" = false;
       "spectaclerc"."Annotations"."rectangleStrokeColor" = "255,0,0";
-      "spectaclerc"."Annotations"."textFont" = "Iosevka Comfy,22,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
+      "spectaclerc"."Annotations"."textFont" = "Aporetic Sans Mono,22,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
       "spectaclerc"."Annotations"."textFontColor" = "255,0,0";
       "spectaclerc"."GuiConfig"."captureDelay" = 2;
       "spectaclerc"."GuiConfig"."captureMode" = 0;

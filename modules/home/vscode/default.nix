@@ -63,7 +63,7 @@ in
         };
         base_keymap = "VSCode";
         ensure_final_newline_on_save = true;
-        buffer_font_family = "Iosevka Comfy";
+        buffer_font_family = "Aporetic Sans Mono";
         buffer_font_features = {
           calt = true;
           ligatures = true;
@@ -195,7 +195,7 @@ in
           light = "One Light";
           dark = "Ayu Dark";
         };
-        ui_font_family = "Iosevka Comfy";
+        ui_font_family = "Aporetic Sans Mono";
         ui_font_size = 14;
         wrap_guides = [
           80
@@ -250,6 +250,7 @@ in
             pkgs.vscode-extensions.pkief.material-icon-theme
             pkgs.vscode-extensions.redhat.vscode-yaml
             pkgs.vscode-extensions.redhat.vscode-xml
+            pkgs.vscode-extensions.rust-lang.rust-analyzer
             pkgs.vscode-extensions.tamasfe.even-better-toml
             pkgs.vscode-extensions.tekumara.typos-vscode
             pkgs.vscode-extensions.usernamehw.errorlens
@@ -297,11 +298,11 @@ in
                 "languages" = [ "nix" ];
               }
             ];
-            "debug.console.fontFamily" = "'Iosevka Comfy'";
+            "debug.console.fontFamily" = "'Aporetic Sans Mono'";
             "diffEditor.ignoreTrimWhitespace" = false;
             "editor.bracketPairColorization.enabled" = true;
             "editor.cursorSmoothCaretAnimation" = "on";
-            "editor.fontFamily" = "'Iosevka Comfy'";
+            "editor.fontFamily" = "'Aporetic Sans Mono'";
             "editor.fontLigatures" = true;
             "editor.fontSize" = 14;
             "editor.formatOnSave" = false;
@@ -360,7 +361,7 @@ in
               markdown = true;
             };
             "githubPullRequests.pullBranch" = "always";
-            "markdown.preview.fontFamily" = "'Iosevka Comfy'";
+            "markdown.preview.fontFamily" = "'Aporetic Sans Mono'";
             "nix.formatterPath" = lib.getExe pkgs.nixfmt-rfc-style;
             "nix.serverPath" = lib.getExe pkgs.nixd;
             "nix.enableLanguageServer" = true;

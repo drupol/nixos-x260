@@ -24,7 +24,7 @@ in
 
     programs.firefox =
       let
-        defaultFont = "Iosevka Comfy";
+        defaultFont = "Aporetic Sans Mono";
       in
       {
         enable = true;

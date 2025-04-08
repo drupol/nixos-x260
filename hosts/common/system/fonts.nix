@@ -2,18 +2,17 @@
 {
   fonts.packages = with pkgs; [
     dina-font
-    iosevka
-    iosevka-comfy.comfy
+    aporetic
     monaspace
   ];
 
   fonts.fontconfig = {
     defaultFonts = {
       monospace = [
-        "Iosevka Comfy"
+        "Aporetic Sans Mono"
       ];
-      sansSerif = [ "Iosevka Comfy" ];
-      serif = [ "Iosevka Comfy" ];
+      sansSerif = [ "Aporetic Sans Mono" ];
+      serif = [ "Aporetic Sans Mono" ];
     };
   };
 }
