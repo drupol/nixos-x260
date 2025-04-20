@@ -20,18 +20,20 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
+      aws-workspaces
       kdePackages.ark
       kdePackages.kate
-      kdePackages.kgpg
-      kdePackages.krdc
       kdePackages.kdialog
+      kdePackages.kgpg
       kdePackages.kpipewire
+      kdePackages.krdc
       kdePackages.okular
       kdePackages.sddm-kcm
       kdePackages.spectacle
       kdePackages.yakuake
       krita
       ktailctl
+      mailspring
       vlc
       vscode-runner
       zotero
