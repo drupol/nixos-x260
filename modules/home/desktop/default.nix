@@ -37,6 +37,28 @@ in
       vlc
       vscode-runner
       zotero
+
+      kdePackages.kaccounts-integration
+      kdePackages.kaccounts-providers
+      kdePackages.plasma-browser-integration # browser integration (chrome/firefox)
+      kdePackages.kmail # mail application
+      kdePackages.kmail-account-wizard
+      kdePackages.kmailtransport
+      kdePackages.kmail
+      kdePackages.accounts-qt
+      kdePackages.kontact # contacts application
+      kdePackages.kate # kwrite
+      kdePackages.kcalc # calculator
+      kdePackages.filelight # disk usage analyzer
+      kdePackages.korganizer # calendar/organizer
+      kdePackages.akregator # rss feed reader
+      kdePackages.kaddressbook # contact addressbook
+      kdePackages.kweather # weather app
+      kdePackages.kasts # podcast app
+      kdePackages.plasmatube # youtube app
+      kdePackages.krfb # Krfb Desktop Sharing (VNC)
+      kdePackages.kauth
+      kdePackages.ksystemlog # syslog viewer
     ];
   };
 }
