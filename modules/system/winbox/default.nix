@@ -13,7 +13,7 @@ in
   };
 
   config = lib.mkIf (cfg.enable && config.desktop.enable) {
-    environment.systemPackages = with pkgs; [ winbox ];
+    environment.systemPackages = with pkgs; [ winbox4 ];
 
     networking = {
       firewall.allowedUDPPorts = [ 5678 ];
