@@ -22,6 +22,7 @@
     };
     pkgs-by-name-for-flake-parts.url = "github:drupol/pkgs-by-name-for-flake-parts";
     nix-webapps.url = "github:TLATER/nix-webapps";
+    import-tree.url = "github:vic/import-tree";
   };
 
   outputs =
@@ -31,15 +32,7 @@
 
       imports = [
         inputs.pkgs-by-name-for-flake-parts.flakeModule
-        ./imports/pkgs.nix
-        ./imports/formatter.nix
-        ./imports/devshells.nix
-        ./imports/overlay.nix
-        ./imports/nixosConfigurations.nix
-        ./imports/homeConfigurations.nix
-        ./imports/lib.nix
-        ./imports/deploy.nix
-        ./imports/checks.nix
+        (inputs.import-tree ./imports)
       ];
     };
 }

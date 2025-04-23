@@ -21,14 +21,12 @@
           inherit specialArgs;
 
           modules =
-            [ inputs.nixos-generators.nixosModules.all-formats ]
-            ++ (inputs.self.lib.umport {
-              paths = [
-                ../modules/system
-                ../hosts/common/system
-                ./../hosts/${hostConfig.hostname}/system
-              ];
-            })
+            [
+              inputs.nixos-generators.nixosModules.all-formats
+              (inputs.import-tree ../modules/system)
+              (inputs.import-tree ../hosts/common/system)
+              (inputs.import-tree ./../hosts/${hostConfig.hostname}/system)
+            ]
             ++ lib.optionals (lib.pathExists ./../hosts/${hostConfig.hostname}/home) [
               {
                 home-manager = {
@@ -36,13 +34,11 @@
                   useUserPackages = true;
                   sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
                   extraSpecialArgs = specialArgs;
-                  users."${hostConfig.user}".imports = inputs.self.lib.umport {
-                    paths = [
-                      ../modules/home
-                      ../hosts/common/home
-                      ./../hosts/${hostConfig.hostname}/home
-                    ];
-                  };
+                  users."${hostConfig.user}".imports = [
+                    (inputs.import-tree ../modules/home)
+                    (inputs.import-tree ../hosts/common/home)
+                    (inputs.import-tree ./../hosts/${hostConfig.hostname}/home)
+                  ];
                 };
               }
             ];
