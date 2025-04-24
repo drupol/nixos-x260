@@ -40,7 +40,7 @@
     micro = {
       enable = true;
       settings = {
-      	diffgutter = true;
+        diffgutter = true;
         keymenu = true;
         mkparents = true;
         tabsize = 2;
