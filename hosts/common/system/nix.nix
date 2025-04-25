@@ -1,10 +1,6 @@
 { pkgs, ... }:
 {
   nix = {
-    # TODO: investigate
-    # Can't remove this or else: oct 05 17:28:40 x13 hm-activate-pol[2086361]: error: profile manifest '/nix/var/nix/profiles/per-user/pol/profile/manifest.json' has unsupported version 3
-    package = pkgs.nixVersions.latest;
-
     # See https://discourse.nixos.org/t/24-05-add-flake-to-nix-path/46310/9
     # See https://hachyderm.io/@leftpaddotpy/112539055867932912
     channel.enable = false;

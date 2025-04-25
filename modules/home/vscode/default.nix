@@ -231,6 +231,7 @@ in
 
             pkgs.vscode-extensions.github.github-vscode-theme
             pkgs.vscode-extensions.github.vscode-pull-request-github
+            pkgs.vscode-extensions.golang.go
             pkgs.vscode-extensions.jebbs.plantuml
             pkgs.vscode-extensions.jkillian.custom-local-formatters
             pkgs.vscode-extensions.jnoortheen.nix-ide
@@ -261,6 +262,9 @@ in
             pkgs.vscode-extensions.zhuangtongfa.material-theme
           ];
           userSettings = {
+            "[go]"= {
+              "editor.defaultFormatter" = "golang.go";
+            };
             "[json]" = {
               "editor.defaultFormatter" = "vscode.json-language-features";
             };
