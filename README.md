@@ -1,7 +1,7 @@
 [![GitHub Workflow Status][github workflow status]][2]
- ![GitHub stars][github stars]
- ![License][mit]
- [![Donate!][donate github]][5]
+![GitHub stars][github stars]
+![License][mit]
+[![Donate!][donate github]][5]
 
 # Nix (dotfiles) configurations
 
