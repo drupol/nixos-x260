@@ -74,7 +74,7 @@
                 }
               ];
             };
-            environmentFile = "/home/pol/Code/litellm-secrets.env";
+            environmentFile = "/home/pol/Code/drupol/litellm-secrets.env";
             openFirewall = true;
           };
         };
