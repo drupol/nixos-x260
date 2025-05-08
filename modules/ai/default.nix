@@ -17,14 +17,20 @@
         services = {
           docling-serve = {
             enable = true;
+            host = "0.0.0.0";
+            port = 5001;
             package = pkgs.master.docling-serve.override {
               withUI = true;
               withTesserocr = true;
               withCPU = true;
               withRapidocr = true;
             };
+            environment = {
+              DOCLING_SERVE_ENABLE_UI = "True";
+            };
             openFirewall = true;
           };
+
           tika = {
             enable = true;
             package = pkgs.tika;
@@ -41,7 +47,8 @@
 
           open-webui = {
             enable = true;
-            package = pkgs.unstable.open-webui;
+            package = pkgs.master.open-webui;
+            host = "0.0.0.0";
             port = 8080;
             environment = {
               CONTENT_EXTRACTION_ENGINE = "tika";
@@ -74,11 +81,11 @@
 
           caddy = {
             enable = true;
-            virtualHosts."0.0.0.0:443".extraConfig = ''
+            virtualHosts."192.168.2.164:443".extraConfig = ''
               reverse_proxy 127.0.0.1:8080
             '';
 
-            virtualHosts."0.0.0.0:80".extraConfig = ''
+            virtualHosts."192.168.2.164:80".extraConfig = ''
               reverse_proxy 127.0.0.1:8080
             '';
           };
@@ -87,6 +94,7 @@
         networking.firewall.allowedTCPPorts = [
           80
           443
+          5001
         ];
       };
   };

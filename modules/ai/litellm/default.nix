@@ -61,7 +61,7 @@
                 {
                   model_name = "Gemini";
                   litellm_params = {
-                    model = "gemini/gemini-2.0-pro-exp-02-05";
+                    model = "gemini/gemini-2.5-pro-exp-03-25";
                     api_key = "os.environ/GEMINI_API_KEY";
                   };
                 }
@@ -74,7 +74,7 @@
                 }
               ];
             };
-            environmentFile = "/home/pol/Code/drupol/nixos-x260/secrets.env";
+            environmentFile = "/home/pol/Code/litellm-secrets.env";
             openFirewall = true;
           };
         };
