@@ -1,0 +1,3 @@
+{
+  flake.modules.nixos.dev = { };
+}
