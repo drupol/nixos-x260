@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.base =
+  unify.modules.base.home =
     { config, ... }:
     {
       programs.home-manager.enable = true;

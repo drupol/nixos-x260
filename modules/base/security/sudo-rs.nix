@@ -1,8 +1,12 @@
 {
-  flake.modules = {
-    nixos.base = {
-      security.sudo-rs.enable = true;
-      security.sudo-rs.wheelNeedsPassword = false; # Use 'sudo' without a password
+  unify.modules.base.nixos = {
+    security.sudo-rs.enable = true;
+    security.sudo-rs.wheelNeedsPassword = false;
+
+    users.users.pol = {
+      extraGroups = [
+        "wheel"
+      ];
     };
   };
 }

@@ -1,3 +1,3 @@
 {
-  flake.modules.hosts.xeonixos.facter.reportPath = ./facter.json;
+  unify.hosts.xeonixos.nixos.facter.reportPath = ./facter.json;
 }

@@ -1,7 +1,5 @@
 {
-  flake.modules = {
-    nixos.base = {
-      security.rtkit.enable = true;
-    };
+  unify.modules.base.nixos = {
+    security.rtkit.enable = true;
   };
 }

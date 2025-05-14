@@ -1,10 +1,8 @@
 {
-  flake.modules = {
-    homeManager.shell = {
-      programs = {
-        bat = {
-          enable = true;
-        };
+  unify.modules.shell.home = {
+    programs = {
+      bat = {
+        enable = true;
       };
     };
   };

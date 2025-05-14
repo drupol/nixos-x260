@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.modules.homeManager.desktop = {
+  unify.modules.desktop.home = {
     imports = [
       inputs.plasma-manager.homeManagerModules.plasma-manager
     ];

@@ -15,30 +15,30 @@
         ];
       };
     };
-
-    modules.nixosUsers.pol =
-      { pkgs, ... }:
-      {
-        programs.fish.enable = true;
-
-        users.users.pol = {
-          description = config.flake.meta.users.pol.name;
-          isNormalUser = true;
-          createHome = true;
-          extraGroups = [
-            "audio"
-            "input"
-            "networkmanager"
-            "sound"
-            "tty"
-            "wheel"
-          ];
-          shell = pkgs.fish;
-          openssh.authorizedKeys.keys = config.flake.meta.users.pol.authorizedKeys;
-          initialPassword = "id";
-        };
-
-        nix.settings.trusted-users = [ config.flake.meta.users.pol.username ];
-      };
   };
+
+  unify.modules.base.nixos =
+    { pkgs, ... }:
+    {
+      programs.fish.enable = true;
+
+      users.users.pol = {
+        description = config.flake.meta.users.pol.name;
+        isNormalUser = true;
+        createHome = true;
+        extraGroups = [
+          "audio"
+          "input"
+          "networkmanager"
+          "sound"
+          "tty"
+          "wheel"
+        ];
+        shell = pkgs.fish;
+        openssh.authorizedKeys.keys = config.flake.meta.users.pol.authorizedKeys;
+        initialPassword = "id";
+      };
+
+      nix.settings.trusted-users = [ config.flake.meta.users.pol.username ];
+    };
 }

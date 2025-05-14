@@ -1,7 +1,5 @@
 {
-  flake.modules = {
-    nixos.base = {
-      time.timeZone = "Europe/Brussels";
-    };
+  unify.modules.base.nixos = {
+    time.timeZone = "Europe/Brussels";
   };
 }

@@ -1,7 +1,5 @@
 {
-  flake.modules = {
-    nixos.bluetooth = {
-      hardware.bluetooth.enable = true;
-    };
+  unify.modules.bluetooth.nixos = {
+    hardware.bluetooth.enable = true;
   };
 }

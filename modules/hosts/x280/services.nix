@@ -1,15 +1,13 @@
 {
-  flake.modules = {
-    hosts.x280 = {
-      services = {
-        xserver = {
-          xkb = {
-            layout = "be";
-          };
+  unify.hosts.x280.nixos = {
+    services = {
+      xserver = {
+        xkb = {
+          layout = "be";
         };
-        thermald.enable = true;
-        avahi.enable = true;
       };
+      thermald.enable = true;
+      avahi.enable = true;
     };
   };
 }
