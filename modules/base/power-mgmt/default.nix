@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  flake.modules.nixos.base = {
+  unify.modules.base.nixos = {
     powerManagement = {
       enable = true;
       cpuFreqGovernor = lib.mkDefault "powersave";

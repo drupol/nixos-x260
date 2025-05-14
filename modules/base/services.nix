@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.base = {
+  unify.modules.base.nixos = {
     services = {
       flatpak = {
         enable = false;

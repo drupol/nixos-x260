@@ -1,10 +1,8 @@
 {
-  flake.modules = {
-    homeManager.shell = {
-      programs = {
-        bottom = {
-          enable = true;
-        };
+  unify.modules.shell.home = {
+    programs = {
+      bottom = {
+        enable = true;
       };
     };
   };

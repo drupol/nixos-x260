@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  flake.modules.nixos."hosts/xeonixos" =
+  unify.hosts.nixos.xeonixos.nixos =
     { config, pkgs, ... }:
     {
       hardware.nvidia.open = false;

@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos."hosts/x13" = {
+  unify.hosts.nixos.x13.nixos = {
     programs = {
       noisetorch = {
         enable = true;

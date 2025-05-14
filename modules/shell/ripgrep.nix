@@ -1,10 +1,8 @@
 {
-  flake.modules = {
-    homeManager.shell = {
-      programs = {
-        ripgrep = {
-          enable = true;
-        };
+  unify.modules.shell.home = {
+    programs = {
+      ripgrep = {
+        enable = true;
       };
     };
   };
