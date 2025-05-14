@@ -36,6 +36,20 @@
               '';
             };
 
+            custom.jjb = {
+              when = "jj root --ignore-working-copy";
+              detect_folders = [ ".jj" ];
+              ignore_timeout = true;
+              format = "($output) ";
+              command = ''
+                jj log --no-graph -r "streams()" --template '
+                  surround("[", "]",
+                    bookmarks
+                  )
+                '
+              '';
+            };
+
             git_state = {
               disabled = true;
             };
