@@ -1,3 +1,0 @@
-{
-  flake.modules.nixos.games = { };
-}
