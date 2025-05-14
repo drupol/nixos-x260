@@ -1,11 +1,9 @@
 {
-  flake.modules = {
-    homeManager.shell = {
-      programs = {
-        zoxide = {
-          enable = true;
-          enableFishIntegration = true;
-        };
+  unify.modules.shell.home = {
+    programs = {
+      zoxide = {
+        enable = true;
+        enableFishIntegration = true;
       };
     };
   };

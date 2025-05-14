@@ -1,10 +1,8 @@
 {
-  flake.modules = {
-    homeManager.shell = {
-      programs = {
-        htop = {
-          enable = true;
-        };
+  unify.modules.shell.home = {
+    programs = {
+      htop = {
+        enable = true;
       };
     };
   };

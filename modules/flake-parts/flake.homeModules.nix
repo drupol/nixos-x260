@@ -1,6 +1,7 @@
 {
   inputs,
   config,
+  lib,
   ...
 }:
 {
@@ -8,5 +9,5 @@
     inputs.home-manager.flakeModules.home-manager
   ];
 
-  flake.homeModules = config.flake.modules.homeManager;
+  flake.homeModules = lib.mapAttrs (_: module: module.home) config.unify.modules;
 }

@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.virtualisation = {
+  unify.modules.virtualisation.nixos = {
     virtualisation = {
       oci-containers.backend = "podman";
 

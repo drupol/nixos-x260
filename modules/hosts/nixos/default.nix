@@ -3,32 +3,28 @@
   ...
 }:
 {
-  flake.modules.nixos.nixos.imports =
-    with (config.flake.modules.nixos);
-    [
-      # Modules
+  unify.hosts.nixos.nixos = {
+    users.pol.modules = config.unify.hosts.nixos.nixos.modules;
+
+    modules = with config.unify.modules; [
       base
       ai
-      dev
       facter
       openssh
+      pol
       shell
       vpn
-
-      # Users
-      root
-      pol
-    ]
-    # Specific Home-Manager modules
-    ++ [
-      {
-        home-manager.users.pol.imports = with config.flake.modules.homeManager; [
-          base
-          dev
-          facter
-          shell
-          vpn
-        ];
-      }
     ];
+
+    tags = [
+      "base"
+      "ai"
+      "facter"
+      "openssh"
+      "shell"
+      "vpn"
+    ];
+
+    fqdn = "nixos.netbird.cloud";
+  };
 }
