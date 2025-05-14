@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.base = {
+  unify.modules.base.home = {
     xdg = {
       enable = true;
       mime.enable = true;

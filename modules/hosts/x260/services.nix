@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos."hosts/x260" = {
+  unify.hosts.nixos.x260.nixos = {
     services = {
       xserver = {
         xkb = {

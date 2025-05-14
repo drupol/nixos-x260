@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.dev =
+  unify.modules.dev.home =
     { config, ... }:
     {
       xdg = {

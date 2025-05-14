@@ -7,7 +7,7 @@
     inputs.make-shell.flakeModules.default
   ];
 
-  flake.modules.nixos.base = {
+  unify.modules.base.nixos = {
     programs = {
       nh = {
         enable = true;

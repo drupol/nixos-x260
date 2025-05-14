@@ -1,9 +1,7 @@
 {
-  flake.modules = {
-    homeManager.dev = {
-      programs.mergiraf = {
-        enable = true;
-      };
+  unify.modules.dev.home = {
+    programs.mergiraf = {
+      enable = true;
     };
   };
 }
