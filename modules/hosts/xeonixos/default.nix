@@ -1,6 +1,22 @@
 {
-  unify.hosts.xeonixos = {
-    user = "pol";
+  config,
+  ...
+}:
+{
+  unify.hosts.nixos.xeonixos = {
+    users.pol.modules = config.unify.hosts.nixos.xeonixos.modules;
+
+    modules = with config.unify.modules; [
+      base
+      desktop
+      dev
+      facter
+      guacamole
+      openssh
+      shell
+      virtualisation
+      vpn
+    ];
 
     tags = [
       "base"

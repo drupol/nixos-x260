@@ -1,5 +1,5 @@
 {
-  unify.hosts.x260.nixos = {
+  unify.hosts.nixos.x260.nixos = {
     fileSystems."/" = {
       device = "/dev/disk/by-uuid/0441f1d3-2c4c-4038-a76b-b3b4beb755f9";
       fsType = "ext4";

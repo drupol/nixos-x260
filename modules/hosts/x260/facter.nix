@@ -1,3 +1,3 @@
 {
-  unify.hosts.x260.nixos.facter.reportPath = ./facter.json;
+  unify.hosts.nixos.x260.nixos.facter.reportPath = ./facter.json;
 }

@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  unify.hosts.xeonixos.nixos =
+  unify.hosts.nixos.xeonixos.nixos =
     { config, pkgs, ... }:
     {
       hardware.nvidia.open = false;

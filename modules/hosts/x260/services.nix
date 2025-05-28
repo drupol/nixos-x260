@@ -1,5 +1,5 @@
 {
-  unify.hosts.x260.nixos = {
+  unify.hosts.nixos.x260.nixos = {
     services = {
       xserver = {
         xkb = {
