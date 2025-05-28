@@ -1015,10 +1015,8 @@
         "kxkbrc"."Layout"."Use" = true;
         "kxkbrc"."Layout"."VariantList" = ",latin9,,";
         "plasma-localerc"."Formats"."LANG" = "en_US.UTF-8";
-        "plasmanotifyrc"."Applications.thunderbird"."ShowPopupsInDndMode" = true;
         "plasmanotifyrc"."Applications/firefox"."Seen" = true;
         "plasmanotifyrc"."Applications/signal"."Seen" = true;
-        "plasmanotifyrc"."Applications/thunderbird"."ShowPopupsInDndMode" = true;
         "plasmanotifyrc"."Notifications"."LowPriorityHistory" = true;
         "plasmanotifyrc"."Notifications"."NormalAlwaysOnTop" = true;
         "plasmaparc"."General"."RaiseMaximumVolume" = true;

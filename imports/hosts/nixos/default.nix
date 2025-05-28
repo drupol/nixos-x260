@@ -3,14 +3,18 @@
   ...
 }:
 {
-  unify.hosts.nixos = {
-    users.pol.modules = config.unify.hosts.nixos.nixos.modules;
+  unify.hosts.nixos.nixos = {
+    users = {
+      pol.modules = config.unify.hosts.nixos.nixos.modules;
+    };
 
     modules = with config.unify.modules; [
       base
       ai
       facter
       openssh
+      pol
+      root
       shell
       vpn
     ];

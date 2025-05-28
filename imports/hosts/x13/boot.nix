@@ -1,5 +1,5 @@
 {
-  unify.hosts.x13.nixos = {
+  unify.hosts.nixos.x13.nixos = {
     boot = {
       loader = {
         systemd-boot.enable = true;

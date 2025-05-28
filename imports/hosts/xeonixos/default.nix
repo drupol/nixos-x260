@@ -3,8 +3,10 @@
   ...
 }:
 {
-  unify.hosts.xeonixos.nixos = {
-    users.pol.modules = config.unify.hosts.nixos.xeonixos.modules;
+  unify.hosts.nixos.xeonixos = {
+    users = {
+      pol.modules = config.unify.hosts.nixos.xeonixos.modules;
+    };
 
     modules = with config.unify.modules; [
       base
@@ -13,6 +15,8 @@
       facter
       guacamole
       openssh
+      pol
+      root
       shell
       virtualisation
       vpn

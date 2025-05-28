@@ -1,25 +1,34 @@
 {
+  config,
   ...
 }:
 {
-  unify.hosts.x13 = {
-    user = "pol";
+  unify.hosts.nixos.x13 = {
+    users = {
+      pol.modules = config.unify.hosts.nixos.x13.modules;
+    };
+
+    modules = with config.unify.modules; [
+      base
+      desktop
+      dev
+      email
+      facter
+      fwupd
+      games
+      messaging
+      pol
+      root
+      shell
+      sound
+      virtualisation
+      vpn
+      work
+    ];
 
     tags = [
-      "base"
       "desktop"
-      "dev"
-      "email"
-      "facter"
-      "fwupd"
-      "games"
-      "messaging"
-      "shell"
-      "sound"
-      "virtualisation"
-      "vpn"
-      "work"
-      "x13"
+      "laptop"
     ];
   };
 }

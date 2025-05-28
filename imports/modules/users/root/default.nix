@@ -1,5 +1,5 @@
 {
-  unify.modules.base.nixos =
+  unify.modules.root.nixos =
     { pkgs, ... }:
     {
       users.users.root = {

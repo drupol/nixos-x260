@@ -3,8 +3,10 @@
   ...
 }:
 {
-  unify.hosts.x280.nixos = {
-    users.pol.modules = config.unify.hosts.x280.nixos.modules;
+  unify.hosts.nixos.x280 = {
+    users = {
+      pol.modules = config.unify.hosts.nixos.x280.modules;
+    };
 
     modules = with config.unify.modules; [
       base
@@ -13,6 +15,8 @@
       dev
       facter
       fwupd
+      pol
+      root
       shell
       sound
       vpn

@@ -1,10 +1,10 @@
-{
+topLevel@{
   config,
   ...
 }:
 {
   unify.modules.dev.home =
-    { pkgs, ... }:
+    { pkgs, config, ... }:
     {
       home.packages = [
         pkgs.watchman
@@ -21,7 +21,7 @@
             snapshot.max-new-file-size = "15M";
 
             user = {
-              inherit (config.flake.meta.users.pol) email name;
+              inherit (topLevel.config.flake.meta.users.${config.home.username}) email name;
             };
 
             ui = {

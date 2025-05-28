@@ -59,6 +59,7 @@
         kdePackages.sddm-kcm
         kdePackages.spectacle
         kdePackages.yakuake
+        kdePackages.xdg-desktop-portal-kde
         krita
         vlc
         winbox4
