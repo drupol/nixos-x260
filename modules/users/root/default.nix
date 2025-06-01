@@ -1,6 +1,6 @@
 {
   flake.modules = {
-    nixos.base =
+    nixosUsers.root =
       { pkgs, ... }:
       {
         users.users.root = {

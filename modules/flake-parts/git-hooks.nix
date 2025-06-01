@@ -1,6 +1,10 @@
 { inputs, ... }:
 {
-  imports = [ inputs.git-hooks.flakeModule ];
+  imports = [
+    inputs.git-hooks.flakeModule
+    inputs.make-shell.flakeModules.default
+  ];
+
   perSystem =
     { config, ... }:
     {

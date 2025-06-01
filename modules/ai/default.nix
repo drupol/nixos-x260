@@ -3,6 +3,12 @@
   ...
 }:
 {
+  nixpkgs = {
+    allowedUnfreePackages = [
+      "open-webui"
+    ];
+  };
+
   flake.modules = {
     nixos.ai =
       { pkgs, ... }:

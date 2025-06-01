@@ -5,7 +5,7 @@
 }:
 {
   flake.modules = {
-    homeManager.desktop =
+    homeManager.dev =
       { pkgs, ... }:
       {
         nixpkgs.overlays = [
@@ -18,7 +18,6 @@
 
         programs.zed-editor = {
           enable = true;
-          package = pkgs.unstable.zed-editor;
           extensions = [
             "docker-compose"
             "dockerfile"

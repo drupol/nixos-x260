@@ -5,6 +5,7 @@
       {
         xdg = {
           portal = {
+            enable = true;
             config.common.default = "kde";
             extraPortals = with pkgs; [ kdePackages.xdg-desktop-portal-kde ];
           };
@@ -41,26 +42,14 @@
         nixpkgs.config.allowUnfree = true;
 
         home.packages = with pkgs; [
-          aws-workspaces
-          kdePackages.accounts-qt
+          kdePackages.akonadi-search
           kdePackages.akregator
           kdePackages.ark
           kdePackages.filelight
-          kdePackages.kaccounts-integration
-          kdePackages.kaccounts-providers
-          kdePackages.kaddressbook
           kdePackages.kate
-          kdePackages.kate
-          kdePackages.kauth
           kdePackages.kcalc
           kdePackages.kdialog
           kdePackages.kgpg
-          kdePackages.kmail
-          kdePackages.kmail
-          kdePackages.kmail-account-wizard
-          kdePackages.kmailtransport
-          kdePackages.kontact
-          kdePackages.korganizer
           kdePackages.kpipewire
           kdePackages.krdc
           kdePackages.krfb
@@ -68,15 +57,12 @@
           kdePackages.kweather
           kdePackages.okular
           kdePackages.plasma-browser-integration
-          kdePackages.plasmatube
           kdePackages.sddm-kcm
           kdePackages.spectacle
+          kdePackages.xdg-desktop-portal-kde
           kdePackages.yakuake
           krita
-          ktailctl
-          mailspring
           vlc
-          vscode-runner
           winbox4
           zotero
         ];

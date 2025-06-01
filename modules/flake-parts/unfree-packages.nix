@@ -14,7 +14,7 @@
         nixos.base.nixpkgs.config.allowUnfreePredicate = predicate;
 
         homeManager.base = args: {
-          nixpkgs.config = lib.mkIf (!(args.hasGlobalPkgs or false)) {
+          nixpkgs.config = {
             allowUnfreePredicate = predicate;
           };
         };

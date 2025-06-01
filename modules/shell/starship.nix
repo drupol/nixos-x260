@@ -6,14 +6,14 @@
           enable = true;
           enableTransience = true;
           settings = {
-            custom.jj = {
+            custom.jj1 = {
               when = "jj root --ignore-working-copy";
               detect_folders = [ ".jj" ];
               ignore_timeout = true;
               format = "$output ";
               command = ''
                 jj log --revisions @ --no-graph --ignore-working-copy --color always --limit 1 --template '
-                  surround("[", "]",
+                  surround("[", "",
                     separate(" ",
                       change_id.shortest(),
                       commit_id.shortest(),
@@ -36,14 +36,14 @@
               '';
             };
 
-            custom.jjb = {
+            custom.jj2 = {
               when = "jj root --ignore-working-copy";
               detect_folders = [ ".jj" ];
               ignore_timeout = true;
-              format = "($output) ";
+              format = "$output ";
               command = ''
-                jj log --no-graph -r "streams()" --template '
-                  surround("[", "]",
+                jj log --revisions "streams()" --no-graph --ignore-working-copy --color always --template '
+                  surround("", "]",
                     bookmarks
                   )
                 '

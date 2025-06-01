@@ -5,15 +5,28 @@
 }:
 {
   flake.modules = {
-    homeManager.desktop =
+    nixos.dev = {
+      services = {
+        # needed for store VS Code auth token
+        gnome.gnome-keyring.enable = true;
+      };
+    };
+
+    homeManager.dev =
       { pkgs, ... }:
       {
-        nixpkgs.overlays = [
-          (final: prev: {
-            master = import inputs.nixpkgs-master {
-              inherit (final) config system;
-            };
-          })
+        nixpkgs = {
+          overlays = [
+            (final: prev: {
+              master = import inputs.nixpkgs-master {
+                inherit (final) config system;
+              };
+            })
+          ];
+        };
+
+        home.packages = with pkgs; [
+          vscode-runner
         ];
 
         programs.vscode = {
@@ -38,22 +51,21 @@
                 pkgs.vscode-extensions.editorconfig.editorconfig
                 pkgs.vscode-extensions.esbenp.prettier-vscode
 
-                pkgs.master.vscode-extensions.github.copilot
-                pkgs.master.vscode-extensions.github.copilot-chat
+                pkgs.vscode-extensions.github.copilot
+                pkgs.vscode-extensions.github.copilot-chat
 
                 pkgs.vscode-extensions.github.github-vscode-theme
                 pkgs.vscode-extensions.github.vscode-pull-request-github
                 pkgs.vscode-extensions.golang.go
                 pkgs.vscode-extensions.jebbs.plantuml
-                pkgs.vscode-extensions.jkillian.custom-local-formatters
                 pkgs.vscode-extensions.jnoortheen.nix-ide
                 pkgs.vscode-extensions.mkhl.direnv
                 pkgs.vscode-extensions.mongodb.mongodb-vscode
 
-                pkgs.master.vscode-extensions.ms-python.debugpy
-                pkgs.master.vscode-extensions.ms-python.mypy-type-checker
-                pkgs.master.vscode-extensions.ms-python.python
-                pkgs.master.vscode-extensions.ms-python.vscode-pylance
+                pkgs.vscode-extensions.ms-python.debugpy
+                pkgs.vscode-extensions.ms-python.mypy-type-checker
+                pkgs.vscode-extensions.ms-python.python
+                pkgs.vscode-extensions.ms-python.vscode-pylance
 
                 pkgs.vscode-extensions.ms-toolsai.jupyter
                 pkgs.vscode-extensions.ms-vscode-remote.remote-containers
@@ -68,29 +80,62 @@
                 pkgs.vscode-extensions.tekumara.typos-vscode
                 pkgs.vscode-extensions.usernamehw.errorlens
 
-                pkgs.master.vscode-extensions.visualjj.visualjj
+                pkgs.vscode-extensions.visualjj.visualjj
 
                 pkgs.vscode-extensions.yzhang.markdown-all-in-one
                 pkgs.vscode-extensions.zhuangtongfa.material-theme
               ];
               userSettings = {
+                "[css]" = {
+                  "editor.defaultFormatter" = "esbenp.prettier-vscode";
+                };
                 "[go]" = {
                   "editor.defaultFormatter" = "golang.go";
                 };
+                "[graphql]" = {
+                  "editor.defaultFormatter" = "esbenp.prettier-vscode";
+                };
+                "[handlebars]" = {
+                  "editor.defaultFormatter" = "esbenp.prettier-vscode";
+                };
+                "[html]" = {
+                  "editor.defaultFormatter" = "esbenp.prettier-vscode";
+                };
+                "[javascript]" = {
+                  "editor.defaultFormatter" = "esbenp.prettier-vscode";
+                };
+                "[javascriptreact]" = {
+                  "editor.defaultFormatter" = "esbenp.prettier-vscode";
+                };
                 "[json]" = {
-                  "editor.defaultFormatter" = "vscode.json-language-features";
+                  "editor.defaultFormatter" = "esbenp.prettier-vscode";
                 };
                 "[jsonc]" = {
-                  "editor.defaultFormatter" = "vscode.json-language-features";
+                  "editor.defaultFormatter" = "esbenp.prettier-vscode";
+                };
+                "[json5]" = {
+                  "editor.defaultFormatter" = "esbenp.prettier-vscode";
+                };
+                "[less]" = {
+                  "editor.defaultFormatter" = "esbenp.prettier-vscode";
                 };
                 "[markdown]" = {
                   "editor.defaultFormatter" = "esbenp.prettier-vscode";
                 };
+                "[mdx]" = {
+                  "editor.defaultFormatter" = "esbenp.prettier-vscode";
+                };
                 "[nix]" = {
-                  "editor.defaultFormatter" = "jkillian.custom-local-formatters";
+                  "editor.defaultFormatter" = "jnoortheen.nix-ide";
                 };
                 "[php]" = {
                   "editor.defaultFormatter" = "bmewburn.vscode-intelephense-client";
+                };
+                "[postcss]" = {
+                  "editor.defaultFormatter" = "esbenp.prettier-vscode";
+                };
+                "[scss]" = {
+                  "editor.defaultFormatter" = "esbenp.prettier-vscode";
                 };
                 "[toml]" = {
                   "editor.defaultFormatter" = "tamasfe.even-better-toml";
@@ -98,22 +143,21 @@
                 "[txt]" = {
                   "editor.formatOnSave" = false;
                 };
+                "[typescript]" = {
+                  "editor.defaultFormatter" = "esbenp.prettier-vscode";
+                };
+                "[typescriptreact]" = {
+                  "editor.defaultFormatter" = "esbenp.prettier-vscode";
+                };
                 "[typst]" = {
-                  "editor.defaultFormatter" = "jkillian.custom-local-formatters";
+                  "editor.defaultFormatter" = "myriad-dreamin.tinymist";
+                };
+                "[vue]" = {
+                  "editor.defaultFormatter" = "esbenp.prettier-vscode";
                 };
                 "[yaml]" = {
                   "editor.defaultFormatter" = "redhat.vscode-yaml";
                 };
-                "customLocalFormatters.formatters" = [
-                  {
-                    "command" = "${lib.getExe pkgs.typstyle} -i \${file}";
-                    "languages" = [ "typst" ];
-                  }
-                  {
-                    "command" = "${lib.getExe pkgs.nixfmt-rfc-style} \${file}";
-                    "languages" = [ "nix" ];
-                  }
-                ];
                 "debug.console.fontFamily" = "'Aporetic Sans Mono'";
                 "diffEditor.ignoreTrimWhitespace" = false;
                 "editor.bracketPairColorization.enabled" = true;
@@ -150,7 +194,7 @@
                   "*.md" = "\${capture}.*.md";
                   "config.toml" = "config.*.toml,params.toml";
                 };
-                "extensions.autoCheckUpdates" = true;
+                "extensions.autoCheckUpdates" = false;
                 "extensions.autoUpdate" = false;
                 "extensions.ignoreRecommendations" = true;
                 "files.autoSave" = "afterDelay";
@@ -178,10 +222,10 @@
                 };
                 "githubPullRequests.pullBranch" = "always";
                 "markdown.preview.fontFamily" = "'Aporetic Sans Mono'";
-                "nix.formatterPath" = lib.getExe pkgs.nixfmt-rfc-style;
+                "nix.formatterPath" = [ (lib.getExe pkgs.nixfmt-rfc-style) ];
                 "nix.serverPath" = lib.getExe pkgs.nixd;
                 "nix.enableLanguageServer" = true;
-                "nix.serverSettings".nixd.formatting.command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
+                "nix.serverSettings".nixd.formatting.command = [ (lib.getExe pkgs.nixfmt-rfc-style) ];
                 "plantuml.previewSnapIndicators" = true;
                 "plantuml.render" = "Local";
                 "plantuml.server" = "https://www.plantuml.com/plantuml";
@@ -228,5 +272,19 @@
           };
         };
       };
+  };
+
+  nixpkgs = {
+    allowedUnfreePackages = [
+      "vscode"
+      "vscode-extension-bmewburn-vscode-intelephense-client"
+      "vscode-extension-github-copilot"
+      "vscode-extension-github-copilot-chat"
+      "vscode-extension-MS-python-vscode-pylance"
+      "vscode-extension-ms-vscode-remote-remote-containers"
+      "vscode-extension-ms-vscode-remote-remote-ssh"
+      "vscode-extension-ms-vsliveshare-vsliveshare"
+      "vscode-extension-visualjj-visualjj"
+    ];
   };
 }

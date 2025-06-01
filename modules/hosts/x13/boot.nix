@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.x13.boot = {
+  flake.modules.hosts.x13.boot = {
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;

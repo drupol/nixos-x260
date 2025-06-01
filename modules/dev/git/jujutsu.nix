@@ -1,11 +1,11 @@
-{
+topLevel@{
   config,
   ...
 }:
 {
   flake.modules = {
     homeManager.dev =
-      { pkgs, ... }:
+      { pkgs, config, ... }:
       {
         home.packages = [
           pkgs.watchman
@@ -22,7 +22,8 @@
               snapshot.max-new-file-size = "15M";
 
               user = {
-                inherit (config.flake.meta.users.pol) email name;
+                name = topLevel.config.flake.meta.users.${config.home.username}.name;
+                email = topLevel.config.flake.meta.users.${config.home.username}.email;
               };
 
               ui = {

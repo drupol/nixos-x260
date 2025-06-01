@@ -20,10 +20,6 @@
           text = "";
           recursive = true;
         };
-        "Code/" = {
-          source = ../../files/home/pol/Code;
-          recursive = true;
-        };
         # Credits to https://store.kde.org/p/1272202
         "Pictures/Backgrounds/" = {
           source = ../../files/home/pol/Pictures/Backgrounds;

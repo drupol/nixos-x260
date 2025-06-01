@@ -8,7 +8,6 @@
             enable = true;
             extensions = [
               pkgs.gh-copilot
-              pkgs.gh-dash
             ];
             settings = {
               version = "1";

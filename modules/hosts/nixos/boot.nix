@@ -3,7 +3,7 @@
   ...
 }:
 {
-  flake.modules.nixos.nixos = {
+  flake.modules.hosts.nixos = {
     boot = {
       # Use the GRUB 2 boot loader.
       loader.grub.enable = true;

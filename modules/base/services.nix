@@ -12,8 +12,6 @@
           MaxFileSec=3day
         '';
         nscd.enableNsncd = true;
-        # needed for store VS Code auth token
-        gnome.gnome-keyring.enable = true;
       };
     };
   };
