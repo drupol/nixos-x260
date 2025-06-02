@@ -1,4 +1,12 @@
 {
+  inputs,
+  ...
+}:
+{
+  imports = [
+    inputs.make-shell.flakeModules.default
+  ];
+
   flake.modules = {
     nixos.base = {
       programs = {
