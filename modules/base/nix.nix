@@ -17,11 +17,6 @@
             max-free = 1000000000
             fallback = true
           '';
-          gc = {
-            automatic = true;
-            dates = "daily";
-            options = "--delete-older-than 2d";
-          };
           optimise.automatic = true;
           settings = {
             trusted-users = [
