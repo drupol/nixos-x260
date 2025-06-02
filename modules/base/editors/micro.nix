@@ -1,12 +1,5 @@
 {
   flake.modules = {
-    nixos.base = {
-      environment.variables = {
-        EDITOR = "micro";
-        VISUAL = "micro";
-      };
-    };
-
     homeManager.base = {
       programs = {
         micro = {
@@ -19,6 +12,11 @@
             tabstospaces = true;
           };
         };
+      };
+
+      sessionVariables = {
+        EDITOR = "micro";
+        VISUAL = "micro";
       };
     };
   };
