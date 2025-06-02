@@ -9,10 +9,6 @@
             extensions = [
               pkgs.gh-copilot
             ];
-            settings = {
-              version = "1";
-              git_protocol = "ssh";
-            };
           };
         };
       };
