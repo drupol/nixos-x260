@@ -8,6 +8,7 @@
       treefmt = {
         projectRootFile = "flake.nix";
         programs = {
+          jsonfmt.enable = true;
           nixfmt.enable = true;
           prettier.enable = true;
           shfmt.enable = true;
