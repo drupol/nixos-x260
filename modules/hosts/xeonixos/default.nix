@@ -11,8 +11,8 @@
       dev
       facter
       guacamole
+      openssh
       shell
-      sshd
       virtualisation
       vpn
     ]

@@ -10,8 +10,8 @@
       ai
       dev
       facter
+      openssh
       shell
-      sshd
       vpn
     ]
     ++ config.flake.modules.nixosUsers.root.imports
