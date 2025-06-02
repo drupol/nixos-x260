@@ -3,7 +3,7 @@
     services = {
       tika = {
         enable = true;
-        configFile = ./tika/tika-config.xml;
+        configFile = ./tika-config.xml;
       };
     };
 
