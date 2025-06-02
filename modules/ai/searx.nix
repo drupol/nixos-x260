@@ -55,7 +55,7 @@
               reverse_proxy 127.0.0.1:3002
             }
           '';
-          virtualHosts."192.168.2.164".extraConfig = ''
+          virtualHosts."https://192.168.2.164".extraConfig = ''
             handle_path /searx/* {
               reverse_proxy 127.0.0.1:3002
             }
