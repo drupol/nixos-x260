@@ -32,6 +32,7 @@
           dev
           email
           facter
+          messaging
           games
           shell
           vpn

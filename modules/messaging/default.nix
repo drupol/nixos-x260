@@ -4,11 +4,10 @@
 }:
 {
   flake.modules = {
-    homeManager.desktop =
+    homeManager.messaging =
       { pkgs, ... }:
       {
         nixpkgs.overlays = [
-          inputs.nix-webapps.overlays.lib
           inputs.self.overlays.default
         ];
 
