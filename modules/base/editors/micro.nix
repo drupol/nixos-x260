@@ -14,7 +14,7 @@
         };
       };
 
-      sessionVariables = {
+      home.sessionVariables = {
         EDITOR = "micro";
         VISUAL = "micro";
       };
