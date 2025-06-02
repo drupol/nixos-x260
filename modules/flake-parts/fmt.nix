@@ -1,6 +1,7 @@
 { inputs, lib, ... }:
 {
   imports = [ inputs.treefmt-nix.flakeModule ];
+
   perSystem =
     { self', ... }:
     {
@@ -9,7 +10,6 @@
         programs = {
           nixfmt.enable = true;
           prettier.enable = true;
-          rustfmt.enable = true;
           shfmt.enable = true;
           yamlfmt.enable = true;
         };
@@ -31,6 +31,7 @@
           ];
         };
       };
+
       pre-commit.settings.hooks.nix-fmt = {
         enable = true;
         entry = lib.getExe self'.formatter;
