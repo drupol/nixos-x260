@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.xeonixos = {
+  flake.modules.nixos."hosts/xeonixos" = {
     fileSystems."/" = {
       device = "/dev/disk/by-uuid/6fb8e36f-069c-43db-a843-1e345b17ec04";
       fsType = "ext4";

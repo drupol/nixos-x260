@@ -1,6 +1,6 @@
 {
   flake.modules = {
-    hosts.x280 = {
+    nixos."hosts/x280" = {
       services = {
         xserver = {
           xkb = {
