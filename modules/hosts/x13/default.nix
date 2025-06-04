@@ -19,12 +19,11 @@
       vpn
       virtualisation
     ]
-    # Import the `nixosUsers` modules for the users `root` and `pol`.
-    ++ config.flake.modules.nixosUsers.root.imports
-    ++ config.flake.modules.nixosUsers.pol.imports
+    ++ [ config.flake.modules.nixos.root ]
+    ++ [ config.flake.modules.nixos.pol ]
     ++ [
       # Import the home-manager modules for the user `pol` only.
-      # TODO: Should we move this to the `nixosUsers` pol's module or we leave it here?
+      # TODO: Should we move this to the `nixos` pol's module or we leave it here?
       {
         home-manager.users.pol.imports = with config.flake.modules.homeManager; [
           base

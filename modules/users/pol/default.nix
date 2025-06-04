@@ -16,7 +16,7 @@
       };
     };
 
-    modules.nixosUsers.pol =
+    modules.nixos.pol =
       { pkgs, ... }:
       {
         programs.fish.enable = true;
