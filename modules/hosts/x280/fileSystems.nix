@@ -1,5 +1,5 @@
 {
-  flake.modules.hosts.x280 = {
+  flake.modules.nixos.x280 = {
     fileSystems."/" = {
       device = "/dev/disk/by-uuid/89a4586a-eefb-4dd4-bf06-3953902edc1e";
       fsType = "ext4";

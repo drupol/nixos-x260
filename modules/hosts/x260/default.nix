@@ -3,7 +3,7 @@
   ...
 }:
 {
-  flake.modules.hosts.x260.imports =
+  flake.modules.nixos.x260.imports =
     with (config.flake.modules.nixos);
     [
       base

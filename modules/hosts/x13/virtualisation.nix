@@ -1,6 +1,6 @@
 {
   flake.modules = {
-    hosts.x13 = {
+    nixos."hosts/x13" = {
       virtualisation = {
         containers.storage.settings = {
           storage = {

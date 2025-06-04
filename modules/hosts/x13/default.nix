@@ -3,7 +3,7 @@
   ...
 }:
 {
-  flake.modules.hosts.x13.imports =
+  flake.modules.nixos."hosts/x13".imports =
     # Import the nixos modules for the host `x13`.
     with (config.flake.modules.nixos);
     [

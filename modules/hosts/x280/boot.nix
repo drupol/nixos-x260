@@ -1,5 +1,5 @@
 {
-  flake.modules.hosts.x280.boot = {
+  flake.modules.nixos.x280.boot = {
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
