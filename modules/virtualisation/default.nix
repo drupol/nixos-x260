@@ -1,34 +1,32 @@
 {
-  flake.modules = {
-    nixos.virtualisation = {
-      virtualisation = {
-        oci-containers.backend = "podman";
+  flake.modules.nixos.virtualisation = {
+    virtualisation = {
+      oci-containers.backend = "podman";
 
-        containers.registries.search = [
-          "docker.io"
-        ];
+      containers.registries.search = [
+        "docker.io"
+      ];
 
-        podman = {
+      podman = {
+        enable = true;
+        defaultNetwork.settings = {
+          dns_enabled = true;
+        };
+        dockerCompat = true;
+        dockerSocket.enable = true;
+
+        autoPrune = {
           enable = true;
-          defaultNetwork.settings = {
-            dns_enabled = true;
-          };
-          dockerCompat = true;
-          dockerSocket.enable = true;
-
-          autoPrune = {
-            enable = true;
-            flags = [ "--all" ];
-            dates = "weekly";
-          };
+          flags = [ "--all" ];
+          dates = "weekly";
         };
       };
+    };
 
-      users.users.pol = {
-        extraGroups = [
-          "podman"
-        ];
-      };
+    users.users.pol = {
+      extraGroups = [
+        "podman"
+      ];
     };
   };
 }

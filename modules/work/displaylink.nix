@@ -1,10 +1,8 @@
 {
-  flake.modules = {
-    nixos.displaylink = {
-      services = {
-        xserver = {
-          videoDrivers = [ "displaylink" ];
-        };
+  flake.modules.nixos.displaylink = {
+    services = {
+      xserver = {
+        videoDrivers = [ "displaylink" ];
       };
     };
   };
