@@ -1,12 +1,17 @@
 name: "Auto update flake lock file"
+
 on:
   workflow_dispatch:
   schedule:
     - cron: "0 12 * * 0"
+
 jobs:
-  - name: Check out repository code
-    uses: actions/checkout@v4
-  - uses: cachix/install-nix-action@v31
-  - name: Run script
-    run: |
-      nix run .#gh-flake-update
+  update-flake-lock:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v31
+      - name: Run script
+        run: |
+          nix run .#gh-flake-update
