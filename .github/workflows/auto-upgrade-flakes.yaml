@@ -15,5 +15,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
       - name: Run script
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           nix run .#gh-flake-update
