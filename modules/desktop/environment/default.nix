@@ -1,4 +1,8 @@
 {
+  inputs,
+  ...
+}:
+{
   flake.modules = {
     nixos.desktop =
       { pkgs, ... }:
@@ -39,7 +43,12 @@
     homeManager.desktop =
       { pkgs, ... }:
       {
-        nixpkgs.config.allowUnfree = true;
+        nixpkgs = {
+          config.allowUnfree = true;
+          overlays = [
+            inputs.self.overlays.default
+          ];
+        };
 
         home.packages = with pkgs; [
           kdePackages.akonadi-search
@@ -65,6 +74,7 @@
           vlc
           winbox4
           zotero
+          pkgs.local.gh-flake-update
         ];
       };
   };
