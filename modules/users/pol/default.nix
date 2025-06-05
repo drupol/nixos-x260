@@ -1,4 +1,4 @@
-{
+topLevel@{
   config,
   ...
 }:
@@ -19,6 +19,7 @@
     modules.nixos.pol =
       { pkgs, ... }:
       {
+
         programs.fish.enable = true;
 
         users.users.pol = {
@@ -39,6 +40,30 @@
         };
 
         nix.settings.trusted-users = [ config.flake.meta.users.pol.username ];
+
+        home-manager.users.pol =
+          { config, ... }:
+          {
+            home.file = {
+              ".face" = {
+                source = ../../../files/home/pol/.face;
+                recursive = true;
+              };
+              ".face.icon" = {
+                source = ../../../files/home/pol/.face;
+                recursive = true;
+              };
+              "${config.xdg.configHome}/.password-store/.keep" = {
+                text = "";
+                recursive = true;
+              };
+              # Credits to https://store.kde.org/p/1272202
+              "Pictures/Backgrounds/" = {
+                source = ../../../files/home/pol/Pictures/Backgrounds;
+                recursive = true;
+              };
+            };
+          };
       };
   };
 }

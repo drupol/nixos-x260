@@ -6,6 +6,7 @@
   flake.modules.nixos."hosts/xeonixos".imports =
     with (config.flake.modules.nixos);
     [
+      # Modules
       base
       desktop
       dev
@@ -15,12 +16,13 @@
       shell
       virtualisation
       vpn
+
+      # Users
+      root
+      pol
     ]
-    ++ config.flake.modules.nixos.root.imports
-    ++ config.flake.modules.nixos.pol.imports
+    # Specific Home-Manager modules
     ++ [
-      # Import the home-manager modules for the user `pol` only.
-      # TODO: Should we move this to the `nixos` pol's module or we leave it here?
       {
         home-manager.users.pol.imports = with config.flake.modules.homeManager; [
           base

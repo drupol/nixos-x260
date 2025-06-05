@@ -4,5 +4,5 @@
     type = with lib.types; lazyAttrsOf anything;
   };
 
-  config.flake.meta.uri = "github:drupol/nixos-x260";
+  config.flake.meta.uri = "github:drupol/infra";
 }
