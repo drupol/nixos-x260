@@ -37,8 +37,9 @@ writeShellApplication {
     cd "$worktree_dir"
 
     excluded_hosts="x13"
+    excluded_pattern=''${excluded_hosts// /|}
 
-    hosts=$(nix eval --json .#nixosConfigurations --apply builtins.attrNames | jq -r '.[]' | grep -v -E "$(echo $excluded_hosts | sed 's/ /|/g')")
+    hosts=$(nix eval --json .#nixosConfigurations --apply builtins.attrNames | jq -r '.[]' | grep -v -E "$excluded_pattern")
 
     results=""
 
