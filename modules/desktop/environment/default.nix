@@ -64,6 +64,7 @@
         vlc
         winbox4
         zotero
+        pkgs.local.gh-flake-update
       ];
     };
 }
