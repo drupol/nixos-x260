@@ -33,7 +33,7 @@ writeShellApplication {
     fi
 
     echo "Creating a temporary worktree at $worktree_dir ..."
-    git worktree add "$worktree_dir" master
+    git worktree add --force "$worktree_dir" master
     cd "$worktree_dir"
 
     hosts=$(nix eval --json .#nixosConfigurations --apply builtins.attrNames | jq -r '.[]')
