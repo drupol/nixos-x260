@@ -56,13 +56,20 @@ writeShellApplication {
     build_configuration() {
       local host=$1
       local output=$2
+
+      # Wrap the result in a <details>
+
+      results="<details><summary>Host: ''${host}</summary>"
+
       if ! nix build .#nixosConfigurations."''${host}".config.system.build.toplevel --quiet -o "''${output}" 2>error.log; then
         error_message=$(<error.log)
         echo "Failed to build configuration for host: $host. Skipping..."
-        results="''${results}\nHost: ''${host}\nBuild failed:\n$error_message\n"
+        results="''${results}\nHost: ''${host}\nBuild failed:\n$error_message</details>"
         return 1
       fi
       return 0
+
+      results="''${results}\nBuild successful: ```console\n''${output}```</details>"
     }
 
     compare_builds() {
@@ -106,13 +113,13 @@ writeShellApplication {
       echo "$title"
       echo -ne "\n\n\n\n"
 
+      echo "<details><summary>Flake update summary</summary>"
       echo '```console'
       echo -e "$flake_update_output"
       echo '```'
+      echo "</details>"
 
-      echo '```console'
       echo -e "$results"
-      echo '```'
 
       echo -ne "\n\n\n\n"
     ) | tee "$commit_message_file"
