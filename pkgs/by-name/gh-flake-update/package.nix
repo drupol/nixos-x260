@@ -21,6 +21,8 @@ writeShellApplication {
     readonly BRANCH_NAME
     COMMIT_TITLE="chore(deps): update flake inputs"
     readonly COMMIT_TITLE
+    COMMIT_MESSAGE_FILE="$TMP_DIR/commit-message.md"
+    readonly COMMIT_MESSAGE_FILE
 
     cleanup() {
       echo "--- Cleaning up ---"
@@ -169,21 +171,19 @@ writeShellApplication {
       fi
 
       echo "--- Generating PR body ---"
-      local pr_body
-      pr_body=$(generate_pr_body "$flake_update_output" all_hosts)
+      generate_pr_body "$flake_update_output" all_hosts > "$COMMIT_MESSAGE_FILE"
 
       echo "--- Committing and Pushing ---"
       git add flake.lock
-      git commit -m "$COMMIT_TITLE" -m "$pr_body"
+      git commit --file="$COMMIT_MESSAGE_FILE"
       git push --force origin "$BRANCH_NAME"
 
       echo "--- Creating GitHub PR ---"
       gh pr create \
-        --title "$COMMIT_TITLE" \
-        --body "$pr_body" \
-        --head "$BRANCH_NAME" \
-        --assignee "$GITHUB_ASSIGNEE" \
-        --reviewer "$GITHUB_REVIEWER"
+        --file="$COMMIT_MESSAGE_FILE" \
+        --head="$BRANCH_NAME" \
+        --assignee="$GITHUB_ASSIGNEE" \
+        --reviewer="$GITHUB_REVIEWER"
 
       echo "--- Successfully created PR for flake update! ---"
     }
