@@ -59,15 +59,11 @@ writeShellApplication {
 
       # Wrap the result in a <details>
 
-      results="''${results}\n<details><summary>Host: ''${host}</summary>"
-
       if ! nix build .#nixosConfigurations."''${host}".config.system.build.toplevel --quiet -o "''${output}" 2>error.log; then
         error_message=$(<error.log)
         echo "Failed to build configuration for host: $host. Skipping..."
-        results="''${results}\nHost: ''${host}\nBuild failed:\n\`\`\`console\n$error_message\n\`\`\`\n</details>"
         return 1
       fi
-      results="''${results}\nBuild successful: \`\`\`console\n''${output}\n\`\`\`\n</details>"
       return 0
     }
 
@@ -120,7 +116,7 @@ writeShellApplication {
       echo '```'
       echo "</details>"
 
-      echo -e "$results"
+      echo "$results"
 
       echo -ne "\n\n\n\n"
     ) | tee "$commit_message_file"
