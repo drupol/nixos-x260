@@ -56,7 +56,7 @@ writeShellApplication {
     build_configuration() {
       local host=$1
       local output=$2
-      if ! nix build .#nixosConfigurations."''${host}".config.system.build.toplevel -o "''${output}" 2>error.log; then
+      if ! nix build .#nixosConfigurations."''${host}".config.system.build.toplevel --quiet -o "''${output}" 2>error.log; then
         error_message=$(<error.log)
         echo "Failed to build configuration for host: $host. Skipping..."
         results="''${results}\nHost: ''${host}\nBuild failed:\n$error_message\n"
