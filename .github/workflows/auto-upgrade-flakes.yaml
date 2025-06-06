@@ -14,8 +14,15 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+
       - name: Run script
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          nix run .#gh-flake-update
+          nix run .#gh-flake-update -- \
+            nixosConfigurations.x13.config.system.build.toplevel \
+            nixosConfigurations.x260.config.system.build.toplevel \
+            nixosConfigurations.x280.config.system.build.toplevel \
+            nixosConfigurations.nixos.config.system.build.toplevel \
+            nixosConfigurations.xeonixos.config.system.build.toplevel \
+            devShells.x86_64-linux.default
