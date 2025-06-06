@@ -74,10 +74,21 @@ writeShellApplication {
       if ! diff_result=$(nvd diff ./"''${host}".current ./"''${host}".next 2>error.log); then
         error_message=$(<error.log)
         echo "Failed to compare builds for host: $host. Skipping..."
-        results="''${results}\nHost: ''${host}\nDiff failed:\n"'```'"console\n$error_message\n"'```'"\n</details>"
+        results="''${results}
+        Host: ''${host}
+        Diff failed:
+        \`\`\`console
+        $error_message
+        \`\`\`
+        </details>"
         return 1
       fi
-      results="''${results}\nHost: ''${host}\n"'```'"console\n''${diff_result}\n"'```'"\n</details>"
+      results="''${results}
+      Host: ''${host}
+      \`\`\`console
+      ''${diff_result}
+      \`\`\`
+      </details>"
       return 0
     }
 
@@ -116,7 +127,7 @@ writeShellApplication {
       echo '```'
       echo "</details>"
 
-      echo -e "$results"
+      printf '%s\n' "$results"
 
       echo -ne "\n\n\n\n"
     ) | tee "$commit_message_file"
