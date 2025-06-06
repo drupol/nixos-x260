@@ -21,7 +21,7 @@ writeShellApplication {
         git worktree remove "$worktree_dir" --force || true
         rm -rf "$worktree_dir"
       fi
-      [ -f "$commit_message_file" ] && rm -rf "$commit_message_file" || true
+      [ -f "$commit_message_file" ] && rm -rf "$commit_message_file"
       [ -f "$pr_url_file" ] && rm -rf "$pr_url_file"
       rm -rf "*.current" "*.next"
     }
