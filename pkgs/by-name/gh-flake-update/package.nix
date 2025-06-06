@@ -51,7 +51,7 @@ writeShellApplication {
 
     hosts=$(nix eval --json .#nixosConfigurations --apply builtins.attrNames | jq -r '.[]')
 
-    results=""
+    result_lines=()
 
     build_configuration() {
       local host=$1
@@ -69,26 +69,24 @@ writeShellApplication {
 
     compare_builds() {
       local host=$1
-      results="''${results}\n<details><summary>Host diff: ''${host}</summary>"
+
+      result_lines+=("<details><summary>Host diff: ''${host}</summary>")
 
       if ! diff_result=$(nvd diff ./"''${host}".current ./"''${host}".next 2>error.log); then
         error_message=$(<error.log)
-        echo "Failed to compare builds for host: $host. Skipping..."
-        results="''${results}
-        Host: ''${host}
-        Diff failed:
-        \`\`\`console
-        $error_message
-        \`\`\`
-        </details>"
+        result_lines+=("Host: ''${host}")
+        result_lines+=('```console')
+        result_lines+=("''${error_message}")
+        result_lines+=('```')
+        result_lines+=('</details>')
         return 1
       fi
-      results="''${results}
-      Host: ''${host}
-      \`\`\`console
-      ''${diff_result}
-      \`\`\`
-      </details>"
+
+      result_lines+=("Host: ''${host}")
+      result_lines+=('```console')
+      result_lines+=("''${diff_result}")
+      result_lines+=('```')
+      result_lines+=('</details>')
       return 0
     }
 
@@ -112,24 +110,21 @@ writeShellApplication {
 
     rm -rf "*.current" "*.next" || true
 
-    echo -e "$results" > /tmp/flake-update-results.txt
-
     git checkout -b "$branch"
     title="chore: update flake inputs ($(date))"
 
     (
-      echo "$title"
-      echo -ne "\n\n\n\n"
+      printf "%s\n\n\n\n" "$title"
+      printf "<details><summary>Flake update summary</summary>\n"
+      # shellcheck disable=SC2059,SC2006,SC1012
+      printf "```console\n%s\n```\n" "$flake_update_output"
+      printf "</details>\n"
 
-      echo "<details><summary>Flake update summary</summary>"
-      echo '```console'
-      echo -e "$flake_update_output"
-      echo '```'
-      echo "</details>"
+      for line in "''${result_lines[@]}"; do
+        printf "%s\n" "$line"
+      done
 
-      printf '%s\n' "$results"
-
-      echo -ne "\n\n\n\n"
+      printf "\n\n\n\n"
     ) | tee "$commit_message_file"
 
     changes="$(git status -s | grep -o 'M ' | wc -l)"
