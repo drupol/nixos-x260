@@ -24,7 +24,9 @@ writeShellApplication {
         WORKTREE_DIR="$TMP_DIR/worktree"; readonly WORKTREE_DIR
         BRANCH_NAME="flake-update-$(date '+%F')"; readonly BRANCH_NAME
         COMMIT_TITLE="chore(deps): update flake inputs"; readonly COMMIT_TITLE
-        COMMIT_MESSAGE_FILE="$TMP_DIR/commit-message.md"; readonly COMMIT_MESSAGE_FILE
+        # File for the minimal git commit message
+        COMMIT_MESSAGE_FILE="$TMP_DIR/commit-message.txt"; readonly COMMIT_MESSAGE_FILE
+        # File for the detailed pull request body
         PR_BODY_FILE="$TMP_DIR/pr-body.md"; readonly PR_BODY_FILE
 
         cleanup() {
@@ -45,64 +47,42 @@ writeShellApplication {
         # --- Functions ---
         attr_to_slug() { echo "$1" | tr '.' '-'; }
 
-        # Generates content for the commit message or PR body based on the mode.
-        # Usage: generate_content <mode> <flake_output> <attrs_array_name>
-        generate_content() {
-          local mode=$1
-          local flake_update_output=$2
-          local -n all_attrs_ref=$3
+        # Generates the detailed report for the PR body.
+        generate_pr_body() {
+          local flake_update_output=$1
+          local -n all_attrs_ref=$2
           local attr_reports=""
 
           for attr in "''${all_attrs_ref[@]}"; do
             local slug; slug=$(attr_to_slug "$attr")
             local current_build_path="$TMP_DIR/$slug.current"
-            local current_error_log="$TMP_DIR/$slug.current.error"
             local next_build_path="$TMP_DIR/$slug.next"
-            local next_error_log="$TMP_DIR/$slug.next.error"
 
             if [ ! -L "$current_build_path" ]; then
-              local error_content="Error log not found."
-              if [ -f "$current_error_log" ]; then
-                error_content=$(cat "$current_error_log")
-                if [[ "$mode" == "summary" && $(wc -c < "$current_error_log") -gt 1024 ]]; then
-                  error_content="$(head -n 20 "$current_error_log")\n\n... (log truncated in PR body, see full commit message for details)"
-                fi
-              fi
               attr_reports+=$(cat <<-EOF
     						<details>
     						<summary>❌ Attribute: <code>''${attr}</code> (Initial Build Failed)</summary>
-    						<pre><code>''${error_content}</code></pre>
+
+    						This attribute was already broken before the update and was skipped.
     						</details>
     					EOF
               )
             elif [ ! -L "$next_build_path" ]; then
-              local error_content="Error log not found."
-              if [ -f "$next_error_log" ]; then
-                error_content=$(cat "$next_error_log")
-                if [[ "$mode" == "summary" && $(wc -c < "$next_error_log") -gt 1024 ]]; then
-                  error_content="$(head -n 20 "$next_error_log")\n\n... (log truncated in PR body, see full commit message for details)"
-                fi
-              fi
               attr_reports+=$(cat <<-EOF
     						<details>
     						<summary>🔴 Attribute: <code>''${attr}</code> (Update Build Failed)</summary>
-    						<pre><code>''${error_content}</code></pre>
+
+    						The build for this attribute failed after the flake update.
     						</details>
     					EOF
               )
             else
-              local diff_content
-              if [[ "$mode" == "summary" ]]; then
-                diff_content="Diff is available in the full commit message."
-              else
-                diff_content=$(nvd diff "$current_build_path" "$next_build_path" || echo "nvd diff command failed for $attr")
-              fi
               attr_reports+=$(cat <<-EOF
     						<details>
-    						<summary>✅ Attribute: <code>''${attr}</code> (Update Succeeded)</summary>
+    						<summary>✅ Attribute: <code>''${attr}</code> (Diff)</summary>
 
     						\`\`\`diff
-    						''${diff_content}
+    						$(nvd diff "$current_build_path" "$next_build_path" || echo "nvd diff command failed for $attr")
     						\`\`\`
 
     						</details>
@@ -111,20 +91,12 @@ writeShellApplication {
             fi
           done
 
-          local intro_message
-          if [[ "$mode" == "summary" ]]; then
-            intro_message="**Note: Logs and diffs may be truncated. See the full git commit message for unabridged details.**"
-          else
-            intro_message="This is the full automated update report."
-          fi
-
+          # Final PR body content
           cat <<-EOF
     				This PR was generated automatically to update the flake inputs.
 
-    				''${intro_message}
-
     				<details>
-    				<summary>Flake update summary</summary>
+    				<summary>Flake update summary (from commit message)</summary>
 
     				\`\`\`console
     				''${flake_update_output}
@@ -153,10 +125,11 @@ writeShellApplication {
           for attr in "''${all_attrs[@]}"; do
             echo "Building current state for attribute: $attr"
             local slug; slug=$(attr_to_slug "$attr")
-            if ! nix build ".#''${attr}" --out-link "$TMP_DIR/$slug.current" 2> "$TMP_DIR/$slug.current.error"; then
-              echo "WARNING: Initial build failed for '$attr'. Error logged." >&2
+            # Redirect stderr to /dev/null as we don't want to show it.
+            if ! nix build ".#''${attr}" --quiet --out-link "$TMP_DIR/$slug.current" 2> /dev/null; then
+              echo "WARNING: Initial build failed for '$attr'. It will be skipped." >&2
             else
-              successful_attrs+=("$attr"); rm -f "$TMP_DIR/$slug.current.error"
+              successful_attrs+=("$attr")
             fi
           done
 
@@ -174,31 +147,27 @@ writeShellApplication {
             for attr in "''${successful_attrs[@]}"; do
               echo "Building next state for attribute: $attr"
               local slug; slug=$(attr_to_slug "$attr")
-              if ! nix build ".#''${attr}" --out-link "$TMP_DIR/$slug.next" 2> "$TMP_DIR/$slug.next.error"; then
-                echo "WARNING: Post-update build failed for '$attr'. Error logged." >&2
-              else
-                rm -f "$TMP_DIR/$slug.next.error"
+              if ! nix build ".#''${attr}" --quiet --out-link "$TMP_DIR/$slug.next" 2> /dev/null; then
+                echo "WARNING: Post-update build failed for '$attr'." >&2
               fi
             done
           fi
 
-          echo "--- Generating full content for git commit ---"
-          local full_body; full_body=$(generate_content "full" "$flake_update_output" all_attrs)
-          # Git commit file format is: Title\n\nBody
-          echo -e "$COMMIT_TITLE\n\n$full_body" > "$COMMIT_MESSAGE_FILE"
+          echo "--- Generating content for commit and PR body ---"
+          # Create the minimal commit message file.
+          echo -e "$COMMIT_TITLE\n\n$flake_update_output" > "$COMMIT_MESSAGE_FILE"
 
-          echo "--- Generating summarized content for PR body ---"
-          # The PR body file does not need the title.
-          generate_content "summary" "$flake_update_output" all_attrs > "$PR_BODY_FILE"
+          # Create the detailed PR body file.
+          generate_pr_body "$flake_update_output" all_attrs > "$PR_BODY_FILE"
 
           echo "--- Committing and Pushing ---"
           git add flake.lock
           git commit \
-          -F "$COMMIT_MESSAGE_FILE" \
-          --no-signoff \
-          --no-verify \
-          --no-edit \
-          --cleanup=verbatim
+            -F "$COMMIT_MESSAGE_FILE" \
+            --no-signoff \
+            --no-verify \
+            --no-edit \
+            --cleanup=verbatim
 
           git push --force origin "$BRANCH_NAME"
 
