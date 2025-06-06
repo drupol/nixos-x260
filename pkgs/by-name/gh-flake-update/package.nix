@@ -13,6 +13,8 @@ writeShellApplication {
     nvd
   ];
   text = ''
+    set -x
+
     cleanup() {
       echo "Cleaning up..."
       if [ -d "$worktree_dir" ]; then
@@ -20,8 +22,8 @@ writeShellApplication {
         rm -rf "$worktree_dir"
       fi
       [ -f "$commit_message_file" ] && rm -rf "$commit_message_file" || true
-      [ -f "$pr_url_file" ] && rm -rf "$pr_url_file" || true
-      rm -rf "*.current" "*.next" || true
+      [ -f "$pr_url_file" ] && rm -rf "$pr_url_file"
+      rm -rf "*.current" "*.next"
     }
     trap cleanup EXIT
 
