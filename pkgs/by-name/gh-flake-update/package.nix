@@ -125,20 +125,20 @@ writeShellApplication {
     fi
 
     git add .
-    git commit\
-    -F "$commit_message_file"\
-    --no-signoff\
-    --no-verify\
-    --no-edit\
+    git commit \
+    -F "$commit_message_file" \
+    --no-signoff \
+    --no-verify \
+    --no-edit \
     --cleanup=verbatim
     git push origin "$branch:$branch" --force
 
     gh pr create \
-      --reviewer drupol\
-      --assignee drupol\
-      --body-file "$commit_message_file"\
-      --title "$title"\
-      --head "$branch"\
+      --reviewer drupol \
+      --assignee drupol \
+      --body-file "$commit_message_file" \
+      --title "$title" \
+      --head "$branch" \
       | tee "$pr_url_file"
   '';
 }
