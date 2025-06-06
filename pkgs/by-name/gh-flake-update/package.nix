@@ -16,15 +16,20 @@ writeShellApplication {
     cleanup() {
       echo "Cleaning up..."
       if [ -d "$worktree_dir" ]; then
-          git worktree remove "$worktree_dir" --force || true
+        git worktree remove "$worktree_dir" --force || true
         rm -rf "$worktree_dir"
       fi
+      [ -f "$commit_message_file" ] && rm -f "$commit_message_file"
+      [ -f "$pr_url_file" ] && rm -f "$pr_url_file"
+      rm -rf "*.current" "*.next" || true
     }
     trap cleanup EXIT
 
     branch="flake-update-$(date '+%F')"
     tmpdir=$(dirname "$(mktemp tmp.XXXXXXXXXX -ut)")
     worktree_dir=$(mktemp -d "$tmpdir/worktree.XXXXXXXXXX")
+    commit_message_file=$(mktemp "$tmpdir/commit-message.XXXXXXXXXX.md")
+    pr_url_file=$(mktemp "$tmpdir/pr-url.XXXXXXXXXX")
 
     existing_worktree=$(git worktree list | grep "master" | awk '{print $1}' || true)
     if [ -n "$existing_worktree" ]; then
@@ -33,52 +38,56 @@ writeShellApplication {
     fi
 
     echo "Creating a temporary worktree at $worktree_dir ..."
-    git worktree add --force "$worktree_dir" master
+    git worktree add --force "$worktree_dir"
     cd "$worktree_dir"
 
     hosts=$(nix eval --json .#nixosConfigurations --apply builtins.attrNames | jq -r '.[]')
 
     results=""
 
-    for host in $hosts; do
-      echo "Processing host before flake.lock update: $host"
-
-      # Build the current configuration, capture errors
-      if ! nix build .#nixosConfigurations."''${host}".config.system.build.toplevel -o "''${host}".current 2>error.log; then
+    build_configuration() {
+      local host=$1
+      local output=$2
+      if ! nix build .#nixosConfigurations."''${host}".config.system.build.toplevel -o "''${output}" 2>error.log; then
         error_message=$(<error.log)
         echo "Failed to build configuration for host: $host. Skipping..."
         results="''${results}\nHost: ''${host}\nBuild failed:\n$error_message\n"
-        continue
+        return 1
       fi
-    done
+      return 0
+    }
 
-    # Update the flake.lock file
-    nix flake update
-
-    for host in $hosts; do
-      echo "Processing host after flake.lock update: $host"
-
-      # Build the next configuration, capture errors
-      if ! nix build .#nixosConfigurations."''${host}".config.system.build.toplevel -o "''${host}".next 2>error.log; then
-        error_message=$(<error.log)
-        echo "Failed to build configuration for host: $host. Skipping..."
-        results="''${results}\nHost: ''${host}\nBuild failed:\n$error_message\n"
-        continue
-      fi
-    done
-
-    for host in $hosts; do
-      echo "Generating the closure diff for: $host ..."
-
-      # Compare the builds, capture errors
+    compare_builds() {
+      local host=$1
       if ! diff_result=$(nvd diff ./"''${host}".current ./"''${host}".next 2>error.log); then
         error_message=$(<error.log)
         echo "Failed to compare builds for host: $host. Skipping..."
         results="''${results}\nHost: ''${host}\nDiff failed:\n$error_message\n"
-        continue
+        return 1
       fi
       results="''${results}\nHost: ''${host}\n''${diff_result}\n"
+      return 0
+    }
+
+    for host in $hosts; do
+      echo "Processing host before flake.lock update: $host"
+      build_configuration "$host" "''${host}.current" || continue
     done
+
+    echo "Updating flake.lock file..."
+    flake_update_output=$(nix flake update 2>&1)
+
+    for host in $hosts; do
+      echo "Processing host after flake.lock update: $host"
+      build_configuration "$host" "''${host}.next" || continue
+    done
+
+    for host in $hosts; do
+      echo "Generating the closure diff for: $host ..."
+      compare_builds "$host" || continue
+    done
+
+    rm -rf "*.current" "*.next" || true
 
     echo -e "$results" > /tmp/flake-update-results.txt
 
@@ -89,12 +98,16 @@ writeShellApplication {
       echo "$title"
       echo -ne "\n\n\n\n"
 
-      echo '```shell'
+      echo '```console'
+      echo -e "$flake_update_output"
+      echo '```'
+
+      echo '```console'
       echo -e "$results"
       echo '```'
 
       echo -ne "\n\n\n\n"
-    ) | tee /tmp/commit-message.md
+    ) | tee "$commit_message_file"
 
     changes="$(git status -s | grep -o 'M ' | wc -l)"
 
@@ -103,10 +116,21 @@ writeShellApplication {
       exit 0
     fi
 
-    git status -s | grep 'M ' | cut -d 'M' -f 2 | xargs git add
-    git commit -F /tmp/commit-message.md --no-signoff --no-verify --trailer "request-checks:true" --no-edit --cleanup=verbatim
+    git add .
+    git commit\
+    -F "$commit_message_file"\
+    --no-signoff\
+    --no-verify\
+    --no-edit\
+    --cleanup=verbatim
     git push origin "$branch:$branch" --force
 
-    gh pr create --base master --reviewer drupol --assignee drupol --body-file /tmp/commit-message.md --title "$title" --head "$branch" | tee /tmp/pr-url
+    gh pr create \
+      --reviewer drupol\
+      --assignee drupol\
+      --body-file "$commit_message_file"\
+      --title "$title"\
+      --head "$branch"\
+      | tee "$pr_url_file"
   '';
 }
