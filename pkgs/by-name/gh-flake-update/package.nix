@@ -36,10 +36,7 @@ writeShellApplication {
     git worktree add --force "$worktree_dir" master
     cd "$worktree_dir"
 
-    excluded_hosts="x13"
-    excluded_pattern=''${excluded_hosts// /|}
-
-    hosts=$(nix eval --json .#nixosConfigurations --apply builtins.attrNames | jq -r '.[]' | grep -v -E "$excluded_pattern")
+    hosts=$(nix eval --json .#nixosConfigurations --apply builtins.attrNames | jq -r '.[]')
 
     results=""
 
