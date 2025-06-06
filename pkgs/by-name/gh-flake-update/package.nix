@@ -13,17 +13,23 @@ writeShellApplication {
     nvd
   ];
   text = ''
-    set -x
-
     cleanup() {
       echo "Cleaning up..."
       if [ -d "$worktree_dir" ]; then
-        git worktree remove "$worktree_dir" --force || true
-        rm -rf "$worktree_dir"
+        echo "Removing worktree directory: $worktree_dir"
+        git worktree remove "$worktree_dir" --force || echo "Failed to remove worktree"
+        rm -rf "$worktree_dir" || echo "Failed to remove directory: $worktree_dir"
       fi
-      [ -f "$commit_message_file" ] && rm -rf "$commit_message_file"
-      [ -f "$pr_url_file" ] && rm -rf "$pr_url_file"
-      rm -rf "*.current" "*.next"
+      if [ -f "$commit_message_file" ]; then
+        echo "Removing commit message file: $commit_message_file"
+        rm -rf "$commit_message_file" || echo "Failed to remove commit message file"
+      fi
+      if [ -f "$pr_url_file" ]; then
+        echo "Removing PR URL file: $pr_url_file"
+        rm -rf "$pr_url_file" || echo "Failed to remove PR URL file"
+      fi
+      echo "Removing temporary build files (*.current, *.next)"
+      rm -rf "*.current" "*.next" || echo "Failed to remove temporary build files"
     }
     trap cleanup EXIT
 
