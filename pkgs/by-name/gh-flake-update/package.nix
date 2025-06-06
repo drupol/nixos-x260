@@ -3,158 +3,191 @@
   gh,
   gitMinimal,
   nvd,
+  jq,
   ...
 }:
 writeShellApplication {
   name = "gh-flake-update";
-  runtimeInputs = [
-    gh
-    gitMinimal
-    nvd
-  ];
+  runtimeInputs = [ gh gitMinimal nvd jq ];
   text = ''
+    readonly GITHUB_ASSIGNEE="drupol"
+    readonly GITHUB_REVIEWER="drupol"
+
+    TMP_DIR=$(mktemp -d -t gh-flake-update.XXXXXXXXXX)
+    readonly TMP_DIR
+    WORKTREE_DIR="$TMP_DIR/worktree"
+    readonly WORKTREE_DIR
+    BRANCH_NAME="flake-update-$(date '+%F')"
+    readonly BRANCH_NAME
+    COMMIT_TITLE="chore(deps): update flake inputs"
+    readonly COMMIT_TITLE
+
     cleanup() {
-      echo "Cleaning up..."
-      if [ -d "$worktree_dir" ]; then
-        echo "Removing worktree directory: $worktree_dir"
-        git worktree remove "$worktree_dir" --force || echo "Failed to remove worktree"
-        rm -rf "$worktree_dir" || echo "Failed to remove directory: $worktree_dir"
+      echo "--- Cleaning up ---"
+      cd - >/dev/null 2>&1 || true
+      if git worktree list | grep -q "$WORKTREE_DIR"; then
+        echo "Removing git worktree at '$WORKTREE_DIR'..."
+        git worktree remove --force "$WORKTREE_DIR"
       fi
-      if [ -f "$commit_message_file" ]; then
-        echo "Removing commit message file: $commit_message_file"
-        rm -rf "$commit_message_file" || echo "Failed to remove commit message file"
+      if [ -d "$TMP_DIR" ]; then
+        echo "Removing temporary directory '$TMP_DIR'..."
+        rm -rf "$TMP_DIR"
       fi
-      if [ -f "$pr_url_file" ]; then
-        echo "Removing PR URL file: $pr_url_file"
-        rm -rf "$pr_url_file" || echo "Failed to remove PR URL file"
-      fi
-      echo "Removing temporary build files (*.current, *.next)"
-      rm -rf "*.current" "*.next" || echo "Failed to remove temporary build files"
+      echo "Cleanup complete."
     }
-    trap cleanup EXIT
+    trap cleanup EXIT INT TERM
 
-    branch="flake-update-$(date '+%F')"
-    tmpdir=$(dirname "$(mktemp tmp.XXXXXXXXXX -ut)")
-    worktree_dir=$(mktemp -d "$tmpdir/worktree.XXXXXXXXXX")
-    commit_message_file=$(mktemp "$tmpdir/commit-message.XXXXXXXXXX.md")
-    pr_url_file=$(mktemp "$tmpdir/pr-url.XXXXXXXXXX")
+    generate_pr_body() {
+      local flake_update_output=$1
+      local -n all_hosts_ref=$2
+      local host_reports=""
 
-    existing_worktree=$(git worktree list | grep "master" | awk '{print $1}' || true)
-    if [ -n "$existing_worktree" ]; then
-      echo "Worktree for 'master' already exists at $existing_worktree. Removing it..."
-      git worktree remove "$existing_worktree" --force || true
-    fi
+      for host in "''${all_hosts_ref[@]}"; do
+        local current_build_path="$TMP_DIR/$host.current"
+        local current_error_log="$TMP_DIR/$host.current.error"
+        local next_build_path="$TMP_DIR/$host.next"
+        local next_error_log="$TMP_DIR/$host.next.error"
 
-    echo "Creating a temporary worktree at $worktree_dir ..."
-    git worktree add --force "$worktree_dir"
-    cd "$worktree_dir"
+        if [ ! -L "$current_build_path" ]; then
+          # Case 1: Initial build failed. This host was skipped for the update.
+          local error_content="Error log not found."
+          if [ -s "$current_error_log" ]; then
+            error_content=$(cat "$current_error_log")
+          fi
+          host_reports+=$(cat <<-EOF
+						<details>
+						<summary>❌ Host: <code>''${host}</code> (Initial Build Failed)</summary>
 
-    hosts=$(nix eval --json .#nixosConfigurations --apply builtins.attrNames | jq -r '.[]')
+						**The initial build for this host failed. It was not included in the update.**
 
-    result_lines=()
+						<pre><code>''${error_content}</code></pre>
+						</details>
+					EOF
+          )
+        elif [ ! -L "$next_build_path" ]; then
+          # Case 2: Initial build succeeded, but post-update build failed.
+          local error_content="Error log not found."
+          if [ -s "$next_error_log" ]; then
+            error_content=$(cat "$next_error_log")
+          fi
+          host_reports+=$(cat <<-EOF
+						<details>
+						<summary>🔴 Host: <code>''${host}</code> (Update Build Failed)</summary>
 
-    build_configuration() {
-      local host=$1
-      local output=$2
+						**The build for this host failed after the flake update.**
 
-      # Wrap the result in a <details>
+						<pre><code>''${error_content}</code></pre>
+						</details>
+					EOF
+          )
+        else
+          # Case 3: Both builds succeeded. Generate the diff.
+          host_reports+=$(cat <<-EOF
+						<details>
+						<summary>✅ Host: <code>''${host}</code> (Update Succeeded)</summary>
 
-      if ! nix build .#nixosConfigurations."''${host}".config.system.build.toplevel --quiet -o "''${output}" 2>error.log; then
-        error_message=$(<error.log)
-        echo "Failed to build configuration for host: $host. Skipping..."
-        return 1
-      fi
-      return 0
-    }
-
-    compare_builds() {
-      local host=$1
-
-      result_lines+=("<details><summary>Host diff: ''${host}</summary>")
-
-      if ! diff_result=$(nvd diff ./"''${host}".current ./"''${host}".next 2>error.log); then
-        error_message=$(<error.log)
-        result_lines+=("")
-        result_lines+=("")
-        result_lines+=('```console')
-        result_lines+=("''${error_message}")
-        result_lines+=('```')
-        result_lines+=("")
-        result_lines+=("")
-        result_lines+=('</details>')
-        return 1
-      fi
-
-      result_lines+=("")
-      result_lines+=("")
-      result_lines+=('```console')
-      result_lines+=("''${diff_result}")
-      result_lines+=('```')
-      result_lines+=("")
-      result_lines+=("")
-      result_lines+=('</details>')
-      return 0
-    }
-
-    for host in $hosts; do
-      echo "Processing host before flake.lock update: $host"
-      build_configuration "$host" "''${host}.current" || continue
-    done
-
-    echo "Updating flake.lock file..."
-    flake_update_output=$(nix flake update 2>&1)
-
-    for host in $hosts; do
-      echo "Processing host after flake.lock update: $host"
-      build_configuration "$host" "''${host}.next" || continue
-    done
-
-    for host in $hosts; do
-      echo "Generating the closure diff for: $host ..."
-      compare_builds "$host" || continue
-    done
-
-    rm -rf "*.current" "*.next" || true
-
-    git checkout -b "$branch"
-    title="chore: update flake inputs ($(date))"
-
-    (
-      printf "%s\n\n\n\n" "$title"
-      printf "<details><summary>Flake update summary</summary>\n"
-      # shellcheck disable=SC2059,SC2006,SC1012
-      printf "\n\n```console\n%s\n```\n\n" "$flake_update_output"
-      printf "</details>\n"
-
-      for line in "''${result_lines[@]}"; do
-        printf "%s\n" "$line"
+						\`\`\`console
+						$(nvd diff "$current_build_path" "$next_build_path" || echo "nvd diff command failed for $host")
+						\`\`\`
+						</details>
+					EOF
+          )
+        fi
       done
 
-      printf "\n\n\n\n"
-    ) | tee "$commit_message_file"
+      cat <<-EOF
+				''${COMMIT_TITLE}
 
-    changes="$(git status -s | grep -o 'M ' | wc -l)"
+				This PR was generated automatically to update the flake inputs.
 
-    if test "$changes" -eq 0; then
-      echo "No changes"
-      exit 0
-    fi
+				<details>
+				<summary>Flake update summary</summary>
 
-    git add .
-    git commit \
-    -F "$commit_message_file" \
-    --no-signoff \
-    --no-verify \
-    --no-edit \
-    --cleanup=verbatim
-    git push origin "$branch:$branch" --force
+				\`\`\`console
+				''${flake_update_output}
+				\`\`\`
+				</details>
 
-    gh pr create \
-      --reviewer drupol \
-      --assignee drupol \
-      --body-file "$commit_message_file" \
-      --title "$title" \
-      --head "$branch" \
-      | tee "$pr_url_file"
+				''${host_reports}
+			EOF
+    }
+
+    # --- Main Execution ---
+    main() {
+      echo "--- Starting flake update process ---"
+      readarray -t all_hosts < <(nix eval .#nixosConfigurations --apply builtins.attrNames --json | jq -r '.[]')
+      if [ ''${#all_hosts[@]} -eq 0 ]; then
+        echo "Error: No NixOS hosts found. Exiting." >&2; exit 1
+      fi
+      echo "Found hosts: ''${all_hosts[*]}"
+
+      echo "Creating git worktree at '$WORKTREE_DIR'..."
+      git worktree add -B "$BRANCH_NAME" "$WORKTREE_DIR"
+      cd "$WORKTREE_DIR"
+      echo "Now operating in '$PWD'."
+
+      # --- First Loop: Build "current" state ---
+      echo "--- Building 'current' configurations (pre-update) ---"
+      declare -a successful_hosts=()
+      for host in "''${all_hosts[@]}"; do
+        echo "Building current configuration for host: $host"
+        if ! nix build ".#nixosConfigurations.\"''${host}\".config.system.build.toplevel" --out-link "$TMP_DIR/$host.current" 2> "$TMP_DIR/$host.current.error"; then
+          echo "WARNING: Initial build failed for host '$host'. It will be skipped. Error logged." >&2
+        else
+          successful_hosts+=("$host")
+          rm -f "$TMP_DIR/$host.current.error"
+        fi
+      done
+
+      if [ ''${#successful_hosts[@]} -eq 0 ]; then
+        echo "All initial host builds failed. Nothing to update. See logs above."
+      fi
+
+      echo "--- Updating flake.lock ---"
+      local flake_update_output
+      flake_update_output=$(nix flake update 2>&1)
+      echo "$flake_update_output"
+
+      if git diff --quiet flake.lock; then
+        echo "No changes to flake.lock. Nothing to do."
+        exit 0
+      fi
+
+      # --- Second Loop: Build "next" state for successful hosts only ---
+      if [ ''${#successful_hosts[@]} -gt 0 ]; then
+        echo "--- Building 'next' configurations (post-update) ---"
+        for host in "''${successful_hosts[@]}"; do
+          echo "Building next configuration for host: $host"
+          if ! nix build ".#nixosConfigurations.\"''${host}\".config.system.build.toplevel" --out-link "$TMP_DIR/$host.next" 2> "$TMP_DIR/$host.next.error"; then
+            echo "WARNING: Post-update build failed for host '$host'. Error logged." >&2
+          else
+            rm -f "$TMP_DIR/$host.next.error"
+          fi
+        done
+      else
+        echo "Skipping post-update builds as no hosts built successfully."
+      fi
+
+      echo "--- Generating PR body ---"
+      local pr_body
+      pr_body=$(generate_pr_body "$flake_update_output" all_hosts)
+
+      echo "--- Committing and Pushing ---"
+      git add flake.lock
+      git commit -m "$COMMIT_TITLE" -m "$pr_body"
+      git push --force origin "$BRANCH_NAME"
+
+      echo "--- Creating GitHub PR ---"
+      gh pr create \
+        --title "$COMMIT_TITLE" \
+        --body "$pr_body" \
+        --head "$BRANCH_NAME" \
+        --assignee "$GITHUB_ASSIGNEE" \
+        --reviewer "$GITHUB_REVIEWER"
+
+      echo "--- Successfully created PR for flake update! ---"
+    }
+
+    main "$@"
   '';
 }
