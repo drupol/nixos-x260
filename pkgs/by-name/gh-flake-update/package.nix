@@ -19,8 +19,8 @@ writeShellApplication {
         git worktree remove "$worktree_dir" --force || true
         rm -rf "$worktree_dir"
       fi
-      [ -f "$commit_message_file" ] && rm -f "$commit_message_file"
-      [ -f "$pr_url_file" ] && rm -f "$pr_url_file"
+      [ -f "$commit_message_file" ] && rm -rf "$commit_message_file" || true
+      [ -f "$pr_url_file" ] && rm -rf "$pr_url_file" || true
       rm -rf "*.current" "*.next" || true
     }
     trap cleanup EXIT
