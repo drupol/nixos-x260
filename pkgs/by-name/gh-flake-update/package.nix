@@ -44,45 +44,49 @@ writeShellApplication {
     results=""
 
     for host in $hosts; do
-      echo "Processing host: $host"
+      echo "Processing host before flake.lock update: $host"
 
-      # Build the current configuration
-      nix build .#nixosConfigurations."''${host}".config.system.build.toplevel -o "''${host}".current
+      # Build the current configuration, ignore errors
+      if ! nix build .#nixosConfigurations."''${host}".config.system.build.toplevel -o "''${host}".current; then
+        echo "Failed to build configuration for host: $host. Skipping..."
+        continue
+      fi
     done
 
     # Update the flake.lock file
     nix flake update
 
     for host in $hosts; do
-      echo "Processing host: $host"
+      echo "Processing host after flake.lock update: $host"
+
+      # Build the next configuration, ignore errors
+      if ! nix build .#nixosConfigurations."''${host}".config.system.build.toplevel -o "''${host}".next; then
+        echo "Failed to build configuration for host: $host. Skipping..."
+        continue
+      fi
 
       # Build the current configuration
       nix build .#nixosConfigurations."''${host}".config.system.build.toplevel -o "''${host}".next
     done
 
     for host in $hosts; do
-      echo "Processing host: $host"
+      echo "Generating the closure diff for: $host ..."
 
-      # Compare the builds and aggregate the results
-      diff_result=$(nvd diff ./"''${host}".current ./"''${host}".next)
+      if ! diff_result=$(nvd diff ./"''${host}".current ./"''${host}".next); then
+        echo "Failed to compare builds for host: $host. Skipping..."
+        continue
+      fi
       results="''${results}\nHost: ''${host}\n''${diff_result}\n"
     done
 
-    # Output the aggregated results
     echo -e "$results" > /tmp/flake-update-results.txt
 
-    # Commit and push changes
     git checkout -b "$branch"
-    title="Updating flake inputs $(date)"
+    title="chore: update flake inputs ($(date))"
 
     (
       echo "$title"
       echo -ne "\n\n\n\n"
-
-      echo '```shell'
-      echo '$ nix flake update'
-      nix flake update --accept-flake-config 2>&1
-      echo '```'
 
       echo '```shell'
       echo -e "$results"
