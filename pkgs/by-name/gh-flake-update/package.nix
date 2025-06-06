@@ -59,29 +59,29 @@ writeShellApplication {
 
       # Wrap the result in a <details>
 
-      results="<details><summary>Host: ''${host}</summary>"
+      results="''${results}\n<details><summary>Host: ''${host}</summary>"
 
       if ! nix build .#nixosConfigurations."''${host}".config.system.build.toplevel --quiet -o "''${output}" 2>error.log; then
         error_message=$(<error.log)
         echo "Failed to build configuration for host: $host. Skipping..."
-        results="''${results}\nHost: ''${host}\nBuild failed:\n\`\`\`console\n$error_message\`\`\`\n</details>"
+        results="''${results}\nHost: ''${host}\nBuild failed:\n\`\`\`console\n$error_message\n\`\`\`\n</details>"
         return 1
       fi
-      results="''${results}\nBuild successful: \`\`\`console\n''${output}\`\`\`\n</details>"
+      results="''${results}\nBuild successful: \`\`\`console\n''${output}\n\`\`\`\n</details>"
       return 0
     }
 
     compare_builds() {
       local host=$1
-      results="<details><summary>Host diff: ''${host}</summary>"
+      results="''${results}\n<details><summary>Host diff: ''${host}</summary>"
 
       if ! diff_result=$(nvd diff ./"''${host}".current ./"''${host}".next 2>error.log); then
         error_message=$(<error.log)
         echo "Failed to compare builds for host: $host. Skipping..."
-        results="''${results}\nHost: ''${host}\nDiff failed:\n\`\`\`console\n$error_message\`\`\`\n</details>"
+        results="''${results}\nHost: ''${host}\nDiff failed:\n\`\`\`console\n$error_message\n\`\`\`\n</details>"
         return 1
       fi
-      results="''${results}\nHost: ''${host}\n\`\`\`console\n''${diff_result}\`\`\`\n</details>"
+      results="''${results}\nHost: ''${host}\n\`\`\`console\n''${diff_result}\n\`\`\`\n</details>"
       return 0
     }
 
