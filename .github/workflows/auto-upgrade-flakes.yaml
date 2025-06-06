@@ -20,8 +20,4 @@ jobs:
         run: |
           nix run .#gh-flake-update -- \
             nixosConfigurations.x13.config.system.build.toplevel \
-            nixosConfigurations.x260.config.system.build.toplevel \
-            nixosConfigurations.x280.config.system.build.toplevel \
-            nixosConfigurations.nixos.config.system.build.toplevel \
-            nixosConfigurations.xeonixos.config.system.build.toplevel \
-            devShells.x86_64-linux.default
+            nixosConfigurations.xeonixos.config.system.build.toplevel
