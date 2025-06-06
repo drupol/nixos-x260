@@ -74,7 +74,6 @@ writeShellApplication {
 
       if ! diff_result=$(nvd diff ./"''${host}".current ./"''${host}".next 2>error.log); then
         error_message=$(<error.log)
-        result_lines+=("Host: ''${host}")
         result_lines+=("")
         result_lines+=("")
         result_lines+=('```console')
@@ -86,7 +85,6 @@ writeShellApplication {
         return 1
       fi
 
-      result_lines+=("Host: ''${host}")
       result_lines+=("")
       result_lines+=("")
       result_lines+=('```console')
