@@ -43,9 +43,11 @@ writeShellApplication {
     for host in $hosts; do
       echo "Processing host before flake.lock update: $host"
 
-      # Build the current configuration, ignore errors
-      if ! nix build .#nixosConfigurations."''${host}".config.system.build.toplevel -o "''${host}".current; then
+      # Build the current configuration, capture errors
+      if ! nix build .#nixosConfigurations."''${host}".config.system.build.toplevel -o "''${host}".current 2>error.log; then
+        error_message=$(<error.log)
         echo "Failed to build configuration for host: $host. Skipping..."
+        results="''${results}\nHost: ''${host}\nBuild failed:\n$error_message\n"
         continue
       fi
     done
@@ -56,21 +58,23 @@ writeShellApplication {
     for host in $hosts; do
       echo "Processing host after flake.lock update: $host"
 
-      # Build the next configuration, ignore errors
-      if ! nix build .#nixosConfigurations."''${host}".config.system.build.toplevel -o "''${host}".next; then
+      # Build the next configuration, capture errors
+      if ! nix build .#nixosConfigurations."''${host}".config.system.build.toplevel -o "''${host}".next 2>error.log; then
+        error_message=$(<error.log)
         echo "Failed to build configuration for host: $host. Skipping..."
+        results="''${results}\nHost: ''${host}\nBuild failed:\n$error_message\n"
         continue
       fi
-
-      # Build the current configuration
-      nix build .#nixosConfigurations."''${host}".config.system.build.toplevel -o "''${host}".next
     done
 
     for host in $hosts; do
       echo "Generating the closure diff for: $host ..."
 
-      if ! diff_result=$(nvd diff ./"''${host}".current ./"''${host}".next); then
+      # Compare the builds, capture errors
+      if ! diff_result=$(nvd diff ./"''${host}".current ./"''${host}".next 2>error.log); then
+        error_message=$(<error.log)
         echo "Failed to compare builds for host: $host. Skipping..."
+        results="''${results}\nHost: ''${host}\nDiff failed:\n$error_message\n"
         continue
       fi
       results="''${results}\nHost: ''${host}\n''${diff_result}\n"
