@@ -75,17 +75,25 @@ writeShellApplication {
       if ! diff_result=$(nvd diff ./"''${host}".current ./"''${host}".next 2>error.log); then
         error_message=$(<error.log)
         result_lines+=("Host: ''${host}")
+        result_lines+=("")
+        result_lines+=("")
         result_lines+=('```console')
         result_lines+=("''${error_message}")
         result_lines+=('```')
+        result_lines+=("")
+        result_lines+=("")
         result_lines+=('</details>')
         return 1
       fi
 
       result_lines+=("Host: ''${host}")
+      result_lines+=("")
+      result_lines+=("")
       result_lines+=('```console')
       result_lines+=("''${diff_result}")
       result_lines+=('```')
+      result_lines+=("")
+      result_lines+=("")
       result_lines+=('</details>')
       return 0
     }
@@ -117,7 +125,7 @@ writeShellApplication {
       printf "%s\n\n\n\n" "$title"
       printf "<details><summary>Flake update summary</summary>\n"
       # shellcheck disable=SC2059,SC2006,SC1012
-      printf "```console\n%s\n```\n" "$flake_update_output"
+      printf "\n\n```console\n%s\n```\n\n" "$flake_update_output"
       printf "</details>\n"
 
       for line in "''${result_lines[@]}"; do
