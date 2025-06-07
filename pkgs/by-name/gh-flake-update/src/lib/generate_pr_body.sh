@@ -15,7 +15,7 @@ generate_pr_body() {
       attr_reports+=$(
         cat <<-EOF
                 <details>
-                <summary>❌ Attribute: <code>${attr}</code> (Initial Build Failed)</summary>
+                <summary>Attribute: <code>${attr}</code> (Initial Build Failed)</summary>
 
                 This attribute was already broken before the update and was skipped.
                 </details>
@@ -25,7 +25,7 @@ EOF
       attr_reports+=$(
         cat <<-EOF
                 <details>
-                <summary>🔴 Attribute: <code>${attr}</code> (Update Build Failed)</summary>
+                <summary>Attribute: <code>${attr}</code> (Update Build Failed)</summary>
 
                 The build for this attribute failed after the flake update.
                 </details>
@@ -35,7 +35,7 @@ EOF
       attr_reports+=$(
         cat <<-EOF
                 <details>
-                <summary>✅ Attribute: <code>${attr}</code> (Diff)</summary>
+                <summary>Attribute: <code>${attr}</code> (Diff)</summary>
 
                 \`\`\`diff
                 $(nvd diff "$current_build_path" "$next_build_path" || echo "nvd diff command failed for $attr")
