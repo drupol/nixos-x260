@@ -19,5 +19,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           nix run .#gh-flake-update -- \
+            --assignee drupol \
+            --reviewer drupol \
             nixosConfigurations.x13.config.system.build.toplevel \
             nixosConfigurations.xeonixos.config.system.build.toplevel
