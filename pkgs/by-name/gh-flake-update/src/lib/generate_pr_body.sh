@@ -14,34 +14,34 @@ generate_pr_body() {
     if [ ! -L "$current_build_path" ]; then
       attr_reports+=$(
         cat <<-EOF
-                <details>
-                <summary>Attribute: <code>${attr}</code> (Initial Build Failed)</summary>
+          <details>
+          <summary>Attribute: <code>${attr}</code> (Initial Build Failed)</summary>
 
-                This attribute was already broken before the update and was skipped.
-                </details>
+          This attribute was already broken before the update and was skipped.
+          </details>
 EOF
       )
     elif [ ! -L "$next_build_path" ]; then
       attr_reports+=$(
         cat <<-EOF
-                <details>
-                <summary>Attribute: <code>${attr}</code> (Update Build Failed)</summary>
+          <details>
+          <summary>Attribute: <code>${attr}</code> (Update Build Failed)</summary>
 
-                The build for this attribute failed after the flake update.
-                </details>
+          The build for this attribute failed after the flake update.
+          </details>
 EOF
       )
     else
       attr_reports+=$(
         cat <<-EOF
-                <details>
-                <summary>Attribute: <code>${attr}</code> (Diff)</summary>
+          <details>
+          <summary>Attribute: <code>${attr}</code> (Diff)</summary>
 
-                \`\`\`diff
-                $(nvd diff "$current_build_path" "$next_build_path" || echo "nvd diff command failed for $attr")
-                \`\`\`
+          \`\`\`console
+          $(nvd diff "$current_build_path" "$next_build_path" || echo "nvd diff command failed for $attr")
+          \`\`\`
 
-                </details>
+          </details>
 EOF
       )
     fi
@@ -49,17 +49,17 @@ EOF
 
   # Final PR body content
   cat <<-EOF
-            This PR was generated automatically to update the flake inputs.
+    This PR was generated automatically to update the flake inputs.
 
-            <details>
-            <summary>Flake update summary (from commit message)</summary>
+    <details>
+    <summary>Flake update summary (from commit message)</summary>
 
-            \`\`\`console
-            ${flake_update_output}
-            \`\`\`
+    \`\`\`console
+    ${flake_update_output}
+    \`\`\`
 
-            </details>
+    </details>
 
-            ${attr_reports}
+    ${attr_reports}
 EOF
 }
