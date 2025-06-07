@@ -30,7 +30,6 @@
             };
           })
           inputs.nix-webapps.overlays.lib
-          inputs.deploy-rs.overlays.default
         ];
       };
       pkgsDirectory = ../../pkgs/by-name;

@@ -1,11 +1,9 @@
 {
-  flake.modules = {
-    homeManager.dev =
-      { pkgs, ... }:
-      {
-        home.packages = with pkgs; [
-          nixpkgs-review
-        ];
-      };
-  };
+  unify.modules.dev.home =
+    { pkgs, ... }:
+    {
+      home.packages = with pkgs; [
+        nixpkgs-review
+      ];
+    };
 }

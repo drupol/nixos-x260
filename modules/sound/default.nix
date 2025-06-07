@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.sound = {
+  unify.modules.sound.nixos = {
     services = {
       pipewire = {
         enable = true;
@@ -7,6 +7,13 @@
         alsa.support32Bit = true;
         pulse.enable = true;
       };
+    };
+
+    users.users.pol = {
+      extraGroups = [
+        "sound"
+        "audio"
+      ];
     };
   };
 }

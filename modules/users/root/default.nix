@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.root =
+  unify.modules.base.nixos =
     { pkgs, ... }:
     {
       users.users.root = {

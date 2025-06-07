@@ -1,7 +1,8 @@
 {
   config,
+  lib,
   ...
 }:
 {
-  flake.nixosModules = config.flake.modules.nixos;
+  flake.nixosModules = lib.mapAttrs (_: module: module.nixos) config.unify.modules;
 }
