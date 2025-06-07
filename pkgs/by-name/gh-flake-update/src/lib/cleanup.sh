@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 cleanup() {
   if [ -z "$TMP_DIR" ]; then
     return

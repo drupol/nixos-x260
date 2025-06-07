@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 GITHUB_REVIEWER=${args[--reviewer]}
 readonly GITHUB_REVIEWER
 GITHUB_ASSIGNEE=${args[--assignee]}
@@ -81,21 +82,25 @@ git commit \
 
 git push --force origin "$BRANCH_NAME"
 
-echo "--- Creating GitHub PR ---"
-declare -a pr_opts=()
-if [ -n "$GITHUB_ASSIGNEE" ]; then
-  pr_opts+=(--assignee "$GITHUB_ASSIGNEE")
-  echo "Assignee: $GITHUB_ASSIGNEE"
-fi
-if [ -n "$GITHUB_REVIEWER" ]; then
-  pr_opts+=(--reviewer "$GITHUB_REVIEWER")
-  echo "Reviewer: $GITHUB_REVIEWER"
-fi
+if [ -n "$GH_TOKEN" ] || [ -n "$GITHUB_TOKEN" ]; then
+  echo "--- Creating GitHub PR ---"
+  declare -a pr_opts=()
+  if [ -n "$GITHUB_ASSIGNEE" ]; then
+    pr_opts+=(--assignee "$GITHUB_ASSIGNEE")
+    echo "Assignee: $GITHUB_ASSIGNEE"
+  fi
+  if [ -n "$GITHUB_REVIEWER" ]; then
+    pr_opts+=(--reviewer "$GITHUB_REVIEWER")
+    echo "Reviewer: $GITHUB_REVIEWER"
+  fi
 
-gh pr create \
-  --title "$COMMIT_TITLE" \
-  --body-file "$PR_BODY_FILE" \
-  --head "$BRANCH_NAME" \
-  "${pr_opts[@]}"
+  gh pr create \
+    --title "$COMMIT_TITLE" \
+    --body-file "$PR_BODY_FILE" \
+    --head "$BRANCH_NAME" \
+    "${pr_opts[@]}"
 
-echo "--- Successfully created PR for flake update! ---"
+  echo "--- Successfully created PR for flake update! ---"
+else
+  echo "Error: GitHub token (GH_TOKEN or GITHUB_TOKEN) is not available. Skipping PR creation." >&2
+fi

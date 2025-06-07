@@ -21,3 +21,7 @@ flags:
     required: false
 examples:
   - gh-flake-update nixosConfigurations.x13.config.system.build.toplevel
+environment_variables:
+  - name: GH_TOKEN
+    help: Github API token
+    required: false
