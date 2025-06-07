@@ -1,0 +1,23 @@
+name: gh-flake-update
+help: Create a pull request to update flake attributes in a GitHub repository, with a diff of the changes.
+version: 0.0.1
+args:
+  - name: attributes
+    required: true
+    repeatable: true
+    unique: true
+    help: A list of flake attributes to update, separated by spaces
+    validate: is_attribute
+flags:
+  - long: --assignee
+    short: -a
+    arg: assignee
+    help: Username to assign the pull request to
+    required: false
+  - long: --reviewer
+    short: -r
+    arg: reviewer
+    help: Username to add as a reviewer to the pull request
+    required: false
+examples:
+  - gh-flake-update nixosConfigurations.x13.config.system.build.toplevel
