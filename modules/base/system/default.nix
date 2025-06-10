@@ -19,6 +19,7 @@
           # Before changing this value read the documentation for this option
           # (e.g. man configuration.nix or on https://search.nixos.org/options?&show=system.stateVersion&from=0&size=50&sort=relevance&type=packages&query=stateVersion).
           inherit stateVersion;
+          rebuild.enableNg = true;
         };
       };
     };
