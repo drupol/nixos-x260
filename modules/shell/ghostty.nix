@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.shell = {
+  unify.modules.shell.home = {
     programs = {
       ghostty = {
         enable = true;

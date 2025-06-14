@@ -5,22 +5,22 @@
     default = [ ];
   };
 
-  config.flake = {
-    modules =
+  config = {
+    unify.modules =
       let
         predicate = pkg: builtins.elem (lib.getName pkg) config.nixpkgs.allowedUnfreePackages;
       in
       {
-        nixos.base.nixpkgs.config.allowUnfreePredicate = predicate;
+        base.nixos.nixpkgs.config.allowUnfreePredicate = predicate;
 
-        homeManager.base = args: {
+        base.home = args: {
           nixpkgs.config = {
             allowUnfreePredicate = predicate;
           };
         };
       };
 
-    meta.nixpkgs.allowedUnfreePackages = config.nixpkgs.allowedUnfreePackages;
+    flake.meta.nixpkgs.allowedUnfreePackages = config.nixpkgs.allowedUnfreePackages;
   };
 
 }

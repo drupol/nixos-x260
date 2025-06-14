@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.guacamole = {
+  unify.modules.guacamole.nixos = {
     services.guacamole-server = {
       enable = true;
       host = "127.0.0.1";
