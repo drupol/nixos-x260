@@ -9,7 +9,7 @@
   ];
 
   perSystem =
-    { system, ... }:
+    { pkgs, system, ... }:
     {
       _module.args.pkgs = import inputs.nixpkgs {
         inherit system;
@@ -30,7 +30,8 @@
             };
           })
           inputs.nix-webapps.overlays.lib
-          inputs.deploy-rs.overlays.default
+          # inputs.deploy-rs.overlays.default
+          # (self: super: { deploy-rs = { inherit (pkgs) deploy-rs; lib = super.deploy-rs.lib; }; })
         ];
       };
       pkgsDirectory = ../../pkgs/by-name;

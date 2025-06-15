@@ -5,13 +5,23 @@
   ...
 }:
 {
-  flake = {
-    deploy.nodes =
-      let
-        prefix = "nixosConfigurations/";
-      in
-      lib.pipe (config.flake.modules.nixos or { }) [
-        (lib.filterAttrs (name: _module: lib.hasPrefix prefix name))
+  perSystem =
+    { pkgs, ... }:
+    {
+      make-shells.default = {
+        packages = [
+          pkgs.deploy-rs
+        ];
+      };
+    };
+
+  flake =
+    let
+      prefix = "hosts/";
+    in
+    {
+      deploy.nodes = lib.pipe (config.flake.modules.nixos) [
+        (lib.filterAttrs (name: _: lib.hasPrefix prefix name))
         (lib.mapAttrs' (
           name: module:
           let
@@ -33,5 +43,5 @@
           }
         ))
       ];
-  };
+    };
 }
