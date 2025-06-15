@@ -7,6 +7,84 @@
 
     programs.plasma = {
       enable = true;
+
+      fonts = {
+        fixedWidth = {
+          family = "Aporetic Sans Mono";
+          pointSize = 10;
+        };
+        general = {
+          family = "Aporetic Sans Mono";
+          pointSize = 10;
+        };
+        menu = {
+          family = "Aporetic Sans Mono";
+          pointSize = 10;
+        };
+        small = {
+          family = "Aporetic Sans Mono";
+          pointSize = 8;
+        };
+        toolbar = {
+          family = "Aporetic Sans Mono";
+          pointSize = 10;
+        };
+        windowTitle = {
+          family = "Aporetic Sans Mono";
+          pointSize = 10;
+        };
+      };
+
+      input = {
+        keyboard = {
+          layouts = [
+            {
+              layout = "gb";
+            }
+            {
+              layout = "fr";
+            }
+            {
+              layout = "be";
+            }
+            {
+              layout = "us";
+            }
+          ];
+          repeatDelay = 600;
+          repeatRate = 25;
+        };
+      };
+
+      kwin = {
+        effects = {
+          blur.enable = false;
+          cube.enable = false;
+          desktopSwitching.animation = "off";
+          dimAdminMode.enable = false;
+          dimInactive.enable = false;
+          fallApart.enable = false;
+          fps.enable = false;
+          minimization.animation = "off";
+          shakeCursor.enable = false;
+          slideBack.enable = false;
+          snapHelper.enable = false;
+          translucency.enable = false;
+          windowOpenClose.animation = "off";
+          wobblyWindows.enable = false;
+        };
+      };
+
+      workspace = {
+        enableMiddleClickPaste = true;
+        clickItemTo = "select";
+        colorScheme = "Breeze Dark";
+        splashScreen.engine = "none";
+        splashScreen.theme = "none";
+        tooltipDelay = 1;
+        wallpaper = ../../../files/home/pol/Pictures/Backgrounds/Starry_Nebula_219.png;
+      };
+
       shortcuts = {
         "ActivityManager"."switch-to-activity-181b1250-1bb2-402c-9d6a-29214f2b2c3f" = [ ];
         "ActivityManager"."switch-to-activity-b04cdf06-f69b-4426-a388-d784c86899b5" = [ ];
@@ -419,11 +497,6 @@
         "kdeglobals"."General"."BrowserApplication" = "firefox.desktop";
         "kdeglobals"."General"."XftHintStyle" = "hintslight";
         "kdeglobals"."General"."XftSubPixel" = "none";
-        "kdeglobals"."General"."fixed" = "Aporetic Sans Mono,10,-1,5,50,0,0,0,0,0";
-        "kdeglobals"."General"."font" = "Aporetic Sans Mono,10,-1,5,50,0,0,0,0,0";
-        "kdeglobals"."General"."menuFont" = "Aporetic Sans Mono,10,-1,5,50,0,0,0,0,0";
-        "kdeglobals"."General"."smallestReadableFont" = "Aporetic Sans Mono,8,-1,5,50,0,0,0,0,0";
-        "kdeglobals"."General"."toolBarFont" = "Aporetic Sans Mono,10,-1,5,50,0,0,0,0,0";
         "kdeglobals"."KDE"."AnimationDurationFactor" = 0.25;
         "kdeglobals"."KDE"."SingleClick" = false;
         "kdeglobals"."KFileDialog Settings"."Allow Expansion" = false;
@@ -448,7 +521,6 @@
         "kdeglobals"."KShortcutsDialog Settings"."Dialog Size" = "876,614";
         "kdeglobals"."WM"."activeBackground" = "49,54,59";
         "kdeglobals"."WM"."activeBlend" = "252,252,252";
-        "kdeglobals"."WM"."activeFont" = "Aporetic Sans Mono,10,-1,5,50,0,0,0,0,0";
         "kdeglobals"."WM"."activeForeground" = "252,252,252";
         "kdeglobals"."WM"."inactiveBackground" = "42,46,50";
         "kdeglobals"."WM"."inactiveBlend" = "161,169,177";
@@ -902,7 +974,6 @@
         "kxkbrc"."Layout"."ResetOldOptions" = false;
         "kxkbrc"."Layout"."SwitchMode" = "Global";
         "kxkbrc"."Layout"."Use" = true;
-        "kxkbrc"."Layout"."VariantList" = ",latin9,,";
         "plasma-localerc"."Formats"."LANG" = "en_US.UTF-8";
         "plasmanotifyrc"."Applications.thunderbird"."ShowPopupsInDndMode" = true;
         "plasmanotifyrc"."Applications/firefox"."Seen" = true;
